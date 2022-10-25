@@ -1,0 +1,3 @@
+
+change type of GuildBattle.GuFlag to int (from varchar(50))
+make GuildBattle.GuBattleNum the primary key and also an identity column

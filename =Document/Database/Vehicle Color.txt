@@ -1,0 +1,1 @@
+1.Delete dbo.Vehicle Then Run Vehicleinfo then the other sql 

@@ -1,0 +1,1013 @@
+ChaosRan Online Source Code
+Korea Build
+Vs 2003 .NET
+
+cnc_annex0@yahoo.com.ph
+sprintf
+
+* some of the options require additional gui (xml) configurations
+updated gui is included 
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Change Game.exe text box message when not run from launcher
+"Please Use Launcher"
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Enable Multi client for all build
+"You can now open Miltiple Client"
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Change error log Save Folder
+"RanOnlineLogs"
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Fix Windows 7 Shutdown bug when not run as administrator
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Rcc Password Unicode char
+
+"ONLY FOR MY BUYERS"
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Piece Slots Update
+	PIECE_NECK		= 10,
+	PIECE_WRIST		= 11,
+	PIECE_RFINGER	= 12,
+	PIECE_LFINGER	= 13,
+	PIECE_WING		= 14,
+	PIECE_AURA		= 15,
+	PIECE_BELT		= 16,
+	PIECE_EARRING	= 17,
+	PIECE_ACCESSORY	= 18,
+	PIECE_CON		= 19,
+	
+(use this values if you want a cps part wont conflict with other wear items,
+example if you have a earing and its cps slot is 8 it will conflict with headgear or hair,
+to solve this problem use the proper value above)
+these are not hex values!
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Change garbage message packets for simple protection against noob hackers
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Change Base Message to disable other game.exe to connect
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Change server File cfg Names
+Different cfg names per server file
+
+svr_session_0.ini
+svr_login_0.ini
+svr_field_0.ini
+svr_agent_0.ini
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Change Operating System Detection method,Updated new OS Name Versions
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Change Processor Detection method,Remove Outdated CPU List
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Change OverALL Maximum Lure from 8 to 100
+"max lure option in default.charclass will still work"
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Vehicle Type Update
+	VEHICLE_TYPE_BOARD		= 0,
+	VEHICLE_TYPE_SCUTER		= 1,
+	VEHICLE_TYPE_BIKE_BT5	= 2,
+	VEHICLE_TYPE_BIKE_BT7	= 3,
+	VEHICLE_TYPE_BIKE_BT9	= 4,
+	VEHICLE_TYPE_BIKE_RARE	= 5,
+	VEHICLE_TYPE_BIKE_XMAS	= 6,
+	VEHICLE_TYPE_H	= 7,
+	VEHICLE_TYPE_I	= 8,
+	VEHICLE_TYPE_J	= 9,
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Maximum Gen id increased fron 600 to 999
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Maximum hair and face types increased to 50
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Maximum Reachable Level is 999
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Reenabled Int game function for another aditional options (rage)
+(int or chaintel can be used as requirements for skills and items)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------increased max userid and password length
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Enabled Normal InGame Login (md5) and 2nd password check for char deletion
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------added offline message if friend logout
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Bullets for guns
+update 7-10-2012 -> create a copy of arrow and select item type bullet in item editor
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added login mark (small logo)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Mob Color Will change according to player level
+added color control in default charclass
+
+wMOB_COLOR	50,100,200,299,500,1000,2000,3000	//
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Control for Max Accuracy
+>>>add in default charclass
+int	iMAX_HIT		=99 	//Max Hitrate
+int	iMIN_HIT		=20 	//Min Hitrate
+int	iBASIC			=100 	//Base hitrate 
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Control for Max Resistance Per Item
+>>>add in default charclass
+
+WORD 	wGRADE_ELE_MAX		= 9 	//Element Resistance Per Item Control
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Control to enable or disable 2 slot weapon for each class
+>>>add in default charclass
+
+bDUAL_WEAPON_BRAWLER		0
+bDUAL_WEAPON_SWORDSMAN		0
+bDUAL_WEAPON_ARCHER			0
+bDUAL_WEAPON_SHAMMAN		0
+bDUAL_WEAPON_SCIENCE		0
+bDUAL_WEAPON_ASSASIN		0
+bDUAL_WEAPON_TESTING		0
+bDUAL_WEAPON_EXTREME		1
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Control for Maximum Resistance against crushing blow and elemental skills (int)
+>>>add in default charclass
+
+int	iRESIST_MAX			=99 //skill and body resistance overall
+int	iBLOWRESIST_MAX		=99	//skill critical resistance overall
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added controls
+>>>add in every character classconst
+
+float	fHIT_POW		//hit rate per pow		
+float	fAVOID_POW		//evasion per pow 	
+float	fDEFENSE_POW		//defense per pow 
+float	fDEFENSE_SPI		//defense per spi (int ingame) 	
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added control to disable dex calculation for long range weapons
+
+>>>add in default charclass
+bISLONGRANGE_ARMS	1 //1 is default while 0 will make long range weapon damage calculation equal to non long range.
+this is the reason why range weapon like bow still can have higher damage at high def target their damage calculation is different
+enabling this option will force all weapon to use equal damage calculations
+-->Update 1-29-2013 change type to bool
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------added autoblock cmd command for ip filter
+for every client invalid message ,server will send cmd command to ipfilter.exe to block the reported ip ,also added log for blocked ip`s
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Fix Gold loss when character revive and press the recovery dialogue
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Hp can now exceed 65k limit
+added limits for hp mp and sp
+>>>add in default charclass
+
+m_sHP_MAX	65000
+m_sMP_MAX	65000
+m_sSP_MAX	65000
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Damage can now exceed 65k limit
+(this includes melee ,messile and energy)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Fix hp pot loop in high hp
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------1T maximum vend price
+added control for maximum vend price
+>>>add in default charclass
+
+VEND_PRICE_MAX		5000000000
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------- Remaining Stats can now exceed 65k
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------- New Char Creation screen
+->fixed some gui positions and fixed missing UI
+(needed files included)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------- Enable Separate Control for (Item can put to locker)
+added option in default.charclass to separate locker control for items
+
+>>>add in default charclass
+
+ENABLE_LOCKER_CONTROL
+
+1 enable / 0 disable
+when enabled game will use locker option in item editor to decide if item can be stored to locker or not
+if disabled game will use default option " item cant be stored to locker if its not tradable"
+
+
+update 7-7-2012 -> to enable item can put to locker, use the locker option in item editor
+
+----> Guild Locker Still Cant use This Option
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------- Enable Ability of Game.exe to call loadlibrary A 
+( so you can hook a dll in game.exe)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------- Increase maximum allowed thread to fully utilize multicore hyper thread processor.
+Max Thread =32
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Critical,crusing blow , and miss damage text is now larger than normal damage text
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added last Flag in mapslist.ini
+MAP =[1][innerzone_01.lev][0,0]	[0][1,0,0,0,1,1,0,0,0,1,0][SG Campus1F]	[1fcampus.ogg][null][0][0] <-- This Flag
+
+1 enable 0 disable
+when enabled in a specific map , duel and party invite wont be available ,
+also all player is red even not in pk time and even same school ,
+ this option is good for last man standing event
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Reborn counter and pk Kills and Pk Deaths in Game
+
+Database Column
+Reborn =ChaReborn  <-- read only display reborn count
+Pk Win =ChaPkWin   <-- will increase everytime you kill someone in pk
+PK Loss =ChaPkLoss <-- will increase if youve been killed in pk
+
+added some options in default charclass to prevent abuse
+>>>add in default charclass
+(this is little confusing but this works)
+
+offender the one who do the action
+target is the one who you execute the action
+
+PkWinMinRb_A	300 	//minimum offender character reborn to gain win point
+PkWinMinRb_B	300	//minimum target character reborn to gain win point
+PkLossMinRb_A	300	//minimmm offender character reborn to gain loss point
+PkLossMinRb_B	300	//minimum target character reborn to gain loss point	
+		
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------all gm commands now fixed no more bug exp gold or rates
+some gm command parameters are changed
+for more info please read gmcommands.txt
+
+added limits for maximum allowed event rates
+>>>add in default charclass
+
+MARKET				22,0 //setting for item sold trace ,must be your market map
+fBTGMaxEventExp		10.0f//max exp rate for btg
+fBTGMaxEventItem	10.0f//max item drop rate for btg
+fBTGMaxEventAttack	10.0f//max Attack rate for btg <--- added attack for btg
+fMaxEventExp		50.0f//max exp event rate
+fMaxEventMoney		50.0f//max money event rate
+fMaxEventItem		50.0f//max item drop event rate
+wMaxEventSpeed		200//max speed event rate
+wMaxEventAspeed		200//max attack speed event rate
+wMaxEventAttack		200//max attack damage event rate
+EnableGMLogs		1// 0 disable/1 enable <-- will record all gm commands made by gm ingame ,
+log name GMCMD.txt can be found in $serverdir/ranonlinelogs/errlog ,automated level summon by system is also recorded in this log
+
+Update--> Added Attack to BTG (added attack value wont show in character info damage )
+
+----------------------------------------------------------------------------------------------------------------------------
+*-------Item Suit /PutOn Items Update
+	SUIT_WING				= 19,//add wing
+	SUIT_AURA				= 20,//add aura
+	SUIT_BELT				= 21,//add newitem
+	SUIT_EARRING			= 22,//add newitem
+	SUIT_ACCESSORY			= 23,//add newitem
+	SUIT_CON				= 24,//add newitem
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Change packets layout ,game will only identify packets that are comming from game.exe
+(this will lessen crashes but will not protect 100 %)
+*also added a log or record when bad a recieved packed is not identified
+MinLzoErr.txt <-- in errlog
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Modify server manager size and layout
+default configuration file 
+$serverdir/cfg/svr_manager_0.ini
+(if you are using kss filter please make sure you connect server manager in session port!)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Change server files size and font -tahoma 8
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Fix Gloves and other armor piece parts wont show in character creation
+(the default configuration of ran online is only to show armor suit and pants during character creation,
+i fixed those and character creation will now show all items that is listed in your charset
+
+--->Additional fields for CharSet (you can assign an item to this fields )
+
+		"WING",	
+		"AURA",	
+		"BELT",
+		"EARRING",
+		"ACCESSORY",
+		"CONSUMABLE"
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Vote Point Shop and Premium Point Shop Ingame
+add 2 database columns in chainfo
+ChaVotePoint ,Money
+ChaPremiumPoint , Money
+
+every item you want to sell as "Vote Point"  or "premium point"
+just edit "Value Grade" in item editor
+select "infinity" and item will be sold using vote point
+select "hot" and item will be sold using premium point
+
+in item editor "buy price" is still the item price for premium and vote"
+
+
+server will log every purchase of premium and vote item
+
+ITEM_VOTE_PURCHASE.txt
+ITEM_PREMIUM_PURCHASE.txt
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Item Flag to "item information" UI
+tradable,dropable ,locker ,premium ,vote item flag added when you preview item info
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Item Preview in Game (preview the item skin)
+hover at item and hold shift + hold rightclick to preview item
+Preview inside NPC
+Preview inside Inventory
+Preview inside Locker
+Preview inside Private market
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Skill Flag to "skill information" UI
+melee skill,messile skill, magic skill , added when you preview skill info
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Item OwnerShip for premium and vote items
+Item ownership means only the character who purchase the item can use the item
+
+update 7-10-2012 ->new option in itemeditor to enable ownership
+
+*also added owner id information in "item information"
+
+when enabled item will generate aditional information in item database data which matches 
+the character chanum and game will check if the one who try to wear the item is the one who
+matches the item "owner id" to "chanum"
+
+"owner id" is generated when the item is purchased in the npc"
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added chanum info in character window
+when you press "c" in game char id is added
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added 3 class ,science,assasin,testing
+-->added extreme class to character creation
+-->added assasin class to character creation
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Pet Type Update
+update 7-10-2012 -> select pet type in item editor
+i added this so can succesfully equip costume to new pets and change their Style and color
+
+	PETTYPE_E		= 4,//ADD PET TYPE
+	PETTYPE_F		= 5,
+	PETTYPE_G		= 6,
+	PETTYPE_H		= 7,
+	PETTYPE_I		= 8,
+	PETTYPE_J		= 9,
+	PETTYPE_K		= 10,
+	PETTYPE_L		= 11,
+	PETTYPE_M		= 12,
+	PETTYPE_N		= 13,
+	PETTYPE_O		= 14,
+	PETTYPE_P		= 15,
+	PETTYPE_Q		= 16,
+	PETTYPE_R		= 17,
+	PETTYPE_S		= 18,
+	PETTYPE_T		= 19,
+	PETTYPE_U		= 20,
+	PETTYPE_V		= 21,
+	PETTYPE_W		= 22,
+	PETTYPE_X		= 23,
+	PETTYPE_Y		= 24,
+	PETTYPE_Z		= 25,
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Weapon Type update (ITEM_ATT)
+	ITEMATT_DUAL_GUN		= 11,
+	ITEMATT_RAIL_GUN		= 12,
+	ITEMATT_PORTAL_GUN		= 13,
+	ITEMATT_DUALSPEAR		= 14,
+	ITEMATT_SHURIKEN		= 15,
+	ITEMATT_SCYTHE			= 16,
+	ITEMATT_GUN				= 17,
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Increase the maximum add on value the item.isf can store the default is 4 now new options is 8
+refer to addition effect in item editor
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added reborn requirements for item
+just edit reborn value in item editor
+->player cannot wear the item if their reborn is lower than item reborn requirement
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Bullets and Reborn Requirements in SKILL
+you can add those values in skill editor
+
+->player cannot learn the skill if their reborn is lower than Skill reborn requirement
+
+-->Update CP consumption is now Working
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------You can now Combine costume stats to armor stats when you apply costume
+the selected costume items must have "costume stat combine" checked in item editor
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added point sell option in item edit
+when enabled , when you sell an item in npc it will reward vote or premium point
+to do this , set item level to vote or premium item and check option = point sell
+--also added logs for every sell transactions
+
+ITEM_VOTE_SELL.txt
+ITEM_PREMIUM_SELL.txt
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Another GM level
+Usertype 10 for ordinary GM 
+they can only use
+
+  - Speaker  (&) /color for announcement of staff is green
+  - /chatblock_cn
+  - /visible 
+  - /m2p
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Option to open link when you exit the game.exe
+in Param.ini in line under  [ETC OPTION] add this
+bEnableExitUrl=0 <----add this
+1 to enable 
+and add the link you want here
+strConnectionURL = http://Spankwire.com <--here
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Option in MOB editor for school requirements
+when not selected player cannot attack the mob also mob name color is white
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Option in Item Editor "summon id" this a mob id
+*added item type summon card, right click to use , summon mob
+*added item info about summon data when you view item info
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Modified Help window function
+*added option to make help window auto popup when player login
+--->in option window added check box for auto pop-up
+--->link used for auto pop up  Link.ini (Link1)
+*added option for auto popup when player reach certain level
+--->level setting link.ini (Link2_A_Level) link setting ( Link2_A )
+--->2nd level setting link.ini (Link2_B_Level) link setting ( Link2_B )
+*You can disable this level auto popup by setting the link level setting to very high setting that player cannot reach
+*You can disable auto popup by patching option.ini with  bHelpPopUp = 0
+*This setting is usefull for player so they can ask information via chatbox you set in any link
+*when"H" is pressed the default link is in Param::helpaddress
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Maximum Reachable Upgrade is +50
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Fixed Mob Editor and Skill Editor Interface , now using "official like"  interface
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added support for Animated Items (ABL)
+*in Item editor Added fields for abl wear file
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Mouse Click Effect ,Item /Gold Drop Effect /attack effect
+-->add in default charclass
+
+strMINE_EFFECT				takeit.egp
+strCLICK_EFFECT				move.egp
+strTARGET_EFFECT			add_target.egp
+strTARGET_EFFECT_ENEMY		add_target_red.egp
+strTARGET_EFFECT_NPC		add_target_blue.egp
+strTARGET_EFFECT_ALLIANCE	add_target_green.egp
+strARROW_EFFECT_ENEMY		target_arrow_red.egp
+strARROW_EFFECT_NPC			target_arrow_blue.egp
+strARROW_EFFECT_ALLIANCE	target_arrow_green.egp
+
+-->Added video option to disable or enable click,target,mine effects
+
+update 1-18-2013
+-->Click,Target  and mine effects will be disabled in debug build
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added support for VCF and VPS file
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added character automatically do emoticon animations in character selection
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added moving login map screen
+-->added map camera controls in default charclass
+vFromPt_x = 0
+vFromPt_y = 0
+vFromPt_z = 0
+
+vLookatPt_x = 0
+vLookatPt_y = 0
+vLookatPt_z = 0
+
+vUpVec_x = ;
+vUpVec_y = 0
+vUpVec_z = 0
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added character automatically do emoticon animations while idle
+-->Added Game Option to disable this feature
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added video option to adjust maximum game zoom
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Fixed Server Files Crashes (LZO and packet length bugs)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------New Loading Screen Design
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Change QBox Control Images (different Image per question item type)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added Question item OverImage (shows how much time question item left )
+-->update hide bar when qbox time is 0
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Mob Link system Enabled 
+-->in mob editor add ID of crow to link ( another mob will summon after the mob is killed )
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added option to load 2 cps in 1 weapon
+-->updated item editor to load 2 cps in 1 weapon just use R and L 
+This update is for dual spear weapon of assasin class
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Increased Packet Size to fix client to client invisible bug
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------New Quest Interface
+--> Beta will fix some codes soon
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Change Bike Animation System to Official Way of Reading MID and SID
+-->you can now use  official server bike animations directly
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added notification to system message when you kill or killed by another player
+"you have killed"  and "you have been killed by"
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Enabled Tracing User option , to trace the user activity open servermanager and add the ID or USERNUM you want to trace
+-->you can find the tracing log in errorlog folder
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added CP Systems
+-->CP max is set to default charclass 
+-->item can add CP
+-->item can increase cp gain rate
+-->skill can add cp
+-->skill can increase cp gain rate
+-->Added CP Pots
+
+
+the cp gain is calculated like this = enemy level *  ( character cp rate + item cp rate + skill cp rate )
+example you killed level 250 mob and the default cp gain rate for character is 1* so you gain 250cp
+
+--->add in default charclass
+m_sCP_MAX <-- default maximum CP
+dwCP_RATE <-- default CP Gain Rate
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Added PK ranking ingame
+-->added rank.ini to set rank name and pk win requirement for every rank
+
+Example:
+Rank00				0	Star-I
+
+Rank00	-->rank number
+0		-->pk win requirement to show rank
+Star-I	-->rank name
+
+-->rank information in chracter window
+-->rank name and logo in character name
+-->you can enable and disable rank logo and rank name in game option
+
+
+-->Add global setting to disable feature in default charclass
+bEnableRankName = 1;
+bEnableRankMark = 1;
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Increase CAP for stats to 4.2B
+-->Added Stats Limit in Default CharClass
+dwPowMax = 65000;
+dwStrMax = 65000;
+dwSpiMax = 65000;
+dwDexMax = 65000;
+dwIntMax = 65000;
+dwStaMax = 65000;
+
+-->Added notification when you reached maximum Stats Limit
+"you have reached the maximum stats"
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------MOB damage in mob editor cap increase to 4.2 B
+--> 2nd damage for mob editor is disabled , just use the default damage settings 65k limitation is removed
+
+*-------Damage in item editor cap increase to 4.2 B
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------Enable Checking for all load functions in enginelib
+-->Any failure to properly load file will record logs and give pop-up warning
+EngineLoadError.txt <--log file for engine errors
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-------upgrade Colors now using .ini   upgradecolor.ini inside glogic.rcc
+G10		60,112,143,143
+A10		255,41,78,78
+R10		255,0,128,128
+bEnable10	1
+
+10 represents the upgrade number (+10)
+
+G =glow upgrade color
+A =ambient upgrade color
+R =flow color
+bEnable = enable lightning effect on upgrade
+
+*all above options can be adjusted 
+
+60,112,143,143
+brightness , red ,green ,blue
+
+you can use any rgb color table to define new colors
+-->Updated this option for proper ini loading
+
+Update 2-2-2013 added upgrade lightning effect
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added Gold ,Premium point and vote point requirement to learn and level up Skill
+-->check skill editor
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added New Skill Effect
+-->Added "Prohibit using potion" target cannot use potion in certain ammount of time
+-->Added "Prohibit using Skill" target cannot use skill in certain ammount of time
+
+Select in skill editor "special effect"
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added New Skill Effect
+
+-->Added "Push" push target to certain range at variable speed and chance percentage
+-->Added "Pull" pull target to certain range at variable speed and chance percentage
+
+Select in skill editor "special effect"
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-----Fix Transparent ( invisible ) and checktransparent (detectinvisible ) skill effect
+-->just select them in skill editor 
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-----Added Duel Bet system
+-->3 types bet money, votepoint, premium point
+-->Modify duel window interface
+-->Maximum duel bet option in default charclass
+
+llMaxDuelBetMoney = 1000
+llMaxDuelBetVoteP = 1000
+llMaxDuelBetPremP = 1000
+
+-->Add message for winner ammount and loss ammount
+-->Add option to "dont accept duel bet"
+
+-->Added Log for winners and bet "DuelBetResult.txt" in gamelog folder
+
+----------------------------------------------------------------------------------------------------------------------------
+	
+*-----Added Pet Image and Pet Over-Image with remaining pet food
+*-----Added Vehicle Image and Vehicle Over-Image with remaining vehicle gas/battery
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-----Change Inventory Interface Design
+*pet window and vehicle window is combined in inventory window
+*keyboard shortcut for vehicle and pet will open correct tabs in inventory
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-----Change friend Window interface design
+*enable beta mail system in friend window ( no functions yet)
+*Added party request (beta)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-----Added party request in guild window (beta)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-----Enabled Critical rate,critical damage,crushing blow, crushing blow damage in item
+*-----Enabled Critical rate,critical damage,crushing blow rate, crushing blow damage in skill passive and skill Active (skill type)
+Update feb 2013:
+Fix critical and crushing blow rate (chances) and damage (increase in damage) calculations
+*Added critical and crushing blow rate and damage in random option
+
+this is how it works
+critical rate and crushing blow rate increase the chances of character to perform critical hit or crushing blow hit to enemy
+critical damage and crushing blow damage is the increase in character damage (in percentage ) when character perform critical and crushing blow hit
+example if you have 300 % critical damage and your normal damage is 10k when your character do critical hit it will do 30k damage
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*-----Added  new ini "GameSet.ini"
+*Added Encryption for all files inside RCC files
+*dwCryptKey =value to disable encryption
+*bEngineDebug = 0 or 1 setting to disable or enable messagebox pop-up for engine load errors
+
+update 1-18-2013
+*bEngineDebugLog = 0 or 1 setting to disable or enable Log for engine load errors
+----------------------------------------------------------------------------------------------------------------------------
+
+*-----Added Skill Effect Type "Continues Damage"
+Reduces Targets HP in certain amount of time
+(This differs to regen system , this system uses specific hp val to reduce)
+----------------------------------------------------------------------------------------------------------------------------
+
+*-----Added Ran Tool 
+*Edit CHF, VCF , ABF , ABL ,APS, CPS , VPS , CFG 
+*convert BIN , CFG , EGP
+*File Cryption
+*MMP Creator
+
+Update:
+*Add Function in CPS editor to load New ran2 CPS and save it as compatible for ep7
+*Add Function in ABL/ABF Edtitor to load official version 
+(Using ABL of Official server transformation and rotation wont be compatible , it must be fixed before saving )
+*Add Function in CHF editor to save it as default ep7 compatible
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Enable Bike Coloring System
+-->Added Item Type BikeColorCard
+*Use Bike Color Card to Change Bike Color
+*Bike VPS Must have DxEffCharAmbient for bright Color and DxEffUserColor for changable Color
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added Bike Booster Stance when you press "X" while riding a vehicle
+*Beta
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added Gm Command to Insert Item into Inventory
+*This will speed up item testing 
+*Read GM Command List.txt for more information
+
+add in defaultcharclass
+WORD		wGMItemMax		= 10; //maximum items to insert
+WORD		wGMItemPass		= 12345; //password to insert ,this adds more security so that other gm cannot use the command
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added RanViewer to Load CHF and test CPS , ABL , VCF and vps
+
+Update:
+*Added Function to modify abl transformation and rotation (Matrix) in veiwer and print the values in screen
+(Use this values  in RanTool ABL Editor)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Add in RanParam
+ETC OPTION
+GameName	RanOnline //Window Title for Game.exe
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Add F4 Skill Slot
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added flag "Refine no fail" in item editor
+*refines with this flag will have 100 % success rate
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added Lightning effect to armor part (upper,lower,gloves,shoes)
+*lightning color will sync to upgrade color
+*lightning effect can be disabled by changing settings in upgradecolor.ini 
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added Item Coloring System (will color the items in itemputon)
+*item cps must have dxeffusercolor effect to work
+*color is saved in itemdata in database (gmc must support new itemdata)
+*use of item type (item color card)
+*item must have itemflag (coloring enabled) 
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added Quest Effect 
+*if the npc is requirement for running quests  game will show "quest effect" above the npc name
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added new random options type
+	
+EMR_OPT_DAMAGE		= 18, //in direct value increase
+EMR_OPT_DEFENSE		= 19, //in direct value increase
+EMR_OPT_HIT		= 20, //this is rate or multiplier
+EMR_OPT_AVOID		= 21, //this is rate or multiplier
+EMR_OPT_POW		= 22, //in direct value increase
+EMR_OPT_VIT		= 23, //in direct value increase
+EMR_OPT_INT		= 24, //in direct value increase
+EMR_OPT_DEX		= 25, //in direct value increase
+EMR_OPT_STM		= 26, //in direct value increase
+EMR_OPT_MELEE		= 27, //in direct value increase
+EMR_OPT_MESSILE		= 28, //in direct value increase
+EMR_OPT_ENERGY		= 29, //in direct value increase
+EMR_OPT_HP_POTION	= 30, //increase the  recovery of hp potion
+EMR_OPT_MP_POTION	= 31, //increase the  recovery of Mp potion
+EMR_OPT_SP_POTION	= 32, //increase the  recovery of Sp potion
+EMR_OPT_CP_GAIN		= 33,	
+EMR_OPT_CP		= 34,	
+EMR_OPT_CRIT_DMG	= 35,	
+EMR_OPT_BLOW_DMG	= 36,	
+EMR_OPT_CRIT_RATE	= 37,	
+EMR_OPT_BLOW_RATE	= 38,	
+EMR_OPT_SIZE		= 39
+
+part of this update is properly show if the random value is adding in percentage or direct value in iteminformation
+part of this update is to allow vehicle to show information the same way other item does
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+*------Added shadow font effect for d3dxfont type
+*added ranparam flag to disable this function
+bShadowFont 1
+
+*this feature might do a lot of performance penalty for slow computers
+* fonts is drawed 9 times (instead of 1) to draw (virtual shadow) around the font by moving thepixels by + 1 or -1
+
+part of this update is the new option in ranparam to draw smaller fonts than normal fonts ( all font size is subtracted 1 )
+
+bSmallFonts 1 //draw smaller fonts
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added Tyranny and Royal Rumble
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added Rank Name Color
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added Official transform
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Added official dash function
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Upgrade readable cps to 115
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Extreme reboot added (call weapon via mid and sid)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Sealed Card added
+
+----------------------------------------------------------------------------------------------------------------------------
+
+*------Readable official campuses
+
+----------------------------------------------------------------------------------------------------------------------------
+
+UINT_MAX
+ "../res/basic_app.ico"
+
+

@@ -1,0 +1,298 @@
+-------------------------------------------------
+/?
+View Available Emoticons
+-------------------------------------------------
+/dsp
+off=turn off 
+console=show some game info
+fps=show game fps
+gate=show gate numbers in the map
+player=show all players in your camera
+allplayer=shows all player in the map 
+event=shows the current started event (command events)
+--------------------------------------------------
+/shop_info
+display all items sold in market map
+(useful when you want to trace a bug item sold in private market)
+--------------------------------------------------
+/chatlog
+records chat into text file  found in my documents
+private
+party
+guild
+alliance
+system
+all
+----------------------------------------------------
+/weather
+rain
+snow
+spore
+leaves
+Example
+/weather snow (set global weather to snow)
+
+you can also override weather to specific map only
+
+/weather snow 8 0 60
+8 0 map mid sid
+60 minutes duration
+(some maps cannot override weather)
+------------------------------------------------------
+/time
+0~24
+control server time 
+(example you want control pk time)
+------------------------------------------------------
+/month
+0~12
+control server month
+------------------------------------------------------
+/itemhold
+control item drop hold
+on =normal setting item drop will follow owner/party drop rule
+off =no item drop /owner/party rule , everyone can pickup all item drop
+(also includes money drop)
+------------------------------------------------------
+/m2g or /move2gate
+move to specific gate number
+type /dsp gate to view gate numbers in map
+Example /m2g 1
+------------------------------------------------------
+/m2p or / Move2pos
+Move to map or location
+/m2p [MapMid, mapSid, posX, posY] 
+Example: /m2p 22 0 30 17 
+22 map mid
+0 map sid
+30 coordinates x
+17 coordinates y
+------------------------------------------------------
+/m2c or /move2char
+Move to Character
+[Character name] 
+Example:/m2c testname
+testname=character name
+------------------------------------------------------
+/msgview or /spy
+Read all messages in character
+/msgview testname
+testname=character name
+/msgview off (turn off)
+------------------------------------------------------
+/genchar or /callchar
+call or summon character to your position
+/genchar testname
+testname=character name
+------------------------------------------------------
+/Visible]
+Off =Everyone Except you cannot see your character
+On  =Everyone can see your character
+None =Everyone Including you Cannot see your chracter
+------------------------------------------------------
+/kick_cn
+dissconnect a player ingame using its charname
+/kick_cn testname
+testname=character name
+------------------------------------------------------
+/kick_ci
+dissconnect a player ingame using its charID
+/kick 214
+214=character ID ( CharID )
+------------------------------------------------------
+/event_exp_begin
+add exp rate to game
+/event_exp_begin 20
+20=added exp rate
+------------------------------------------------------
+/event_exp_end
+turn off exp event
+------------------------------------------------------
+/event_item_begin
+add itemdrop rate to game
+/event_item_begin 20
+20=added exp rate
+------------------------------------------------------
+/event_item_end
+turn off itemdrop event
+------------------------------------------------------
+/event_money_begin
+add money drop rate to game
+/event_money_begin 20
+20=added moneydrop rate
+------------------------------------------------------
+/event_money_end
+turn off money drop event
+------------------------------------------------------
+/event_speed_begin
+add character movement speed
+/event_speed_begin 100
+100=added movement speed percentage
+------------------------------------------------------
+/event_speed_end
+turn off movement speed event
+------------------------------------------------------
+/event_aspeed_begin
+add character attack speed event
+/event_aspeed_begin 100
+100=added attack speed percentage
+------------------------------------------------------
+/event_aspeed_end
+turn off attack speed event
+------------------------------------------------------
+/event_attack_begin
+add character attack damage event
+/event_attack_begin 100
+100 =added attack damage percentage
+------------------------------------------------------
+/event_attack_end
+turn off attack damage event
+------------------------------------------------------
+
+/limit_event_begin
+Enable Bonus Time Event 
+/limit_event_begin 1 300 10 20 2 1 3
+1 minimum level to join event
+300 maximum level to join event
+10  waiting time to activate event
+20  time on which exp bonus will last
+2 multiplier for overall exp rate
+1 multiplier for overall item drop rate
+3 multiplier for attack please dont set any number of you dont want attack event
+
+you can also set event duration ( how long the bonus time event lasts)
+/limit_event_begin 1 300 10 20 2 1 60
+60 =event duration
+------------------------------------------------------
+/limit_event_end
+turn off bonus time event
+------------------------------------------------------
+/pk_mode
+override global pk settings
+on =pk is on
+off =pk is off
+------------------------------------------------------
+/crow_pos
+show npc/mob location (coordinates x,y)
+/crow_pos 42 10
+42 = Mob MID
+10 = Mob SID
+------------------------------------------------------
+/crow_list
+show the mob/npc name ,mid,sid ,type and mob count on your location map
+mob = show mob information
+npc =show npc information
+/crow_list mob
+------------------------------------------------------
+/mob_gen 
+summon single mob
+Example: /mob_gen 42 10 30 17
+42 mob mid
+10 mob sid
+30 coordinates in map x
+17 coordinates in map y
+------------------------------------------------------
+/mob_del 
+delete single mob
+you can also delete specific mob
+/mob_del 42 10
+42=mob MID
+10=mob SID
+------------------------------------------------------
+/mob_gen_ex 
+summon multiple mobs
+Example: /mob_gen_ex 42 10 23 0 20 30 1 10 0
+42 mob mid
+10 mob sid
+23 map mid
+0 map sid
+20 map coordinates x
+30 map coordinates y
+1 range 
+10 number of mobs (ilang mobs)
+0 channel
+------------------------------------------------------
+/mob_del_ex
+delete multi mobs
+Example: /mob_del_ex 42 10 23 0 0
+42 mob mid
+10 mob sid
+23 map mid
+0 map sid
+0 channel
+------------------------------------------------------
+/bighead
+bighead for all characters
+on =turn on bighead
+off =turn off bighead
+------------------------------------------------------
+/bighand
+bighand for all characters
+on =turn on bighand
+off=turn off bighand
+------------------------------------------------------
+/lev_new
+load a level file for location map
+/lev_new w_total_suryun_01.lev
+w_total_suryun_01.lev =name of level file to load
+------------------------------------------------------
+/lev_del
+unload level file loaded to location map
+------------------------------------------------------
+/chatblock_ua
+chatblock character using user account
+/chatblock_ua username 600
+username =user account name
+600 =minutes to chatblock
+------------------------------------------------------
+/chatblock_cn
+chatblock using character name
+/chatblock_cn testname 600
+testname =character name
+600 =minutes to chatblock
+------------------------------------------------------
+/chatblock_ci
+chatblock using charid
+/chatblock_ci 1021 600
+1021 =char id
+600 =minutes to chatblock
+------------------------------------------------------
+/charinfo_cn
+read character information using character name
+/charinfo_cn testname
+testname=character name
+------------------------------------------------------
+/charinfo_ci
+read character information using char id
+/charinfo_ci 1021
+1021=charid
+------------------------------------------------------
+/freepk_on
+free pk towards all school (all red)
+/freepk_on 600
+600=seconds duration for freepk
+------------------------------------------------------
+/freepk_off
+turn off freepk
+------------------------------------------------------
+/warning_msg
+show warning message on screen
+on=show warning message
+off=no warning message
+------------------------------------------------------
+/get_item
+server will generate an item and insert to your inventory
+get_item 100 200 231 5
+100 = mid
+200 = sid
+231 = password (only admin know this password)
+5   =  amount
+when no amount is given item is inserted as only 1
+------------------------------------------------------
+
+
+
+
+
+
+
