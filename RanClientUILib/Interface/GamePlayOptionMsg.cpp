@@ -159,7 +159,7 @@ void CBasicGamePlayOption::TranslateUIMessage ( UIGUID ControlID, DWORD dwMsg )
 		}
 		break;
 
-	case HWOPTION_GAMEPLAY_FORCED_ATTACK_BUTTON:			// °­Á¦ °ø°Ý
+	case HWOPTION_GAMEPLAY_FORCED_ATTACK_BUTTON:			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			if ( CHECK_MOUSEIN_LBUPLIKE ( dwMsg ) )
 			{
@@ -175,7 +175,7 @@ void CBasicGamePlayOption::TranslateUIMessage ( UIGUID ControlID, DWORD dwMsg )
 		}
 		break;
 
-	case HWOPTION_GAMEPLAY_NAME_DISPLAY_BUTTON:			// ÀÌ¸§ Ç×»ó Ç¥½Ã
+	case HWOPTION_GAMEPLAY_NAME_DISPLAY_BUTTON:			// ï¿½Ì¸ï¿½ ï¿½×»ï¿½ Ç¥ï¿½ï¿½
 		{
 			if ( CHECK_MOUSEIN_LBUPLIKE ( dwMsg ) )
 			{
@@ -191,7 +191,7 @@ void CBasicGamePlayOption::TranslateUIMessage ( UIGUID ControlID, DWORD dwMsg )
 		}
 		break;
 	
-	case HWOPTION_GAMEPLAY_SET_DISPLAY_BUTTON:			// ÀÌ¸§ Ç×»ó Ç¥½Ã
+	case HWOPTION_GAMEPLAY_SET_DISPLAY_BUTTON:			// ï¿½Ì¸ï¿½ ï¿½×»ï¿½ Ç¥ï¿½ï¿½
 		{
 			if ( CHECK_MOUSEIN_LBUPLIKE ( dwMsg ) )
 			{
@@ -209,7 +209,7 @@ void CBasicGamePlayOption::TranslateUIMessage ( UIGUID ControlID, DWORD dwMsg )
 	
 
 		//jdev help
-	case HWOPTION_GAMEPLAY_HELP_POPUP_BUTTON:			// ÀÌ¸§ Ç×»ó Ç¥½Ã
+	case HWOPTION_GAMEPLAY_HELP_POPUP_BUTTON:			// ï¿½Ì¸ï¿½ ï¿½×»ï¿½ Ç¥ï¿½ï¿½
 		{
 			if ( CHECK_MOUSEIN_LBUPLIKE ( dwMsg ) )
 			{
@@ -223,7 +223,7 @@ void CBasicGamePlayOption::TranslateUIMessage ( UIGUID ControlID, DWORD dwMsg )
 		}
 		break;
 
-	case HWOPTION_GAMEPLAY_IDLE_ANIM_BUTTON:			// ÀÌ¸§ Ç×»ó Ç¥½Ã
+	case HWOPTION_GAMEPLAY_IDLE_ANIM_BUTTON:			// ï¿½Ì¸ï¿½ ï¿½×»ï¿½ Ç¥ï¿½ï¿½
 		{
 			if ( CHECK_MOUSEIN_LBUPLIKE ( dwMsg ) )
 			{
@@ -236,7 +236,20 @@ void CBasicGamePlayOption::TranslateUIMessage ( UIGUID ControlID, DWORD dwMsg )
 			}
 		}
 		break;
-
+	case HWOPTION_GAMEPLAY_AUTOTARGET_BUTTON:			// ï¿½Ì¸ï¿½ ï¿½×»ï¿½ Ç¥ï¿½ï¿½ autopilot
+		{
+			if ( CHECK_MOUSEIN_LBUPLIKE ( dwMsg ) )
+			{
+				m_bAutoTarget = !m_bAutoTarget;
+				m_bAutoTargetButton->SetFlip ( m_bAutoTarget );
+			}
+			else if ( CHECK_MOUSE_IN ( dwMsg ) )
+			{
+				CInnerInterface::GetInstance().SHOW_COMMON_LINEINFO (  ID2GAMEWORD ( "HWOPTION_GAMEPLAY_OPTION_DESC", 15 ), NS_UITEXTCOLOR::DEFAULT );
+			}
+		}
+		break;
+		
 	case HWOPTION_GAMEPLAY_RANK_NAME_BUTTON:			// add pkrank
 		{
 			if ( CHECK_MOUSEIN_LBUPLIKE ( dwMsg ) )

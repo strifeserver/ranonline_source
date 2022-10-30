@@ -56,7 +56,7 @@ void CBasicHWOptionWindow::CreateSubControl ()
 	RegisterControl ( pGamePlayButton );
 	m_pGamePlayButton = pGamePlayButton;
 
-	//	¹è°æÆÇ¶¼±â
+	//	ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½
 	CBasicLineBox* pBasicLineBox = new CBasicLineBox;
 	pBasicLineBox->CreateSub ( this, "BASIC_LINE_BOX_OPTION", UI_FLAG_XSIZE | UI_FLAG_YSIZE );
 	pBasicLineBox->CreateBaseBoxOption ( "HWOPTION_BACK_BOX" );
@@ -182,19 +182,19 @@ void CBasicHWOptionWindow::SetVisiblePage ( int nPage )
 {
 	if ( nPage < HWOPTION_VIDEOPAGE || HWOPTION_GAMEPLAYPAGE < nPage )
 	{
-		GASSERT ( 0 && "¿µ¿ªÀ» ³Ñ¾î¼­´Â ÆäÀÌÁöÀÔ´Ï´Ù." );
+		GASSERT ( 0 && "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½." );
 		return ;
 	}
 
 	CUIControl* pVisiblePage = NULL;
 	CBasicTextButton* pVisibleButton = NULL;
 
-	{	//	¸®¼Â
+	{	//	ï¿½ï¿½ï¿½ï¿½
 		m_pVideoOption->SetVisibleSingle ( FALSE );
 		m_pAudioOption->SetVisibleSingle ( FALSE );
 		m_pGamePlayOption->SetVisibleSingle ( FALSE );
 	}
-	{	//	¸®¼Â
+	{	//	ï¿½ï¿½ï¿½ï¿½
 		m_pVideoButton->SetFlip ( FALSE );
 		m_pAudioButton->SetFlip ( FALSE );
 		m_pGamePlayButton->SetFlip ( FALSE );
@@ -265,6 +265,7 @@ void CBasicHWOptionWindow::GamePlayOption_OK()
 	RANPARAM::bNAME_DISPLAY		= m_pGamePlayOption->m_bNameDisplay;
 	RANPARAM::bSET_DISPLAY		= m_pGamePlayOption->m_bSetDisplay;
 	RANPARAM::bNON_Rebirth		= m_pGamePlayOption->m_bNon_Rebirth;
+	RANPARAM::bAutoTarget		= m_pGamePlayOption->m_bAutoTarget;
 
 	//jdev help
 	RANPARAM::bHelpPopUp		= m_pGamePlayOption->m_bHelpPopUp;
