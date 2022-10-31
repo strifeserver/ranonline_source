@@ -1,7 +1,8 @@
 Ran_Source.suo
 _BuildData/
 _RBuildData/
-_bin/
 _lib/
 Ran_Source.ncb
 Ran_Source.sln
+_bin\map_pdb
+_bin\release_a\map_pdb
