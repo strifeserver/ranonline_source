@@ -34,19 +34,19 @@ namespace RANPARAM
 
 	const std::string	strIDNULL			= "(null)";
 
-	BOOL				bDIS_CONFT			= FALSE;		//	'ÀÚµ¿' ´ë·Ã °ÅºÎ.
-	BOOL				bDIS_TRADE			= FALSE;		//	'ÀÚµ¿' °Å·¡ °ÅºÎ.
-	BOOL				bDIS_PARTY			= FALSE;		//	'ÀÚµ¿' ÆÄÆ¼ °ÅºÎ.
-	BOOL				bDIS_FRIEND			= FALSE;		//	'ÀÚµ¿' Ä£±¸ ¿äÃ» °ÅºÎ.
-	BOOL				bSHOW_SIMPLEHP		= TRUE;			//	¹Ì´Ï HP Ç¥½Ã
+	BOOL				bDIS_CONFT			= FALSE;		//	'ï¿½Úµï¿½' ï¿½ï¿½ï¿½ ï¿½Åºï¿½.
+	BOOL				bDIS_TRADE			= FALSE;		//	'ï¿½Úµï¿½' ï¿½Å·ï¿½ ï¿½Åºï¿½.
+	BOOL				bDIS_PARTY			= FALSE;		//	'ï¿½Úµï¿½' ï¿½ï¿½Æ¼ ï¿½Åºï¿½.
+	BOOL				bDIS_FRIEND			= FALSE;		//	'ï¿½Úµï¿½' Ä£ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Åºï¿½.
+	BOOL				bSHOW_SIMPLEHP		= TRUE;			//	ï¿½Ì´ï¿½ HP Ç¥ï¿½ï¿½
 	BOOL				b3D_SOUND			= FALSE;
-	BOOL				bSHOW_TIP			= TRUE;			//	ÆÁ º¸¿©ÁÖ±â
-	BOOL				bMOVABLE_ON_CHAT	= FALSE;		//	Ã¤ÆÃÃ¢ À§¿¡¼­ ¿òÁ÷ÀÌ±â
-	BOOL				bFORCED_ATTACK		= TRUE;			//	°­Á¦ °ø°Ý
-	BOOL				bNAME_DISPLAY		= TRUE;			//	ÀÌ¸§ Ç×»ó Ç¥½Ã
-	BOOL				bSET_DISPLAY		= TRUE;			//	ÀÌ¸§ Ç×»ó Ç¥½Ã
-	BOOL				bNON_Rebirth		= FALSE;		//  ºÎÈ° ½ºÅ³ ±ÝÁö
-
+	BOOL				bSHOW_TIP			= TRUE;			//	ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+	BOOL				bMOVABLE_ON_CHAT	= FALSE;		//	Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½
+	BOOL				bFORCED_ATTACK		= TRUE;			//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	BOOL				bNAME_DISPLAY		= TRUE;			//	ï¿½Ì¸ï¿½ ï¿½×»ï¿½ Ç¥ï¿½ï¿½
+	BOOL				bSET_DISPLAY		= TRUE;			//	ï¿½Ì¸ï¿½ ï¿½×»ï¿½ Ç¥ï¿½ï¿½
+	BOOL				bNON_Rebirth		= FALSE;		//  ï¿½ï¿½È° ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	BOOL                bAutoTarget         = FALSE;		// autopilot
 
 	//jdev help
 	BOOL				bHelpPopUp				= FALSE;
@@ -78,17 +78,17 @@ namespace RANPARAM
 	BOOL				bLockQTray				= FALSE; //add lock
 	
 
-	BOOL				bCONFT_BOUND		= TRUE;			//	´ë·Ã½Ã ¿µ¿ª Á¦ÇÑ ¿©ºÎ.
-	WORD				wCONFT_RECOVER		= 0;			//	´ë·Ã½Ã È¸º¹¾à Á¦ÇÑ.
-	float				fCONFT_HP_RATE		= 1.0f;			//	´ë·Ã½Ã Ã¼·Â È®´ë ºñÀ².
-	float				fCONFT_TAR_HP_RATE	= 1.0f;			//	´ë·Ã½Ã Ã¼·Â È®´ë ºñÀ² [ »ó´ë¹æ(°³ÀÎ´ë·Ã½Ã¸¸) ].
+	BOOL				bCONFT_BOUND		= TRUE;			//	ï¿½ï¿½Ã½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	WORD				wCONFT_RECOVER		= 0;			//	ï¿½ï¿½Ã½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	float				fCONFT_HP_RATE		= 1.0f;			//	ï¿½ï¿½Ã½ï¿½ Ã¼ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	float				fCONFT_TAR_HP_RATE	= 1.0f;			//	ï¿½ï¿½Ã½ï¿½ Ã¼ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Î´ï¿½Ã½Ã¸ï¿½) ].
 
 	//add duel bet
 	LONGLONG			llConft_Value		= 0;
 	WORD				wBetType			= 0;
 
-	DWORD				dwPARTY_GET_ITEM	= 3;			//	ÆÄÆ¼¿É¼Ç ¾ÆÀÌÅÛ ºÐ¹è ±ÔÄ¢.(µðÆúÆ®´Â ¼øÂ÷½Àµæ)
-	DWORD				dwPARTY_GET_MONEY	= 3;			//	ÆÄÆ¼¿É¼Ç µ· ºÐ¹è ±ÔÄ¢.(µðÆúÆ®´Â ±ÕµîºÐ¹è)
+	DWORD				dwPARTY_GET_ITEM	= 3;			//	ï¿½ï¿½Æ¼ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¹ï¿½ ï¿½ï¿½Ä¢.(ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+	DWORD				dwPARTY_GET_MONEY	= 3;			//	ï¿½ï¿½Æ¼ï¿½É¼ï¿½ ï¿½ï¿½ ï¿½Ð¹ï¿½ ï¿½ï¿½Ä¢.(ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Õµï¿½Ð¹ï¿½)
 	BOOL				bPreviewStay	= FALSE;
 
 	BOOL				bVehicleRenderMove	= FALSE;
@@ -109,13 +109,13 @@ namespace RANPARAM
 																DIK_B, DIK_R, DIK_H, DIK_L, DIK_X, DIK_Z,
 																DIK_U, DIK_J, DIK_O };
 
-	// KeySettingWindow ÂüÁ¶ Å×ÀÌºí ´ÜÃàÅ° ¼ø¼­°¡ ´Ù¸£°Ô ¼³Á¤µÇ¾î ÀÖ¾î¼­ ÇÊ¿ä
+	// KeySettingWindow ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½Ö¾î¼­ ï¿½Ê¿ï¿½
 	int					KeySettingToRanparam[QUICK_MENU_NUM] = { SHOTCUT_INVEN, SHOTCUT_CHAR, SHOTCUT_SKILL, SHOTCUT_PARTY,
 																 SHOTCUT_QUEST, SHOTCUT_CLUB, SHOTCUT_FRIEND, SHOTCUT_MAP,
 																 SHOTCUT_CHATMACRO, SHOTCUT_ITEMBANK, SHOTCUT_ITEMSHOP, SHOTCUT_RUN,
 																 SHOTCUT_HELP, SHOTCUT_PET, SHOTCUT_ATTACKMODE, SHOTCUT_PKMODE, SHOTCUT_SUMMON};
 
-	// BasicMenu ÂüÁ¶ Å×ÀÌºí ´ÜÃàÅ° ¼ø¼­°¡ ´Ù¸£°Ô ¼³Á¤µÇ¾î ÀÖ¾î¼­ ÇÊ¿ä
+	// BasicMenu ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½Ö¾î¼­ ï¿½Ê¿ï¿½
 	int					BasicMenuToRanparam[BASICMENU_NUM] = { SHOTCUT_INVEN, SHOTCUT_CHAR,	SHOTCUT_SKILL, SHOTCUT_PARTY,
 															   SHOTCUT_QUEST, SHOTCUT_CLUB, SHOTCUT_FRIEND, SHOTCUT_MAP,
 															   SHOTCUT_ITEMBANK, SHOTCUT_RUN, SHOTCUT_ITEMSHOP, SHOTCUT_CHATMACRO};
@@ -209,7 +209,7 @@ namespace RANPARAM
 	CString				strUIExtCfg			= "uiextcfg.xml";	
 
 	TCHAR				HelpAddress[STRING_NUM_128] = _T("\\data\\help\\help.htm");
-	// Áß±¹ : http://2046.5u56.com/gameshop/gameshop.html
+	// ï¿½ß±ï¿½ : http://2046.5u56.com/gameshop/gameshop.html
 	TCHAR				ItemShopAddress[STRING_NUM_128] = _T("about:blank");
 	TCHAR				RPFDataPath[STRING_NUM_128] = _T("\\package\\data.rpf");
 
@@ -337,7 +337,7 @@ namespace RANPARAM
 		cFILE.getflag ( "strUIInnerCfg03", 1, 1, strUIInnerCfg03 );
 		cFILE.getflag ( "strUIExtCfg", 1, 1, strUIExtCfg );
 
-		//	Note : À¯È¿¼º Ã¼Å©.
+		//	Note : ï¿½ï¿½È¿ï¿½ï¿½ Ã¼Å©.
 		//
 		if ( COMMENT::FONTSYS[0]!=strFontType.GetString() && COMMENT::FONTSYS[1]!=strFontType.GetString() )
 		{
@@ -365,7 +365,7 @@ namespace RANPARAM
 			return FALSE;
 		}
 
-        //	Áß±¹ÀÏ °æ¿ì Áö¿ª ¼±ÅÃ½Ã °ªÀ» °»½ÅÇØÁØ´Ù.
+        //	ï¿½ß±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 #ifdef CH_PARAM
 		
 		if ( nChinaRegion == MAX_CHINA_REGION )	return TRUE;
@@ -484,14 +484,14 @@ namespace RANPARAM
 		if ( nVersion <= 0 && strlen( szBuffer ) <= 0 )	return FALSE;
 
 		CFile file;
-		if ( ! file.Open( strOptionFile.c_str(), CFile::modeCreate|CFile::modeWrite ) )	// ÆÄÀÏ ¿­±â
+		if ( ! file.Open( strOptionFile.c_str(), CFile::modeCreate|CFile::modeWrite ) )	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			delete [] szBuffer;
 			return FALSE;
 		}
 		
-		file.Write( &nVersion, sizeof(int) );							// ¹öÁ¯ ¾²±â
-		file.Write( szBuffer, nLen );		// ÆÄÀÏ ¾²±â
+		file.Write( &nVersion, sizeof(int) );							// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		file.Write( szBuffer, nLen );		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		file.Close();
 
 		delete [] szBuffer;
@@ -519,7 +519,7 @@ namespace RANPARAM
 	{
 		switch ( emSERVICE_TYPE )
 		{
-//		Japan ·Î±×ÀÎ ¹æ½Ä º¯°æ
+//		Japan ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		case EMSERVICE_JAPAN:
 //			return !strIDPARAM.empty() && !strIDPARAM2.empty() && !strIDPARAM3.empty();
 
@@ -549,23 +549,24 @@ namespace RANPARAM
 
 	void INIT_DATA()
 	{
-		bDIS_CONFT			= FALSE;		//	'ÀÚµ¿' ´ë·Ã °ÅºÎ.
-		bDIS_TRADE			= FALSE;		//	'ÀÚµ¿' °Å·¡ °ÅºÎ.
-		bDIS_PARTY			= FALSE;		//	'ÀÚµ¿' ÆÄÆ¼ °ÅºÎ.
-		bDIS_FRIEND			= FALSE;		//	'ÀÚµ¿' Ä£±¸ ¿äÃ» °ÅºÎ.
+		bDIS_CONFT			= FALSE;		//	'ï¿½Úµï¿½' ï¿½ï¿½ï¿½ ï¿½Åºï¿½.
+		bDIS_TRADE			= FALSE;		//	'ï¿½Úµï¿½' ï¿½Å·ï¿½ ï¿½Åºï¿½.
+		bDIS_PARTY			= FALSE;		//	'ï¿½Úµï¿½' ï¿½ï¿½Æ¼ ï¿½Åºï¿½.
+		bDIS_FRIEND			= FALSE;		//	'ï¿½Úµï¿½' Ä£ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Åºï¿½.
 		bSHOW_SIMPLEHP		= TRUE;
 		b3D_SOUND			= FALSE;
-		bSHOW_TIP			= TRUE;			//	ÆÁ º¸¿©ÁÖ±â
-		bMOVABLE_ON_CHAT	= FALSE;		//	Ã¤ÆÃÃ¢ À§¿¡¼­ ¿òÁ÷ÀÌ±â
-		bFORCED_ATTACK		= TRUE;			//	°­Á¦ °ø°Ý - Áß±¹
-		bNAME_DISPLAY		= TRUE	;		//	ÀÌ¸§ Ç×»ó Ç¥½Ã
+		bSHOW_TIP			= TRUE;			//	ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+		bMOVABLE_ON_CHAT	= FALSE;		//	Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½
+		bFORCED_ATTACK		= TRUE;			//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ß±ï¿½
+		bNAME_DISPLAY		= TRUE	;		//	ï¿½Ì¸ï¿½ ï¿½×»ï¿½ Ç¥ï¿½ï¿½
 		bSET_DISPLAY		= TRUE	;
-		bNON_Rebirth		= FALSE;		//  ºÎÈ° ½ºÅ³ ±ÝÁö
+		bNON_Rebirth		= FALSE;		//  ï¿½ï¿½È° ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+		bAutoTarget         = FALSE;		//autopilot
 
-		bCONFT_BOUND		= TRUE;			//	´ë·Ã½Ã ¿µ¿ª Á¦ÇÑ ¿©ºÎ.
-		wCONFT_RECOVER		= 0;			//	´ë·Ã½Ã È¸º¹¾à Á¦ÇÑ.
-		fCONFT_HP_RATE		= 1.0f;			//	´ë·Ã½Ã Ã¼·Â È®´ë ºñÀ².
-		fCONFT_TAR_HP_RATE	= 1.0f;			//	´ë·Ã½Ã Ã¼·Â È®´ë ºñÀ² [ »ó´ë¹æ(°³ÀÎ´ë·Ã½Ã¸¸) ].
+		bCONFT_BOUND		= TRUE;			//	ï¿½ï¿½Ã½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+		wCONFT_RECOVER		= 0;			//	ï¿½ï¿½Ã½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+		fCONFT_HP_RATE		= 1.0f;			//	ï¿½ï¿½Ã½ï¿½ Ã¼ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+		fCONFT_TAR_HP_RATE	= 1.0f;			//	ï¿½ï¿½Ã½ï¿½ Ã¼ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Î´ï¿½Ã½Ã¸ï¿½) ].
 
 		llConft_Value		= 0; //add duel bet
 		wBetType			= 0; //add duel bet
@@ -576,8 +577,8 @@ namespace RANPARAM
 		bLockQSkill			= FALSE; //add lock
 		bLockQTray			= FALSE; //add lock
 
-		dwPARTY_GET_ITEM	= 3;			//	ÆÄÆ¼¿É¼Ç ¾ÆÀÌÅÛ ºÐ¹è ±ÔÄ¢.(µðÆúÆ®´Â ¼øÂ÷½Àµæ)
-		dwPARTY_GET_MONEY	= 3;			//	ÆÄÆ¼¿É¼Ç µ· ºÐ¹è ±ÔÄ¢.(µðÆúÆ®´Â ±ÕµîºÐ¹è)
+		dwPARTY_GET_ITEM	= 3;			//	ï¿½ï¿½Æ¼ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¹ï¿½ ï¿½ï¿½Ä¢.(ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+		dwPARTY_GET_MONEY	= 3;			//	ï¿½ï¿½Æ¼ï¿½É¼ï¿½ ï¿½ï¿½ ï¿½Ð¹ï¿½ ï¿½ï¿½Ä¢.(ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Õµï¿½Ð¹ï¿½)
 
 		bVehicleRenderMove	= FALSE;
 		bPreviewStay	= FALSE;
@@ -660,7 +661,7 @@ namespace RANPARAM
 	BOOL LOAD_GAMEOPT ()
 	{
 		INIT_DATA();
-		std::string strUSERID = GETCHARID(); // ÆÄÀÏ¸í °¡Á®¿À´Â ºÎºÐ...
+		std::string strUSERID = GETCHARID(); // ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½...
 		if ( strUSERID.empty() )
 		{
 			MessageBox ( NULL, "LOAD_GAMEOPT() Error! strUSERID.Empty!", "ERROR", MB_OK );
@@ -686,7 +687,7 @@ namespace RANPARAM
 		if ( !bok )		return FALSE;		
 
 
-		if( dwVER == EMGAMEOPT_VER ) // Ã¤ÆÃ ¸ÅÅ©·Î ¹öÀü
+		if( dwVER == EMGAMEOPT_VER ) // Ã¤ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			cFILE.getflag ( "bDIS_CONFT", 1, 1, bDIS_CONFT );
 			cFILE.getflag ( "bDIS_TRADE", 1, 1, bDIS_TRADE );
@@ -699,6 +700,7 @@ namespace RANPARAM
 			cFILE.getflag ( "bNAME_DISPLAY", 1, 1, bNAME_DISPLAY );
 			cFILE.getflag ( "bSET_DISPLAY", 1, 1, bSET_DISPLAY );
 			cFILE.getflag ( "bNON_Rebirth", 1, 1, bNON_Rebirth );
+			cFILE.getflag ( "bAutoTarget", 1, 1, bAutoTarget );	//autopilot
 
 			cFILE.getflag ( "bCONFT_BOUND", 1, 1, bCONFT_BOUND );
 			cFILE.getflag ( "wCONFT_RECOVER", 1, 1, wCONFT_RECOVER );
@@ -752,13 +754,13 @@ namespace RANPARAM
 			cFILE.getflag ("SHOTCUT_CHATMACRO", 1, 1, MenuShotcut[SHOTCUT_CHATMACRO] );
 			cFILE.getflag ("SHOTCUT_SUMMON", 1, 1, MenuShotcut[SHOTCUT_SUMMON] );
 
-			// Ã¤ÆÃ ¸ÅÅ©·Î
+			// Ã¤ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½
 			for (i = 0; i< CHAT_MACRO_NUM; ++i){
 				strTemp.Format("CHATMACRO%d", i);
 				cFILE.getflag ( (LPCTSTR)strTemp, 2, 2, ChatMacro[i] );
 			}
 		}
-		if( dwVER == 0x0111 ) // Ã¤ÆÃ ¸ÅÅ©·Î ¹öÀü
+		if( dwVER == 0x0111 ) // Ã¤ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			cFILE.getflag ( "bDIS_CONFT", 1, 1, bDIS_CONFT );
 			cFILE.getflag ( "bDIS_TRADE", 1, 1, bDIS_TRADE );
@@ -815,13 +817,13 @@ namespace RANPARAM
 			cFILE.getflag ("SHOTCUT_CHATMACRO", 1, 1, MenuShotcut[SHOTCUT_CHATMACRO] );
 			cFILE.getflag ("SHOTCUT_SUMMON", 1, 1, MenuShotcut[SHOTCUT_SUMMON] );
 
-			// Ã¤ÆÃ ¸ÅÅ©·Î
+			// Ã¤ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½
 			for (i = 0; i< CHAT_MACRO_NUM; ++i){
 				strTemp.Format("CHATMACRO%d", i);
 				cFILE.getflag ( (LPCTSTR)strTemp, 2, 2, ChatMacro[i] );
 			}
 		}
-		if( dwVER == 0x0110 ) // Ã¤ÆÃ ¸ÅÅ©·Î ¹öÀü
+		if( dwVER == 0x0110 ) // Ã¤ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			cFILE.getflag ( "bDIS_CONFT", 1, 1, bDIS_CONFT );
 			cFILE.getflag ( "bDIS_TRADE", 1, 1, bDIS_TRADE );
@@ -834,6 +836,7 @@ namespace RANPARAM
 			cFILE.getflag ( "bNAME_DISPLAY", 1, 1, bNAME_DISPLAY );
 			cFILE.getflag ( "bSET_DISPLAY", 1, 1, bSET_DISPLAY );
 			cFILE.getflag ( "bNON_Rebirth", 1, 1, bNON_Rebirth );
+			cFILE.getflag ( "bAutoTarget", 1, 1, bAutoTarget );	 //autopilot
 
 			cFILE.getflag ( "bCONFT_BOUND", 1, 1, bCONFT_BOUND );
 			cFILE.getflag ( "wCONFT_RECOVER", 1, 1, wCONFT_RECOVER );
@@ -877,13 +880,13 @@ namespace RANPARAM
 			cFILE.getflag ("SHOTCUT_ITEMSHOP", 1, 1, MenuShotcut[SHOTCUT_ITEMSHOP] );
 			cFILE.getflag ("SHOTCUT_CHATMACRO", 1, 1, MenuShotcut[SHOTCUT_CHATMACRO] );
 
-			// Ã¤ÆÃ ¸ÅÅ©·Î
+			// Ã¤ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½
 			for (i = 0; i< CHAT_MACRO_NUM; ++i){
 				strTemp.Format("CHATMACRO%d", i);
 				cFILE.getflag ( (LPCTSTR)strTemp, 2, 2, ChatMacro[i] );
 			}
 		}
-		if( dwVER == 0x0109 ) // Ã¤ÆÃ ¸ÅÅ©·Î ¹öÀü
+		if( dwVER == 0x0109 ) // Ã¤ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{
 			cFILE.getflag ( "bDIS_CONFT", 1, 1, bDIS_CONFT );
 			cFILE.getflag ( "bDIS_TRADE", 1, 1, bDIS_TRADE );
@@ -902,6 +905,7 @@ namespace RANPARAM
 
 			cFILE.getflag ( "dwPARTY_GET_ITEM", 1, 1, dwPARTY_GET_ITEM );
 			cFILE.getflag ( "dwPARTY_GET_MONEY", 1, 1, dwPARTY_GET_MONEY );
+			cFILE.getflag ( "bAutoTarget", 1, 1, bAutoTarget );	 //autopilot
 
 			CString strTemp;
 			int i = 0;
@@ -936,13 +940,13 @@ namespace RANPARAM
 			cFILE.getflag ("SHOTCUT_ITEMSHOP", 1, 1, MenuShotcut[SHOTCUT_ITEMSHOP] );
 			cFILE.getflag ("SHOTCUT_CHATMACRO", 1, 1, MenuShotcut[SHOTCUT_CHATMACRO] );
 
-			// Ã¤ÆÃ ¸ÅÅ©·Î
+			// Ã¤ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½
 			for (i = 0; i< CHAT_MACRO_NUM; ++i){
 				strTemp.Format("CHATMACRO%d", i);
 				cFILE.getflag ( (LPCTSTR)strTemp, 2, 2, ChatMacro[i] );
 			}
 		}
-		else if ( dwVER==0x0108 ) // ´ÜÃàÅ° ÀúÀå ¹öÀü
+		else if ( dwVER==0x0108 ) // ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		{ 
 			cFILE.getflag ( "bDIS_CONFT", 1, 1, bDIS_CONFT );
 			cFILE.getflag ( "bDIS_TRADE", 1, 1, bDIS_TRADE );
@@ -961,6 +965,7 @@ namespace RANPARAM
 
 			cFILE.getflag ( "dwPARTY_GET_ITEM", 1, 1, dwPARTY_GET_ITEM );
 			cFILE.getflag ( "dwPARTY_GET_MONEY", 1, 1, dwPARTY_GET_MONEY );
+			cFILE.getflag ( "bAutoTarget", 1, 1, bAutoTarget );	//autopilot
 
 			CString strTemp;
 			int i = 0;
@@ -1002,6 +1007,7 @@ namespace RANPARAM
 
 			cFILE.getflag ( "dwPARTY_GET_ITEM", 1, 1, dwPARTY_GET_ITEM );
 			cFILE.getflag ( "dwPARTY_GET_MONEY", 1, 1, dwPARTY_GET_MONEY );
+			cFILE.getflag ( "bAutoTarget", 1, 1, bAutoTarget ); //autopilot
 		}
 		else if ( dwVER==0x0106 )
 		{
@@ -1086,10 +1092,10 @@ namespace RANPARAM
 
 	BOOL SAVE_GAMEOPT ()
 	{
-		std::string strUSERID = GETCHARID(); // ÆÄÀÏ¸í °¡Á®¿À´Â ºÎºÐ...
+		std::string strUSERID = GETCHARID(); // ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½...
 		if ( strUSERID.empty() )
 		{
-			//MessageBox ( NULL, "USERID°¡ ÁöÁ¤µÇ¾î ÀÖÁö ¾Ê¾Æ SAVE_GAMEOPT() ¼öÇàºÒ°¡.", "ERROR", MB_OK );
+			//MessageBox ( NULL, "USERIDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ SAVE_GAMEOPT() ï¿½ï¿½ï¿½ï¿½Ò°ï¿½.", "ERROR", MB_OK );
 			return FALSE;
 		}
 		
@@ -1134,6 +1140,7 @@ namespace RANPARAM
 		fprintf ( file, "bLockPutOn\t%d\n", bLockPutOn );//add lock
 		fprintf ( file, "bLockQSkill\t%d\n", bLockQSkill );//add lock
 		fprintf ( file, "bLockQTray\t%d\n", bLockQTray );//add lock
+		fprintf ( file, "bAutoTarget\t%d\n", bAutoTarget ); //autopilot
 
 		fprintf ( file, "bVehicleRenderMove\t%d\n", bVehicleRenderMove );
 
@@ -1175,7 +1182,7 @@ namespace RANPARAM
 		fprintf ( file, "SHOTCUT_CHATMACRO\t%d\n", MenuShotcut[SHOTCUT_CHATMACRO] );
 		fprintf ( file, "SHOTCUT_SUMMON\t%d\n", MenuShotcut[SHOTCUT_SUMMON] );
 
-		// Ã¤ÆÃ ¸ÅÅ©·Î
+		// Ã¤ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½
 		CString strMacro;
 		for (i=0; i< CHAT_MACRO_NUM; ++i){
 			if(ChatMacro[i].GetLength() > 0){
@@ -1282,7 +1289,7 @@ namespace RANPARAM
 			cFILE.getflag ( "TEXT FILE", "strUIExtCfg", 0, 1, strUIExtCfg );
 		}
 
-		// µµ¿ò¸» À¥ ÆäÀÌÁö ÁÖ¼Ò, ¾ÆÁ÷ »ç¿ë ¾ÈÇÔ ( ÁØÇõ )
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½ )
 		cFILE.getflag_sz( "ETC OPTION", "HelpAddress", 0, 1, HelpAddress, STRING_NUM_128 );
 		cFILE.getflag_sz( "ETC OPTION", "ItemShopAddress", 0, 1, ItemShopAddress, STRING_NUM_128 );
 		cFILE.getflag_sz( "ETC OPTION", "RPFDataPath", 0, 1, RPFDataPath, STRING_NUM_128 );
@@ -1291,7 +1298,7 @@ namespace RANPARAM
 		cFILE.getflag ( "ETC OPTION", "bShadowFont", 0, 1, bShadowFont ); //add fontshadow
 		cFILE.getflag ( "ETC OPTION", "bSmallFont", 0, 1, bSmallFont ); //add fontshadow
 
-		//	Note : À¯È¿¼º Ã¼Å©.
+		//	Note : ï¿½ï¿½È¿ï¿½ï¿½ Ã¼Å©.
 		//
 		if ( COMMENT::FONTSYS[0]!=strFontType.GetString() && COMMENT::FONTSYS[1]!=strFontType.GetString() )
 		{

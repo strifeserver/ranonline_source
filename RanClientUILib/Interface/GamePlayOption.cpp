@@ -45,51 +45,51 @@ void CBasicGamePlayOption::CreateSubControl ()
 
 	CBasicTextBox* pTextBox = NULL;
 
-	{	//	±âº» ÅØ½ºÆ®		
+	{	//	ï¿½âº» ï¿½Ø½ï¿½Æ®		
 		DWORD dwFontColor = NS_UITEXTCOLOR::DEFAULT;
 		int nAlign = TEXT_ALIGN_LEFT;
 
-		//	ÀÚµ¿ ´ë·Ã °ÅºÎ
+		//	ï¿½Úµï¿½ ï¿½ï¿½ï¿½ ï¿½Åºï¿½
 		pTextBox = CreateStaticControl ( "HWOPTION_GAMEPLAY_CONFT_STATIC", m_pFont, dwFontColor, nAlign );
 		pTextBox->SetOneLineText ( ID2GAMEWORD ( "HWOPTION_GAMEPLAY_OPTION", 0 ) );
 
-		//	ÀÚµ¿ °Å·¡ °ÅºÎ
+		//	ï¿½Úµï¿½ ï¿½Å·ï¿½ ï¿½Åºï¿½
 		pTextBox = CreateStaticControl ( "HWOPTION_GAMEPLAY_TRADE_STATIC", m_pFont, dwFontColor, nAlign );
 		pTextBox->SetOneLineText ( ID2GAMEWORD ( "HWOPTION_GAMEPLAY_OPTION", 1 ) );
 
-		//	ÀÚµ¿ ÆÄÆ¼ °ÅºÎ
+		//	ï¿½Úµï¿½ ï¿½ï¿½Æ¼ ï¿½Åºï¿½
 		pTextBox = CreateStaticControl ( "HWOPTION_GAMEPLAY_PARTY_STATIC", m_pFont, dwFontColor, nAlign );
 		pTextBox->SetOneLineText ( ID2GAMEWORD ( "HWOPTION_GAMEPLAY_OPTION", 2 ) );
 
-		//	¹Ì´Ï HP Ç¥½Ã
+		//	ï¿½Ì´ï¿½ HP Ç¥ï¿½ï¿½
 		pTextBox = CreateStaticControl ( "HWOPTION_GAMEPLAY_SIMPLEHP_STATIC", m_pFont, dwFontColor, nAlign );
 		pTextBox->SetOneLineText ( ID2GAMEWORD ( "HWOPTION_GAMEPLAY_OPTION", 3 ) );
 
-		//	ÀÚµ¿ Ä£±¸ °ÅºÎ
+		//	ï¿½Úµï¿½ Ä£ï¿½ï¿½ ï¿½Åºï¿½
 		pTextBox = CreateStaticControl ( "HWOPTION_GAMEPLAY_FRIEND_STATIC", m_pFont, dwFontColor, nAlign );
 		pTextBox->SetOneLineText ( ID2GAMEWORD ( "HWOPTION_GAMEPLAY_OPTION", 4 ) );
 
-		//	°ÔÀÓÃ¢ ±âº» À§Ä¡·Î
+		//	ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½âº» ï¿½ï¿½Ä¡ï¿½ï¿½
 		pTextBox = CreateStaticControl ( "HWOPTION_GAMEPLAY_DEFAULTPOS_STATIC", m_pFont, dwFontColor, nAlign );
 		pTextBox->SetOneLineText ( ID2GAMEWORD ( "HWOPTION_GAMEPLAY_OPTION", 5 ) );
 
-		//  Ã¤ÆÃÃ¢ ¶Õ±â
+		//  Ã¤ï¿½ï¿½Ã¢ ï¿½Õ±ï¿½
 		pTextBox = CreateStaticControl ( "HWOPTION_GAMEPLAY_MOVABLE_ON_CHAT_STATIC", m_pFont, dwFontColor, nAlign );
 		pTextBox->SetOneLineText ( ID2GAMEWORD ( "HWOPTION_GAMEPLAY_OPTION", 6 ) );
 
-		//  ÆÁ º¸±â
+		//  ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		pTextBox = CreateStaticControl ( "HWOPTION_GAMEPLAY_SHOW_TIP_STATIC", m_pFont, dwFontColor, nAlign );
 		pTextBox->SetOneLineText ( ID2GAMEWORD ( "HWOPTION_GAMEPLAY_OPTION", 7 ) );
 
-		//  °­Á¦ °ø°Ý
+		//  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		pTextBox = CreateStaticControl ( "HWOPTION_GAMEPLAY_FORCED_ATTACK_STATIC", m_pFont, dwFontColor, nAlign );
 		pTextBox->SetOneLineText ( ID2GAMEWORD ( "HWOPTION_GAMEPLAY_OPTION", 8 ) );
 
-		//  ÀÌ¸§ Ç×»ó Ç¥½Ã
+		//  ï¿½Ì¸ï¿½ ï¿½×»ï¿½ Ç¥ï¿½ï¿½
 		pTextBox = CreateStaticControl ( "HWOPTION_GAMEPLAY_NAME_DISPLAY_STATIC", m_pFont, dwFontColor, nAlign );
 		pTextBox->SetOneLineText ( ID2GAMEWORD ( "HWOPTION_GAMEPLAY_OPTION", 9 ) );
 
-		//  ºÎÈ° ½ºÅ³ ±ÝÁö
+		//  ï¿½ï¿½È° ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 		pTextBox = CreateStaticControl ( "HWOPTION_GAMEPLAY_REVIVAL_STATIC", m_pFont, dwFontColor, nAlign );
 		pTextBox->SetOneLineText ( ID2GAMEWORD ( "HWOPTION_GAMEPLAY_OPTION", 10 ) );
 
@@ -116,8 +116,8 @@ void CBasicGamePlayOption::CreateSubControl ()
 		pTextBox->SetOneLineText ( ID2GAMEWORD ( "HWOPTION_GAMEPLAY_OPTION", 20 ) );
 	}
 
-	{	//	±â´É
-		//	¹öÆ°
+	{	//	ï¿½ï¿½ï¿½
+		//	ï¿½ï¿½Æ°
 		m_pConftButton = CreateFlipButton( "HWOPTION_GAMEPLAY_CONFT_BUTTON", "HWOPTION_GAMEPLAY_CONFT_BUTTON_F", HWOPTION_GAMEPLAY_CONFT_BUTTON );
 		m_pTradeButton = CreateFlipButton( "HWOPTION_GAMEPLAY_TRADE_BUTTON", "HWOPTION_GAMEPLAY_TRADE_BUTTON_F", HWOPTION_GAMEPLAY_TRADE_BUTTON );
 		m_pPartyButton = CreateFlipButton( "HWOPTION_GAMEPLAY_PARTY_BUTTON", "HWOPTION_GAMEPLAY_PARTY_BUTTON_F", HWOPTION_GAMEPLAY_PARTY_BUTTON );
@@ -129,6 +129,8 @@ void CBasicGamePlayOption::CreateSubControl ()
 		m_pNameDisplayButton = CreateFlipButton( "HWOPTION_GAMEPLAY_NAME_DISPLAY_BUTTON", "HWOPTION_GAMEPLAY_NAME_DISPLAY_BUTTON_F", HWOPTION_GAMEPLAY_NAME_DISPLAY_BUTTON );
 		m_pSetDisplayButton = CreateFlipButton( "HWOPTION_GAMEPLAY_SET_DISPLAY_BUTTON", "HWOPTION_GAMEPLAY_SET_DISPLAY_BUTTON_F", HWOPTION_GAMEPLAY_SET_DISPLAY_BUTTON );
 		m_pRevivalButton = CreateFlipButton( "HWOPTION_GAMEPLAY_REVIVAL_BUTTON", "HWOPTION_GAMEPLAY_REVIVAL_BUTTON_F", HWOPTION_GAMEPLAY_REVIVAL_BUTTON );
+		m_bAutoTargetButton = CreateFlipButton( "HWOPTION_GAMEPLAY_AUTOTARGET_BUTTON", "HWOPTION_GAMEPLAY_AUTOTARGET_BUTTON_F", HWOPTION_GAMEPLAY_AUTOTARGET_BUTTON );
+
 		//jdev help
 		m_pHelpPopUpButton = CreateFlipButton( "HWOPTION_GAMEPLAY_HELP_POPUP_BUTTON", "HWOPTION_GAMEPLAY_HELP_POPUP_BUTTON_F", HWOPTION_GAMEPLAY_HELP_POPUP_BUTTON );
 
@@ -247,7 +249,11 @@ void CBasicGamePlayOption::LoadIdleAnim()
 	m_bIdleAnim = RANPARAM::bIdleAnim;
 	m_pIdleAnimButton->SetFlip ( m_bIdleAnim );
 }
-
+void CBasicGamePlayOption::LoadAutoTarget() // autopilot
+{
+	m_bAutoTarget = RANPARAM::bAutoTarget;
+	m_bAutoTargetButton->SetFlip ( m_bAutoTarget );
+}
 void CBasicGamePlayOption::LoadRankName() //add pkrank
 {
 	m_bRankName = RANPARAM::bShowRankName;
