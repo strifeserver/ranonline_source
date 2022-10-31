@@ -28,7 +28,7 @@ C:\GS\RanThirdParty\Max11_sdk\lib
 C:\GS\RanThirdParty\LibXl\lib
 C:\GS\RanThirdParty\OpenSSL\lib
 C:\GS\RanThirdParty\DirectX\Lib\x86
-C:\GS\archidium\=Library
+C:\GS\ranonline_source\=Library
 C:\Program Files (x86)\Microsoft DirectX SDK (March 2008)\Lib\x86
 ```
 
