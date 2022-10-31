@@ -30,6 +30,7 @@ protected:
 		HWOPTION_GAMEPLAY_RANK_NAME_BUTTON, //add pkrank
 		HWOPTION_GAMEPLAY_RANK_MARK_BUTTON, //add pkrank
 		HWOPTION_GAMEPLAY_ALLOW_BET_BUTTON, //add duel bet
+		HWOPTION_GAMEPLAY_AUTOTARGET_BUTTON, // autopilot
 	};
 
 public:
@@ -70,7 +71,8 @@ private:
 	void	LoadRankMark(); //add pkrank
 
 	void	LoadAllowBet(); //add duel bet
-
+	void    LoadAutoTarget();
+	
 private:
 	CD3DFontPar*	m_pFont;	
 
