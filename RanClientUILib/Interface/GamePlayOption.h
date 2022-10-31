@@ -11,18 +11,18 @@ class	CBasicGamePlayOption : public CUIGroup
 protected:
 	enum
 	{
-		HWOPTION_GAMEPLAY_CONFT_BUTTON = NO_ID + 1,		//	'ÀÚµ¿' ´ë·Ã °ÅºÎ
-		HWOPTION_GAMEPLAY_TRADE_BUTTON,					//	'ÀÚµ¿' °Å·¡ °ÅºÎ
-		HWOPTION_GAMEPLAY_PARTY_BUTTON,					//	'ÀÚµ¿' ÆÄÆ¼ °ÅºÎ
+		HWOPTION_GAMEPLAY_CONFT_BUTTON = NO_ID + 1,		//	'ï¿½Úµï¿½' ï¿½ï¿½ï¿½ ï¿½Åºï¿½
+		HWOPTION_GAMEPLAY_TRADE_BUTTON,					//	'ï¿½Úµï¿½' ï¿½Å·ï¿½ ï¿½Åºï¿½
+		HWOPTION_GAMEPLAY_PARTY_BUTTON,					//	'ï¿½Úµï¿½' ï¿½ï¿½Æ¼ ï¿½Åºï¿½
 		HWOPTION_GAMEPLAY_SIMPLEHP_BUTTON,				//
-		HWOPTION_GAMEPLAY_FRIEND_BUTTON,				//	ÀÚµ¿ Ä£±¸ ¿äÃ» °ÅºÎ
-		HWOPTION_GAMEPLAY_DEFAULTPOS_BUTTON,			//	µðÆúÆ® À§Ä¡ÀÌµ¿
-		HWOPTION_GAMEPLAY_MOVABLE_ON_CHAT_BUTTON,		//	Ã¤ÆÃÃ¢ À§¿¡¼­µµ ¿òÁ÷ÀÌ±â
-		HWOPTION_GAMEPLAY_SHOW_TIP_BUTTON,				//	ÆÁ º¸¿©ÁÖ±â
-		HWOPTION_GAMEPLAY_FORCED_ATTACK_BUTTON,			// °­Á¦ °ø°Ý
-		HWOPTION_GAMEPLAY_NAME_DISPLAY_BUTTON,			// ÀÌ¸§ Ç×»ó Ç¥½Ã
-		HWOPTION_GAMEPLAY_SET_DISPLAY_BUTTON,			// ÀÌ¸§ Ç×»ó Ç¥½Ã
-		HWOPTION_GAMEPLAY_REVIVAL_BUTTON,			// ºÎÈ° ½ºÅ³ ±ÝÁö À¯¹«
+		HWOPTION_GAMEPLAY_FRIEND_BUTTON,				//	ï¿½Úµï¿½ Ä£ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Åºï¿½
+		HWOPTION_GAMEPLAY_DEFAULTPOS_BUTTON,			//	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ä¡ï¿½Ìµï¿½
+		HWOPTION_GAMEPLAY_MOVABLE_ON_CHAT_BUTTON,		//	Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½
+		HWOPTION_GAMEPLAY_SHOW_TIP_BUTTON,				//	ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+		HWOPTION_GAMEPLAY_FORCED_ATTACK_BUTTON,			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		HWOPTION_GAMEPLAY_NAME_DISPLAY_BUTTON,			// ï¿½Ì¸ï¿½ ï¿½×»ï¿½ Ç¥ï¿½ï¿½
+		HWOPTION_GAMEPLAY_SET_DISPLAY_BUTTON,			// ï¿½Ì¸ï¿½ ï¿½×»ï¿½ Ç¥ï¿½ï¿½
+		HWOPTION_GAMEPLAY_REVIVAL_BUTTON,			// ï¿½ï¿½È° ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//jdev help
 		HWOPTION_GAMEPLAY_HELP_POPUP_BUTTON,
 		HWOPTION_GAMEPLAY_IDLE_ANIM_BUTTON,
@@ -30,6 +30,7 @@ protected:
 		HWOPTION_GAMEPLAY_RANK_NAME_BUTTON, //add pkrank
 		HWOPTION_GAMEPLAY_RANK_MARK_BUTTON, //add pkrank
 		HWOPTION_GAMEPLAY_ALLOW_BET_BUTTON, //add duel bet
+		HWOPTION_GAMEPLAY_AUTOTARGET_BUTTON, // autopilot
 	};
 
 public:
@@ -70,7 +71,8 @@ private:
 	void	LoadRankMark(); //add pkrank
 
 	void	LoadAllowBet(); //add duel bet
-
+	void    LoadAutoTarget();
+	
 private:
 	CD3DFontPar*	m_pFont;	
 
@@ -86,6 +88,7 @@ private:
 	CBasicButton*		m_pNameDisplayButton;
 	CBasicButton*		m_pSetDisplayButton;//Added by Eugene Saya  5/10/16
 	CBasicButton*		m_pRevivalButton;
+	CBasicButton*		m_bAutoTargetButton; // autopilot
 	//jdev help
 	CBasicButton*		m_pHelpPopUpButton;
 	CBasicButton*		m_pIdleAnimButton;
@@ -106,6 +109,7 @@ public:
 	BOOL m_bNameDisplay;
 	BOOL m_bSetDisplay;//Added by Eugene Saya  5/10/16
 	BOOL m_bNon_Rebirth;
+	BOOL m_bAutoTarget;  // autopilot
 	//jdev help
 	BOOL m_bHelpPopUp;
 	BOOL m_bIdleAnim;

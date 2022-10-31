@@ -53,7 +53,7 @@ void CUILeftTopGroup::CreateSubControl ()
 	RegisterControl ( pPotionTray );
 	m_pPotionTray = pPotionTray;
 
-// #ifndef CH_PARAM // Áß±¹ ÀÎÅÍÆäÀÌ½º º¯°æ
+// #ifndef CH_PARAM // ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 /*	CBasicLevelDisplay* pLevelDisplay = new CBasicLevelDisplay;
 	pLevelDisplay->CreateSub ( this, "BASIC_LEVEL_DISPLAY", UI_FLAG_DEFAULT, BASIC_LEVEL_DISPLAY );
 	pLevelDisplay->CreateSubControl ();
@@ -92,10 +92,35 @@ void	CUILeftTopGroup::Update ( int x, int y, BYTE LB, BYTE MB, BYTE RB, int nScr
 		return ;
 	}
 
+	//Auto Pots for Auto Pilot System - JohnArthurooo (JADev)
+	GLCharacter* const pCharacter1 = GLGaeaClient::GetInstance().GetCharacter ();
+	const GLCHARLOGIC& sCharData = GLGaeaClient::GetInstance().GetCharacterLogic ();
+	if ( pCharacter1 )
+	{
+		//	ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		const int nOUTOFRANGE = -1;
+		int nIndex = nOUTOFRANGE;
+		int fTotalHP = (int(sCharData.m_sHP.dwMax)) / 100 * 50; //Percentage line (Just change the 50 to any percent you want the rest wag na galawin hahaha)
+		int fTotalHP1 = (int(sCharData.m_sHP.dwNow));
+		if  (RANPARAM::bAutoTarget )
+		{
+			if ( fTotalHP1 <=  fTotalHP)
+			{
+				UIKeyCheck::GetInstance()->Check ( RANPARAM::QuickSlot[0], DXKEY_DOWN );
+				nIndex = 0;
+			}
+		}
+		if ( nOUTOFRANGE < nIndex )
+		{
+			pCharacter1->ReqActionQ ( nIndex );
+			if ( m_pBasicQuickSlot ) m_pBasicQuickSlot->SetSlotIndex ( nIndex );
+		}
+	}
+
 	GLCharacter* const pCharacter = GLGaeaClient::GetInstance().GetCharacter ();
 	if ( pCharacter )
 	{
-		//	Äü ¹°¾à
+		//	ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		const int nOUTOFRANGE = -1;
 		int nIndex = nOUTOFRANGE;
 		if ( UIKeyCheck::GetInstance()->Check ( RANPARAM::QuickSlot[0], DXKEY_DOWN ) ) nIndex = 0;

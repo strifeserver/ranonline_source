@@ -23,7 +23,7 @@ enum EMSERVICE_TYPE
 	EMSERVICE_INDONESIA		= 8,
 	EMSERVICE_PHILIPPINES	= 9,
 	EMSERVICE_VIETNAM		= 10,
-	EMSERVICE_GLOBAL		= 11,	//	±Û·Î¹ú ¼­ºñ½º
+	EMSERVICE_GLOBAL		= 11,	//	ï¿½Û·Î¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 };
 
 // SHOTCUT KEY
@@ -72,22 +72,22 @@ namespace RANPARAM
 	extern EMSERVICE_TYPE	emSERVICE_TYPE;
 	extern BOOL				bXML_USE;
 
-	//	°ÔÀÓ ¼³Á¤.
+	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	extern BOOL				bSAVE_USERID;
 
-	extern BOOL				bDIS_CONFT;			//	'ÀÚµ¿' ´ë·Ã °ÅºÎ.
-	extern BOOL				bDIS_TRADE;			//	'ÀÚµ¿' °Å·¡ °ÅºÎ.
-	extern BOOL				bDIS_PARTY;			//	'ÀÚµ¿' ÆÄÆ¼ °ÅºÎ.
+	extern BOOL				bDIS_CONFT;			//	'ï¿½Úµï¿½' ï¿½ï¿½ï¿½ ï¿½Åºï¿½.
+	extern BOOL				bDIS_TRADE;			//	'ï¿½Úµï¿½' ï¿½Å·ï¿½ ï¿½Åºï¿½.
+	extern BOOL				bDIS_PARTY;			//	'ï¿½Úµï¿½' ï¿½ï¿½Æ¼ ï¿½Åºï¿½.
 	extern BOOL				bDIS_FRIEND;
 	extern BOOL				bSHOW_SIMPLEHP;
-	extern BOOL				b3D_SOUND;			//	3Â÷¿ø »ç¿îµå
-	extern BOOL				bSHOW_TIP;			//	ÆÁ º¸¿©ÁÖ±â
-	extern BOOL				bMOVABLE_ON_CHAT;	//	Ã¤ÆÃÃ¢ À§¿¡¼­ ¿òÁ÷ÀÌ±â
-	extern BOOL				bFORCED_ATTACK;		//	°­Á¦ °ø°Ý
-	extern BOOL				bNAME_DISPLAY;		//	ÀÌ¸§ Ç×»ó Ç¥½Ã
-	extern BOOL				bSET_DISPLAY;		//	ÀÌ¸§ Ç×»ó Ç¥½Ã
-	extern BOOL				bNON_Rebirth;		//	ºÎÈ° ½ºÅ³ ±ÝÁö
-
+	extern BOOL				b3D_SOUND;			//	3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	extern BOOL				bSHOW_TIP;			//	ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+	extern BOOL				bMOVABLE_ON_CHAT;	//	Ã¤ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½
+	extern BOOL				bFORCED_ATTACK;		//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	extern BOOL				bNAME_DISPLAY;		//	ï¿½Ì¸ï¿½ ï¿½×»ï¿½ Ç¥ï¿½ï¿½
+	extern BOOL				bSET_DISPLAY;		//	ï¿½Ì¸ï¿½ ï¿½×»ï¿½ Ç¥ï¿½ï¿½
+	extern BOOL				bNON_Rebirth;		//	ï¿½ï¿½È° ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	extern BOOL				bAutoTarget;		//	autopilot
 
 	//jdev help
 	extern BOOL				bHelpPopUp;
@@ -116,30 +116,30 @@ namespace RANPARAM
 	extern BOOL				bLockQSkill; //add lock
 	extern BOOL				bLockQTray; //add lock
 
-	extern BOOL				bCONFT_BOUND;		//	´ë·Ã½Ã ¿µ¿ª Á¦ÇÑ ¿©ºÎ.
-	extern WORD				wCONFT_RECOVER;		//	´ë·Ã½Ã È¸º¹¾à Á¦ÇÑ.
-	extern float			fCONFT_HP_RATE;		//	´ë·Ã½Ã Ã¼·Â È®´ë ºñÀ².
-	extern float			fCONFT_TAR_HP_RATE;	//	´ë·Ã½Ã Ã¼·Â È®´ë ºñÀ² [ »ó´ë¹æ(°³ÀÎ´ë·Ã½Ã¸¸) ].
+	extern BOOL				bCONFT_BOUND;		//	ï¿½ï¿½Ã½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	extern WORD				wCONFT_RECOVER;		//	ï¿½ï¿½Ã½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	extern float			fCONFT_HP_RATE;		//	ï¿½ï¿½Ã½ï¿½ Ã¼ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	extern float			fCONFT_TAR_HP_RATE;	//	ï¿½ï¿½Ã½ï¿½ Ã¼ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Î´ï¿½Ã½Ã¸ï¿½) ].
 
 	extern LONGLONG			llConft_Value; //add duel bet
 	extern WORD				wBetType; //add duel bet
 
-	extern DWORD			dwPARTY_GET_ITEM;	//	ÆÄÆ¼¿É¼Ç ¾ÆÀÌÅÛ ºÐ¹è ±ÔÄ¢.
-	extern DWORD			dwPARTY_GET_MONEY;	//	ÆÄÆ¼¿É¼Ç µ· ºÐ¹è ±ÔÄ¢.
+	extern DWORD			dwPARTY_GET_ITEM;	//	ï¿½ï¿½Æ¼ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¹ï¿½ ï¿½ï¿½Ä¢.
+	extern DWORD			dwPARTY_GET_MONEY;	//	ï¿½ï¿½Æ¼ï¿½É¼ï¿½ ï¿½ï¿½ ï¿½Ð¹ï¿½ ï¿½ï¿½Ä¢.
 	
 	extern BOOL				bVehicleRenderMove;
 	extern BOOL				bPreviewStay;
 
-	extern int				QuickSlot[QUICK_SLOT_NUM]; // Äü½½·Ô
-	extern int				SkillSlot[QUICK_SKILL_NUM]; // Äü½ºÅ³
-	extern int				MenuShotcut[QUICK_MENU_NUM]; // ¸Þ´º´ÜÃàÅ°
-	extern int				DefaultShotcutKey[QUICK_ALL_NUM]; // µðÆúÆ® Å° Å¸ÀÔ
+	extern int				QuickSlot[QUICK_SLOT_NUM]; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	extern int				SkillSlot[QUICK_SKILL_NUM]; // ï¿½ï¿½ï¿½ï¿½Å³
+	extern int				MenuShotcut[QUICK_MENU_NUM]; // ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½Å°
+	extern int				DefaultShotcutKey[QUICK_ALL_NUM]; // ï¿½ï¿½ï¿½ï¿½Æ® Å° Å¸ï¿½ï¿½
 	extern int				KeySettingToRanparam[QUICK_MENU_NUM];
 	extern int				BasicMenuToRanparam[BASICMENU_NUM];
 
 	extern CString			ChatMacro[CHAT_MACRO_NUM];
 
-	//	µð½ºÇÃ·¹ÀÌ ¼³Á¤.
+	//	ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	extern BOOL				bCHECKWHQL;
 	extern DWORD			dwScrWidth;
 	extern DWORD			dwScrHeight;
@@ -153,7 +153,7 @@ namespace RANPARAM
 	extern bool				bDISP_CONSOLE;
 	extern bool				bDISP_FPS;
 
-	//	±×·¡ÇÈ ¼³Á¤.
+	//	ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	extern DWORD			dwVideoLevel;
 	extern DWORD			dwShadowChar;	//	0~4
 	extern BOOL				bBuff;
@@ -168,7 +168,7 @@ namespace RANPARAM
 	extern BOOL				bBUFF_SFX;
 	extern BOOL				bEMOTICON;
 
-	//	½Ã¾ß
+	//	ï¿½Ã¾ï¿½
 	extern DWORD			dwFogRange;
 
 	extern LONG				nSndSfx;
@@ -181,25 +181,25 @@ namespace RANPARAM
 	extern BOOL				bSndMuteMap;
 	extern BOOL				bSndMuteMusic;	
 
-	//	¼­¹ö ¼³Á¤.
+	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	extern TCHAR			LoginAddress[STRING_NUM_128];
 	extern TCHAR			FtpAddressTable[MAX_FTP][STRING_NUM_128];
 	extern TCHAR			HttpAddressTable[MAX_HTTP][STRING_NUM_128];	
 	extern CString			strNewsURL;
 	extern CString			strConnectionURL;
 	extern BOOL				bUsePassiveDN;
-	extern UINT				nChinaRegion; // Áß±¹ - ÆÐÄ¡¼­¹ö Áö¿ª(MAX_CHINA_REGION:¹°¾îº¸±â, 0~3:¼±ÅÃÁö¿ª)
+	extern UINT				nChinaRegion; // ï¿½ß±ï¿½ - ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(MAX_CHINA_REGION:ï¿½ï¿½ï¿½îº¸ï¿½ï¿½, 0~3:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 
-	// Áß±¹ Áö¿ª¿¡ µû¸¥ ¼­¹ö ¼³Á¤
+	// ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	extern SERVER_SET		China_Region[MAX_CHINA_REGION];
 
-	//	¾ð¾î ÆùÆ® ¼³Á¤.
+	//	ï¿½ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½.
 	extern DWORD			dwLangSet;
 	extern BOOL				bEnableExitUrl;
 	extern CString			strGDIFont;
 	extern CString			strFontType;
 
-	//	±âº» ¼³Á¤ ÆÄÀÏ. ( ¾ð¾îº° txt )
+	//	ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ( ï¿½ï¿½îº° txt )
 	extern CString			strCountry;
 	extern CString			strLauncherText;
 	extern CString			strGameInText;
@@ -213,7 +213,7 @@ namespace RANPARAM
 	extern CString			strUIInnerCfg03;
 	extern CString			strUIExtCfg;
 
-	// µµ¿ò¸» À¥ ÆäÀÌÁö ÁÖ¼Ò ( ÁØÇõ )
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ ( ï¿½ï¿½ï¿½ï¿½ )
 	extern TCHAR			HelpAddress[STRING_NUM_128];
 	extern TCHAR			ItemShopAddress[STRING_NUM_128];
 	extern TCHAR			RPFDataPath[STRING_NUM_128];
