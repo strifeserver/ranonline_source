@@ -1603,6 +1603,28 @@ protected:
 	WORD   m_wPosY;
 };
 
+
+
+
+
+class CGetPoints : public CDbAction
+{
+public:
+    CGetPoints( int nChaNum, DWORD dwClientID, DWORD dwUserID );
+	virtual ~CGetPoints() {};
+	virtual int Execute( CServer* pServer );
+
+protected:
+	int	m_nChaNum;
+	DWORD m_dwClientID;
+	DWORD m_dwUserID;
+
+};
+
+
+
+
+
 /**
 * ���� �������� �����´�
 * \param dwPetNum �� ��ȣ
