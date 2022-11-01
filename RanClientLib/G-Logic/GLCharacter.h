@@ -701,7 +701,9 @@ public:
 	//	Note : ������ ������ ���� ��������
 	HRESULT ReqItemBankInfo ();
 	HRESULT ReqItemShopInfo ();
+	HRESULT ReqDeducPoints ( DWORD wPoint1 ,DWORD wPoint2 );
 
+	
 public:
 	//	Note : �ʵ� ������(��) ������.
 	HRESULT ReqFieldTo ( const STARGETID &sTargetID, bool bPet = false );
