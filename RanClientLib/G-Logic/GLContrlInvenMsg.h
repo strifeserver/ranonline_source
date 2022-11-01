@@ -5,13 +5,13 @@
 
 enum EMREQ_BOXOPEN_FB
 {
-	EMREQ_BOXOPEN_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMREQ_BOXOPEN_FB_OK			= 1,	//	¼º°ø.
-	EMREQ_BOXOPEN_FB_NOITEM		= 2,	//	»óÀÚ ¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMREQ_BOXOPEN_FB_NOBOX		= 3,	//	»óÀÚ°¡ ¾Æ´Ô.
-	EMREQ_BOXOPEN_FB_EMPTY		= 4,	//	»óÀÚ ¾È¿¡ ³»¿ë¹°ÀÌ ¾ø½À´Ï´Ù.
-	EMREQ_BOXOPEN_FB_NOTINVEN	= 5,	//	ÀÎº¥ °ø°£ÀÌ ºÎÁ·.
-	EMREQ_BOXOPEN_FB_INVALIDITEM= 6,	//	Àß¸øµÈ ¾ÆÀÌÅÛÀÌ µé¾î ÀÖÀ½.
+	EMREQ_BOXOPEN_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMREQ_BOXOPEN_FB_OK			= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_BOXOPEN_FB_NOITEM		= 2,	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_BOXOPEN_FB_NOBOX		= 3,	//	ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½Æ´ï¿½.
+	EMREQ_BOXOPEN_FB_EMPTY		= 4,	//	ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½ï¿½ï¿½ë¹°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	EMREQ_BOXOPEN_FB_NOTINVEN	= 5,	//	ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_BOXOPEN_FB_INVALIDITEM= 6,	//	ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMREQ_GMITEM_FB //add itemcmd
@@ -26,162 +26,178 @@ enum EMREQ_GMITEM_FB //add itemcmd
 
 enum EMREQ_DISGUISE_FB
 {
-	EMREQ_DISGUISE_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMREQ_DISGUISE_FB_OK		= 1,	//	¼º°ø.
-	EMREQ_DISGUISE_FB_NOITEM	= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMREQ_DISGUISE_FB_NODISGUISE= 3,	//	ÄÚ½ºÅù ¾ÆÀÌÅÛÀÌ ¾ø½¿.
-	EMREQ_DISGUISE_FB_NOTSUIT	= 4,	//	º¹ÀåÀÌ ¾Æ´Ï¿©¼­ ºÒ°¡´É.
-	EMREQ_DISGUISE_FB_DEFSUIT	= 5,	//	´Ù¸¥ Á¾·ùÀÇ º¹Àå.
-	EMREQ_DISGUISE_FB_ALREADY	= 6,	//	ÀÌ¹Ì ÄÚ½ºÅùÀÌ ÁöÁ¤µÇ¾î ÀÖÀ½.
+	EMREQ_DISGUISE_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMREQ_DISGUISE_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_DISGUISE_FB_NOITEM	= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_DISGUISE_FB_NODISGUISE= 3,	//	ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_DISGUISE_FB_NOTSUIT	= 4,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¿ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½.
+	EMREQ_DISGUISE_FB_DEFSUIT	= 5,	//	ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_DISGUISE_FB_ALREADY	= 6,	//	ï¿½Ì¹ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMREQ_CLEANSER_FB
 {
-	EMREQ_CLEANSER_FB_FAIL		= 0,	//	¼¼Å¹¿¡ ½ÇÆÐ.
-	EMREQ_CLEANSER_FB_OK		= 1,	//	¼¼Å¹¿¡ ¼º°ø.
-	EMREQ_CLEANSER_FB_NOITEM	= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMREQ_CLEANSER_FB_NOCLEANSER= 3,	//	¼¼Á¦°¡ ¾Æ´Õ´Ï´Ù.
-	EMREQ_CLEANSER_FB_NONEED	= 4,	//	¼¼Å¹ÀÌ ÇÊ¿ä ¾øÀ½.
+	EMREQ_CLEANSER_FB_FAIL		= 0,	//	ï¿½ï¿½Å¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_CLEANSER_FB_OK		= 1,	//	ï¿½ï¿½Å¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_CLEANSER_FB_NOITEM	= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_CLEANSER_FB_NOCLEANSER= 3,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½.
+	EMREQ_CLEANSER_FB_NONEED	= 4,	//	ï¿½ï¿½Å¹ï¿½ï¿½ ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMREQ_RESET_SKST_FB
 {
-	EMREQ_RESET_SKST_FB_FAIL		= 0,	//	ÃÊ±âÈ­ ½ÇÆÐ.
-	EMREQ_RESET_SKST_FB_OK			= 1,	//	ÃÊ±âÈ­ ¼º°ø.
-	EMREQ_RESET_SKST_FB_NOITEM		= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMREQ_RESET_SKST_FB_NOINVEN		= 3,	//	ÀÎº¥°ø°£ ºÎÁ·.
+	EMREQ_RESET_SKST_FB_FAIL		= 0,	//	ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_RESET_SKST_FB_OK			= 1,	//	ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_RESET_SKST_FB_NOITEM		= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_RESET_SKST_FB_NOINVEN		= 3,	//	ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMREQ_CHARCARD_FB
 {
-	EMREQ_CHARCARD_FB_FAIL		= 0,	//	ÄÉ¸¯ÅÍ Ä«µå »ç¿ë¿¡ ½ÇÆÐ.
-	EMREQ_CHARCARD_FB_OK		= 1,	//	ÄÉ¸¯ÅÍ Ä«µå »ç¿ë¿¡ ¼º°ø.
-	EMREQ_CHARCARD_FB_NOITEM	= 2,	//	ÄÉ¸¯ÅÍ Ä«µå ¾ÆÀÌÅÛÀÌ ¾øÀ½.
+	EMREQ_CHARCARD_FB_FAIL		= 0,	//	ï¿½É¸ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_CHARCARD_FB_OK		= 1,	//	ï¿½É¸ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_CHARCARD_FB_NOITEM	= 2,	//	ï¿½É¸ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMREQ_STORAGECARD_FB
 {
-	EMREQ_STORAGECARD_FB_FAIL		= 0,	//	Ã¢°í Ä«µå »ç¿ë¿¡ ½ÇÆÐ.
-	EMREQ_STORAGECARD_FB_OK			= 1,	//	Ã¢°í Ä«µå »ç¿ë¿¡ ¼º°ø.
-	EMREQ_STORAGECARD_FB_NOITEM		= 2,	//	Ã¢°í Ä«µå ¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMREQ_STORAGECARD_FB_INVNUM		= 3,	//	Àß¸øµÈ Ã¢º¸ ¹øÈ£·Î ½ÇÆÐ.
+	EMREQ_STORAGECARD_FB_FAIL		= 0,	//	Ã¢ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_STORAGECARD_FB_OK			= 1,	//	Ã¢ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_STORAGECARD_FB_NOITEM		= 2,	//	Ã¢ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_STORAGECARD_FB_INVNUM		= 3,	//	ï¿½ß¸ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMREQ_INVENLINE_FB
 {
-	EMREQ_INVENLINE_FB_FAIL			= 0,	//	ÀÎº¥ Ä«µå »ç¿ë¿¡ ½ÇÆÐ.
-	EMREQ_INVENLINE_FB_OK			= 1,	//	ÀÎº¥ Ä«µå »ç¿ë¿¡ ¼º°ø.
-	EMREQ_INVENLINE_FB_NOITEM		= 2,	//	ÀÎº¥ Ä«µå ¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMREQ_INVENLINE_FB_MAXLINE		= 3,	//	´õ ÀÌ»ó Ãß°¡ °¡´ÉÇÑ ÀÎº¥È®»ó ºÒ°¡´É.
+	EMREQ_INVENLINE_FB_FAIL			= 0,	//	ï¿½Îºï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_INVENLINE_FB_OK			= 1,	//	ï¿½Îºï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_INVENLINE_FB_NOITEM		= 2,	//	ï¿½Îºï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_INVENLINE_FB_MAXLINE		= 3,	//	ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½È®ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½.
 };
 
 enum EMREQ_STORAGEOPEN_FB
 {
-	EMREQ_STORAGEOPEN_FB_FAIL		= 0,	//	Ã¢°í¿¬°á Ä«µå »ç¿ë¿¡ ½ÇÆÐ.
-	EMREQ_STORAGEOPEN_FB_OK			= 1,	//	Ã¢°í¿¬°á Ä«µå »ç¿ë¿¡ ¼º°ø.
-	EMREQ_STORAGEOPEN_FB_NOITEM		= 2,	//	Ã¢°í¿¬°á Ä«µå ¾ÆÀÌÅÛÀÌ ¾øÀ½.
+	EMREQ_STORAGEOPEN_FB_FAIL		= 0,	//	Ã¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_STORAGEOPEN_FB_OK			= 1,	//	Ã¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_STORAGEOPEN_FB_NOITEM		= 2,	//	Ã¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMREQ_REMODELOPEN_FB
 {
-	EMREQ_REMODELOPEN_FB_FAIL		= 0,	//	°³Á¶Ä«µå »ç¿ë¿¡ ½ÇÆÐ.
-	EMREQ_REMODELOPEN_FB_OK			= 1,	//	°³Á¶Ä«µå »ç¿ë¿¡ ¼º°ø.
-	EMREQ_REMODELOPEN_FB_NOITEM		= 2,	//	°³Á¶Ä«µå ¾ÆÀÌÅÛÀÌ ¾øÀ½.
+	EMREQ_REMODELOPEN_FB_FAIL		= 0,	//	ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_REMODELOPEN_FB_OK			= 1,	//	ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_REMODELOPEN_FB_NOITEM		= 2,	//	ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMREQ_GARBAGEOPEN_FB
 {
-	EMREQ_GARBAGEOPEN_FB_FAIL		= 0,	//	ÈÞÁöÅëÄ«µå »ç¿ë¿¡ ½ÇÆÐ.
-	EMREQ_GARBAGEOPEN_FB_OK			= 1,	//	ÈÞÁöÅëÄ«µå »ç¿ë¿¡ ¼º°ø.
-	EMREQ_GARBAGEOPEN_FB_NOITEM		= 2,	//	ÈÞÁöÅëÄ«µå ¾ÆÀÌÅÛÀÌ ¾øÀ½.
+	EMREQ_GARBAGEOPEN_FB_FAIL		= 0,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_GARBAGEOPEN_FB_OK			= 1,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_GARBAGEOPEN_FB_NOITEM		= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMGARBAGE_RESULT_FB
 {
-	EMGARBAGE_RESULT_FB_FAIL		= 0,	//	¾ÆÀÌÅÛ »èÁ¦¿¡ ½ÇÆÐ.
-	EMGARBAGE_RESULT_FB_OK			= 1,	//	¾ÆÀÌÅÛ »ç¿ë¿¡ ¼º°ø.
-	EMGARBAGE_RESULT_FB_NOITEM		= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMGARBAGE_RESULT_FB_ITEMTYPE	= 3,	//	»èÁ¦ÇÒ¼ö ¾ø´Â ¾ÆÀÌÅÛÀÔ´Ï´Ù.
+	EMGARBAGE_RESULT_FB_FAIL		= 0,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMGARBAGE_RESULT_FB_OK			= 1,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMGARBAGE_RESULT_FB_NOITEM		= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMGARBAGE_RESULT_FB_ITEMTYPE	= 3,	//	ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
 };
 
 enum EMREQ_PREMIUMSET_FB
 {
-	EMREQ_PREMIUMSET_FB_FAIL		= 0,	//	ÇÁ¸®¹Ì¾ö¼Â »ç¿ë¿¡ ½ÇÆÐ.
-	EMREQ_PREMIUMSET_FB_OK			= 1,	//	ÇÁ¸®¹Ì¾ö¼Â »ç¿ë¿¡ ¼º°ø.
-	EMREQ_PREMIUMSET_FB_NOITEM		= 2,	//	ÇÁ¸®¹Ì¾ö¼Â ¾ÆÀÌÅÛÀÌ ¾øÀ½.
+	EMREQ_PREMIUMSET_FB_FAIL		= 0,	//	ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_PREMIUMSET_FB_OK			= 1,	//	ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ë¿¡ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_PREMIUMSET_FB_NOITEM		= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	EMREQ_PREMIUMSET_FB_NOTINVEN	= 3,	//	ÇÁ¸®¹Ì¾ö¼Â ¹Ú½ºÀÇ ¾ÆÀÌÅÛÀ» ¿­¾î³õÀ» ÀÎº¥ °ø°£ ºÎÁ·.
+	EMREQ_PREMIUMSET_FB_NOTINVEN	= 3,	//	ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMREQ_CHARGEDITEM_FROMDB_FB
 {
-	EMREQ_CHARGEDITEM_FROMDB_FB_END		= 0,	//	¸¶Áö¸·¾ÆÀÌÅÛ
-	EMREQ_CHARGEDITEM_FROMDB_FB_OK		= 1,	//	¼º°ø
+	EMREQ_CHARGEDITEM_FROMDB_FB_END		= 0,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	EMREQ_CHARGEDITEM_FROMDB_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½
 };
+
+
+enum EMREQ_ITEMSHOP_FROMDB_FB
+{
+	EMREQ_ITEMSHOP_FROMDB_FB_END		= 0,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	EMREQ_ITEMSHOP_FROMDB_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½
+};
+
+enum ITEMSHOP_ITEM_GET_FB
+{
+	ITEMSHOP_ITEM_GET_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	ITEMSHOP_ITEM_GET_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	ITEMSHOP_ITEM_GET_FB_NOITEM	= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	ITEMSHOP_ITEM_GET_FB_NOINVEN	= 3,	//	ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+};
+
 
 enum EMCHARGED_ITEM_GET_FB
 {
-	EMCHARGED_ITEM_GET_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMCHARGED_ITEM_GET_FB_OK		= 1,	//	¼º°ø.
-	EMCHARGED_ITEM_GET_FB_NOITEM	= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMCHARGED_ITEM_GET_FB_NOINVEN	= 3,	//	ÀÎº¥°ø°£ ºÎÁ·.
+	EMCHARGED_ITEM_GET_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMCHARGED_ITEM_GET_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMCHARGED_ITEM_GET_FB_NOITEM	= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMCHARGED_ITEM_GET_FB_NOINVEN	= 3,	//	ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMINVEN_RANDOMBOXOPEN_FB
 {
-	EMINVEN_RANDOMBOXOPEN_FB_FAIL	= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMINVEN_RANDOMBOXOPEN_FB_OK		= 1,	//	¼º°ø.
-	EMINVEN_RANDOMBOXOPEN_FB_EMPTY	= 2,	//	¹Ú½º¿¡ ¾ÆÀÌÅÆÀÌ ¾øÀ½.
-	EMINVEN_RANDOMBOXOPEN_FB_BADITEM= 3,	//	Àß¸øµÈ ¾ÆÀÌÅÆ.
-	EMINVEN_RANDOMBOXOPEN_FB_NOINVEN= 4,	//	ÀÎº¥¿¡ ¿©À¯°ø°£ ¾øÀ½.
-	EMINVEN_RANDOMBOXOPEN_FB_MISS	= 5,	//	²Î.
+	EMINVEN_RANDOMBOXOPEN_FB_FAIL	= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMINVEN_RANDOMBOXOPEN_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_RANDOMBOXOPEN_FB_EMPTY	= 2,	//	ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_RANDOMBOXOPEN_FB_BADITEM= 3,	//	ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_RANDOMBOXOPEN_FB_NOINVEN= 4,	//	ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_RANDOMBOXOPEN_FB_MISS	= 5,	//	ï¿½ï¿½.
 };
 
 enum EMINVEN_DISJUNCTION_FB
 {
-	EMINVEN_DISJUNCTION_FB_FAIL		= 0,	//	ÀÏ¹Ý ¿À·ù.
-	EMINVEN_DISJUNCTION_FB_OK		= 1,	//	¼º°ø.
-	EMINVEN_DISJUNCTION_FB_BADITEM	= 2,	//	Àß¸øµÈ ¾ÆÀÌÅÛ.
-	EMINVEN_DISJUNCTION_FB_NOINVEN	= 3,	//	ÀÎº¥ °ø°£ ºÎÁ·.
-	EMINVEN_DISJUNCTION_FB_NONEED	= 4,	//	ÀÏ¹Ý ¿À·ù.
+	EMINVEN_DISJUNCTION_FB_FAIL		= 0,	//	ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_DISJUNCTION_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_DISJUNCTION_FB_BADITEM	= 2,	//	ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_DISJUNCTION_FB_NOINVEN	= 3,	//	ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_DISJUNCTION_FB_NONEED	= 4,	//	ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMREBUILD_RESULT	// ITEMREBUILD_MARK
 {
-	EMREBUILD_RESULT_FAIL		= 0,	// ÀÏ¹Ý ¿À·ù
-	EMREBUILD_RESULT_OPEN		= 1,	// °³Á¶ ÀÎÅÍÆäÀÌ½º ¿­±â
-	EMREBUILD_RESULT_SUCCESS	= 2,	// È®ÀÎ ¹öÆ° ´­·¶°í, °³Á¶ ¼º°ø
-	EMREBUILD_RESULT_DESTROY	= 3,	// È®ÀÎ ¹öÆ° ´­·¶°í, °³Á¶ ½ÇÆÐ, ¾ÆÀÌÅÛ ¼Ò¸ê
-	EMREBUILD_RESULT_MONEY		= 4,	// È®ÀÎ ¹öÆ° ´­·¶°í, ±Ý¾×ÀÌ ¸ÂÁö ¾Ê¾Æ¼­ ¿À·ù Àü¼Û
-	EMREBUILD_RESULT_CLOSE		= 5		// °³Á¶ ÀÎÅÍÆäÀÌ½º ´Ý±â
+	EMREBUILD_RESULT_FAIL		= 0,	// ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREBUILD_RESULT_OPEN		= 1,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREBUILD_RESULT_SUCCESS	= 2,	// È®ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREBUILD_RESULT_DESTROY	= 3,	// È®ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½
+	EMREBUILD_RESULT_MONEY		= 4,	// È®ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Ý¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREBUILD_RESULT_CLOSE		= 5		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Ý±ï¿½
 };
 
 enum EMREQ_NPC_RECALL_FB
 {
-	EMREQ_NPC_RECALL_FB_FAIL		= 0,	//	NPC È£Ãâ ½ÇÆÐ
-	EMREQ_NPC_RECALL_FB_OK			= 1,	//	NPC È£Ãâ ¼º°ø
-	EMREQ_NPC_RECALL_FB_NOITEM		= 2,	//	NPC È£Ãâ Ä«µå ¾ÆÀÌÅÛ ¾øÀ½
+	EMREQ_NPC_RECALL_FB_FAIL		= 0,	//	NPC È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREQ_NPC_RECALL_FB_OK			= 1,	//	NPC È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREQ_NPC_RECALL_FB_NOITEM		= 2,	//	NPC È£ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	EMREQ_NPC_RECALL_FB_NPC			= 3,	//	NPC DATA ERROR
 	EMREQ_NPC_RECALL_FB_POS			= 4,	//	NPC DROP ERROR
 };
 
 enum EMREQ_NPC_COMMISSION_FB
 {
-	EMREQ_NPC_COMMISSION_FAIL		= 0,	//	NPC ¿À·ù »ý±è
-	EMREQ_NPC_COMMISSION_CHAR		= 1,	//	NPC CHAR¿¡ ¹Ù·Î ¾÷µ¥ÀÌÆ®
-	EMREQ_NPC_COMMISSION_DB			= 2,	//	NPC DB¿¡ ÀúÀå
+	EMREQ_NPC_COMMISSION_FAIL		= 0,	//	NPC ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREQ_NPC_COMMISSION_CHAR		= 1,	//	NPC CHARï¿½ï¿½ ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+	EMREQ_NPC_COMMISSION_DB			= 2,	//	NPC DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 };
 
 enum EMITEM_MIX_FB
 {
-	EMITEM_MIX_FB_FAIL				= 0,	//	½ÇÆÐ
-	EMITEM_MIX_FB_OK				= 1,	//	¼º°ø
-	EMITEM_MIX_FB_ERROR				= 2,	//	ÀÏ¹ÝÀûÀÎ ¿À·ù
-	EMITEM_MIX_FB_NOMIX				= 3,	//	¾ø´Â Á¶ÇÕ
-	EMITEM_MIX_FB_NOMIXNUM			= 4,	//	Á¶ÇÕ¿¡ ¼ö·®ÀÌ ¸ÂÁö ¾Ê½À´Ï´Ù.
-	EMITEM_MIX_FB_NOITEM			= 5,	//	¾ÆÀÌÅÛ ¾øÀ½	
-	EMITEM_MIX_FB_NOMONEY			= 6,	//	µ·¾øÀ½
-	EMITEM_MIX_FB_NOINVEN			= 7,	//	ÀÎº¥ À§Ä¡ ºÎÁ·
+	EMITEM_MIX_FB_FAIL				= 0,	//	ï¿½ï¿½ï¿½ï¿½
+	EMITEM_MIX_FB_OK				= 1,	//	ï¿½ï¿½ï¿½ï¿½
+	EMITEM_MIX_FB_ERROR				= 2,	//	ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMITEM_MIX_FB_NOMIX				= 3,	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMITEM_MIX_FB_NOMIXNUM			= 4,	//	ï¿½ï¿½ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.
+	EMITEM_MIX_FB_NOITEM			= 5,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
+	EMITEM_MIX_FB_NOMONEY			= 6,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	EMITEM_MIX_FB_NOINVEN			= 7,	//	ï¿½Îºï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 };
 
 namespace GLMSG
@@ -1697,6 +1713,114 @@ namespace GLMSG
 		}
 	};
 
+
+
+	struct SNET_GET_ITEMSHOP_FROMDB
+	{
+		NET_MSG_GENERIC			nmg;
+
+		DWORD					dwCharID;
+		char					szUID[USR_ID_LENGTH+1];
+
+		SNET_GET_ITEMSHOP_FROMDB ()
+			: dwCharID(0)
+		{
+			nmg.dwSize = sizeof ( SNET_GET_ITEMSHOP_FROMDB );
+			nmg.nType  = NET_MSG_GCTRL_GET_ITEMSHOP_FROMDB;
+			GASSERT(nmg.dwSize<=NET_DATA_BUFSIZE);
+			memset ( szUID, 0, sizeof(char)*(USR_ID_LENGTH+1) );
+		}
+	};
+
+	struct SNET_ITEMSHOP_BUY
+	{
+		NET_MSG_GENERIC		nmg;
+
+		WORD				wPosX;
+		WORD				wPosY;
+		DWORD				dwID;
+		char						szPurKey[PURKEY_LENGTH+1];
+		
+		SNET_ITEMSHOP_BUY () 
+			: wPosX(0)
+			, wPosY(0)
+			, dwID(0)
+		{
+			nmg.dwSize = sizeof(SNET_ITEMSHOP_BUY);
+			nmg.nType = NET_MSG_GCTRL_BUY_ITEMSHOP;
+			GASSERT(nmg.dwSize<=NET_DATA_BUFSIZE);
+			memset ( szPurKey, 0, sizeof(char)*(PURKEY_LENGTH+1) );
+		}
+	};
+
+	struct SNET_ITEMSHOP_BUY_FB
+	{
+		NET_MSG_GENERIC		nmg;
+
+		WORD				wPosX;
+		WORD				wPosY;
+		SNATIVEID			nID;
+		ITEMSHOP_ITEM_GET_FB emFB;
+		char				szName[CHAR_NAME+1];
+		
+		SNET_ITEMSHOP_BUY_FB () 
+			: wPosX(0)
+			, wPosY(0)
+			, nID(NATIVEID_NULL())
+		{
+			nmg.dwSize = sizeof(SNET_ITEMSHOP_BUY_FB);
+			nmg.nType = NET_MSG_GCTRL_BUY_ITEMSHOP_FB;
+			GASSERT(nmg.dwSize<=NET_DATA_BUFSIZE);
+			memset ( szName, 0, sizeof(char)*(CHAR_NAME+1) );
+		}
+	};
+
+	struct SNET_ITEMSHOP_ITEM_BUY
+	{
+		NET_MSG_GENERIC			nmg;
+
+		DWORD					dwUserID;
+		bool					bBuy;
+
+		SNET_ITEMSHOP_ITEM_BUY () 
+			: dwUserID(0)
+			, bBuy(false)
+		{
+			nmg.dwSize = sizeof(SNET_ITEMSHOP_ITEM_BUY);
+			nmg.nType = NET_MSG_GCTRL_BUY_ITEMSHOP_ITEM;
+			GASSERT(nmg.dwSize<=NET_DATA_BUFSIZE);
+		}
+	};
+
+	struct SNET_GET_ITEMSHOP_FROMDB_FB
+	{
+		NET_MSG_GENERIC				nmg;
+
+		EMREQ_CHARGEDITEM_FROMDB_FB emFB;
+		SNATIVEID					nidITEM;
+		WORD						wPrice;
+		WORD						wStock;
+		WORD						wCtg;
+		WORD						wCurrency;
+		ITEMSHOP					sItemShop;
+		char						szPurKey[PURKEY_LENGTH+1];
+
+		SNET_GET_ITEMSHOP_FROMDB_FB ()
+			: emFB(EMREQ_CHARGEDITEM_FROMDB_FB_END)
+			, nidITEM(false)
+			, wPrice(0)
+			, wStock(0)
+			, wCurrency(0)
+		{
+			nmg.dwSize = sizeof ( SNET_GET_ITEMSHOP_FROMDB_FB );
+			nmg.nType  = NET_MSG_GCTRL_GET_ITEMSHOP_FROMDB_FB;
+			GASSERT(nmg.dwSize<=NET_DATA_BUFSIZE);
+			memset ( szPurKey, 0, sizeof(char)*(PURKEY_LENGTH+1) );
+		}
+	};
+
+
+
 	struct SNET_GET_CHARGEDITEM_FROMDB
 	{
 		NET_MSG_GENERIC			nmg;
@@ -1899,12 +2023,12 @@ namespace GLMSG
 		}
 	};
 
-	// ÈÞÁöÅë
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	struct SNET_GARBAGE_RESULT
 	{
 		NET_MSG_GENERIC		nmg;
-		WORD				wPosX;	// »èÁ¦ÇÒ ¾ÆÀÌÅÛ ÁÂÇ¥
-		WORD				wPosY;	// »èÁ¦ÇÒ ¾ÆÀÌÅÛ ÁÂÇ¥
+		WORD				wPosX;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥
+		WORD				wPosY;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥
 
 		SNET_GARBAGE_RESULT()
 			: wPosX(EM_INVENSIZE_X)
@@ -2229,7 +2353,7 @@ namespace GLMSG
 	};
 
 
-	// ¾ÆÀÌÅÛ Á¶ÇÕ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	struct SNET_INVEN_ITEM_MIX
 	{
 		NET_MSG_GENERIC		nmg;
@@ -2248,7 +2372,7 @@ namespace GLMSG
 		}
 	};
 
-	// ¾ÆÀÌÅÛ Á¶ÇÕ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	struct SNET_INVEN_ITEM_MIX_FB
 	{
 		NET_MSG_GENERIC		nmg;

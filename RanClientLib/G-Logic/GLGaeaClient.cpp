@@ -78,7 +78,7 @@ GLGaeaClient::GLGaeaClient(void)
 
 GLGaeaClient::~GLGaeaClient(void)
 {
-	//	Note : ÀÌÀü ¸ÊÀ» Å¬¸®¾î.
+	//	Note : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½.
 	//    
 	SAFE_DELETE(m_pLandMClient);
 }
@@ -127,10 +127,10 @@ HRESULT	GLGaeaClient::CreatePET ( NET_MSG_GENERIC* nmg )
 		sPet.m_PutOnItems[i] = pNetMsg->m_PutOnItems[i];
 	}
 
-	// ÁÖÀÎ ¿·¿¡ PET »ý¼º
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ PET ï¿½ï¿½ï¿½ï¿½
 	HRESULT hr = m_Pet.Create ( &sPet, pNetMsg->m_vPos, pNetMsg->m_vDir, m_pLandMClient->GetNaviMesh(), m_pd3dDevice );
 
-	// ½ÇÆÐÃ³¸® ( ¼­¹ö¿¡ »ý¼ºµÈ ÆÖÀ» »èÁ¦ÇÏµµ·Ï )
+	// ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ )
 	if ( FAILED(hr) )
 	{
 		SINVENITEM* pInvenItem = m_Character.m_cInventory.FindItemByGenNumber ( 
@@ -142,13 +142,13 @@ HRESULT	GLGaeaClient::CreatePET ( NET_MSG_GENERIC* nmg )
 			NetMsg.dwPetID = sPet.m_dwPetID;
 			NETSENDTOFIELD ( &NetMsg );
 		}
-		// ½ÇÆÐ½Ã GenNum Ã³¸®
+		// ï¿½ï¿½ï¿½Ð½ï¿½ GenNum Ã³ï¿½ï¿½
 		m_Character.m_llPetCardGenNum = 0;
 
 		return FALSE;
 	}
 
-	// »ý¼º È¿°ú
+	// ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½
 	D3DXMATRIX matEffect;
 	D3DXVECTOR3 vPos = m_Pet.GetPosition ();
 	D3DXMatrixTranslation ( &matEffect, vPos.x, vPos.y, vPos.z );
@@ -162,7 +162,7 @@ HRESULT	GLGaeaClient::CreatePET ( NET_MSG_GENERIC* nmg )
 		&sTargetID
 	);
 
-	// ¼±ÅÃµÈ ½ºÅ³ÀÌ ÀÖ´Ù¸é ±¸µ¿½ÃÄÑ ÁØ´Ù
+	// ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½
 	if ( m_Pet.m_sActiveSkillID != NATIVEID_NULL() )
 	{
 		m_Pet.ReqChangeActiveSkill ( m_Pet.m_sActiveSkillID );
@@ -179,7 +179,7 @@ HRESULT	GLGaeaClient::CreatePET ( NET_MSG_GENERIC* nmg )
 PLANDMANCLIENT GLGaeaClient::CreateLandMClient ( char* szLandFileName, D3DXVECTOR3 &vBasicPos )
 {
 	GASSERT(szLandFileName);
-	GASSERT(m_pd3dDevice&&"m_pd3dDevice °¡ ÃÊ±âÈ­ µÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+	GASSERT(m_pd3dDevice&&"m_pd3dDevice ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½.");
 
 	PLANDMANCLIENT pLandMClient = NULL;
 
@@ -191,7 +191,7 @@ PLANDMANCLIENT GLGaeaClient::CreateLandMClient ( char* szLandFileName, D3DXVECTO
 
 PLANDMANCLIENT GLGaeaClient::CreateLandMClient ( SNATIVEID sMapID, D3DXVECTOR3 &vBasicPos )
 {
-	GASSERT(m_pd3dDevice&&"m_pd3dDevice °¡ ÃÊ±âÈ­ µÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+	GASSERT(m_pd3dDevice&&"m_pd3dDevice ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½.");
 
 	PLANDMANCLIENT pLandMClient = NULL;
 	SMAPNODE *pMapNode = FindMapNode ( sMapID );
@@ -219,16 +219,16 @@ PLANDMANCLIENT GLGaeaClient::CreateInstantMapClient ( SNATIVEID sBaseMapID, SNAT
 
 HRESULT GLGaeaClient::SetActiveMap ( char* szLandFileName, D3DXVECTOR3 &vBasicPos )
 {
-	//	Note : »õ·Î¿î ¸ÊÀ» ·ÎµåÇÔ.
+	//	Note : ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½.
 	//
 	PLANDMANCLIENT pLandMClient = CreateLandMClient ( szLandFileName, vBasicPos );
 	if ( !pLandMClient )	return E_FAIL;
 
-	//	Note : ÀÌÀü ¸ÊÀ» Å¬¸®¾î.
+	//	Note : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½.
 	//
 	SAFE_DELETE(m_pLandMClient);
 
-	//	Note : ·ÎµåÇÑ ¸ÊÀ» È°¼ºÈ­.
+	//	Note : ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­.
 	//
 	m_pLandMClient = pLandMClient;
 	m_pLandMClient->ActiveMap ();
@@ -238,16 +238,16 @@ HRESULT GLGaeaClient::SetActiveMap ( char* szLandFileName, D3DXVECTOR3 &vBasicPo
 
 HRESULT GLGaeaClient::SetActiveMap ( SNATIVEID sMapID, D3DXVECTOR3 &vBasicPos )
 {
-	//	Note : »õ·Î¿î ¸ÊÀ» ·ÎµåÇÔ.
+	//	Note : ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½.
 	//
 	PLANDMANCLIENT pLandMClient = CreateLandMClient ( sMapID, vBasicPos );
 	if ( !pLandMClient )	return E_FAIL;
 
-	//	Note : ÀÌÀü ¸ÊÀ» Å¬¸®¾î.
+	//	Note : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½.
 	//
 	SAFE_DELETE(m_pLandMClient);
 
-	//	Note : ·ÎµåÇÑ ¸ÊÀ» È°¼ºÈ­.
+	//	Note : ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­.
 	//
 	m_pLandMClient = pLandMClient;
 	m_pLandMClient->ActiveMap ();
@@ -269,35 +269,35 @@ SNATIVEID GLGaeaClient::GetActiveMapID ()
 
 HRESULT GLGaeaClient::MoveActiveMap ( SNATIVEID sMapID, D3DXVECTOR3 &vPos )
 {
-	//	Note : ÀÌÀü ¸ÊÀ» Å¬¸®¾î.
+	//	Note : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½.
 	//
 	SAFE_DELETE(m_pLandMClient);
 
 	CInnerInterface::GetInstance().ClearNameList();
-	// MEMO : ¸ÊÀÌµ¿½Ã ¿­¸° À©µµ¿ì¸¦ ´Ý±â À§ÇØ¼­ Ãß°¡Çß´Ù. ¾öÇÑ Ã¢ÀÌ ´ÝÈú¼öµµ ÀÖÀ¸´Ï ÁöÄÑºÁ¾ß°Ú´Ù.
-	// ¾Æ·¡ ÇÔ¼ö°¡ Á¤È®ÇÑ ÀÇ¹Ì·Î ¾²ÀÌ´ÂÁö ¸ð¸£°Ú´Ù.
+	// MEMO : ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ì¸¦ ï¿½Ý±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ß°ï¿½ï¿½ß´ï¿½. ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñºï¿½ï¿½ß°Ú´ï¿½.
+	// ï¿½Æ·ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½È®ï¿½ï¿½ ï¿½Ç¹Ì·ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½ð¸£°Ú´ï¿½.
 	CInnerInterface::GetInstance().CloseAllWindow();
 
-	//	Note : ÀåÄ¡ µ¥ÀÌÅÍ¸¦ ¸®¼Â.
+	//	Note : ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	//
 	DxResponseMan::GetInstance().DoInterimClean ( m_pd3dDevice );
 
-	//	Note : ÄÉ¸¯ÅÍ ±âº» Çü»óÀ» ´Ù½Ã ºÎ¸¥´Ù.
+	//	Note : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Î¸ï¿½ï¿½ï¿½.
 	//for ( int i=0; i<GLCI_NUM_NEWSEX; ++i )
 	//add class
 	for ( int i=0; i<GLCI_NUM_2015; ++i )
 		DxSkinCharDataContainer::GetInstance().LoadData( GLCONST_CHAR::szCharSkin[i], m_pd3dDevice, TRUE );
 
-	//	Note : ÀÚ±â ÄÉ¸¯ÀÇ ½ºÅ²À» ´Ù½Ã ÀÐ¾î ¿Â´Ù.
+	//	Note : ï¿½Ú±ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½Å²ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Ð¾ï¿½ ï¿½Â´ï¿½.
 	//
 	m_Character.SkinLoad ( m_pd3dDevice );
 
-	//	Note : »õ·Î¿î ¸ÊÀ» ·ÎµåÇÔ.
+	//	Note : ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½.
 	//
 	PLANDMANCLIENT pLandMClient = CreateLandMClient ( sMapID, vPos );
 	if ( !pLandMClient )	return E_FAIL;
 
-	//	Note : ·ÎµåÇÑ ¸ÊÀ» È°¼ºÈ­.
+	//	Note : ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­.
 	//
 	m_pLandMClient = pLandMClient;
 	m_pLandMClient->ActiveMap ();
@@ -305,7 +305,7 @@ HRESULT GLGaeaClient::MoveActiveMap ( SNATIVEID sMapID, D3DXVECTOR3 &vPos )
 	CString strText = GLGaeaClient::GetInstance().GetMapName ( m_pLandMClient->GetMapID() );
 	CInnerInterface::GetInstance().SetMiniMapInfo ( m_pLandMClient->GetMapAxisInfo(), strText );
 
-	// ¹Ì´Ï¸Ê ¸¶¿ì½º ÀÌµ¿ ¸ñÇ¥ÁöÁ¡ ÇØÁ¦
+	// ï¿½Ì´Ï¸ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½Ìµï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CInnerInterface::GetInstance().DisableMinimapTarget();
 
 	return S_OK;
@@ -313,35 +313,35 @@ HRESULT GLGaeaClient::MoveActiveMap ( SNATIVEID sMapID, D3DXVECTOR3 &vPos )
 
 HRESULT GLGaeaClient::CreateInstantMap ( SNATIVEID sBaseMapID, SNATIVEID sInstantMapID, D3DXVECTOR3 &vBasicPos )
 {
-	//	Note : ÀÌÀü ¸ÊÀ» Å¬¸®¾î.
+	//	Note : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½.
 	//
 	SAFE_DELETE(m_pLandMClient);
 
 	CInnerInterface::GetInstance().ClearNameList();
-	// MEMO : ¸ÊÀÌµ¿½Ã ¿­¸° À©µµ¿ì¸¦ ´Ý±â À§ÇØ¼­ Ãß°¡Çß´Ù. ¾öÇÑ Ã¢ÀÌ ´ÝÈú¼öµµ ÀÖÀ¸´Ï ÁöÄÑºÁ¾ß°Ú´Ù.
-	// ¾Æ·¡ ÇÔ¼ö°¡ Á¤È®ÇÑ ÀÇ¹Ì·Î ¾²ÀÌ´ÂÁö ¸ð¸£°Ú´Ù.
+	// MEMO : ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ì¸¦ ï¿½Ý±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ß°ï¿½ï¿½ß´ï¿½. ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñºï¿½ï¿½ß°Ú´ï¿½.
+	// ï¿½Æ·ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½È®ï¿½ï¿½ ï¿½Ç¹Ì·ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½ð¸£°Ú´ï¿½.
 	CInnerInterface::GetInstance().CloseAllWindow();
 
-	//	Note : ÀåÄ¡ µ¥ÀÌÅÍ¸¦ ¸®¼Â.
+	//	Note : ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	//
 	DxResponseMan::GetInstance().DoInterimClean ( m_pd3dDevice );
 
-	//	Note : ÄÉ¸¯ÅÍ ±âº» Çü»óÀ» ´Ù½Ã ºÎ¸¥´Ù.
+	//	Note : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Î¸ï¿½ï¿½ï¿½.
 	//for ( int i=0; i<GLCI_NUM_NEWSEX; ++i )
 	//add class
 	for ( int i=0; i<GLCI_NUM_2015; ++i )
 		DxSkinCharDataContainer::GetInstance().LoadData( GLCONST_CHAR::szCharSkin[i], m_pd3dDevice, TRUE );
 
-	//	Note : ÀÚ±â ÄÉ¸¯ÀÇ ½ºÅ²À» ´Ù½Ã ÀÐ¾î ¿Â´Ù.
+	//	Note : ï¿½Ú±ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½Å²ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Ð¾ï¿½ ï¿½Â´ï¿½.
 	//
 	m_Character.SkinLoad ( m_pd3dDevice );
 
-	//	Note : »õ·Î¿î ¸ÊÀ» ·ÎµåÇÔ.
+	//	Note : ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½.
 	//
 	PLANDMANCLIENT pLandMClient = CreateInstantMapClient ( sBaseMapID, sInstantMapID, vBasicPos );
 	if ( !pLandMClient )	return E_FAIL;
 
-	//	Note : ·ÎµåÇÑ ¸ÊÀ» È°¼ºÈ­.
+	//	Note : ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­.
 	//
 	m_pLandMClient = pLandMClient;
 	m_pLandMClient->ActiveMap ();
@@ -350,7 +350,7 @@ HRESULT GLGaeaClient::CreateInstantMap ( SNATIVEID sBaseMapID, SNATIVEID sInstan
 	CString strText = GLGaeaClient::GetInstance().GetMapName ( m_pLandMClient->GetMapID() );
 	CInnerInterface::GetInstance().SetMiniMapInfo ( m_pLandMClient->GetMapAxisInfo(), strText );
 
-	// ¹Ì´Ï¸Ê ¸¶¿ì½º ÀÌµ¿ ¸ñÇ¥ÁöÁ¡ ÇØÁ¦
+	// ï¿½Ì´Ï¸ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½Ìµï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CInnerInterface::GetInstance().DisableMinimapTarget();
 
 	return S_OK;
@@ -458,11 +458,11 @@ HRESULT GLGaeaClient::MoveActiveMap ( NET_MSG_GENERIC *nmg )
 
 	LOADINGSTEP::SETSTEP ( 3 );
 
-	// ´Ù¸¥ ¸ÊÀ¸·Î ÀÌµ¿ÇÏ¸é
+	// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï¸ï¿½
 	if ( pNetMsg->sMapID != m_pLandMClient->GetMapID() )
 	{
 		
-		// ¸ÊÀÌµ¿½Ã ÀÚ½Å¿¡°Ô °É¸° ¹öÇÁ¿Í »óÅÂÀÌ»ó Á¦°Å
+		// ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ú½Å¿ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_Character.InitAllSkillFact ();
 
 		hr = MoveActiveMap ( pNetMsg->sMapID, pNetMsg->vPos );
@@ -483,10 +483,10 @@ HRESULT GLGaeaClient::MoveActiveMap ( NET_MSG_GENERIC *nmg )
 
 	LOADINGSTEP::SETSTEP ( 7 );
 
-	// Note : ¸Ê ÀÌµ¿½Ã ¿ö´× ¸Þ¼¼Áö¸¦ Á¾·áÇÑ´Ù.
+	// Note : ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	CInnerInterface::GetInstance().WARNING_MSG_OFF();
 
-	// ¹Ì´Ï¸Ê ¸¶¿ì½º ÀÌµ¿ ¸ñÇ¥ÁöÁ¡ ÇØÁ¦
+	// ï¿½Ì´Ï¸ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½Ìµï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CInnerInterface::GetInstance().DisableMinimapTarget();
 
     LOADINGSTEP::SETSTEP ( 11 );
@@ -575,7 +575,7 @@ HRESULT GLGaeaClient::CreateInstantMap ( NET_MSG_GENERIC *nmg )
 
 	LOADINGSTEP::SETSTEP ( 3 );
 
-	// ¸ÊÀÌµ¿½Ã ÀÚ½Å¿¡°Ô °É¸° ¹öÇÁ¿Í »óÅÂÀÌ»ó Á¦°Å
+	// ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ú½Å¿ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_Character.InitAllSkillFact ();
 
 	hr = CreateInstantMap ( pNetMsg->sBaseMapID, pNetMsg->sInstantMapID, pNetMsg->vPos );
@@ -589,10 +589,10 @@ HRESULT GLGaeaClient::CreateInstantMap ( NET_MSG_GENERIC *nmg )
 
 	LOADINGSTEP::SETSTEP ( 7 );
 
-	// Note : ¸Ê ÀÌµ¿½Ã ¿ö´× ¸Þ¼¼Áö¸¦ Á¾·áÇÑ´Ù.
+	// Note : ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	CInnerInterface::GetInstance().WARNING_MSG_OFF();
 
-	// ¹Ì´Ï¸Ê ¸¶¿ì½º ÀÌµ¿ ¸ñÇ¥ÁöÁ¡ ÇØÁ¦
+	// ï¿½Ì´Ï¸ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½Ìµï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CInnerInterface::GetInstance().DisableMinimapTarget();
 
 	LOADINGSTEP::SETSTEP ( 11 );
@@ -651,7 +651,7 @@ HRESULT GLGaeaClient::ReBirthFB ( NET_MSG_GENERIC* nmg )
 
 	LOADINGSTEP::SETSTEP ( 3 );
 
-	//	ºÎÈ°ÇÒ MapÀÌ Æ²¸± °æ¿ì.
+	//	ï¿½ï¿½È°ï¿½ï¿½ Mapï¿½ï¿½ Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	if ( pNetMsg->sMapID != m_pLandMClient->GetMapID() )
 	{
 		hr = MoveActiveMap ( pNetMsg->sMapID, pNetMsg->vPos );
@@ -670,12 +670,12 @@ HRESULT GLGaeaClient::ReBirthFB ( NET_MSG_GENERIC* nmg )
 
 	LOADINGSTEP::SETSTEP ( 7 );
 
-	// ¹Ì´Ï¸Ê ¸¶¿ì½º ÀÌµ¿ ¸ñÇ¥ÁöÁ¡ ÇØÁ¦
+	// ï¿½Ì´Ï¸ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½Ìµï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CInnerInterface::GetInstance().DisableMinimapTarget();
 
 	LOADINGSTEP::SETSTEP ( 9 );
 
-	//	ºÎÈ°Ã³¸®.
+	//	ï¿½ï¿½È°Ã³ï¿½ï¿½.
 	m_Character.ReBirth ( pNetMsg->wNowHP, pNetMsg->wNowMP, pNetMsg->wNowSP, pNetMsg->wNowCP, pNetMsg->vPos, false );
 
 	if( pNetMsg->bRegenEntryFailed )
@@ -703,7 +703,7 @@ HRESULT GLGaeaClient::ReLvMustLeaveFB( NET_MSG_GENERIC* nmg )
 		return S_OK;
 	}
 
-	// ÀÌµ¿ÀÌ ¼º°ø ÇßÀ» °æ¿ì¿¡¸¸ ÆêÀ» »èÁ¦ÇÑ´Ù.
+	// ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if ( m_Pet.IsVALID() )
 	{
 		m_Pet.DeleteDeviceObjects ();
@@ -746,10 +746,10 @@ HRESULT GLGaeaClient::ReLvMustLeaveFB( NET_MSG_GENERIC* nmg )
 
 	LOADINGSTEP::SETSTEP ( 4 );
 
-	//	ÀÌµ¿ÇÒ MapÀÌ Æ²¸± °æ¿ì.
+	//	ï¿½Ìµï¿½ï¿½ï¿½ Mapï¿½ï¿½ Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	if ( pNetMsg->sMAPID != m_pLandMClient->GetMapID() )
 	{
-		// ¸ÊÀÌµ¿½Ã ÀÚ½Å¿¡°Ô °É¸° ¹öÇÁ¿Í »óÅÂÀÌ»ó Á¦°Å
+		// ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ú½Å¿ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_Character.InitAllSkillFact ();
 
 		hr = MoveActiveMap ( pNetMsg->sMAPID, pNetMsg->vPOS );
@@ -768,7 +768,7 @@ HRESULT GLGaeaClient::ReLvMustLeaveFB( NET_MSG_GENERIC* nmg )
 
 	LOADINGSTEP::SETSTEP ( 9 );
 
-	// ¹Ì´Ï¸Ê ¸¶¿ì½º ÀÌµ¿ ¸ñÇ¥ÁöÁ¡ ÇØÁ¦
+	// ï¿½Ì´Ï¸ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½Ìµï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CInnerInterface::GetInstance().DisableMinimapTarget();
 
 	LOADINGSTEP::SETSTEP ( 11 );
@@ -818,7 +818,7 @@ HRESULT GLGaeaClient::ReCallFB ( NET_MSG_GENERIC* nmg )
 		};
 	}
 
-	// ÀÌµ¿ÀÌ ¼º°ø ÇßÀ» °æ¿ì¿¡¸¸ ÆêÀ» »èÁ¦ÇÑ´Ù.
+	// ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if ( m_Pet.IsVALID() )
 	{
 		m_Pet.DeleteDeviceObjects ();
@@ -861,10 +861,10 @@ HRESULT GLGaeaClient::ReCallFB ( NET_MSG_GENERIC* nmg )
 
 	LOADINGSTEP::SETSTEP ( 4 );
 
-	//	ÀÌµ¿ÇÒ MapÀÌ Æ²¸± °æ¿ì.
+	//	ï¿½Ìµï¿½ï¿½ï¿½ Mapï¿½ï¿½ Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	if ( pNetMsg->sMAPID != m_pLandMClient->GetMapID() )
 	{
-		// ¸ÊÀÌµ¿½Ã ÀÚ½Å¿¡°Ô °É¸° ¹öÇÁ¿Í »óÅÂÀÌ»ó Á¦°Å
+		// ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ú½Å¿ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_Character.InitAllSkillFact ();
 
 		hr = MoveActiveMap ( pNetMsg->sMAPID, pNetMsg->vPOS );
@@ -883,7 +883,7 @@ HRESULT GLGaeaClient::ReCallFB ( NET_MSG_GENERIC* nmg )
 
 	LOADINGSTEP::SETSTEP ( 9 );
 
-	// ¹Ì´Ï¸Ê ¸¶¿ì½º ÀÌµ¿ ¸ñÇ¥ÁöÁ¡ ÇØÁ¦
+	// ï¿½Ì´Ï¸ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½Ìµï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CInnerInterface::GetInstance().DisableMinimapTarget();
 
 	LOADINGSTEP::SETSTEP ( 11 );
@@ -926,7 +926,7 @@ HRESULT GLGaeaClient::TeleportFB ( NET_MSG_GENERIC* nmg )
 		};
 	}
 
-	// ÀÌµ¿ÀÌ ¼º°ø ÇßÀ» °æ¿ì¿¡¸¸ ÆêÀ» »èÁ¦ÇÑ´Ù.
+	// ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	if ( m_Pet.IsVALID() )
 	{
 		m_Pet.DeleteDeviceObjects ();
@@ -967,10 +967,10 @@ HRESULT GLGaeaClient::TeleportFB ( NET_MSG_GENERIC* nmg )
 
 	LOADINGSTEP::SETSTEP ( 4 );
 
-	//	ÀÌµ¿ÇÒ MapÀÌ Æ²¸± °æ¿ì.
+	//	ï¿½Ìµï¿½ï¿½ï¿½ Mapï¿½ï¿½ Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	if ( pNetMsg->sMAPID != m_pLandMClient->GetMapID() )
 	{
-		// ¸ÊÀÌµ¿½Ã ÀÚ½Å¿¡°Ô °É¸° ¹öÇÁ¿Í »óÅÂÀÌ»ó Á¦°Å
+		// ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ú½Å¿ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_Character.InitAllSkillFact ();
 
 		hr = MoveActiveMap ( pNetMsg->sMAPID, pNetMsg->vPOS );
@@ -989,7 +989,7 @@ HRESULT GLGaeaClient::TeleportFB ( NET_MSG_GENERIC* nmg )
 
 	LOADINGSTEP::SETSTEP ( 9 );
 
-	// ¹Ì´Ï¸Ê ¸¶¿ì½º ÀÌµ¿ ¸ñÇ¥ÁöÁ¡ ÇØÁ¦
+	// ï¿½Ì´Ï¸ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½Ìµï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	CInnerInterface::GetInstance().DisableMinimapTarget();
 
 	LOADINGSTEP::SETSTEP ( 11 );
@@ -1137,7 +1137,7 @@ BOOL GLGaeaClient::IsVisibleCV ( const STARGETID & sTargetID )
 
 	}
 	else
-		GASSERT(0&&"emCrow°¡ Àß¸øµÈ ÁöÁ¤ÀÚ ÀÔ´Ï´Ù." );
+		GASSERT(0&&"emCrowï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½." );
 
 	return FALSE;
 }
@@ -1189,7 +1189,7 @@ BOOL GLGaeaClient::ValidCheckTarget ( const STARGETID & sTargetID )
 			return TRUE;
 	}
 	else
-		GASSERT(0&&"emCrow°¡ Àß¸øµÈ ÁöÁ¤ÀÚ ÀÔ´Ï´Ù." );
+		GASSERT(0&&"emCrowï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½." );
 
 	return FALSE;
 }
@@ -1198,7 +1198,7 @@ D3DXVECTOR3 GLGaeaClient::GetTargetPos ( const STARGETID &sTargetID )
 {
 	if ( !m_pLandMClient )	return VERROR();
 
-	//	Note : Å¸°ÙÀÇ À§Ä¡ Á¤º¸¸¦ °¡Á®¿È.
+	//	Note : Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	if ( sTargetID.emCrow == CROW_PC )
 	{
 		PGLCHARCLIENT pChar = m_pLandMClient->GetChar ( sTargetID.dwID );
@@ -1246,7 +1246,7 @@ D3DXVECTOR3 GLGaeaClient::GetTargetPos ( const STARGETID &sTargetID )
 			if ( pAnySummon ) return pAnySummon->GetPosition ();
 		}
 	}
-	else	GASSERT(0&&"emCrow°¡ Àß¸øµÈ ÁöÁ¤ÀÚ ÀÔ´Ï´Ù." );
+	else	GASSERT(0&&"emCrowï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½." );
 
 	return VERROR();
 }
@@ -1297,12 +1297,12 @@ DETECTMAP* GLGaeaClient::DetectCrowDie ( const D3DXVECTOR3 &vFromPt, const D3DXV
 	STARGETID TargetID(CROW_MOB,EMTARGET_NULL);
 	if ( !m_pLandMClient )	return NULL;
 
-	//	DetectID Å¬¸®¾î.
+	//	DetectID Å¬ï¿½ï¿½ï¿½ï¿½.
 	if ( !m_vecDetectID.empty() )	m_vecDetectID.erase ( m_vecDetectID.begin(), m_vecDetectID.end() );
 
 	STARGETID findTargetID;
 
-	//	¸÷.
+	//	ï¿½ï¿½.
 	{
 		GLCROWCLIENTLIST *pCrowList = m_pLandMClient->GetCrowList ();
 		GLCROWCLIENTNODE *pCrowCur = pCrowList->m_pHead;
@@ -1315,7 +1315,7 @@ DETECTMAP* GLGaeaClient::DetectCrowDie ( const D3DXVECTOR3 &vFromPt, const D3DXV
 			BOOL bCol = COLLISION::IsCollisionLineToAABB ( vFromPt, vTargetPt, pCrow->m_vMax, pCrow->m_vMin );
 			if ( bCol )
 			{
-				//	Note : °ËÃâµÈ Å¸±ê µî·Ï.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				findTargetID.emCrow = pCrow->m_pCrowData->m_emCrow;
 				findTargetID.dwID = pCrow->m_dwGlobID;
 				findTargetID.vPos = pCrow->GetPosition ();
@@ -1325,7 +1325,7 @@ DETECTMAP* GLGaeaClient::DetectCrowDie ( const D3DXVECTOR3 &vFromPt, const D3DXV
 		}
 	}
 
-	//	Ä³¸¯ÅÍ.
+	//	Ä³ï¿½ï¿½ï¿½ï¿½.
 	{
 		GLCHARCLIENTLIST *pCharList = m_pLandMClient->GetCharList ();
 		GLCHARCLIENTNODE *pCharCur = pCharList->m_pHead;
@@ -1338,7 +1338,7 @@ DETECTMAP* GLGaeaClient::DetectCrowDie ( const D3DXVECTOR3 &vFromPt, const D3DXV
 			BOOL bCol = COLLISION::IsCollisionLineToAABB ( vFromPt, vTargetPt, pChar->m_vMax, pChar->m_vMin );
 			if ( bCol )
 			{
-				//	Note : °ËÃâµÈ Å¸±ê µî·Ï.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				findTargetID.emCrow = CROW_PC;
 				findTargetID.dwID = pChar->m_dwGaeaID;
 				findTargetID.vPos = pChar->GetPosition ();
@@ -1359,12 +1359,12 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vFromPt, 
 	STARGETID TargetID(CROW_MOB,EMTARGET_NULL);
 	if ( !m_pLandMClient )	return NULL;
 
-	//	DetectID Å¬¸®¾î.
+	//	DetectID Å¬ï¿½ï¿½ï¿½ï¿½.
 	if ( !m_vecDetectID.empty() )	m_vecDetectID.erase ( m_vecDetectID.begin(), m_vecDetectID.end() );
 
 	STARGETID findTargetID;
 	
-	//	¸÷.
+	//	ï¿½ï¿½.
 	if ( emCrow & CROW_EX_MOB )
 	{
 		GLCROWCLIENTLIST *pCrowList = m_pLandMClient->GetCrowList ();
@@ -1378,7 +1378,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vFromPt, 
 			BOOL bCol = COLLISION::IsCollisionLineToAABB ( vFromPt, vTargetPt, pCrow->m_vMax, pCrow->m_vMin );
 			if ( bCol )
 			{
-				//	Note : °ËÃâµÈ Å¸±ê µî·Ï.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				findTargetID.emCrow = pCrow->m_pCrowData->m_emCrow;
 				findTargetID.dwID = pCrow->m_dwGlobID;
 				findTargetID.vPos = pCrow->GetPosition ();
@@ -1402,7 +1402,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vFromPt, 
 			BOOL bCol = COLLISION::IsCollisionLineToAABB ( vFromPt, vTargetPt, pMaterial->m_vMax, pMaterial->m_vMin );
 			if ( bCol )
 			{
-				//	Note : °ËÃâµÈ Å¸±ê µî·Ï.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				findTargetID.emCrow = pMaterial->m_pCrowData->m_emCrow;
 				findTargetID.dwID = pMaterial->m_dwGlobID;
 				findTargetID.vPos = pMaterial->GetPosition ();
@@ -1412,7 +1412,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vFromPt, 
 		}
 	}
 
-	//	Ä³¸¯ÅÍ.
+	//	Ä³ï¿½ï¿½ï¿½ï¿½.
 	if ( emCrow & CROW_EX_PC )
 	{
 		GLCHARCLIENTLIST *pCharList = m_pLandMClient->GetCharList ();
@@ -1426,7 +1426,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vFromPt, 
 			BOOL bCol = COLLISION::IsCollisionLineToAABB ( vFromPt, vTargetPt, pChar->m_vMax, pChar->m_vMin );
 			if ( bCol )
 			{
-				//	Note : °ËÃâµÈ Å¸±ê µî·Ï.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				findTargetID.emCrow = CROW_PC;
 				findTargetID.dwID = pChar->m_dwGaeaID;
 				findTargetID.vPos = pChar->GetPosition ();
@@ -1436,7 +1436,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vFromPt, 
 		}
 	}
 
-	//	¼ÒÈ¯¼ö
+	//	ï¿½ï¿½È¯ï¿½ï¿½
 	if ( emCrow & CROW_EX_SUMMON )
 	{
 		GLANYSUMMONLIST *pSummonList = m_pLandMClient->GetSummonList();
@@ -1449,7 +1449,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vFromPt, 
 			BOOL bCol = COLLISION::IsCollisionLineToAABB ( vFromPt, vTargetPt, pSummon->m_vMax, pSummon->m_vMin );
 			if ( bCol )
 			{
-				//	Note : °ËÃâµÈ Å¸±ê µî·Ï.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				findTargetID.emCrow = CROW_SUMMON;
 				findTargetID.dwID = pSummon->m_dwGUID;
 				findTargetID.vPos = pSummon->GetPosition ();
@@ -1472,7 +1472,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vFromPt, 
 
 			if ( bCOLL )
 			{
-				//	Note : °ËÃâµÈ Å¸±ê µî·Ï.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				findTargetID.emCrow = CROW_ITEM;
 				findTargetID.dwID = sItemDrop.dwGlobID;
 				findTargetID.vPos = sItemDrop.vPos;
@@ -1494,7 +1494,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vFromPt, 
 			bool bCOLL = sMoneyDrop.IsCollision ( vFromPt, vTargetPt );
 			if ( bCOLL )
 			{
-				//	Note : °ËÃâµÈ Å¸±ê µî·Ï.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				findTargetID.emCrow = CROW_MONEY;
 				findTargetID.dwID = sMoneyDrop.dwGlobID;
 				findTargetID.vPos = sMoneyDrop.vPos;
@@ -1515,12 +1515,12 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vTarPos, 
 	STARGETID TargetID(CROW_MOB,EMTARGET_NULL);
 	if ( !m_pLandMClient )	return NULL;
 
-	//	DetectID Å¬¸®¾î.
+	//	DetectID Å¬ï¿½ï¿½ï¿½ï¿½.
 	if ( !m_vecDetectID.empty() )	m_vecDetectID.erase ( m_vecDetectID.begin(), m_vecDetectID.end() );
 
 	STARGETID findTargetID;
 
-	//	¸÷.
+	//	ï¿½ï¿½.
 	if ( emCrow & CROW_EX_MOB )
 	{
 		GLCROWCLIENTLIST *pCrowList = m_pLandMClient->GetCrowList ();
@@ -1536,7 +1536,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vTarPos, 
 			BOOL bCol = COLLISION::IsSpherePointCollision ( pCrow->GetPosition(), vTarPos, fTarRange );
 			if ( bCol )
 			{
-				//	Note : °ËÃâµÈ Å¸±ê µî·Ï.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				findTargetID.emCrow = pCrow->m_pCrowData->m_emCrow;
 				findTargetID.dwID = pCrow->m_dwGlobID;
 				findTargetID.vPos = pCrow->GetPosition ();
@@ -1562,7 +1562,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vTarPos, 
 			BOOL bCol = COLLISION::IsSpherePointCollision ( pMaterial->GetPosition(), vTarPos, fTarRange );
 			if ( bCol )
 			{
-				//	Note : °ËÃâµÈ Å¸±ê µî·Ï.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				findTargetID.emCrow = pMaterial->m_pCrowData->m_emCrow;
 				findTargetID.dwID = pMaterial->m_dwGlobID;
 				findTargetID.vPos = pMaterial->GetPosition ();
@@ -1572,7 +1572,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vTarPos, 
 		}
 	}
 
-	//	Ä³¸¯ÅÍ.
+	//	Ä³ï¿½ï¿½ï¿½ï¿½.
 	if ( emCrow & CROW_EX_PC )
 	{
 		GLCHARCLIENTLIST *pCharList = m_pLandMClient->GetCharList ();
@@ -1586,7 +1586,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vTarPos, 
 			BOOL bCol = COLLISION::IsSpherePointCollision ( pChar->GetPosition(), vTarPos, fLength );
 			if ( bCol )
 			{
-				//	Note : °ËÃâµÈ Å¸±ê µî·Ï.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				findTargetID.emCrow = CROW_PC;
 				findTargetID.dwID = pChar->m_dwGaeaID;
 				findTargetID.vPos = pChar->GetPosition ();
@@ -1608,7 +1608,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vTarPos, 
 			BOOL bCol = COLLISION::IsSpherePointCollision ( sItemDrop.vPos, vTarPos, fLength );
 			if ( bCol )
 			{
-				//	Note : °ËÃâµÈ Å¸±ê µî·Ï.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				findTargetID.emCrow = CROW_ITEM;
 				findTargetID.dwID = sItemDrop.dwGlobID;
 				findTargetID.vPos = sItemDrop.vPos;
@@ -1630,7 +1630,7 @@ DETECTMAP* GLGaeaClient::DetectCrow ( DWORD emCrow, const D3DXVECTOR3 &vTarPos, 
 			BOOL bCol = COLLISION::IsSpherePointCollision ( sMoneyDrop.vPos, vTarPos, fLength );
 			if ( bCol )
 			{
-				//	Note : °ËÃâµÈ Å¸±ê µî·Ï.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½.
 				findTargetID.emCrow = CROW_MONEY;
 				findTargetID.dwID = sMoneyDrop.dwGlobID;
 				findTargetID.vPos = sMoneyDrop.vPos;
@@ -1710,7 +1710,7 @@ HRESULT GLGaeaClient::InitDeviceObjects ( LPDIRECT3DDEVICEQ pd3dDevice )
 
 HRESULT GLGaeaClient::RestoreDeviceObjects ()
 {
-	GASSERT(m_pd3dDevice&&"m_pd3dDevice °¡ ÃÊ±âÈ­ µÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+	GASSERT(m_pd3dDevice&&"m_pd3dDevice ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½.");
 
 	if ( m_pLandMClient )
 	{
@@ -1757,7 +1757,7 @@ HRESULT GLGaeaClient::FrameMove ( float fTime, float fElapsedTime )
 {
 	m_fAge += fElapsedTime;
 
-	//	Note : °ÔÀÌÆ® °Ë»öÈÄ °ÔÀÌÆ® »óÅÂ ¾÷´ëÀÌÆ®.
+	//	Note : ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
 	//
 	CInnerInterface::GetInstance().SetGateOpen ( FALSE );
 	if ( m_pLandMClient )
@@ -1779,7 +1779,7 @@ HRESULT GLGaeaClient::FrameMove ( float fTime, float fElapsedTime )
 	// SUMMON
 	if ( m_Summon.IsVALID () ) m_Summon.FrameMove ( fTime, fElapsedTime );
 
-	// ¼±µµÅ¬·´ °áÁ¤Àü ½Ã°£ °»½Å
+	// ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if ( m_bCLUBBATTLE )
 	{
 		m_fCLUBBATTLETimer -= fElapsedTime;
@@ -1832,7 +1832,7 @@ HRESULT GLGaeaClient::FrameMove ( float fTime, float fElapsedTime )
 			}
 		}
 	}
-	// ¼­¹ö ÇöÀç½Ã°£
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
 	if ( m_fAge > 1.0f )
 	{
 		CTimeSpan cElapsedTime(0,0,0,1);
@@ -1848,12 +1848,12 @@ HRESULT GLGaeaClient::Render ( CLIPVOLUME &CV )
 {
 	GASSERT(m_pd3dDevice);
 
-	//	Note : ÇÏ´Ã ·»´õ¸µ..!!
+	//	Note : ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½..!!
 	PROFILE_BEGIN2("DxSkyMan::Render");
 	DxSkyMan::GetInstance().Render( m_pd3dDevice );
 	PROFILE_END2("DxSkyMan::Render");
 
-	//	Note : ÁöÇü ·£´õ¸µ..
+	//	Note : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½..
 	PROFILE_BEGIN2("m_pLandMClient::Render");
 	if ( m_pLandMClient )
 	{
@@ -1861,7 +1861,7 @@ HRESULT GLGaeaClient::Render ( CLIPVOLUME &CV )
 	}
 	PROFILE_END2("m_pLandMClient::Render");
 
-	// Note : ±×¸²ÀÚ Clear
+	// Note : ï¿½×¸ï¿½ï¿½ï¿½ Clear
 	PROFILE_BEGIN2("DxShadowMap::Render");
 	DxShadowMap::GetInstance().ClearShadow( m_pd3dDevice );
 	PROFILE_END2("DxShadowMap::Render");
@@ -1910,7 +1910,7 @@ HRESULT GLGaeaClient::RenderEff ( CLIPVOLUME &CV )
 		m_pLandMClient->Render_EFF ( CV );
 	}
 
-	//	Note : ÇÏ´Ã ·»´õ¸µ..!!
+	//	Note : ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½..!!
 	DxSkyMan::GetInstance().Render_AFTER( m_pd3dDevice );
 
 	return S_OK;
@@ -1995,7 +1995,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 			{
 				if ( sDropChar.dwGaeaID == GETMYGAEAID() )
 				{
-					CDebugSet::ToListView ( "[ERROR] Drop Char : %s, %d ÀÚ±âÀÚ½ÅÀÇ ¾ÆÀÌµð.", sDropChar.szName, sDropChar.dwGaeaID );
+					CDebugSet::ToListView ( "[ERROR] Drop Char : %s, %d ï¿½Ú±ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½.", sDropChar.szName, sDropChar.dwGaeaID );
 				}
 				else
 				{
@@ -2094,7 +2094,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 	case NET_MSG_GCTRL_REQ_TAXI_FB:		ReqTaxiFB(nmg);		break;
 	case NET_MSG_GCTRL_REQ_TELEPORT_FB:	TeleportFB(nmg);	break;
 
-	//	pc client¿¡°Ô.
+	//	pc clientï¿½ï¿½ï¿½ï¿½.
 	//
 	case NET_MSG_GCTRL_MOVESTATE_BRD:
 	case NET_MSG_GCTRL_JUMP_POS_BRD:
@@ -2176,7 +2176,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 				PGLCHARCLIENT pChar = m_pLandMClient->GetChar ( pNetMsg->dwGaeaID );
 				if ( !pChar )
 				{
-					CDebugSet::ToListView ( "[PGLCHARCLIENT NULL] ¼ö½Å PC°¡ ¾ø´Â ¸Þ¼¼Áö ¹ß»ý. gaeaid %d", pNetMsg->dwGaeaID );
+					CDebugSet::ToListView ( "[PGLCHARCLIENT NULL] ï¿½ï¿½ï¿½ï¿½ PCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß»ï¿½. gaeaid %d", pNetMsg->dwGaeaID );
 					return;
 				}
 
@@ -2286,6 +2286,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 	case NET_MSG_GCTRL_CHARGED_ITEM_DEL:
 	case NET_MSG_GCTRL_INVEN_RESET_SKST_FB:
 	case NET_MSG_GCTRL_GET_CHARGEDITEM_FROMDB_FB:
+	case NET_MSG_GCTRL_GET_ITEMSHOP_FROMDB_FB:
 
 	case NET_MSG_GCTRL_INVEN_HAIR_CHANGE_FB:
 	case NET_MSG_GCTRL_INVEN_HAIRCOLOR_CHANGE_FB:
@@ -2463,7 +2464,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 	case NET_MSG_SMS_PHONE_NUMBER_FB:
 	case NET_MSG_SMS_SEND_FB:
 
-	case NET_MSG_MGAME_ODDEVEN_FB:		// ¹Ì´Ï°ÔÀÓ - È¦Â¦
+	case NET_MSG_MGAME_ODDEVEN_FB:		// ï¿½Ì´Ï°ï¿½ï¿½ï¿½ - È¦Â¦
 	case NET_MSG_CHINA_GAINTYPE:
 
 	case NET_MSG_GM_LIMIT_EVENT_APPLY_START:
@@ -2474,7 +2475,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 	case NET_MSG_GCTRL_PMARKET_SEARCH_ITEM_RESULT:
 
-	/// º£Æ®³² ¸Þ½ÃÁö
+	/// ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 	case NET_MSG_VIETNAM_TIME_REQ_FB:
 	case NET_MSG_VIETNAM_GAIN_EXP:
 	case NET_MSG_VIETNAM_GAINTYPE:
@@ -2512,6 +2513,10 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 	case NET_MSG_REQ_GATHERING_RESULT:
 	case NET_MSG_REQ_CROWLIST_FB:
 	case NET_MSG_REBUILD_MOVE_SEAL: //sealed card NaJDeV
+	case NET_MSG_GCTRL_BUY_ITEMSHOP_ITEM:
+	case NET_MSG_GCTRL_BUY_ITEMSHOP:
+	case NET_MSG_GCTRL_GET_ITEMSHOP_FROMDB_FB:
+	case NET_MSG_RETRIEVE_POINTS_FB:
 		{
 			m_Character.MsgProcess ( nmg );
 		}
@@ -2710,7 +2715,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 	case NET_MSG_GM_FREEPK_BRD:
 		{
-			// Å¬¶óÀÌ¾ðÆ®°¡ ¹º°¡ ÇÒÀÏÀÌ ÀÖ´Ù¸é ¿©±â¿¡ ÄÚµù
+			// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½â¿¡ ï¿½Úµï¿½
 			GLMSG::SNET_GM_FREEPK_BRD *pNetMsg = (GLMSG::SNET_GM_FREEPK_BRD *) nmg;
 			if ( pNetMsg->bSTATEUPDATE == false )
 			{
@@ -2724,7 +2729,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 					m_bBRIGHTEVENT = false;
 					CInnerInterface::GetInstance().PrintConsoleText ( ID2GAMEINTEXT("BRIGHT_EVENT_END") );
 
-					// Àû´ë°ü°è ¸ðµÎ »èÁ¦
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					GetCharacter()->DEL_PLAYHOSTILE_ALL();
 				}
 			}
@@ -2784,7 +2789,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 		}
 		break;
 
-		// ´ë¸¸¿¡¼­ ¿äÃ»ÇÑ »õ·Î¿î GM ¸í·É¾î ( /dsp player ÀÇ È®ÀåÆÇ )
+		// ï¿½ë¸¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ GM ï¿½ï¿½ï¿½É¾ï¿½ ( /dsp player ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ )
 	case NET_MSG_GM_VIEWALLPLAYER_FLD_FB:
 		{
 			GLMSG::SNET_GM_VIEWALLPLAYER_FLD_FB *pNetMsg = (GLMSG::SNET_GM_VIEWALLPLAYER_FLD_FB *)nmg;
@@ -2796,7 +2801,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 		}
 		break;
 
-		case NET_MSG_GCTRL_VIEW_PROPERTIES_FB://¬d¬ÝÄÝ©Ê
+		case NET_MSG_GCTRL_VIEW_PROPERTIES_FB://ï¿½dï¿½ï¿½ï¿½Ý©ï¿½
 		{
 			m_Character.MsgProcess ( nmg );
 		}
@@ -2821,7 +2826,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 		{
 			GLMSG::SNET_CLUB_MARK_INFO_FB *pNetMsg = (GLMSG::SNET_CLUB_MARK_INFO_FB *)nmg;
 			
-			//	Note : ÀÌ¹ÌÁö¿¡ Àû¿ë.
+			//	Note : ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			DWORD dwServerID = GLGaeaClient::GetInstance().GetCharacter()->m_dwServerID;
 			DxClubMan::GetInstance().SetClubData ( DxGlobalStage::GetInstance().GetD3dDevice(), dwServerID, pNetMsg->dwClubID, pNetMsg->dwMarkVER, pNetMsg->aryMark );
 		}
@@ -2876,7 +2881,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 			CMiniMap * pMiniMap = CInnerInterface::GetInstance().GetMiniMap();
 			if( pMiniMap ) pMiniMap->EndClubTime();
 
-			// Àû´ë°ü°è ¸ðµÎ »èÁ¦
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			GetCharacter()->DEL_PLAYHOSTILE_ALL();
 		}
 		break;
@@ -2906,7 +2911,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 			m_sMyCdmRank = pNetMsg->sMyCdmRank;
 
-			//	UI Refrash ¹× ¿­±â
+			//	UI Refrash ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			CInnerInterface::GetInstance().VisibleCDMRanking(true);
 			CInnerInterface::GetInstance().RefreashCDMRanking();
 		}
@@ -2935,7 +2940,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 				}
 			}
 
-			//	UI Refrash ¹× ¿­±â
+			//	UI Refrash ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			CInnerInterface::GetInstance().VisibleCDMRanking(true);
 			CInnerInterface::GetInstance().RefreashCDMRanking();
 
@@ -3451,7 +3456,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 			CMiniMap * pMiniMap = CInnerInterface::GetInstance().GetMiniMap();
 			if( pMiniMap ) pMiniMap->EndClubTime();
 
-			// Àû´ë°ü°è ¸ðµÎ »èÁ¦
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			GetCharacter()->DEL_PLAYHOSTILE_ALL();
 		}
 		break;
@@ -3491,7 +3496,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 				if ( pLand->m_bClubDeathMatch && m_vecCdmRank.empty() )
 				{
-					//	Á¤º¸ ¿äÃ»
+					//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 					ReqClubDeathMatchInfo();
 					CInnerInterface::GetInstance().PrintConsoleTextDlg ( ID2GAMEINTEXT("CLUB_DEATHMATCH_LAND") );
 				}
@@ -3499,7 +3504,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 				{
 					m_vecCdmRank.clear();
 					m_sMyCdmRank.Init();
-					//	UI ´Ý±â
+					//	UI ï¿½Ý±ï¿½
 					CInnerInterface::GetInstance().VisibleCDMRanking( false );
 				}
 
@@ -3578,7 +3583,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 					str += ID2GAMEINTEXT("OTHER_SCHOOL_FREEPK_ON");
 				}
 
-				// Àû´ë°ü°è ¸ðµÎ »èÁ¦
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				GetCharacter()->ReqRetrieveMobInMap();
 				GetCharacter()->DEL_PLAYHOSTILE_ALL();
 
@@ -3601,7 +3606,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 				{
 					CInnerInterface::GetInstance().PrintConsoleTextDlg ( ID2GAMEINTEXT("OTHER_SCHOOL_FREEPK_OFF") );
 
-					// Àû´ë°ü°è ¸ðµÎ »èÁ¦
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					GetCharacter()->DEL_PLAYHOSTILE_ALL();
 				}
 			}
@@ -3819,7 +3824,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 			CInnerInterface::GetInstance().PrintConsoleText ( "exp          : %I64d/%I64d", pNetMsg->sEXP.lnNow, pNetMsg->sEXP.lnMax );
 			CInnerInterface::GetInstance().PrintConsoleText ( "club         : %s", pNetMsg->szCLUB );
 
-			//strSTREAM.freeze( false );	// Note : std::strstreamÀÇ freeze. ¾È ÇÏ¸é Leak ¹ß»ý.
+			//strSTREAM.freeze( false );	// Note : std::strstreamï¿½ï¿½ freeze. ï¿½ï¿½ ï¿½Ï¸ï¿½ Leak ï¿½ß»ï¿½.
 		}
 		break;
 
@@ -3907,7 +3912,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 			{
 			case EMPET_USECARD_FB_OK:
 				{
-					// ÃÖÃÊ»ý¼ºÈÄ ÆÖÀ» Á¦°ÅÇßÀ»¶§¸¦ ´ëºñÇØ¼­ Å¬¶óÀÌ¾ðÆ®ÀÇ ¾ÆÀÌÅÛ¿¡ ÆÖ¹øÈ£ ¼¼ÆÃ
+					// ï¿½ï¿½ï¿½Ê»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½Ö¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½
 					SINVENITEM* pItem = m_Character.m_cInventory.GetItem ( m_Character.m_wInvenPosX1, m_Character.m_wInvenPosY1 );
 					if ( !pItem ) return;
 					if ( pItem->sItemCustom.dwPetID == 0 ) pItem->sItemCustom.dwPetID = pNetMsg->m_dwPetID;
@@ -3915,7 +3920,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 					m_Pet.m_sPetSkinPackState.bUsePetSkinPack = pNetMsg->m_sPetSkinPackData.bUsePetSkinPack;
 					m_Pet.m_sPetSkinPackState.petSkinMobID	  = pNetMsg->m_sPetSkinPackData.sMobID;
 					m_Pet.m_sPetSkinPackState.fPetScale		  = pNetMsg->m_sPetSkinPackData.fScale;
-					// »ý¼º
+					// ï¿½ï¿½ï¿½ï¿½
 					if ( !FAILED( CreatePET ( nmg ) ) )
 					{
 						CInnerInterface::GetInstance().PrintMsgText ( 
@@ -3934,37 +3939,37 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 			case EMPET_USECARD_FB_FAIL:
 				CInnerInterface::GetInstance().PrintMsgText ( 
 						NS_UITEXTCOLOR::NEGATIVE, ID2GAMEINTEXT("EMPET_USECARD_FB_FAIL") );
-				// ½ÇÆÐ½Ã GenNum Ã³¸®
+				// ï¿½ï¿½ï¿½Ð½ï¿½ GenNum Ã³ï¿½ï¿½
 				m_Character.m_llPetCardGenNum = 0;
 				break;
 			case EMPET_USECARD_FB_INVALIDCARD:
 				CInnerInterface::GetInstance().PrintMsgText ( 
 						NS_UITEXTCOLOR::NEGATIVE, ID2GAMEINTEXT("EMPET_USECARD_FB_INVALIDCARD") );
-				// ½ÇÆÐ½Ã GenNum Ã³¸®
+				// ï¿½ï¿½ï¿½Ð½ï¿½ GenNum Ã³ï¿½ï¿½
 				m_Character.m_llPetCardGenNum = 0;
 				break;
 			case EMPET_USECARD_FB_NOITEM:
 				CInnerInterface::GetInstance().PrintMsgText ( 
 						NS_UITEXTCOLOR::NEGATIVE, ID2GAMEINTEXT("EMPET_USECARD_FB_NOITEM") );
-				// ½ÇÆÐ½Ã GenNum Ã³¸®
+				// ï¿½ï¿½ï¿½Ð½ï¿½ GenNum Ã³ï¿½ï¿½
 				m_Character.m_llPetCardGenNum = 0;
 				break;
 			case EMPET_USECARD_FB_NOTENOUGHFULL:
 				CInnerInterface::GetInstance().PrintMsgText ( 
 						NS_UITEXTCOLOR::NEGATIVE, ID2GAMEINTEXT("EMPET_USECARD_FB_NOTENOUGHFULL") );
-				// ½ÇÆÐ½Ã GenNum Ã³¸®
+				// ï¿½ï¿½ï¿½Ð½ï¿½ GenNum Ã³ï¿½ï¿½
 				m_Character.m_llPetCardGenNum = 0;
 				break;
 
 			case EMPET_USECARD_FB_INVALIDZONE:
 				CInnerInterface::GetInstance().PrintMsgText ( 
 						NS_UITEXTCOLOR::NEGATIVE, ID2GAMEINTEXT("EMPET_USECARD_FB_INVALIDZONE") );
-				// ½ÇÆÐ½Ã GenNum Ã³¸®
+				// ï¿½ï¿½ï¿½Ð½ï¿½ GenNum Ã³ï¿½ï¿½
 				m_Character.m_llPetCardGenNum = 0;
 				break;
 			case EMPET_USECARD_FB_NODATA:
 
-				// ÆêÄ«µå Á¤º¸ ¸®¼Â
+				// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				SINVENITEM* pItem = m_Character.m_cInventory.GetItem ( m_Character.m_wInvenPosX1, m_Character.m_wInvenPosY1 );
 				if ( !pItem ) return;
 				pItem->sItemCustom.dwPetID = 0;
@@ -4018,7 +4023,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 		{
             GLMSG::SNETPET_REQ_UNUSEPETCARD_FB *pNetMsg = ( GLMSG::SNETPET_REQ_UNUSEPETCARD_FB* ) nmg;
 
-			// ¸Ê ÀÌµ¿Áß¿¡ ÆÖÀÌ »ç¶óÁ®¾ß ÇÏ´Â °æ¿ì
+			// ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
 			if ( pNetMsg->bMoveMap ) m_Character.m_bIsPetActive = TRUE;
 			
 			m_Character.m_sPETSKILLFACT.RESET ();
@@ -4040,7 +4045,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 			SITEM* pItem = GLItemMan::GetInstance().GetItem ( pNetMsg->sNativeID );
 			if ( pItem )
 			{
-				// ÆÖÆ÷¸¸°¨ °»½Å
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if ( m_Pet.IsVALID () ) m_Pet.IncreaseFull ( pItem->sDrugOp.wCureVolume, pItem->sDrugOp.bRatio );
 
 				if ( DxGlobalStage::GetInstance().IsEmulator() )
@@ -4054,7 +4059,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 				if ( iter!=m_Character.m_mapPETCardInfo.end() )
 				{
 					SPETCARDINFO& sPet = (*iter).second;
-					// ÆÖÄ«µåÀÇ Á¤º¸ °»½Å
+					// ï¿½ï¿½Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					sPet.m_nFull = pNetMsg->nFull;
 
 					CInnerInterface::GetInstance().PrintMsgText ( 
@@ -4068,7 +4073,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 		{
 			GLMSG::SNETPET_REQ_PETCARDINFO_FB* pNetMsg = ( GLMSG::SNETPET_REQ_PETCARDINFO_FB* ) nmg;
 
-			// DB¿¡ ¾øÀ¸¸é ±×³É ÃÊ±â°ªÀ¸·Î ³Ñ¾î¿À´Â °æ¿ì°¡ ÀÖÀ¸¹Ç·Î Ã¼Å©ÇØÁØ´Ù.
+			// DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×³ï¿½ ï¿½Ê±â°ªï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ Ã¼Å©ï¿½ï¿½ï¿½Ø´ï¿½.
 			if ( pNetMsg->emTYPE == PETTYPE_NONE ) break;
 
 			SPETCARDINFO sPetCardInfo;
@@ -4252,7 +4257,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 			PGLANYPET pPet = m_pLandMClient->GetPet ( pNetMsg->dwGUID );
 			if ( !pPet )
 			{
-				CDebugSet::ToListView ( "[PGLCHARCLIENT NULL] ¼ö½Å PET°¡ ¾ø´Â ¸Þ¼¼Áö ¹ß»ý. gaeaid %d", pNetMsg->dwGUID );
+				CDebugSet::ToListView ( "[PGLCHARCLIENT NULL] ï¿½ï¿½ï¿½ï¿½ PETï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß»ï¿½. gaeaid %d", pNetMsg->dwGUID );
 				return;
 			}
 
@@ -4307,7 +4312,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 			PGLANYSUMMON pSummon = m_pLandMClient->GetSummon ( pNetMsg->dwGUID );
 			if ( !pSummon )
 			{
-				CDebugSet::ToListView ( "[PGLCHARCLIENT NULL] ¼ö½Å SUMMON°¡ ¾ø´Â ¸Þ¼¼Áö ¹ß»ý. gaeaid %d", pNetMsg->dwGUID );
+				CDebugSet::ToListView ( "[PGLCHARCLIENT NULL] ï¿½ï¿½ï¿½ï¿½ SUMMONï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ß»ï¿½. gaeaid %d", pNetMsg->dwGUID );
 				return;
 			}
 
@@ -4333,7 +4338,7 @@ void GLGaeaClient::MsgProcess ( NET_MSG_GENERIC* nmg )
 			{
 			case EMUSE_SUMMON_FB_OK:
 				{
-					// »ý¼º
+					// ï¿½ï¿½ï¿½ï¿½
 					if ( !FAILED( CreateSummon ( nmg ) ) )
 					{
 						CInnerInterface::GetInstance().ShowGroupBottom( SUMMON_HP );	
@@ -4400,7 +4405,7 @@ GLCOPY* GLGaeaClient::GetCopyActor ( const EMCROW emCrow, const DWORD dwID )
 	}
 	else if ( !m_bBRIGHTEVENT )
 	{
-       GASSERT(0&&"emCrow°¡ Àß¸øµÈ ÁöÁ¤ÀÚ ÀÔ´Ï´Ù.");
+       GASSERT(0&&"emCrowï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½.");
 	}
 
 	return NULL;
@@ -4478,7 +4483,7 @@ DxSkinChar* GLGaeaClient::GetSkinChar ( const STARGETID &sTargetID )
 {
 	if ( !m_pLandMClient )	return NULL;
 
-	//	Note : Å¸°ÙÀÇ À§Ä¡ Á¤º¸¸¦ °¡Á®¿È.
+	//	Note : Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	if ( sTargetID.emCrow == CROW_PC )
 	{
 		if ( GetCharacter()->m_dwGaeaID == sTargetID.dwID )	return GetCharacter()->GetSkinChar();
@@ -4512,8 +4517,8 @@ DxSkinChar* GLGaeaClient::GetSkinChar ( const STARGETID &sTargetID )
 	}
 	else
 	{
-		//GASSERT(0&&"emCrow°¡ Àß¸øµÈ ÁöÁ¤ÀÚ ÀÔ´Ï´Ù." );
-		CDebugSet::ToLogFile( "GLGaeaClient::GetSkinChar() emCrow°¡ Àß¸øµÈ ÁöÁ¤ÀÚ ÀÔ´Ï´Ù." );
+		//GASSERT(0&&"emCrowï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½." );
+		CDebugSet::ToLogFile( "GLGaeaClient::GetSkinChar() emCrowï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½." );
 	}
 		
 
@@ -4524,7 +4529,7 @@ float GLGaeaClient::GetCrowDir ( const STARGETID &sTargetID )
 {
 	if ( !m_pLandMClient )	return 0.0f;
 
-	//	Note : Å¸°ÙÀÇ À§Ä¡ Á¤º¸¸¦ °¡Á®¿È.
+	//	Note : Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	if ( sTargetID.emCrow == CROW_PC )
 	{
 		if ( GetCharacter()->m_dwGaeaID == sTargetID.dwID )	return GetCharacter()->GetDirection();
@@ -4550,7 +4555,7 @@ float GLGaeaClient::GetCrowDir ( const STARGETID &sTargetID )
 		if ( pAnySummon ) return pAnySummon->GetDirection();
 	}
 	else
-		GASSERT(0&&"emCrow°¡ Àß¸øµÈ ÁöÁ¤ÀÚ ÀÔ´Ï´Ù." );
+		GASSERT(0&&"emCrowï¿½ï¿½ ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô´Ï´ï¿½." );
 
 	return 0.0f;
 }
@@ -4642,7 +4647,7 @@ void GLGaeaClient::PetSkinPackApplyEffect()
 
 	if( m_Pet.IsVALID() )
 	{
-		// »ý¼º È¿°ú
+		// ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½
 		D3DXMATRIX matEffect;
 		D3DXVECTOR3 vPos = m_Pet.GetPosition ();
 		D3DXMatrixTranslation ( &matEffect, vPos.x, vPos.y, vPos.z );
@@ -4652,7 +4657,7 @@ void GLGaeaClient::PetSkinPackApplyEffect()
 		DxEffGroupPlayer::GetInstance().NewEffGroup( strGEN_EFFECT.c_str(), matEffect, &sTargetID );				
 		m_Pet.SkinLoad( m_pd3dDevice );
 
-		// Note : 1.AABB Box¸¦ °¡Á®¿Â´Ù. 2.³ôÀÌ¸¦ °è»êÇØ ³õ´Â´Ù.
+		// Note : 1.AABB Boxï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½. 2.ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â´ï¿½.
 		m_Pet.GetSkinChar()->GetAABBBox( m_Pet.m_vMaxOrg, m_Pet.m_vMinOrg );
 		m_Pet.m_fHeight = ( m_Pet.m_vMaxOrg.y - m_Pet.m_vMinOrg.y ) * m_Pet.m_sPetSkinPackState.fPetScale;
 
@@ -4677,16 +4682,16 @@ HRESULT GLGaeaClient::CreateSummon( NET_MSG_GENERIC* nmg )
 	sSummon.m_dwNowHP	 = pNetMsg->dwNowHP;
 	sSummon.m_wNowMP	 = pNetMsg->wNowMP;
 	sSummon.m_sPosionID  = pNetMsg->sPosionID;
-	// ÁÖÀÎ ¿·¿¡ PET »ý¼º	emFB;
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ PET ï¿½ï¿½ï¿½ï¿½	emFB;
 	HRESULT hr = m_Summon.Create ( &sSummon, pNetMsg->vPos, pNetMsg->vDir, m_pLandMClient->GetNaviMesh(), m_pd3dDevice );
 
-	// ½ÇÆÐÃ³¸® ( ¼­¹ö¿¡ »ý¼ºµÈ ÆÖÀ» »èÁ¦ÇÏµµ·Ï )
+	// ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ )
 	if ( FAILED(hr) )
 	{
 		return S_FALSE;
 	}
 
-	// »ý¼º È¿°ú
+	// ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½
 	D3DXMATRIX matEffect;
 	D3DXVECTOR3 vPos = m_Summon.GetPosition ();
 	D3DXMatrixTranslation ( &matEffect, vPos.x, vPos.y, vPos.z );

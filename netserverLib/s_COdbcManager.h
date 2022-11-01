@@ -50,7 +50,7 @@
  * Copyright 2002-2005 (c) Mincoms. All rights reserved. 
  * \todo 
  * 
- * \n Board Database °ü·ÃµÈ ÇÔ¼ö´Â ÇöÀç ¾ø´Ù. (±¸ÇöÀÏÁ¤ ¹ÌÁ¤)
+ * \n Board Database ï¿½ï¿½ï¿½Ãµï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
  *
  * \bug 
  *
@@ -77,8 +77,8 @@ protected:
 	COdbcSupervisor* m_pGspDB;
 	COdbcSupervisor* m_pThaiDB;
 	COdbcSupervisor* m_pKorDB;
-	COdbcSupervisor* m_pMyDB;			 // ¸»·¹ÀÌ½Ã¾Æ PC¹æ ÀÌº¥Æ®
-	int              m_nServiceProvider; ///< ¼­ºñ½º Á¦°ø¾÷ÀÚ
+	COdbcSupervisor* m_pMyDB;			 // ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã¾ï¿½ PCï¿½ï¿½ ï¿½Ìºï¿½Æ®
+	int              m_nServiceProvider; ///< ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 public:
 	void SetServiceProvider(int nServiceProvider);
@@ -164,7 +164,7 @@ public:
 			int nDBTimeOut = DB_RESPONSE_TIME );
 	void CloseKorDB();
 
-	// ¸»·¹ÀÌ½Ã¾Æ PC¹æ ÀÌº¥Æ®
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã¾ï¿½ PCï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	int	OpenMyDB(
 			TCHAR* szOdbcName,
 			TCHAR* szUsrID,
@@ -182,16 +182,16 @@ public:
 	/**************************************************************************
 	* Game Database
     */
-	//! »ç¿ëÀÚ ÀÎº¥Åä¸®¿¡¼­ µ¥ÀÌÅ¸¸¦ ÀÐ¾î¿Â´Ù.
+	//! ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½Ð¾ï¿½Â´ï¿½.
 	int	ReadUserInven(
 			int SGNum,
 			DWORD dwUserNum,
 			CByteStream &ByteStream );
 
-	//! À¯ÀúÀÎº¥Åä¸®°¡ ÀÖ´ÂÁö Ã¼Å©ÇÑ´Ù.
+	//! ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.
 	bool CheckInven( int SGNum, DWORD dwUserNum );
 	int	MakeUserInven( int SGNum, DWORD dwUserNum );
-	//! »ç¿ëÀÚ ÀÎº¥Åä¸®¿¡ µ¥ÀÌÅ¸¸¦ ÀúÀåÇÑ´Ù.
+	//! ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	int	WriteUserInven( 
 			int SGNum, 
 			LONGLONG llMoney /* LONGLONG __int64 */,
@@ -199,36 +199,36 @@ public:
 			BYTE* pData,
 			int nSize);
 	
-	// »õ·Î¿î Ä³¸¯ÅÍ¸¦ »ý¼ºÇÑ´Ù.
+	// ï¿½ï¿½ï¿½Î¿ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	int	CreateNewCharacter( SCHARDATA2* pCharData2 );
-	// ´ë¸¸,È«Äá
-	// Ä³¸¯ÅÍ »ý¼º½Ã Temp Table¿¡ Ä³¸¯ÅÍ ·¹º§°ú ±Ý¾× Á¤º¸¸¦ ¾ÏÈ£È­ ÇØ¼­ ÀúÀåÇØ µÐ´Ù.
+	// ï¿½ë¸¸,È«ï¿½ï¿½
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Temp Tableï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£È­ ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð´ï¿½.
 	int	InsertCharInfoTemp( int nChaNum );
 
 	virtual int ReadUserInven( SCHARDATA2* pChaData2 );
 
-	//! Ä³¸¯ÅÍ¸¦ ÀúÀåÇÑ´Ù
+	//! Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 	virtual int	SaveCharacter( LPVOID _pbuffer );
 	virtual void AddJob    ( CDbAction *pDbActJob );
 	virtual void AddLogJob ( CDbAction *pDbActJob );
 	virtual void AddUserJob( CDbAction *pDbActJob );
 	virtual void AddWebJob ( CDbAction *pDbActJob );
 
-	//! Ä³¸¯ÅÍÀÇ À§Ä¡Á¤º¸¸¦ ÀúÀåÇÑ´Ù.
-	//! \param dwChaNum Ä³¸¯ÅÍ ¹øÈ£
-	//! \param dwStartmapID ½ÃÀÛÇÏ´Â ¸Ê ¹øÈ£
-	//! \param dwStartGate ½ÃÀÛÇÏ´Â °ÔÀÌÆ® ¹øÈ£
-	//! \param fStartPosX ½ÃÀÛÇÏ´Â X ÁÂÇ¥
-	//! \param fStartPosY ½ÃÀÛÇÏ´Â Y ÁÂÇ¥
-	//! \param fStartPosZ ½ÃÀÛÇÏ´Â Z ÁÂÇ¥
-	//! \param dwSaveMapID ¸¶Áö¸·À¸·Î ÇÃ·¹ÀÌÇÑ ¸Ê ¹øÈ£
-	//! \param fSavePosX ¸¶Áö¸·À¸·Î ÇÃ·¹ÀÌÇÑ X ÁÂÇ¥
-	//! \param fSavePosY ¸¶Áö¸·À¸·Î ÇÃ·¹ÀÌÇÑ Y ÁÂÇ¥
-	//! \param fSavePosZ ¸¶Áö¸·À¸·Î ÇÃ·¹ÀÌÇÑ Z ÁÂÇ¥
-	//! \param dwLastCallMapID ½ÃÀÛ ±ÍÈ¯Ä«µå¿¡ ÀúÀåµÈ ¸Ê ¹øÈ£
-	//! \param fLastCallPosX ½ÃÀÛ ±ÍÈ¯Ä«µå¿¡ ÀúÀåµÈ X ÁÂÇ¥
-	//! \param fLastCallPosY ½ÃÀÛ ±ÍÈ¯Ä«µå¿¡ ÀúÀåµÈ Y ÁÂÇ¥
-	//! \param fLastCallPosZ ½ÃÀÛ ±ÍÈ¯Ä«µå¿¡ ÀúÀåµÈ Z ÁÂÇ¥
+	//! Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	//! \param dwChaNum Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	//! \param dwStartmapID ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
+	//! \param dwStartGate ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È£
+	//! \param fStartPosX ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ X ï¿½ï¿½Ç¥
+	//! \param fStartPosY ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Y ï¿½ï¿½Ç¥
+	//! \param fStartPosZ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Z ï¿½ï¿½Ç¥
+	//! \param dwSaveMapID ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
+	//! \param fSavePosX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ X ï¿½ï¿½Ç¥
+	//! \param fSavePosY ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ Y ï¿½ï¿½Ç¥
+	//! \param fSavePosZ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ Z ï¿½ï¿½Ç¥
+	//! \param dwLastCallMapID ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯Ä«ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
+	//! \param fLastCallPosX ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯Ä«ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ X ï¿½ï¿½Ç¥
+	//! \param fLastCallPosY ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯Ä«ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ Y ï¿½ï¿½Ç¥
+	//! \param fLastCallPosZ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯Ä«ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ Z ï¿½ï¿½Ç¥
 	//! \return DB_OK, DB_ERROR
 	int	SaveChaPos(
 			DWORD dwChaNum,
@@ -247,9 +247,9 @@ public:
 			FLOAT fLastCallPosZ );
 
 	/**
-	* Ä³¸¯ÅÍ ÀÌ¸§À» º¯°æÇÑ´Ù.
-	* \param dwChaNum Ä³¸¯ÅÍ¹øÈ£
-	* \param szCharName º¯°æÇÒ Ä³¸¯ÅÍÀÌ¸§
+	* Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \param szCharName ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
 	* \return DB_OK, DB_ERROR
 	*/
 	int RenameCharacter(
@@ -257,10 +257,10 @@ public:
 			TCHAR* szCharName );
 
 	/**
-	* Ä³¸¯ÅÍ Á¤º¸¸¦ °¡Á®¿Â´Ù (¹ÙÀÌ³Ê¸® Á¦°Å µ¥ÀÌÅ¸)
-	* \param nUserNum »ç¿ëÀÚ¹øÈ£
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£
-	* \return Ä³¸¯ÅÍÁ¤º¸
+	* Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ (ï¿½ï¿½ï¿½Ì³Ê¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸)
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \return Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	/*
 	SCHARDATA2*	GetCharacter(
@@ -272,10 +272,10 @@ public:
 			int nChaNum,
 			TCHAR* szPhoneNumber);
 	/**	
-	* Ä³¸¯ÅÍ Á¤º¸¸¦ °¡Á®¿Â´Ù. Ä³¸¯ÅÍÀÇ ¸ðµçÁ¤º¸ (¹ÙÀÌ³Ê¸® Æ÷ÇÔ)
-	* \param nUserNum »ç¿ëÀÚ¹øÈ£
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£
-	* \param pChaData2 Ä³¸¯ÅÍ µ¥ÀÌÅÍ¸¦ ¹ÞÀ» Æ÷ÀÎÆ®
+	* Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½. Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½Ì³Ê¸ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \param pChaData2 Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	* \return DB_OK, DB_ERROR
 	*/
 	int GetCharacterInfo(
@@ -283,10 +283,10 @@ public:
 		    int nChaNum,
 			SCHARDATA2* pChaData2 );
 	/**
-	* Ä³¸¯ÅÍ°¡ ½ÃÀÛÇÒ ¸Ê, °ÔÀÌÆ®, À§Ä¡¸¦ °¡Á®¿Â´Ù
-	* \param nUserNum »ç¿ëÀÚ¹øÈ£
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£
-	* \param pChaData Ä³¸¯ÅÍ µ¥ÀÌÅÍ¸¦ ¹ÞÀ» Æ÷ÀÎÆ®
+	* Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \param pChaData Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	* \return DB_OK, DB_ERROR
 	*/
 	int	GetCharacterInfo(
@@ -294,36 +294,36 @@ public:
 		    int nChaNum,
 			GLCHARAG_DATA* pChaData );
 	
-	//! ÇØ´ç »ç¿ëÀÚÀÇ Ä³¸¯ÅÍ Á¤º¸¸¦ °¡Á®¿Â´Ù.
+	//! ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 	int	GetChaAllInfo( int nUsrNum );
 	int	GetChaBAInfo( int nUsrNum, int nSvrGrp, NET_CHA_BBA_INFO* ncbi );
 	int	GetChaBInfo( int nUserNum, int nChaNum, SCHARINFO_LOBBY* sci );
 	
-	// Ä³¸¯ÅÍ »èÁ¦	
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 	int	DelCharacter( int nUsrNum, int nChaNum, const TCHAR* szPass2 );
-	// Ä³¸¯ÅÍ »èÁ¦
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int	DaumDelCharacter( int nUsrNum, int nChaNum );
-	// Ä³¸¯ÅÍ »èÁ¦
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int	TerraDelCharacter( int nUsrNum, int nChaNum );
-	// GSP Ä³¸¯ÅÍ »èÁ¦
+	// GSP Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int	GspDelCharacter( int nUsrNum, int nChaNum );
-	// Ä³¸¯ÅÍ »èÁ¦
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int	ExciteDelCharacter( int nUsrNum, int nChaNum );
-	// Japan Ä³¸¯ÅÍ »èÁ¦
+	// Japan Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int	JapanDelCharacter( int nUsrNum, int nChaNum );
-	// Ä³¸¯ÅÍ »èÁ¦	
+	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 	int	GsDelCharacter( int nUsrNum, int nChaNum );
-	// ½ÇÁ¦ Ä³¸¯ÅÍ »èÁ¦ ÇÔ¼ö
+	// ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 	int	DeleteCharacter( int nUsrNum, int nChaNum );
 
 
-	// º£Æ®³² Å½Á÷¹æÁö ½Ã½ºÅÛÀÇ Ãß°¡ Á¤º¸ ºÒ·¯¿À´Â ºÎºÐ Ãß°¡
+	// ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ß°ï¿½
 	int COdbcManager::GetVTCharInfo( int nChaNum, SCHARDATA2* pChaData2 );
-	// ´ë¸¸ ÇØÅ· ¹®Á¦ °ü·ÃÇØ¼­ ÃÖ±Ù ·Î±×¾Æ¿ô ÇßÀ»¶§ÀÇ Á¤º¸¸¦ DB¿¡¼­ ÀÐ¾î¿È.
+	// ï¿½ë¸¸ ï¿½ï¿½Å· ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ö±ï¿½ ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½.
 	int COdbcManager::GetLastCharInfo( int nUserNum, int nChaNum,SCHARDATA2* pChaData2 );
 
 	/**
-	* Ä³¸¯ÅÍÀÇ Ä£±¸Á¤º¸¸¦ °¡Á®¿Â´Ù.
+	* Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 	*/
 	int	GetChaFriend(
 			int nChaNum,
@@ -345,101 +345,101 @@ public:
 			int nSGNum,
 			int nSvrNum,
 			WORD wWin,
-			WORD wLost ); // ÇÐ±³vsÇÐ±³ ÆÄÆ¼´ë·Ã°á°úÀúÀå
+			WORD wLost ); // ï¿½Ð±ï¿½vsï¿½Ð±ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         
     /**
-    * ÇØ´ç Ä³¸¯ÅÍÀÇ °æÇèÄ¡¸¦ ¼¼ÆÃÇÑ´Ù.    
-    * ÁÖÀÇ 
-    * Ä³¸¯ÅÍ¹øÈ£´Â 0 º¸´Ù Ä¿¾ßÇÑ´Ù.
-    * °æÇèÄ¡´Â 0 º¸´Ù Ä¿¾ßÇÑ´Ù. 
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£ 
-	* \param llExp °æÇèÄ¡
+    * ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.    
+    * ï¿½ï¿½ï¿½ï¿½ 
+    * Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£ï¿½ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½Ñ´ï¿½.
+    * ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½Ñ´ï¿½. 
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£ 
+	* \param llExp ï¿½ï¿½ï¿½ï¿½Ä¡
 	* \return 
 	*/
     int SetChaExp(int nChaNum, LONGLONG llExp);
     
     /**
-    * ÇØ´ç Ä³¸¯ÅÍÀÇ °æÇèÄ¡¸¦ °¡Á®¿Â´Ù.    
-	* ÁÖÀÇ
-	* Ä³¸¯ÅÍ¹øÈ£´Â 0 º¸´Ù Ä¿¾ßÇÑ´Ù.
-	* °æÇèÄ¡°¡ 0 º¸´Ù ÀÛÀ¸¸é ¿¡·¯ÀÌ´Ù.
-    * \param nChaNum  Ä³¸¯ÅÍ¹øÈ£
-    * \return (LONGLONG) °æÇèÄ¡
+    * ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.    
+	* ï¿½ï¿½ï¿½ï¿½
+	* Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£ï¿½ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
+    * \param nChaNum  Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+    * \return (LONGLONG) ï¿½ï¿½ï¿½ï¿½Ä¡
     */
     LONGLONG GetChaExp(int nChaNum);
 
     /**
-    * ÇØ´ç ¶ôÄ¿ ¸¸·á½Ã°£À» Á¤ÇÑ´Ù.
-    * 1 ¹ø 5 ¹ø ¶ôÄ¿´Â Á¤ÇÒ ¼ö ¾øÀ½.
-    * 2, 3, 4 ¹ø ¶ôÄ¿¸¸ ¸¸·á½Ã°£À» Á¤ÇÒ ¼ö ÀÖ´Ù.
-    * ÀÔ·Â
-    * \param nUserNum »ç¿ëÀÚ°íÀ¯¹øÈ£
-    * \param nStorageNum ½ºÅä¸®Áö ¹øÈ£
-    * \param tTime ¸¸·á½Ã°£
+    * ï¿½Ø´ï¿½ ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
+    * 1 ï¿½ï¿½ 5 ï¿½ï¿½ ï¿½ï¿½Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+    * 2, 3, 4 ï¿½ï¿½ ï¿½ï¿½Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
+    * ï¿½Ô·ï¿½
+    * \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ï¿½ï¿½ï¿½ï¿½È£
+    * \param nStorageNum ï¿½ï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½È£
+    * \param tTime ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
     * \return -1 DB_ERROR 0 : DB_OK
 	*/
 	int SetChaStorageDate(int nUserNum, int nStorageNum, __time64_t tTime);
 
     /**
-    * ÇØ´ç Ä³¸¯ÅÍÀÇ ÀÎº¥Åä¸® Ãß°¡ ÁÙ¼ö¸¦ ¼¼ÆÃÇÑ´Ù.
-    * \n ÁÖÀÇ 
-    * \n ÃÖÃÊ 0 ¿¡¼­ ÇÑÁÙ Ãß°¡½Ã 1 À» ÀÔ·Â 
-    * \n ÇöÀç ÇÑÁÙ »óÅÂ¿¡¼­ ¶Ç ÇÑÁÙ Ãß°¡½Ã 2 ¸¦ ÀÔ·Â (ÃÖÁ¾ ÁÙ¼ö¸¦ ÀÔ·ÂÇÑ´Ù)
-    * \n ÇöÀç µÎÁÙ »óÅÂ¿¡¼­ ÇÑÁÙ Ãß°¡½Ã 3 À» ÀÔ·Â 
-    * \n ÃÖ´ë 3±îÁö¸¸ ÀÔ·Â°¡´É.
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£
-    * \param wInvenLine Ãß°¡ÁÙ¼ö 	
+    * ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ß°ï¿½ ï¿½Ù¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+    * \n ï¿½ï¿½ï¿½ï¿½ 
+    * \n ï¿½ï¿½ï¿½ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ ï¿½Ô·ï¿½ 
+    * \n ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ 2 ï¿½ï¿½ ï¿½Ô·ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¼ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ñ´ï¿½)
+    * \n ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ 3 ï¿½ï¿½ ï¿½Ô·ï¿½ 
+    * \n ï¿½Ö´ï¿½ 3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·Â°ï¿½ï¿½ï¿½.
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+    * \param wInvenLine ï¿½ß°ï¿½ï¿½Ù¼ï¿½ 	
 	* \return 
 	*/
 	int SetChaInvenNum(int nChaNum, WORD wInvenLine=0);
 
 	/**
-	* Á÷Àü±ÍÈ¯ Ä«µå »ç¿ëÀ» À§ÇÑ Æ÷Áö¼ÇÀ» ÀúÀåÇÑ´Ù.
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£
-	* \param dwMapID ¸Ê ID
-	* \param vPos    Ä³¸¯ÅÍ À§Ä¡
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \param dwMapID ï¿½ï¿½ ID
+	* \param vPos    Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 	* \return 
 	*/
     int SetLastCallPos(int nChaNum, DWORD dwMapID, D3DXVECTOR3 vPos);
  
 	/**
-	* »õ·Î¿î Å¬·´À» »ý¼ºÇÑ´Ù.
-	* \param strClubName Å¬·´ÀÌ¸§
-	* \param dwChaNum    Å¬·´À» »ý¼ºÇÏ·Á´Â Ä³¸¯ÅÍ ¹øÈ£ (ÀÌ Ä³¸¯ÅÍ°¡ Å¬·´ÀÇ ¸¶½ºÅÍ°¡ µÈ´Ù)
+	* ï¿½ï¿½ï¿½Î¿ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param strClubName Å¬ï¿½ï¿½ï¿½Ì¸ï¿½
+	* \param dwChaNum    Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ (ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½È´ï¿½)
 	* \return 
 	*/
     int CreateClub(CString strClubName, DWORD dwChaNum);
 
 	/**
-	* Å¬·´À» »èÁ¦ÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param dwChaNum Å¬·´À» »èÁ¦ÇÏ·Á´Â Ä³¸¯ÅÍ¹øÈ£(Ä³¸¯ÅÍ ¹øÈ£°¡ Å¬·´ ¸¶½ºÅÍ°¡ ¾Æ´Ï¸é »èÁ¦°¡ µÇÁö ¾Ê´Â´Ù)
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param dwChaNum Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£(Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½)
 	* \return 
 	*/
     int DeleteClub(DWORD dwClub, DWORD dwChaNum);    
 
 	/**
-	* Å¬·´·©Å·À» ¼¼ÆÃÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param dwRank ·©Å·
+	* Å¬ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param dwRank ï¿½ï¿½Å·
 	* \return 
 	*/
     int SetClubRank(DWORD dwClub, DWORD dwRank);    
 
 	/**
-	* Å¬·´¸¶Å© ÀÌ¹ÌÁö¸¦ °¡Á®¿Â´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param &ByteStream ¹öÆÛ
+	* Å¬ï¿½ï¿½ï¿½ï¿½Å© ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param &ByteStream ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
     int ReadClubMarkImage(DWORD dwClub, CByteStream &ByteStream);    
 
 	/**
-	* Å¬·´¸¶Å© ÀÌ¹ÌÁö¸¦ ÀúÀåÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param dwMarkVer Å¬·´¸¶Å©¹öÀü
-	* \param pData Å¬·´ÀÌ¹ÌÁö ÁÖ¼Ò
-	* \param nSize Å¬·´ÀÌ¹ÌÁö »çÀÌÁî
+	* Å¬ï¿½ï¿½ï¿½ï¿½Å© ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param dwMarkVer Å¬ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½
+	* \param pData Å¬ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½
+	* \param nSize Å¬ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
     int	WriteClubMarkImage(
@@ -449,151 +449,151 @@ public:
 			int nSize );
 	
 	/**
-	* ÇØ´çÅ¬·´ÀÇ º¸À¯±Ý¾×À» ¼¼ÆÃÇÑ´Ù. (Storage)
-	* \param dwClub Å¬·´¹øÈ£
-	* \param llMoney º¸À¯±Ý¾× (±Ý¾×Àº >= 0)
+	* ï¿½Ø´ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. (Storage)
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param llMoney ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½ (ï¿½Ý¾ï¿½ï¿½ï¿½ >= 0)
 	* \return 
 	*/
     int	SetClubMoney(DWORD dwClub, LONGLONG llMoney);    
 
 	/**
-	* ÇØ´çÅ¬·´ÀÇ º¸À¯±Ý¾×À» °¡Á®¿Â´Ù. (Storage)
-	* \param dwClub Å¬·´¹øÈ£
-	* \return ¸®ÅÏ°ªÀº >= 0, 0 º¸´Ù ÀÛÀ¸¸é ERROR
+	* ï¿½Ø´ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½. (Storage)
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \return ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ >= 0, 0 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ERROR
 	*/
     LONGLONG GetClubMoney(DWORD dwClub);
 
 	/**
-	* ÇØ´çÅ¬·´ÀÇ ¼öÀÔ±Ý¾×À» ¼¼ÆÃÇÑ´Ù. (Income money)
-	* \param dwClub Å¬·´¹øÈ£
-	* \param llMoney ¼öÀÔ±Ý¾× (±Ý¾×Àº >= 0)
+	* ï¿½Ø´ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô±Ý¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. (Income money)
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param llMoney ï¿½ï¿½ï¿½Ô±Ý¾ï¿½ (ï¿½Ý¾ï¿½ï¿½ï¿½ >= 0)
 	* \return 
 	*/
     int SetClubIncomeMoney(DWORD dwClub, LONGLONG llMoney);    
     
 	/**
-	* ÇØ´çÅ¬·´ÀÇ ¼öÀÔ±Ý¾×À» °¡Á®¿Â´Ù. (Income money)
-	* \param dwClub Å¬·´¹øÈ£
-	* \return >= 0, 0 º¸´Ù ÀÛÀ¸¸é ERROR
+	* ï¿½Ø´ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô±Ý¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½. (Income money)
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \return >= 0, 0 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ERROR
 	*/
     LONGLONG GetClubIncomeMoney(DWORD dwClub);    
 
 	/**
-	* ÇØ´çÅ¬·´ÀÇ Å¬·´Ã¢°í¸¦ ÀÐ¾î¿Â´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param &ByteStream ¹öÆÛ
+	* ï¿½Ø´ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½Â´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param &ByteStream ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
     int ReadClubStorage(DWORD dwClub, CByteStream &ByteStream);    
 
 	/**
-	* ÇØ´çÅ¬·´ÀÇ Å¬·´Ã¢°í¸¦ ÀúÀåÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param pData Ã¢°íÀ§Ä¡
-	* \param nSize ¹öÆÛ ÀüÃ¼Å©±â
+	* ï¿½Ø´ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param pData Ã¢ï¿½ï¿½ï¿½ï¿½Ä¡
+	* \param nSize ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼Å©ï¿½ï¿½
 	* \return 
 	*/
     int	WriteClubStorage(DWORD dwClub, BYTE* pData, int nSize);
 
 	/**
-	* Å¬·´ ÇØÃ¼½Ã°£À» ¼³Á¤ÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param tDiss ÇØÃ¼½Ã°£
+	* Å¬ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param tDiss ï¿½ï¿½Ã¼ï¿½Ã°ï¿½
 	* \return 
 	*/
     int SetClubDissolutionTime(DWORD dwClub, __time64_t tDiss);
 
 	/**
-	* Å¬·´ÀÇ µ¿¸ÍÅ»Åð È¤Àº Á¦¸í½Ã°£À» Á¤ÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param tSec ½Ã°£
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å»ï¿½ï¿½ È¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param tSec ï¿½Ã°ï¿½
 	* \return 
 	*/
 	int SetClubAllianceSec(DWORD dwClub, __time64_t tSec);
 
 	/**
-	* Å¬·´ÀÇ µ¿¸ÍÇØ»ê ½Ã°£À» Á¤ÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param tDis ÇØ»ê½Ã°£
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø»ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param tDis ï¿½Ø»ï¿½Ã°ï¿½
 	* \return 
 	*/
 	int SetClubAllianceDis(DWORD dwClub, __time64_t tDis);
 
 	/**
-	* Å¬·´ÀÇ ¸¶½ºÅÍÀ§ÀÓ ½Ã°£À» Á¤ÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param tDis ¸¶½ºÅÍ À§ÀÓ½Ã°£
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param tDis ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó½Ã°ï¿½
 	* \return 
 	*/
 	int SetClubAuthorityTime(DWORD dwClub, __time64_t tAuthority);
 
 	/**
-	* ¼­¹öÀÇ ¸ðµç Å¬·´Á¤º¸¸¦ °¡Á®¿Â´Ù.
-	* \param &vClub Å¬·´Á¤º¸
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \param &vClub Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
     int GetClubInfo(std::vector<GLCLUBINFO> &vClub);
 	
 	/**
-	* Å¬·´ÀÇ °øÁö»çÇ×À» ¼¼ÆÃÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param szClubNotice °øÁö»çÇ×
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param szClubNotice ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
 	int SetClubNotice(DWORD dwClub, const TCHAR* szClubNotice);
 
 	/**
-	* Å¬·´ÀÇ ¼±µµÅ¬·´ ÀÎÁõ ´ë¸®ÀÚ¸¦ ¼¼ÆÃÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param dwDeputy ´ë¸®ÀÎÁõÀÚ Ä³¸¯ÅÍ¹øÈ£
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ë¸®ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param dwDeputy ï¿½ë¸®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
 	* \return 
 	*/
 	int SetClubDeputy(DWORD dwClub, DWORD dwDeputy);
 
 	/**
-	* Å¬·´ÀÇ ¸¶½ºÅÍ ±ÇÇÑÀ» À§ÀÓÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param dwMasterID ¸¶½ºÅÍ ±ÇÇÑ À§ÀÓÇÒ ÄÉ¸¯ÅÍ
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param dwMasterID ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½
 	* \return 
 	*/
 
 	int SetClubAuthority (DWORD dwClub, DWORD dwMasterID);
 
 	/**
-	* ÇØ´ç Å¬·´ÀÇ ¸â¹ö¸¦ °¡Á®¿Â´Ù
-	* \param dwClub Å¬·´¹øÈ£
-	* \param &vMember Å¬·´¸â¹ö
+	* ï¿½Ø´ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param &vMember Å¬ï¿½ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
     int GetClubMember(DWORD dwClub, std::vector<GLCLUBMEMBER> &vMember);
     
 	/**
-	* »õ·Î¿î Ä³¸¯ÅÍ¸¦ Å¬·´¿¡ °¡ÀÔ½ÃÅ²´Ù
-	* \param dwClub Å¬·´¹øÈ£
-	* \param dwChaNum °¡ÀÔ½ÃÅ°·Á´Â Ä³¸¯ÅÍ¹øÈ£
+	* ï¿½ï¿½ï¿½Î¿ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô½ï¿½Å²ï¿½ï¿½
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param dwChaNum ï¿½ï¿½ï¿½Ô½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
 	* \return 
 	*/
     int AddClubMember(DWORD dwClub, DWORD dwChaNum);
 
 	/**
-	* °¡ÀÔµÇ¾î ÀÖ´Â Ä³¸¯ÅÍ¸¦ Å¬·´¿¡¼­ Å»Åð½ÃÅ²´Ù
-	* \param dwChaNum Ä³¸¯ÅÍ¹øÈ£
+	* ï¿½ï¿½ï¿½ÔµÇ¾ï¿½ ï¿½Ö´ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½Å²ï¿½ï¿½
+	* \param dwChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
 	* \return 
 	*/
     int DeleteClubMember(DWORD dwChaNum);
 
 	/**
-	* Ä³¸¯ÅÍÀÇ Å¬·´¹øÈ£¸¦ °¡Á®¿Â´Ù.
-	* \param dwChaNum Ä³¸¯ÅÍ¹øÈ£
+	* Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \param dwChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
 	* \return 
 	*/
     int GetChaGuildNum(DWORD dwChaNum);    
 
 	/**
-	* Áö¿ª°ú ±×Áö¿ªÀ» ¼ÒÀ¯ÇÑ Å¬·´ ¼¼À²À» Á¤ÇÑ´Ù.
-	* \param dwRegionID Áö¿ª ID
-	* \param dwClub Å¬·´ ID
-	* \param fTax ¼¼À²
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwRegionID ï¿½ï¿½ï¿½ï¿½ ID
+	* \param dwClub Å¬ï¿½ï¿½ ID
+	* \param fTax ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
     int SetClubRegion(DWORD dwRegionID, DWORD dwClub=0, float fTax=0);
@@ -601,16 +601,16 @@ public:
 	//add sw buff
 	int SetSwRegion(DWORD dwSwID, DWORD dwSwNum=3);
 	/**
-	* ÇØ´ç Áö¿ªÀÇ ¼ÒÀ¯ »óÅÂ¸¦ ¸®¼ÂÇÑ´Ù.
-	* \param dwRegionID Áö¿ª ID
-	* \param dwClub Å¬·´ ID (±âº» 0 ÀÌ´Ù)
+	* ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwRegionID ï¿½ï¿½ï¿½ï¿½ ID
+	* \param dwClub Å¬ï¿½ï¿½ ID (ï¿½âº» 0 ï¿½Ì´ï¿½)
 	* \return 
 	*/
     int DelClubRegion(DWORD dwRegionID, DWORD dwClub=0);    
     
 	/**
-	* ÇöÀç ¸ðµçÁö¿ªÀÇ ¼±µµ Å¬·´µ¥ÀÌÅÍ¸¦ °¡Á®¿Â´Ù.
-	* \n ÁÖÀÇ:ÃÖÃÊ¿¡´Â °¡Á®¿Ã °ªÀÌ ¾ø´Ù.
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \n ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	* \param &vGUID_DB 
 	* \return 
 	*/
@@ -619,118 +619,118 @@ public:
 	//add sw buff
 	int GetSwRegion(std::vector<GLSWID> &vSWID_DB);
 	/**
-	* ºÎ Å¬·´ÀåÀ» ¼¼ÆÃÇÑ´Ù
-	* \param dwClub Å¬·´¹øÈ£
-	* \param dwChaNum Ä³¸¯ÅÍ¹øÈ£
-	* \param dwSubMasterFlags ÇÃ·¡±× (0 À¸·Î ³ÖÀ¸¸é ÀÏ¹Ý±æµå¿øÀÌ µÈ´Ù)
+	* ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param dwChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \param dwSubMasterFlags ï¿½Ã·ï¿½ï¿½ï¿½ (0 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹Ý±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È´ï¿½)
 	* \return 
 	*/
 	int	SetClubMasterFlags(DWORD dwClub, DWORD dwChaNum, DWORD dwSubMasterFlags);
 
 	/**
-	* µ¿¸Í Å¬·´À» °á¼ºÇÑ´Ù.
-    * \n ÁÖÀÇ 
-	* \n db ´Â Å¬·´ÀÇ ¹«°á¼ºÀ» Ã¼Å©ÇÏÁö ¾Ê´Â´Ù.
-	* \n A °¡ B ÀÇ º¸Á¶ÀÎ »óÅÂ¿¡¼­ 
-	* \n B °¡ C ÀÇ º¸Á¶·Î µé¾î°¡°í
-	* \n C °¡ A ÀÇ º¸Á¶·Î µé¾î°¡¸é ¼ÒÀ¯±Ç Ã¼ÀÎ ¹®Á¦°¡ ¹ß»ýÇÑ´Ù.
-	* \param dwClubP ÁÖ Å¬·´¹øÈ£ (µ¿¸Í Å¬·´ÀÇ ÁÖ)
-	* \param dwClubS º¸Á¶ Å¬·´¹øÈ£ (ÁÖ Å¬·´ ¹ØÀ¸·Î µé¾î°¡´Â ÇÏÀ§ Å¬·´)
+	* ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½á¼ºï¿½Ñ´ï¿½.
+    * \n ï¿½ï¿½ï¿½ï¿½ 
+	* \n db ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½á¼ºï¿½ï¿½ Ã¼Å©ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
+	* \n A ï¿½ï¿½ B ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ 
+	* \n B ï¿½ï¿½ C ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½
+	* \n C ï¿½ï¿½ A ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClubP ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
+	* \param dwClubS ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½)
 	* \return 
 	*/
 	int	SetClubAlliance(DWORD dwClubP, DWORD dwClubS);
 
 	/**
-	* µ¿¸Í Å¬·´À» ÇØÃ¼ÇÑ´Ù.
-	* \param dwClubP ÁÖ Å¬·´¹øÈ£ (µ¿¸Í Å¬·´ÀÇ ÁÖ)
-	* \param dwClubS º¸Á¶ Å¬·´¹øÈ£ (ÁÖ Å¬·´ ¹ØÀ¸·Î µé¾î°¡´Â ÇÏÀ§ Å¬·´)
+	* ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Ñ´ï¿½.
+	* \param dwClubP ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
+	* \param dwClubS ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½)
 	* \return 
 	*/
 	int	DelClubAlliance(DWORD dwClubP, DWORD dwClubS);
 
 	/**
-	* µ¿¸Í Å¬·´Á¤º¸¸¦ °¡Á®¿Â´Ù.
-	* \n ¾ÆÁ÷ °ÔÀÓ LogicÂÊ¿¡¼­ ±¸ÇöÀÌ ¾ÈµÈ°ü°è·Î ±¸ÇöµÇ¾î ÀÖÁö ¾Ê´Ù.
+	* ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \n ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Logicï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÈ°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½.
 	* \return 
 	*/
 	int	GetClubAlliance ( std::vector< std::pair<DWORD,DWORD> > &vecAlliance );
 	
 	/**
-	* Å¬·´ ¹èÆ²À» ½ÅÃ»ÇÑ´Ù.
-	* \param dwClubP ÁÖÅ¬·´¹øÈ£( Å¬·´ ¹èÆ²ÀÇ ½ÅÃ»À» ¹ÞÀº ÁÖ )
-	* \param dwClubS º¸Á¶ Å¬·´¹øÈ£( Å¬·´ ¹èÆ²ÀÇ ½ÅÃ»À» ÇÑ Å¬·´ )
+	* Å¬ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
+	* \param dwClubP ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½È£( Å¬ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ )
+	* \param dwClubS ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£( Å¬ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ Å¬ï¿½ï¿½ )
 	* \return
 	*/
 	int SetClubBattle( DWORD dwClubP, DWORD dwClubS, DWORD dwEndTime, int nAlliance );
 
 	/**
-	* Å¬·´ ¹èÆ²À» Á¾·áÇÑ´Ù.
-	* \param dwClubP ÁÖÅ¬·´ ¹øÈ£( Å¬·´ ¹èÆ²ÀÇ ½ÅÃ»À» ¹ÞÀº ÁÖ )
-	* \param dwClubS º¸Á¶ Å¬·´ ¹øÈ£( Å¬·´ ¹èÆ²ÀÇ ½ÅÃ»À» ÇÑ Å¬·´ )
-	* \param nGuFlag ½ÂÆÐ¿©ºÎ
-	* \param nGuKillNum Å¬·´ ¹èÆ² Å³¼ö
+	* Å¬ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClubP ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½È£( Å¬ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ )
+	* \param dwClubS ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½È£( Å¬ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ Å¬ï¿½ï¿½ )
+	* \param nGuFlag ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½ï¿½
+	* \param nGuKillNum Å¬ï¿½ï¿½ ï¿½ï¿½Æ² Å³ï¿½ï¿½
 	* \return
 	*/
 	int EndClubBattle( DWORD dwClubP, DWORD dwClubS, int nGuFlag, int nGuKillNum, int nGuDeathNum, bool bAlliance );
 
 	/**
-	* Å¬·´ ¹èÆ²Á¤º¸¸¦ ÀúÀåÇÑ´Ù,( Å¬·´ ¹èÆ²ÀÌ Á¾·áµÇ±âÀü ¼­¹öÀç½ÃÀÛÀÌ ÇÊ¿äÇÑ°æ¿ì ¹èÆ² Á¤º¸ÀÇ ÀúÀåÀÌ ÇÊ¿äÇÔ )
-	* \param dwClubP ÁÖÅ¬·´ ¹øÈ£( Å¬·´ ¹èÆ²ÀÇ ½ÅÃ»À» ¹ÞÀº ÁÖ)
-	* \param dwClubS º¸Á¶ Å¬·´ ¹øÈ£( Å¬·´ ¹èÆ²ÀÇ ½ÅÃ»À» ÇÑ Å¬·´ )
-	* \param nGuKillNum Å¬·´ ¹èÆ² Å³¼ö
+	* Å¬ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½,( Å¬ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½Ñ°ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ )
+	* \param dwClubP ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½È£( Å¬ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
+	* \param dwClubS ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½È£( Å¬ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ Å¬ï¿½ï¿½ )
+	* \param nGuKillNum Å¬ï¿½ï¿½ ï¿½ï¿½Æ² Å³ï¿½ï¿½
 	* \return
 	*/
 	int SaveClubBattle( DWORD dwClubP, DWORD dwClubS, int nGuKillNum, int nGuDeathNum );
 
 	/**
-	* µ¿¸Í¹èÆ² ÀüÀûÀ» ÃÊ±âÈ­ ½ÃÅ°±ä´Ù.
-	* \param dwClub Å¬·´ ¹øÈ£
+	* ï¿½ï¿½ï¿½Í¹ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½Å°ï¿½ï¿½ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ ï¿½ï¿½È£
 	* \return
 	*/
 	int ReSetAllianceBattle( DWORD dwClub );
 
 	/**
-	* ÇØ´ç Å¬·´ÀÇ ¹èÆ²ÁßÀÎ Å¬·´ Á¤º¸¸¦ °¡Á®¿Â´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param &vMember Å¬·´¹èÆ² Á¤º¸
+	* ï¿½Ø´ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ²ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param &vMember Å¬ï¿½ï¿½ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
     int GetClubBattleInfo( DWORD dwClub, std::vector<GLCLUBBATTLE> &vBattleInfo );
 	
 	/**
-	* Ä³¸¯ÅÍ¸¦ ¿Â¶óÀÎ »óÅÂ·Î ¸¸µç´Ù.
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£
+	* Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Â¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
 	* \return 
 	*/
 	int SetCharacterOnline(int nChaNum);
 
 	/**
-	* Ä³¸¯ÅÍ¸¦ ¿ÀÇÁ¶óÀÎ »óÅÂ·Î ¸¸µç´Ù.
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£
+	* Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
 	* \return 
 	*/
 	int SetCharacterOffline(int nChaNum);
 
 	/**
-	* ¸ðµç Ä³¸¯ÅÍ¸¦ ¿ÀÇÁ¶óÀÎ »óÅÂ·Î ¸¸µç´Ù.
+	* ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 	* \return 
 	*/
 	int SetAllCharacterOffline();
 
 	/**
-	* Ä³¸¯ÅÍÀÇ ¸Ó¸®»öÀ» º¯°æÇÑ´Ù.
+	* Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	* \return DB_OK, DB_ERROR
 	*/
 	int SetChaHairColor(DWORD dwChaNum, int nHairColor);
 
 	/**
-	* Ä³¸¯ÅÍÀÇ Çì¾î½ºÅ¸ÀÏÀ» º¯°æÇÑ´Ù.
+	* Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î½ºÅ¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	* \return DB_OK, DB_ERROR
 	*/
 	int SetChaHairStyle(DWORD dwChaNum, int nHairStyle);
 
 	/**
-	* Ä³¸¯ÅÍÀÇ ¾ó±¼½ºÅ¸ÀÏÀ» º¯°æÇÑ´Ù.
+	* Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ó±¼½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	* \return DB_OK, DB_ERROR
 	*/
 	int SetChaFaceStyle(DWORD dwChaNum, int nFaceStyle);
@@ -738,7 +738,7 @@ public:
 
 
 	/**
-	* Ä³¸¯ÅÍÀÇ ¼ºº°À» º¯°æÇÑ´Ù.
+	* Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	* \return DB_OK, DB_ERROR
 	*/
 	int SetChaGenderChange( DWORD dwChaNum, int nClass, int nSex, int nFace, int nHair, int nHairColor);
@@ -757,17 +757,17 @@ public:
 	// typedef std::pair < DWORD, PETSKILL> PETSKILL_PAIR;
 
 	/**
-	* »õ·Î¿î ÆÖÀ» »ý¼ºÇÑ´Ù.
-	* \param nChaNum  ÆÖ ¼ÒÀ¯ÀÚ Ä³¸¯ÅÍ ¹øÈ£
-	* \param szPetName ÆÖÀÌ¸§
-	* \param nPetType ÆÖÀÇ Å¸ÀÔ
-	* \param nPetMID ÆÖ MID
-	* \param nPetSid ÆÖ SID
-	* \param nPetStyle ÆÖÀÇ ½ºÅ¸ÀÏ
-	* \param nPetColor ÆÖÀÇ ÄÃ·¯
-	* \param m_nPetCardMID ÆÖ Ä«µåÀÇ MID
-	* \param m_nPetCardSID ÆÖ Ä«µåÀÇ SID
-	* \return DB_ERROR ¶Ç´Â ¼º°øÇßÀ»¶§´Â Pet ÀÇ °íÀ¯¹øÈ£
+	* ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nChaNum  ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param szPetName ï¿½ï¿½ï¿½Ì¸ï¿½
+	* \param nPetType ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
+	* \param nPetMID ï¿½ï¿½ MID
+	* \param nPetSid ï¿½ï¿½ SID
+	* \param nPetStyle ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½
+	* \param nPetColor ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½
+	* \param m_nPetCardMID ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ MID
+	* \param m_nPetCardSID ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ SID
+	* \return DB_ERROR ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Pet ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 	*/
 	int CreatePet(
 		int nChaNum,
@@ -782,44 +782,44 @@ public:
 		);
 
 	/**
-	* »õ·Î¿î ÆÖÀ» »ý¼ºÇÑ´Ù.
-	* \param nPetNum ÆÖÀÇ °íÀ¯¹øÈ£
-	* \param szPetName ÆÖÀÌ¸§
+	* ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nPetNum ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	* \param szPetName ï¿½ï¿½ï¿½Ì¸ï¿½
 	* \return DB_ERROR, DB_OK
 	*/
 	int RenamePet(int nChaNum, int nPetNum, const TCHAR* szPetName);
 
 	/**
-	* ÆÖÀÇ ¼ÒÀ¯±ÇÀ» ÀÌÀüÇÑ´Ù.
-	* \param nChaNum ÆÖÀÇ »õ·Î¿î ¼ÒÀ¯ÀÚ
-	* \param nPetNum ¼ÒÀ¯±ÇÀ» ÀÌÀüÇÒ ÆÖ ¹øÈ£
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nChaNum ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* \param nPetNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
 	*/
 	int ExchangePet(int nChaNum, int nPetNum);
 
 	/**
-	* ÆÖÀÇ ÄÃ·¯¸¦ º¯°æÇÑ´Ù.
-	* \param nPetNum ÄÃ·¯¸¦ º¯°æÇÏ·Á´Â ÆÖÀÇ ¹øÈ£
-	* \param nPetColor ÆÖÀÇ ÄÃ·¯
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nPetNum ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param nPetColor ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½
 	*/
 	int SetPetColor(int nChaNum, int nPetNum, int nPetColor);
 
 	/**
-	* ÆÖÀÇ ½ºÅ¸ÀÏÀ» º¯°æÇÑ´Ù.
-	* \param nPetNum ½ºÅ¸ÀÏÀ» º¯°æÇÏ·Á´Â ÆÖÀÇ ¹øÈ£
-	* \param nPetStyle ÆÖÀÇ ½ºÅ¸ÀÏ
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nPetNum ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param nPetStyle ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½
 	*
 	*/
 	int SetPetStyle(int nChaNum, int nPetNum, int nPetStyle);
 
 	/**
-	* ÆÖÀÇ Æ÷¸¸µµ¸¦ ¼³Á¤ÇÑ´Ù. Æ÷¸¸µµ´Â 0-100 »çÀÌ
-	* \param nPetNum Æ÷¸¸µµ¸¦ ¼³Á¤ÇÒ ÆÖÀÇ ¹øÈ£
-	* \param nPetFull Æ÷¸¸µµ
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0-100 ï¿½ï¿½ï¿½ï¿½
+	* \param nPetNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param nPetFull ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	int SetPetFull( int nChaNum, int nPetNum, int nPetFull );
 
 	/**
-	* ÆÖÀÇ ÀÎº¥Åä¸® ¾÷µ¥ÀÌÆ®
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 	*/
 	int SetPetSkill(
 		int nChaNum,
@@ -832,7 +832,7 @@ public:
 		int nPetInvenAvailable);
 
 	/**
-	* ÆÖÀÇ ÀÎº¥Åä¸® ¾÷µ¥ÀÌÆ®
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 	*/
 	int SetPetInven(
 		int nPetChaNum,
@@ -840,57 +840,57 @@ public:
 		CByteStream &ByteStream );
 
 	/**
-	* ÆÖÀ» »èÁ¦ÇÑ´Ù.
-	* \param nPetNum »èÁ¦ÇÒ ÆÖÀÇ ¹øÈ£
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nPetNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	*/
 	int	DeletePet(int nChaNum, int nPetNum);
 	
 	/**
-	* ÆÖÀÇ ½ºÅ³À» °¡Á®¿Â´Ù.
-	* \param nPetNum ÆÖÀÇ ¹øÈ£
-	* \param vSkill ÆÖ ½ºÅ³À» ³ÖÀ» vector
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \param nPetNum ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param vSkill ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ vector
 	*/
 	int GetPetSkill( int nChaNum, GLPET* pPet, DWORD dwPetNum );
 
 	/**
-	* ÆÖÀÇ ÀÎº¥Åä¸® Á¤º¸¸¦ °¡Á®¿Â´Ù
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
 	*/
 	int GetPetInven( int nChaNum, GLPET* pPet, DWORD dwPetNum );
 
 	/**
-	* ÆÖÀÇ Á¤º¸¸¦ °¡Á®¿Â´Ù.
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 	*/
 	int GetPet( GLPET* pPet, DWORD dwPetNum, DWORD dwClientID );
 
 	/**
-	* ÆÖÀÇ Æ÷¸¸°¨À» °¡Á®¿Â´Ù
-	* \param dwPetNum ÆÖ ¹øÈ£
-	* \return ÆÖÀÇ Æ÷¸¸°¨ or DB_ERROR
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
+	* \param dwPetNum ï¿½ï¿½ ï¿½ï¿½È£
+	* \return ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ or DB_ERROR
 	*/
 	int GetPetFull( int nChaNum, DWORD dwPetNum );
 
 	/**
-	* ¼Ò¸êµÈ ÆÖÀÇ ¸®½ºÆ®¸¦ °¡Á®¿Â´Ù.
-	* \param nChaNum ¼Ò¸êµÈ Æê ¸®½ºÆ®¸¦ Ãâ·ÂÇÏ·Á´Â Ä³¸¯ÅÍ ¹øÈ£
-	* \param vecPetReList ¼Ò¸êµÈ Æê ¸®½ºÆ®¸¦ ³ÖÀ» º¤ÅÍ
+	* ï¿½Ò¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \param nChaNum ï¿½Ò¸ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param vecPetReList ï¿½Ò¸ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	*/
 	int GetRestorePetList( int nChaNum, std::vector<PET_RELIST> &vecPetReList );
 
 	/**
-	* ÆÖÀ» ºÎÈ°½ÃÅ²´Ù.
-	* \param nPetNum ºÎÈ°ÇÒ ÆÖ ¹øÈ£
-	* \param nChaNum ºÎÈ°À» ¿ä±¸ÇÑ Ä³¸¯ÅÍ ¹øÈ£
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½Å²ï¿½ï¿½.
+	* \param nPetNum ï¿½ï¿½È°ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
+	* \param nChaNum ï¿½ï¿½È°ï¿½ï¿½ ï¿½ä±¸ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	*/
 	int RestorePet( DWORD dwPetNum, int nChaNum );
 
 	/**
-	* ÆÖÀÇ ½ºÅ²ÆÑÀ» ¾÷µ¥ÀÌÆ® ÇÑ´Ù.
-	* \param nChaNum		ÆÖ¼ÒÀ¯ Ä³¸¯ÅÍ ¹øÈ£
-	* \param dwPetNum		Æê ¹øÈ£
-	* \param nPetSkinMID	Æê ½ºÅ² MID
-	* \param nPetSkinSID	Æê ½ºÅ² SID
-	* \param nPetSkinScale	Æê ½ºÅ² Scale
-	* \param nPetSkinTime	Æê ½ºÅ² Àû¿ë½Ã°£
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ñ´ï¿½.
+	* \param nChaNum		ï¿½Ö¼ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param dwPetNum		ï¿½ï¿½ ï¿½ï¿½È£
+	* \param nPetSkinMID	ï¿½ï¿½ ï¿½ï¿½Å² MID
+	* \param nPetSkinSID	ï¿½ï¿½ ï¿½ï¿½Å² SID
+	* \param nPetSkinScale	ï¿½ï¿½ ï¿½ï¿½Å² Scale
+	* \param nPetSkinTime	ï¿½ï¿½ ï¿½ï¿½Å² ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
 	*/
 	int UpdatePetSkin( int nChaNum,
 					   DWORD dwPetNum,
@@ -906,13 +906,13 @@ public:
 
 	/**
 	* Taiwan / HongKong 
-	* ·Î±×ÀÎÇÏ·Á´Â »ç¿ëÀÚ¸¦ Ã¼Å©ÇÑ´Ù.	
-	* \param szUsrID »ç¿ëÀÚ ID
-	* \param szPasswd »ç¿ëÀÚ ÆÐ½º¿öµå
-	* \param szUsrIP »ç¿ëÀÚÀÇ IP Address
-	* \param nSvrGrp ¼­¹ö±×·ì
-	* \param nSvrNum ¼­¹ö¹øÈ£
-	* \return DB ÀÎÁõÈÄ °á°ú°ª
+	* ï¿½Î±ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.	
+	* \param szUsrID ï¿½ï¿½ï¿½ï¿½ï¿½ ID
+	* \param szPasswd ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* \param szUsrIP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IP Address
+	* \param nSvrGrp ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nSvrNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	* \return DB ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	int	UserCheck(
 		const TCHAR* szUsrID,
@@ -925,13 +925,13 @@ public:
 
 	/**
 	* Thailand
-	* ·Î±×ÀÎÇÏ·Á´Â »ç¿ëÀÚ¸¦ Ã¼Å©ÇÑ´Ù.	
-	* \param szUsrID »ç¿ëÀÚ ID
-	* \param szPasswd »ç¿ëÀÚ ÆÐ½º¿öµå
-	* \param szUsrIP »ç¿ëÀÚÀÇ IP Address
-	* \param nSvrGrp ¼­¹ö±×·ì
-	* \param nSvrNum ¼­¹ö¹øÈ£
-	* \return DB ÀÎÁõÈÄ °á°ú°ª
+	* ï¿½Î±ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.	
+	* \param szUsrID ï¿½ï¿½ï¿½ï¿½ï¿½ ID
+	* \param szPasswd ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* \param szUsrIP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IP Address
+	* \param nSvrGrp ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nSvrNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	* \return DB ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	int	ThaiUserCheck(
 			const TCHAR* szUsrID,
@@ -942,13 +942,13 @@ public:
 
 	/**
 	* Daum Game (Korea)
-	* \param szDaumGID »ç¿ëÀÚ GID
-	* \param szDaumUID »ç¿ëÀÚ UID
-	* \param szDaumSSNHEAD ÁÖ¹Î¹øÈ£ ¾ÕÀÚ¸®
-	* \param szDaumSEX ¼ºº°
+	* \param szDaumGID ï¿½ï¿½ï¿½ï¿½ï¿½ GID
+	* \param szDaumUID ï¿½ï¿½ï¿½ï¿½ï¿½ UID
+	* \param szDaumSSNHEAD ï¿½Ö¹Î¹ï¿½È£ ï¿½ï¿½ï¿½Ú¸ï¿½
+	* \param szDaumSEX ï¿½ï¿½ï¿½ï¿½
 	* \param szUsrIP IP Address
-	* \param nSvrGrp ¼­¹ö±×·ì
-	* \param nSvrNum ¼­¹ö¹øÈ£
+	* \param nSvrGrp ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nSvrNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 	* \return 
 	*/
 	/*
@@ -966,9 +966,9 @@ public:
 	* Daum Game (Korea)	
 	* \param 
 	* \param 
-	* \param szUsrIP ·Î±×ÀÎÇÏ·Á´Â IP Address
-	* \param nSvrGrp ¼­¹ö±×·ì
-	* \param nSvrNum ¼­¹ö¹øÈ£
+	* \param szUsrIP ï¿½Î±ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ IP Address
+	* \param nSvrGrp ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nSvrNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 	* \return
 	*/
 	int DaumUserCheck(
@@ -980,12 +980,12 @@ public:
 
 	/**
 	* GSP
-	* \n ·Î±×ÀÎÇÏ·Á´Â »ç¿ëÀÚ¸¦ Ã¼Å©ÇÑ´Ù.
+	* \n ï¿½Î±ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.
 	* \param 
 	* \param 
-	* \param szUsrIP ·Î±×ÀÎÇÏ·Á´Â IP Address
-	* \param nSvrGrp ¼­¹ö±×·ì
-	* \param nSvrNum ¼­¹ö¹øÈ£
+	* \param szUsrIP ï¿½Î±ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ IP Address
+	* \param nSvrGrp ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nSvrNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 	* \return 
 	*/
 	int GspUserCheck(
@@ -996,12 +996,12 @@ public:
 			int nSvrNum );
 	/**
 	* Terra (Malaysia)
-	* \n ·Î±×ÀÎÇÏ·Á´Â »ç¿ëÀÚ¸¦ Ã¼Å©ÇÑ´Ù.
+	* \n ï¿½Î±ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.
 	* \param szTerraLoginName Terra TLoginName varchar(15)
-	* \param szTerraTID Web ¿¡¼­ ³Ñ¾î¿Â ¹®ÀÚ¿­ (ENCODING ¹®ÀÚ¿­)
-	* \param szUsrIP ·Î±×ÀÎÇÏ·Á´Â IP Address
-	* \param nSvrGrp ¼­¹ö±×·ì
-	* \param nSvrNum ¼­¹ö¹øÈ£
+	* \param szTerraTID Web ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ (ENCODING ï¿½ï¿½ï¿½Ú¿ï¿½)
+	* \param szUsrIP ï¿½Î±ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ IP Address
+	* \param nSvrGrp ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nSvrNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 	* \return 
 	*/
 	int TerraUserCheck(
@@ -1012,10 +1012,10 @@ public:
 			int nSvrNum );
 	/**
 	* Excite (Japan)
-	* \param szUserID »ç¿ëÀÚID
+	* \param szUserID ï¿½ï¿½ï¿½ï¿½ï¿½ID
 	* \param szUsrIP IP
-	* \param nSvrGrp ¼­¹ö±×·ì
-	* \param nSvrNum ¼­¹ö¹øÈ£
+	* \param nSvrGrp ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nSvrNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 	* \return 
 	*/
 	int ExciteUserCheck(
@@ -1026,10 +1026,10 @@ public:
 
 	/**
 	* Gonzo (Japan)
-	* \param szUserID »ç¿ëÀÚID
+	* \param szUserID ï¿½ï¿½ï¿½ï¿½ï¿½ID
 	* \param szUsrIP IP
-	* \param nSvrGrp ¼­¹ö±×·ì
-	* \param nSvrNum ¼­¹ö¹øÈ£
+	* \param nSvrGrp ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nSvrNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 	* \return 
 	*/
 	int JapanUserCheck(
@@ -1041,14 +1041,14 @@ public:
 
 
 	/**
-	* ±Û·Î¹ú ¼­ºñ½º
-	* ·Î±×ÀÎÇÏ·Á´Â »ç¿ëÀÚ¸¦ Ã¼Å©ÇÑ´Ù.	
-	* \param szUsrID »ç¿ëÀÚ ID
-	* \param szPasswd »ç¿ëÀÚ ÆÐ½º¿öµå
-	* \param szUsrIP »ç¿ëÀÚÀÇ IP Address
-	* \param nSvrGrp ¼­¹ö±×·ì
-	* \param nSvrNum ¼­¹ö¹øÈ£
-	* \return DB ÀÎÁõÈÄ °á°ú°ª
+	* ï¿½Û·Î¹ï¿½ ï¿½ï¿½ï¿½ï¿½
+	* ï¿½Î±ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.	
+	* \param szUsrID ï¿½ï¿½ï¿½ï¿½ï¿½ ID
+	* \param szPasswd ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* \param szUsrIP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IP Address
+	* \param nSvrGrp ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nSvrNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	* \return DB ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	int	GsUserCheck(
 		const TCHAR* szUsrID,
@@ -1059,13 +1059,13 @@ public:
 
 
 	/**
-	* ÇØ´ç»ç¿ëÀÚ¸¦ Logout ÇÑ´Ù
-	* \param szUsrID »ç¿ëÀÚ ID
-	* \param nUsrNum »ç¿ëÀÚ¹øÈ£
-	* \param nGameTime °ÔÀÓÇÃ·¹ÀÌ½Ã°£ 
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£
-	* \param nSvrGrp ¼­¹ö±×·ì
-	* \param nSvrNum ¼­¹ö¹øÈ£
+	* ï¿½Ø´ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ Logout ï¿½Ñ´ï¿½
+	* \param szUsrID ï¿½ï¿½ï¿½ï¿½ï¿½ ID
+	* \param nUsrNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \param nGameTime ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ì½Ã°ï¿½ 
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \param nSvrGrp ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nSvrNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 	* \return 
 	*/
 	int	UserLogout(
@@ -1080,13 +1080,13 @@ public:
 
 	/**
 	* Terra (Malaysia)
-	* ÇØ´ç»ç¿ëÀÚ¸¦ Logout ÇÑ´Ù
+	* ï¿½Ø´ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ Logout ï¿½Ñ´ï¿½
 	* \param szTID Terra User ID
-	* \param nUsrNum »ç¿ëÀÚ¹øÈ£
-	* \param nGameTime °ÔÀÓÇÃ·¹ÀÌ½Ã°£
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£
-	* \param nSvrGrp ¼­¹ö±×·ì
-	* \param nSvrNum ¼­¹ö¹øÈ£
+	* \param nUsrNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \param nGameTime ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ì½Ã°ï¿½
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \param nSvrGrp ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nSvrNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 	* \return 
 	*/
 	int	TerraUserLogout(
@@ -1099,42 +1099,42 @@ public:
 
 	/**
 	* Maya (Taiwan/Hongkong)
-	* \n »ç¿ëÀÚ¸¦ ·Î±×¾Æ¿ô ½ÃÅ²´Ù
-	* \param szUsrID »ç¿ëÀÚ ID
+	* \n ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½Å²ï¿½ï¿½
+	* \param szUsrID ï¿½ï¿½ï¿½ï¿½ï¿½ ID
 	* \return 
 	*/
 	int	UserLogoutSimple( const TCHAR* szUsrID );
 
 	/**
 	* Maya (Taiwan/Hongkong)
-	* \n »ç¿ëÀÚ¸¦ ·Î±×¾Æ¿ô ½ÃÅ²´Ù.
-	* \param nUserNum »ç¿ëÀÚ¹øÈ£
+	* \n ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½Å²ï¿½ï¿½.
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
 	* \return 
 	*/
 	int UserLogoutSimple2( int nUserNum );
 	
 	/**
 	* Feya (Taiwan/Hongkong)
-	* ÇØ´ç °ÔÀÓ¼­¹öÀÇ ÀüÃ¼ À¯Àú¸¦ ·Î±×¾Æ¿ô ½ÃÅ²´Ù.
-	* \param nSvrGrp ¼­¹ö±×·ì
-	* \param nSvrNum ¼­¹ö¹øÈ£
+	* ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½Å²ï¿½ï¿½.
+	* \param nSvrGrp ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nSvrNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 	* \return 
 	*/
 	int	UserLogoutSvr(int nSvrGrp, int nSvrNum);
 	
 	/**
 	* Feya (Taiwan/Hongkong)
-	* \n DB »ç¿ëÀÚ Á¤º¸ÀÇ ¸¶Áö¸· ÇÃ·¹ÀÌÇÑ Ä³¸¯ÅÍ ÀÌ¸§À» ¼¼ÆÃÇÑ´Ù.
-	* \param nUsrNum »ç¿ëÀÚ¹øÈ£
-	* \param szChaName Ä³¸¯ÅÍÀÌ¸§
+	* \n DB ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nUsrNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \param szChaName Ä³ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
 	* \return 
 	*/
 	int	UserUpdateCha(int nUsrNum, const TCHAR* szChaName);		
 	
 	/**	
-	* ÇØ´ç »ç¿ëÀÚÀÇ »ç¿ëÀÚ ¹øÈ£¸¦ °¡Á®¿Â´Ù.
-	* \param szUsrId »ç¿ëÀÚ ID
-	* \return »ç¿ëÀÚ¹øÈ£
+	* ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \param szUsrId ï¿½ï¿½ï¿½ï¿½ï¿½ ID
+	* \return ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
 	*/
 	int	GetUserNum(const TCHAR* szUsrId);
 
@@ -1142,53 +1142,53 @@ public:
 	int	GetUserChaTestRemain(int nUserNum);
 	int	UserChaNumDecrease(int nUserNum);
 	/*
-	* TEST ¼­¹ö Ä³¸¯ÅÍ »ý¼º°¹¼ö °¨¼Ò
+	* TEST ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	*/
 	int	UserTestChaNumDecrease(int nUserNum);
 
 	/**
-	* Ä³¸¯ÅÍ »èÁ¦, Ä³¸¯ÅÍ»ý¼º °¹¼ö Áõ°¡
+	* Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, Ä³ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	*/
 	int UserChaNumIncrease(int nUserNum);
 
 	/**
-	* TEST ¼­¹ö Ä³¸¯ÅÍ »èÁ¦, °¹¼ö Áõ°¡
+	* TEST ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	*/
 	int UserTestChaNumIncrease(int nUserNum);
 	
 	/**
-	* ÇØ´ç »ç¿ëÀÚÀÇ Å¸ÀÔÀ» °¡Á®¿Â´Ù.
-	* \param nUserNum »ç¿ëÀÚ¹øÈ£
-	* \return »ç¿ëÀÚÅ¸ÀÔ
+	* ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \return ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½
 	*/
 	int	GetUserType(int nUserNum);
 
 	/**	
-	* ÇØ´ç »ç¿ëÀÚÀÇ ÇÁ¸®¹Ì¾ö ±â°£À» °¡Á®¿Â´Ù.
-	* \param nUserNum »ç¿ëÀÚ¹øÈ£
-	* \return ÇÁ¸®¹Ì¾ö±â°£(Á¾·áÀÏ)
+	* ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \return ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½â°£(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	*/
     __time64_t GetPremiumTime(int nUserNum);	
     
 	/**	
-	* ÇØ´ç »ç¿ëÀÚÀÇ ÇÁ¸®¹Ì¾ö ±â°£À» ¼¼ÆÃÇÑ´Ù.
-	* \param nUserNum »ç¿ëÀÚ¹øÈ£
-	* \param tPremiumTime ÇÁ¸®¹Ì¾ö Á¾·á½Ã°£
+	* ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \param tPremiumTime ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
 	* \return 
 	*/
     int SetPremiumTime(int nUserNum, __time64_t tPremiumTime);	
 
 	/**
-	* ÇØ´ç »ç¿ëÀÚÀÇ Ã¤ÆÃ ºí·Ï½Ã°£À» °¡Á®¿Â´Ù
-	* \param nUserNum »ç¿ëÀÚ¹øÈ£
-	* \return Ã¤ÆÃºí·Ï ¸¸·á½Ã°£
+	* ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½Ï½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \return Ã¤ï¿½Ãºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
 	*/
 	__time64_t GetChatBlockTime(int nUserNum);
 
 	/**
-	* ÇØ´ç »ç¿ëÀÚÀÇ Ã¤ÆÃ ºí·Ï½Ã°£À» ¼³Á¤ÇÑ´Ù
-	* \param nUserNum »ç¿ëÀÚ¹øÈ£
-	* \param tBlockTime Ã¤ÆÃºí·Ï ¸¸·á½Ã°£
+	* ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½Ï½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \param tBlockTime Ã¤ï¿½Ãºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
 	* \return 
 	*/
 	int SetChatBlockTime(int nUserNum, __time64_t tBlockTime);
@@ -1200,7 +1200,7 @@ public:
 	int DaumGetUserInfo( const TCHAR* szGID, DAUM_NET_LOGIN_FEEDBACK_DATA2* pMsg );
 	
 	/**
-	* »ç¿ëÀÚ Á¤º¸¸¦ °¡Á®¿Â´Ù
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
 	* Taiwan / HongKong
 	* \param szUserID 
 	* \param pMsg 
@@ -1209,7 +1209,7 @@ public:
 	int GetUserInfo( const TCHAR* szUserID, NET_LOGIN_FEEDBACK_DATA2* pMsg );
 
 	/**
-	* »ç¿ëÀÚ Á¤º¸¸¦ °¡Á®¿Â´Ù
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
 	* Thailand
 	* \param szUserID 
 	* \param pMsg 
@@ -1218,7 +1218,7 @@ public:
 	int ThaiGetUserInfo( const TCHAR* szUserID, NET_LOGIN_FEEDBACK_DATA2* pMsg );
 
 	/**
-	* Terra »ç¿ëÀÚ Á¤º¸¸¦ °¡Á®¿Â´Ù.
+	* Terra ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 	* \param szTLoginName TLoginName varchar(15)
 	* \param pMsg
 	* \return 
@@ -1226,7 +1226,7 @@ public:
 	int TerraGetUserInfo( const TCHAR* szTLoginName, TERRA_NET_LOGIN_FEEDBACK_DATA2* pMsg );
 
 	/**
-	* GSP »ç¿ëÀÚ Á¤º¸¸¦ °¡Á®¿Â´Ù.
+	* GSP ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 	* \param szUserID UserID varchar(50)
 	* \param pMsg
 	* \return 
@@ -1234,7 +1234,7 @@ public:
 	int GspGetUserInfo( const TCHAR* szUserID, GSP_NET_LOGIN_FEEDBACK_DATA2* pMsg );
 
 	/**
-	* Excite »ç¿ëÀÚ Á¤º¸¸¦ °¡Á®¿Â´Ù.
+	* Excite ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 	* \param szUserID UserID varchar(20)
 	* \param pMsg
 	* \return 
@@ -1242,7 +1242,7 @@ public:
 	int ExciteGetUserInfo( const TCHAR* szUserID, EXCITE_NET_LOGIN_FEEDBACK_DATA2* pMsg );
 
 	/**
-	* Japan(Gonzo) »ç¿ëÀÚ Á¤º¸¸¦ °¡Á®¿Â´Ù.
+	* Japan(Gonzo) ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 	* \param szUserID UserID varchar(16)
 	* \param pMsg
 	* \return 
@@ -1251,7 +1251,7 @@ public:
 
 
 	/**
-	* ±Û·Î¹ú¼­ºñ½º »ç¿ëÀÚ Á¤º¸¸¦ °¡Á®¿Â´Ù.
+	* ï¿½Û·Î¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 	* \param szUserID UserID varchar(16)
 	* \param pMsg
 	* \return 
@@ -1259,39 +1259,39 @@ public:
 	int GsGetUserInfo( const TCHAR* szUserID, GS_NET_LOGIN_FEEDBACK_DATA2* pMsg );
 	
 	/**
-	* ÇØ´ç»ç¿ëÀÚ¸¦ ºí·Ï½ÃÅ²´Ù.
-	* \param nUserNum »ç¿ëÀÚ¹øÈ£
-	* \param nDay ºí·°ÀÏ¼ö 1 - 15 ±îÁö
+	* ï¿½Ø´ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½Ï½ï¿½Å²ï¿½ï¿½.
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \param nDay ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ 1 - 15 ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
     int UserBlock( int nUserNum, int nDay );
 
 	/**
-	* ÇØ´ç»ç¿ëÀÚ¸¦ ºí·Ï½ÃÅ²´Ù.
-	* \param nUserNum »ç¿ëÀÚ¹øÈ£
-	* \param nHour ½Ã°£
+	* ï¿½Ø´ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½Ï½ï¿½Å²ï¿½ï¿½.
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \param nHour ï¿½Ã°ï¿½
 	* \return 
 	*/
     int UserBlockDate( int nUserNum, __time64_t tBlockTime );
 	
 	/**
-	* ÇØ´ç °ÔÀÓ¼­¹öÀÇ ÀüÃ¼ À¯Àú¸¦ ·Î±×¾Æ¿ô ½ÃÅ²´Ù.
+	* ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½Å²ï¿½ï¿½.
 	* \param nSvrGrp 
 	* \return 
 	*/
 	int AllServerUserLogout(int nSvrGrp);
 
 	/**
-	* ÀüÃ¼ À¯Àú¸¦ ·Î±×¾Æ¿ô ½ÃÅ²´Ù.
+	* ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½Å²ï¿½ï¿½.
 	* \return 
 	*/
 	int	AllUserLogout();
 
 	/**
 	* TERRA
-	* À¯ÀúÀÇ ÆÐ½º¿öµå¸¦ ³Ö°Å³ª Ã¼Å©ÇÑ´Ù.
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½å¸¦ ï¿½Ö°Å³ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.
 	* \param szTID Terra UserID
-	* \param szPasswd »ç¿ëÀÚ ÆÐ½º¿öµå
+	* \param szPasswd ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
 	int TerraUserPassCheck(
@@ -1301,9 +1301,9 @@ public:
 
 	/**
 	* Daum
-	* À¯ÀúÀÇ ÆÐ½º¿öµå¸¦ ³Ö°Å³ª Ã¼Å©ÇÑ´Ù.
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½å¸¦ ï¿½Ö°Å³ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.
 	* \param szDaumGID Daum UserGID
-	* \param szDaumPass »ç¿ëÀÚ ÆÐ½º¿öµå
+	* \param szDaumPass ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
 	int DaumUserPassCheck(
@@ -1314,10 +1314,10 @@ public:
 
 	/**
 	* Excite
-	* À¯ÀúÀÇ ÆÐ½º¿öµå¸¦ ³Ö°Å³ª Ã¼Å©ÇÑ´Ù.
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½å¸¦ ï¿½Ö°Å³ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.
 	* \param szUID Excite UserID
-	* \param szUserID Excite 2Â÷ UserID
-	* \param szPasswd »ç¿ëÀÚ ÆÐ½º¿öµå
+	* \param szUserID Excite 2ï¿½ï¿½ UserID
+	* \param szPasswd ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
 	int ExciteUserPassCheck(
@@ -1329,24 +1329,24 @@ public:
 
 	/**
 	* Thailand
-	* »ç¿ëÀÚÀÇ PC¹æ Å¬·¡½º¸¦ Ã¼Å©ÇÑ´Ù.	
-	* \param szUsrIP »ç¿ëÀÚÀÇ IP Address
-	* \return DB ÀÎÁõÈÄ °á°ú°ª
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PCï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.	
+	* \param szUsrIP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IP Address
+	* \return DB ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	int	ThaiUserClassCheck(			
 			const TCHAR* szUsrIP );
 
 	/**
 	* Malaysia
-	* »ç¿ëÀÚÀÇ PC¹æ Å¬·¡½º¸¦ Ã¼Å©ÇÑ´Ù.	
-	* \param szUsrIP »ç¿ëÀÚÀÇ IP Address
-	* \return DB ÀÎÁõÈÄ °á°ú°ª
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PCï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ñ´ï¿½.	
+	* \param szUsrIP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IP Address
+	* \return DB ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	int	MyUserClassCheck(
 			const TCHAR* szUsrIP );
 	
 	/**
-	* ÇØ´ç »ç¿ëÀÚÀÇ ¿À´Ã °ÔÀÓÇÃ·¹ÀÌ ½Ã°£(ºÐ)À» °¡Á®¿Â´Ù.
+	* ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½(ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 	* Thailand
 	* \param nUserNum 
 	* \return 
@@ -1377,30 +1377,30 @@ public:
 			const SLOGACTION &_sLOG );
 
 	/**
-	* ¾ÆÀÌÅÛÀÇ ·£´ý¿É¼Ç ·Î±×¸¦ ³²±ä´Ù.
-	* \param _sLOG ·£´ý¿É¼Ç ±¸Á¶Ã¼
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ ï¿½Î±×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+	* \param _sLOG ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼
 	*/
 	int LogRandomItem( const SLOGRANDOMOPTION &_sLOG );
 
 	/**
-	* ÆêÀÇ ¾×¼Ç·Î±×¸¦ ³²±ä´Ù.
-	* \param _sLOG Æê¾×¼Ç·Î±× ±¸Á¶Ã¼
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½×¼Ç·Î±×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+	* \param _sLOG ï¿½ï¿½×¼Ç·Î±ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼
 	*/
 	int LogPetAction( const SLOGPETACTION &_sLOG );
 
-	// ¿©¸§¹æÇÐ PC ¹æ ÇÁ·Î¸ð¼Ç º¹±Ç°ü·Ã'¼±¹°ÆãÆã!!' ÀÌº¥Æ®
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PC ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!' ï¿½Ìºï¿½Æ®
 	int	LogLottery(
 			CString strLottery, 
 		    CString strIP, 
 			CString strUserUID, 
 			int nUserNum );
 
-	// ¿©¸§¹æÇÐ PC ÇÁ·Î¸ð¼Ç ¾ÆÀÌÅÛ 'ÆãÆã' ÀÌº¥Æ®
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PC ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 'ï¿½ï¿½ï¿½ï¿½' ï¿½Ìºï¿½Æ®
 	int LogPungPungCheck(
 			CString strIP, 
 		    int nUserNum );
     
-	// ¿©¸§¹æÇÐ PC ÇÁ·Î¸ð¼Ç ¾ÆÀÌÅÛ 'ÆãÆã' ÀÌº¥Æ®
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PC ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 'ï¿½ï¿½ï¿½ï¿½' ï¿½Ìºï¿½Æ®
 	int LogPungPungWrite(
 			CString strIP, 
 		    CString strUserUID, 
@@ -1414,22 +1414,22 @@ public:
 				std::vector<VIEWLOGITEMEXCHANGEMAX> &v );
 
 	/**
-	* °ÔÀÓ³»¿¡¼­ ÁøÁ¤ÀÌ³ª ½Å°í·Î ½Å°íÇÑ ³»¿ëÀ» DB¿¡ ±â·ÏÇÑ´Ù.
-	* \param nSGNum ¼­¹ö±×·ì
-	* \param nChaNum ½Å°íÇÑ Ä³¸¯ÅÍ¹øÈ£
-	* \param strMsg ½Å°í³»¿ë (ÃÖ´ëÅ©±â´Â CHAT_MSG_SIZE)
+	* ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½Å°ï¿½ï¿½ï¿½ ï¿½Å°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nSGNum ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nChaNum ï¿½Å°ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \param strMsg ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½Ö´ï¿½Å©ï¿½ï¿½ï¿½ CHAT_MSG_SIZE)
 	* \return 
 	*/
     int LogAppeal(int nSGNum, int nChaNum, CString strMsg);
 
 	/**
-	* ºÒ¹ýÇÁ·Î±×·¥ »ç¿ë³»¿ªÀ» ±â·ÏÇÑ´Ù.
-	* \param nSGNum ¼­¹ö±×·ì
-	* \param nSvrNum ¼­¹ö¹øÈ£
-	* \param nUserNum À¯Àú¹øÈ£
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£
-	* \param nHackProgramNum ÇØÅ·ÇÁ·Î±×·¥¹øÈ£
-	* \param szComment ÄÞ¸àÆ®
+	* ï¿½Ò¹ï¿½ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ë³»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nSGNum ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nSvrNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \param nHackProgramNum ï¿½ï¿½Å·ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+	* \param szComment ï¿½Þ¸ï¿½Æ®
 	* \return 
 	*/
 	int	LogHackProgram(
@@ -1441,12 +1441,12 @@ public:
 		const TCHAR* szComment );
 
 	/**
-	* SMS ¹®ÀÚ¸Þ½ÃÁö¸¦ ¹ß¼ÛÇÑ´Ù.
+	* SMS ï¿½ï¿½ï¿½Ú¸Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¼ï¿½ï¿½Ñ´ï¿½.
 	*
-	* \param nSendChaNum SMS ¸¦ ¹ß¼ÛÇÏ´Â Ä³¸¯ÅÍ ¹øÈ£	
-	* \param nReceiveChaNum SMS ¸¦ ¹ÞÀ» Ä³¸¯ÅÍ ¹øÈ£
-	* \param szReceivePhone SMS ¸¦ ¹ÞÀ» Ä³¸¯ÅÍÀÇ ÀüÈ­¹øÈ£
-	* \param szSmsMsg SMS ¸Þ½ÃÁö ³»¿ë
+	* \param nSendChaNum SMS ï¿½ï¿½ ï¿½ß¼ï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£	
+	* \param nReceiveChaNum SMS ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param szReceivePhone SMS ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½È£
+	* \param szSmsMsg SMS ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	*/
 	int LogSMS(
 		int nSendChaNum,		
@@ -1455,18 +1455,18 @@ public:
 		const TCHAR* szSmsMsg );
 
 	/**
-	* Ä³¸¯ÅÍÀÇ ÈÞ´ëÆù ¹øÈ£¸¦ ÀúÀåÇÑ´Ù.
-	* \param nChaNum Ä³¸¯ÅÍ ¹øÈ£
-	* \param szPhoneNumber ÀüÈ­¹øÈ£ NULL ¹®ÀÚ Æ÷ÇÔ 14ÀÚ SMS_RECEIVER
+	* Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param szPhoneNumber ï¿½ï¿½È­ï¿½ï¿½È£ NULL ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 14ï¿½ï¿½ SMS_RECEIVER
 	*/
 	int SetChaPhoneNumber(
 			int nChaNum,
 			const TCHAR* szPhoneNumber );
 
 	/**
-	* Ä³¸¯ÅÍÀÇ Ä£±¸Á¤º¸¸¦ °¡Á®¿Â´Ù.
-	* \param nChaNum Ä£±¸Á¤º¸¸¦ °¡Á®¿Ã Ä³¸¯ÅÍ ¹øÈ£
-	* \param vFriend Ä£±¸Á¤º¸¸¦ ´ãÀ» vector
+	* Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \param nChaNum Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param vFriend Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ vector
 	*/
 	int	GetChaFriendSMS(
 			int nChaNum,
@@ -1477,21 +1477,24 @@ public:
     */
 
 	/**
-	* Item Shop ¿¡¼­ ±¸ÀÔÇÑ ¾ÆÀÌÅÛÀ» °¡Á®¿Â´Ù.
+	* Item Shop ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 	*/
 	int GetPurchaseItem(
 			CString strUID,
 			std::vector<SHOPPURCHASE> &v );
+	int GetItemShop(std::vector<ITEMSHOP> &v );
     
 	/**
-	* ½ÇÁ¦·Î °¡Á®°¥ ¼ö ÀÖ´Â »óÇ°ÀÎÁö È®ÀÎÇÑ´Ù.
-	* \param strPurKey ±¸¸ÅÅ°
-	* \param nFlag  (0:±¸¸Å, 1:±¸¸Å¿Ï·á, 2:±¸¸ÅÃë¼Ò½ÅÃ», 3:±¸¸ÅÃë¼ÒÃ³¸®)
-	* \return 1:°¡Á®°¥¼ö ÀÖÀ½ \n ÀÌ¿ÜÀÇ°ª:°¡Á®°¥¼ö ¾øÀ½
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param strPurKey ï¿½ï¿½ï¿½ï¿½Å°
+	* \param nFlag  (0:ï¿½ï¿½ï¿½ï¿½, 1:ï¿½ï¿½ï¿½Å¿Ï·ï¿½, 2:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò½ï¿½Ã», 3:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½)
+	* \return 1:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ \n ï¿½Ì¿ï¿½ï¿½Ç°ï¿½:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	*/
     int SetPurchaseItem(
 			CString strPurKey,
 		    int nFlag=1 );
+	int SetItemShop(
+			CString strItemNum, DWORD dwUserID );
 
 	/**************************************************************************
 	* Vehicle Database
@@ -1500,15 +1503,15 @@ public:
 	// VEHICLE
 	//----------------------------------------------------------------------------
 	/**
-	* »õ·Î¿î Å»°ÍÀ» »ý¼ºÇÑ´Ù.
-	* \param nChaNum  Å»°Í ¼ÒÀ¯ÀÚ Ä³¸¯ÅÍ ¹øÈ£
-	* \param szVehicleName Å»°Í ÀÌ¸§
-	* \param nVehicleType Å»°ÍÀÇ Å¸ÀÔ
-	* \param nVehicleMID Å»°Í MID
-	* \param nVehicleSID Å»°Í SID
-	* \param nVehicleCardMID Å»°ÍÀÇ ¾ÆÀÌÅÛ MID
-	* \param nVehicleCardSID Å»°ÍÀÇ ¾ÆÀÌÅÛ SID
-	* \return DB_ERROR ¶Ç´Â ¼º°øÇßÀ»¶§´Â Å»°ÍÀÇ °íÀ¯¹øÈ£
+	* ï¿½ï¿½ï¿½Î¿ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nChaNum  Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param szVehicleName Å»ï¿½ï¿½ ï¿½Ì¸ï¿½
+	* \param nVehicleType Å»ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
+	* \param nVehicleMID Å»ï¿½ï¿½ MID
+	* \param nVehicleSID Å»ï¿½ï¿½ SID
+	* \param nVehicleCardMID Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ MID
+	* \param nVehicleCardSID Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SID
+	* \return DB_ERROR ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 	*/
 	int CreateVehicle(
 		int nCharNum,
@@ -1520,9 +1523,9 @@ public:
 
 
 	/**
-	* Å»°ÍÀÇ ¹èÅÍ¸®¸¦ ¼³Á¤ÇÑ´Ù. ¹èÅÍ¸®´Â 0-1000 »çÀÌ
-	* \param nVehicleBttery ¹èÅÍ¸®¸¦ ¼³Á¤ÇÒ Å»°ÍÀÇ ¹øÈ£
-	* \param nVehicleBttery ¹èÅÍ¸®
+	* Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ 0-1000 ï¿½ï¿½ï¿½ï¿½
+	* \param nVehicleBttery ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param nVehicleBttery ï¿½ï¿½ï¿½Í¸ï¿½
 	*/
 	int SetVehicleBattery(
 		int nVehicleNum,
@@ -1549,8 +1552,8 @@ public:
 
 	
 	/**
-	* Å»°ÍÀÇ ¾×¼Ç·Î±×¸¦ ³²±ä´Ù.
-	* \param _sLOG Å»°Í¾×¼Ç·Î±× ±¸Á¶Ã¼
+	* Å»ï¿½ï¿½ï¿½ï¿½ ï¿½×¼Ç·Î±×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+	* \param _sLOG Å»ï¿½Í¾×¼Ç·Î±ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼
 	*/
 	int LogVehicleAction( const SLOGVEHICLEACTION &_sLOG );
 
@@ -1558,15 +1561,15 @@ public:
 
 
 	/**
-	* Å»°ÍÀ» »èÁ¦ÇÑ´Ù.
-	* \param nVehicle »èÁ¦ÇÒ Å»°ÍÀÇ ¹øÈ£
+	* Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nVehicle ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	*/
 	int DeleteVehicle(
 		int nVehicle, 
 		int nCharNum);
 
 	/**
-	* Å»°ÍÀÇ Á¤º¸¸¦ °¡Á®¿Â´Ù.
+	* Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 	*/
 	int GetVehicle(
 		GLVEHICLE* pVehicle,
@@ -1575,7 +1578,7 @@ public:
 
 
 	/**
-	* Å»°ÍÀÇ ÀÎº¥Åä¸® Á¤º¸¸¦ °¡Á®¿Â´Ù
+	* Å»ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
 	*/
 	int GetVehicleInven( 
 		GLVEHICLE* pVehicle,
@@ -1583,7 +1586,7 @@ public:
 		int nCharNum );
 
 	/**
-	*Å»°Í ÀÎº¥Åä¸® ¾÷µ¥ÀÌÆ®
+	*Å»ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 	*/
 	int SetVehicleInven(
 		int nVehicle,
@@ -1591,7 +1594,7 @@ public:
 		CByteStream &ByteStream );	
 
 
-	// Ãâ¼®ºÎ ÀÌº¥Æ® 
+	// ï¿½â¼®ï¿½ï¿½ ï¿½Ìºï¿½Æ® 
 	int LogUserAttend( int nUserNum, std::vector<USER_ATTEND_INFO> &vecUserAttend );
 
 	int InsertUserAttend( int nUserNum, int nCount, int nAttendReward );

@@ -72,15 +72,15 @@ void GLCharacter::DisableSkillFact()
         PGLSKILL pSkill = GLSkillMan::GetInstance().GetData ( m_sSKILLFACT[i].sNATIVEID );
 		if ( !pSkill ) continue;
 
-		// ½ºÅ³ ÀÚ½Å ¹öÇÁ
+		// ï¿½ï¿½Å³ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if ( pSkill->m_sBASIC.emIMPACT_TAR != TAR_SELF || pSkill->m_sBASIC.emIMPACT_REALM != REALM_SELF ) continue;
 				
 		GLITEM_ATT emSKILL_RITEM = pSkill->m_sBASIC.emUSE_RITEM;
 
-		// ½ºÅ³ µµ±¸ Á¾¼Ó ¾øÀ½
+		// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if ( emSKILL_RITEM == ITEMATT_NOCARE )	continue;
 
-		// ½ºÅ³ °ú ¹«±â°¡ ºÒÀÏÄ¡
+		// ï¿½ï¿½Å³ ï¿½ï¿½ ï¿½ï¿½ï¿½â°¡ ï¿½ï¿½ï¿½ï¿½Ä¡
 		if( !pRightItem || !CHECHSKILL_ITEM(emSKILL_RITEM,pRightItem->sSuitOp.emAttack) )
 		{
 			FACTEFF::DeleteSkillFactEffect ( STARGETID(CROW_PC,m_dwGaeaID,m_vPos), m_pSkinChar, m_sSKILLFACT[i].sNATIVEID );
@@ -94,14 +94,14 @@ void GLCharacter::ReceiveDamage ( DWORD wDamage, DWORD dwDamageFlag, STARGETID s
 {
 	if ( dwDamageFlag & DAMAGE_TYPE_SHOCK )	ReceiveShock ();
 	
-	//	Note : È­¸é¿¡ Å¸°Ý °ª Ãâ·Â.
+	//	Note : È­ï¿½é¿¡ Å¸ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	D3DXVECTOR3 vPos = GetPosBodyHeight();
 	CInnerInterface::GetInstance().SetDamage( vPos, wDamage, dwDamageFlag, UI_UNDERATTACK );
 
 	IsHit(); //Transform Function 
 	if ( dwDamageFlag & DAMAGE_TYPE_CRUSHING_BLOW )
 	{
-		// °­ÇÑÅ¸°Ý ÀÌÆåÆ®
+		// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 		D3DXVECTOR3 vDIR = sACTOR.vPos - m_vPos;
 
 		D3DXVECTOR3 vDIR_ORG(1,0,0);
@@ -113,14 +113,14 @@ void GLCharacter::ReceiveDamage ( DWORD wDamage, DWORD dwDamageFlag, STARGETID s
 		matTrans._42 = m_vPos.y + 10.0f;
 		matTrans._43 = m_vPos.z;
 
-		//	Note : ÀÚ±â À§Ä¡ ÀÌÆåÆ® ¹ß»ý½ÃÅ´.
+		//	Note : ï¿½Ú±ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß»ï¿½ï¿½ï¿½Å´.
 		DxEffGroupPlayer::GetInstance().NewEffGroup ( GLCONST_CHAR::strCRUSHING_BLOW_EFFECT.c_str(), matTrans, &sACTOR );
 	}
 
-	//	Note : Å¸°Ý°ª ¹Ý¿µ.
+	//	Note : Å¸ï¿½Ý°ï¿½ ï¿½Ý¿ï¿½.
 	GLCHARLOGIC::RECEIVE_DAMAGE ( wDamage );
 
-	//	Note : ¹æ¾î½ºÅ³ÀÇ ÀÌÆåÆ®°¡ ÀÖÀ»¶§ ¹ßµ¿½ÃÅ´.
+	//	Note : ï¿½ï¿½î½ºÅ³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßµï¿½ï¿½ï¿½Å´.
 	SKT_EFF_HOLDOUT ( sACTOR, dwDamageFlag );
 }
 
@@ -255,6 +255,26 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			m_sExperience.lnNow = pNetMsg->lnNowExp;
 		}
 		break;
+
+	
+	case NET_MSG_RETRIEVE_POINTS_FB:
+		{
+			GLMSG::SNETPC_RETRIEVE_POINTS_FB *pNetMsg = (GLMSG::SNETPC_RETRIEVE_POINTS_FB *)nmg;
+			switch ( pNetMsg->emFB )
+			{
+				case EMREQ_RETRIEVE_POINTS_OK:
+					{
+						//CInnerInterface::GetInstance().PrintMsgText ( NS_UITEXTCOLOR::PALEGREEN, "Successfuly Retrieved Points" );
+						m_dwPPoints = pNetMsg->PPoints;
+						m_dwVPoints = pNetMsg->VPoints;
+					}break;
+				case EMREQ_RETRIEVE_POINTS_FAIL:
+					{
+						CInnerInterface::GetInstance().PrintMsgText ( NS_UITEXTCOLOR::NEGATIVE, "Failed Retrieving Points" );
+					}break;
+			};
+		}break;
+
 
 	case NET_MSG_GCTRL_UPDATE_MONEY:
 		{
@@ -449,6 +469,26 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 		};
 		break;
 
+	case NET_MSG_GCTRL_BUY_ITEMSHOP_ITEM:
+		{
+			GLMSG::SNET_ITEMSHOP_ITEM_BUY *pNetMsg = (GLMSG::SNET_ITEMSHOP_ITEM_BUY *)nmg;
+			if ( pNetMsg->bBuy )
+			{
+				CInnerInterface::GetInstance().PrintConsoleTextDlg ( "Succuessfully Bought Item from item shop" );
+				ReqItemShopInfo();
+			}
+			else
+			{
+				CInnerInterface::GetInstance().PrintConsoleTextDlg ( "Failed to buy from Item Shop" );
+			}
+
+		}break;
+	case NET_MSG_GCTRL_BUY_ITEMSHOP:
+		{
+		GLMSG::SNET_ITEMSHOP_BUY *pNetMsg = (GLMSG::SNET_ITEMSHOP_BUY *)nmg;
+			CInnerInterface::GetInstance().PrintConsoleTextDlg ( "Succuessfully Bought Item from item shop2" );
+		}break;
+
 	case NET_MSG_GCTRL_INVEN_INSERT:
 		{
 			GLMSG::SNETPC_INVEN_INSERT *pNetMsg = (GLMSG::SNETPC_INVEN_INSERT *)nmg;
@@ -465,7 +505,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 #endif
 
 			// PET
-			// ÆÖÄ«µå Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
+			// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 			SITEM* pItem = GLItemMan::GetInstance().GetItem ( pNetMsg->Data.sItemCustom.sNativeID );
 			if ( pItem && pItem->sBasicOp.emItemType == ITEM_PET_CARD && pNetMsg->Data.sItemCustom.dwPetID != 0 )
 			{
@@ -475,7 +515,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			}
 
 			// VEHICLE
-			// Å»°Í Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
+			// Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 			pItem = GLItemMan::GetInstance().GetItem ( pNetMsg->Data.sItemCustom.sNativeID );
 			if ( pItem && pItem->sBasicOp.emItemType == ITEM_VEHICLE && pNetMsg->Data.sItemCustom.dwVehicleID != 0)
 			{
@@ -505,7 +545,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			GLMSG::SNETPC_INVEN_DELETE *pNetMsg = (GLMSG::SNETPC_INVEN_DELETE *)nmg;
 /*
 			// PET
-			// ÆÖÄ«µå Á¤º¸¸¦ Á¦°ÅÇØÁØ´Ù.
+			// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 			SINVENITEM* pInvenItem = m_cInventory.GetItem ( pNetMsg->wPosX, pNetMsg->wPosY );
 			if ( pInvenItem )
 			{
@@ -565,7 +605,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			GLMSG::SNETPC_INVEN_DEL_AND_INSERT *pNetMsg = (GLMSG::SNETPC_INVEN_DEL_AND_INSERT *)nmg;
 /*
 			// PET
-			// ÆÖÄ«µå Á¤º¸¸¦ Á¦°ÅÇØÁØ´Ù.
+			// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 			SINVENITEM* pInvenItem = m_cInventory.GetItem ( pNetMsg->wDelX, pNetMsg->wDelX );
 			if ( pInvenItem )
 			{
@@ -583,7 +623,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 				m_cInventory.InsertItem ( pNetMsg->sInsert.sItemCustom, pNetMsg->sInsert.wPosX, pNetMsg->sInsert.wPosY );
 
 				// PET
-				// ÆÖÄ«µå Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
+				// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 				SITEM* pItem = GLItemMan::GetInstance().GetItem ( pNetMsg->sInsert.sItemCustom.sNativeID );
 				if ( pItem && pItem->sBasicOp.emItemType == ITEM_PET_CARD && pNetMsg->sInsert.sItemCustom.dwPetID != 0  )
 				{
@@ -593,7 +633,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 				}
 
 				// VEHICLE
-				// Å»°Í Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
+				// Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 				pItem = GLItemMan::GetInstance().GetItem ( pNetMsg->sInsert.sItemCustom.sNativeID );
 				if ( pItem && pItem->sBasicOp.emItemType == ITEM_VEHICLE && pNetMsg->sInsert.sItemCustom.dwVehicleID != 0 ) 
 				{
@@ -606,7 +646,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			m_cInventory.DeleteItem ( pNetMsg->wDelX, pNetMsg->wDelY );
 			m_cInventory.InsertItem ( pNetMsg->sInsert.sItemCustom, pNetMsg->sInsert.wPosX, pNetMsg->sInsert.wPosY );
 			// PET
-			// ÆÖÄ«µå Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
+			// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 			SITEM* pItem = GLItemMan::GetInstance().GetItem ( pNetMsg->sInsert.sItemCustom.sNativeID );
 			if ( pItem && pItem->sBasicOp.emItemType == ITEM_PET_CARD && pNetMsg->sInsert.sItemCustom.dwPetID != 0 )
 			{
@@ -616,7 +656,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			}
 
 			// VEHICLE
-			// Å»°Í Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
+			// Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 			pItem = GLItemMan::GetInstance().GetItem ( pNetMsg->sInsert.sItemCustom.sNativeID );
 			if ( pItem && pItem->sBasicOp.emItemType == ITEM_VEHICLE && pNetMsg->sInsert.sItemCustom.dwVehicleID != 0 )
 			{
@@ -641,7 +681,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 			if ( pNetMsg->bRefresh )
 			{
-				//	ÀçÀåÀüÇÒ ¾ÆÀÌÅÆÀÎÁö ¾Ë¾Æº½.
+				//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾Æºï¿½.
 				if ( pNetMsg->emSlot == emLHand && GLCHARLOGIC::VALID_SLOT_ITEM(pNetMsg->emSlot) )
 				{
 					SITEMCUSTOM sItemCustom = GLCHARLOGIC::GET_SLOT_ITEM(pNetMsg->emSlot);
@@ -657,14 +697,14 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 				}
 			}
 
-			//	SLOT º¯°æ.
+			//	SLOT ï¿½ï¿½ï¿½ï¿½.
 			GLCHARLOGIC::RELEASE_SLOT_ITEM ( pNetMsg->emSlot );
 			GLCHARLOGIC::INIT_DATA ( FALSE, FALSE );
 
-			//	Çü»ó º¯°æ.
+			//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			UpdateSuit( TRUE );
 
-			//	Note : ¿¡´Ï¸ÞÀÌ¼Ç ÃÊ±âÈ­.
+			//	Note : ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ê±ï¿½È­.
 			ReSelectAnimation();
 
 			if ( emTYPE_RELOAD!=ITEM_NSIZE )
@@ -680,7 +720,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 				NETSENDTOFIELD ( &NetMsg );
 			}
 
-			// Å»°Í ¾ÆÀÌÅÛÀÌ¸é Á¤º¸ ºñÈ°¼º
+			// Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½
 			if ( pNetMsg->emSlot == SLOT_VEHICLE )
 			{
 				m_sVehicle.SetActiveValue( false );
@@ -694,16 +734,16 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 		{
 			GLMSG::SNETPC_PUTON_UPDATE *pNetMsg = (GLMSG::SNETPC_PUTON_UPDATE *)nmg;
 
-			// È­»ìÀÌ³ª ºÎÀû°°Àº ¾ÆÀÌÅÛÀÌ ÀÚµ¿ ¿Å°ÜÁö´Â °æ¿ì
+			// È­ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			if ( pNetMsg->emSlotRelease!=SLOT_TSIZE )
 			{
 				GLCHARLOGIC::RELEASE_SLOT_ITEM ( pNetMsg->emSlotRelease );
 			}
 
-			//	Note : ¾ÆÀÌÅÛ Âø¿ë ¿ä±¸Ä¡¿¡ ºÎÁ·ÇÒ °æ¿ì Á¤º¸ Ãâ·Â, SP Ãæ´ç ¼öÄ¡.
+			//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ä±¸Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, SP ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡.
 			//
 
-			//	SLOT º¯°æ.
+			//	SLOT ï¿½ï¿½ï¿½ï¿½.
 			GLCHARLOGIC::SLOT_ITEM ( pNetMsg->sItemCustom, pNetMsg->emSlot );
 
 			if ( pNetMsg->emSlot != SLOT_HOLD )
@@ -713,17 +753,17 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 				GLCHARLOGIC::INIT_DATA ( FALSE, FALSE );
 
-				//	Çü»ó º¯°æ.
+				//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				UpdateSuit( TRUE );
 				
-				//	Note : ¿¡´Ï¸ÞÀÌ¼Ç ÃÊ±âÈ­.
+				//	Note : ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ê±ï¿½È­.
 				ReSelectAnimation();				
 			}
 
-			// ¹«±â¿¡ µû¸¥ ¹öÇÁ¸¦ ÃÊ±âÈ­ ÇÑ´Ù.
+			// ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ñ´ï¿½.
 			DisableSkillFact();
 
-			// Å»°Í ¾ÆÀÌÅÛ ÀåÂø½Ã Á¤º¸¸¦ °¡Á®¿É´Ï´Ù.
+			// Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½É´Ï´ï¿½.
 			if ( pNetMsg->emSlot == SLOT_VEHICLE )
 			{
 				ReqVehicleUpdate();
@@ -735,21 +775,21 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 		{
 			GLMSG::SNETPC_PUTON_CHANGE *pNetMsg = (GLMSG::SNETPC_PUTON_CHANGE *)nmg;
 
-			// ÁÖ/º¸Á¶¹«±â ¼ÂÆÃ
+			// ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			SetUseArmSub( pNetMsg->bUseArmSub );
 
-			// ÀÎÅÍÆäÀÌ½º º¯°æ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			CInnerInterface::GetInstance().SetArmSwap( !pNetMsg->bUseArmSub );
 
 			GLCHARLOGIC::INIT_DATA ( FALSE, FALSE, pNetMsg->fCONFT_HP_RATE );
 
-			//	Çü»ó º¯°æ.
+			//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			UpdateSuit( TRUE );
 
-			//	Note : ¿¡´Ï¸ÞÀÌ¼Ç ÃÊ±âÈ­.
+			//	Note : ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ê±ï¿½È­.
 			ReSelectAnimation();
 
-			// ¹«±â¿¡ µû¸¥ ¹öÇÁ¸¦ ÃÊ±âÈ­ ÇÑ´Ù.
+			// ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ñ´ï¿½.
 			DisableSkillFact();
 
 		}
@@ -769,12 +809,12 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 			LEVLEUP ( pNetMsg->bInitNowLevel );
 
-			//	Note : ·¾¾÷ÈÄ¿¡ º¯°æµÈ ¼öÄ¡ Àû¿ë.
+			//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 			m_wLevel = pNetMsg->wLevel;
 			m_wStatsPoint = pNetMsg->wStatsPoint;
 			m_dwSkillPoint = pNetMsg->dwSkillPoint;
 
-			// ÁÖ¼®µ¹·Á
+			// ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½ï¿½
 			if ( m_dwUserLvl < USER_GM3 )
 			{
 				SMAPNODE *pMapNode = GLGaeaClient::GetInstance().FindMapNode ( pNetMsg->sMapID );
@@ -923,13 +963,13 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 			if ( pNetMsg->emCHECK == EMSKILL_OK )
 			{
-				//	Note : ½ºÅ³ Á¤º¸ °¡Á®¿È.
+				//	Note : ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 				PGLSKILL pSkill = GLSkillMan::GetInstance().GetData ( pNetMsg->skill_id );
 				if ( !pSkill )											break;
 
 				m_ExpSkills.insert ( std::make_pair ( pNetMsg->skill_id.dwID, SCHARSKILL(pNetMsg->skill_id,0) ) );
 
-				//	Note : Æä½Ãºê ½ºÅ³ÀÌ º¯È­ ÇÒ¶§ ÃÊ±â ¼öÄ¡µéÀ» ¸ðµÎ Àç °è»êÇÑ´Ù.
+				//	Note : ï¿½ï¿½Ãºï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½È­ ï¿½Ò¶ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				//
 				if ( pSkill->m_sBASIC.emROLE == SKILL::EMROLE_PASSIVE )
 				{
@@ -946,7 +986,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			}
 			else
 			{
-				//	°á°ú °ª¿¡ µû¶ó ¿¡·¯ ¸Þ½ÃÁö Ãâ·Â.
+				//	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 			}
 		}
 		break;
@@ -956,7 +996,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			GLMSG::SNETPC_REQ_SKILLUP_FB *pNetMsg = (GLMSG::SNETPC_REQ_SKILLUP_FB *)nmg;
 			if ( pNetMsg->emCHECK == EMSKILL_LEARN_OK )
 			{
-				//	Note : ½ºÅ³ Á¤º¸ °¡Á®¿È.
+				//	Note : ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 				PGLSKILL pSkill = GLSkillMan::GetInstance().GetData ( pNetMsg->sSkill.sNativeID );
 				if ( !pSkill )											break;
 
@@ -965,7 +1005,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 				m_ExpSkills[pNetMsg->sSkill.sNativeID.dwID] = pNetMsg->sSkill;
 
-				//	Note : Æä½Ãºê ½ºÅ³ÀÌ º¯È­ ÇÒ¶§ ÃÊ±â ¼öÄ¡µéÀ» ¸ðµÎ Àç °è»êÇÑ´Ù.
+				//	Note : ï¿½ï¿½Ãºï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½È­ ï¿½Ò¶ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				//
 				if ( pSkill->m_sBASIC.emROLE == SKILL::EMROLE_PASSIVE )
 				{
@@ -1031,7 +1071,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			m_sMP.VARIATION ( pNetMsg->nVAR_MP );
 			m_sSP.VARIATION ( pNetMsg->nVAR_SP );
 
-			//	µ¥¹ÌÁö ¸Þ½ÃÁö.
+			//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½.
 			if ( pNetMsg->nVAR_HP < 0 )
 			{
 				if ( pNetMsg->dwDamageFlag & DAMAGE_TYPE_SHOCK )	ReceiveShock ();
@@ -1049,7 +1089,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 				if ( pNetMsg->dwDamageFlag & DAMAGE_TYPE_CRUSHING_BLOW )
 				{
-					// °­ÇÑÅ¸°Ý ÀÌÆåÆ®
+					// ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 
 					D3DXVECTOR3 vDIR = sACTOR.vPos - m_vPos;
 
@@ -1062,13 +1102,13 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 					matTrans._42 = m_vPos.y + 10.0f;
 					matTrans._43 = m_vPos.z;
 
-					//	Note : ÀÚ±â À§Ä¡ ÀÌÆåÆ® ¹ß»ý½ÃÅ´.
+					//	Note : ï¿½Ú±ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß»ï¿½ï¿½ï¿½Å´.
 					DxEffGroupPlayer::GetInstance().NewEffGroup ( GLCONST_CHAR::strCRUSHING_BLOW_EFFECT.c_str(), matTrans, &sACTOR );
 				}
 
 			}
 
-			//	Èú¸µ ¸Þ½ÃÁö.
+			//	ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½.
 			//if ( pNetMsg->nVAR_HP > 0 )
 			//{
 			//	CPlayInterface::GetInstance().InsertText ( GetPosition(), static_cast<WORD>(pNetMsg->nVAR_HP), pNetMsg->bCRITICAL, 1 );
@@ -1080,7 +1120,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 		{
 			GLMSG::SNETPC_SKILLHOLD_BRD *pNetMsg = (GLMSG::SNETPC_SKILLHOLD_BRD *)nmg;
 
-			//	Áö¼ÓÇü ½ºÅ³ÀÇ °æ¿ì ½ºÅ³ ÆÑÅÍ Ãß°¡µÊ.
+			//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½.
 			if ( pNetMsg->skill_id != NATIVEID_NULL() )
 			{
 				RECEIVE_SKILLFACT ( pNetMsg->skill_id, pNetMsg->wLEVEL, pNetMsg->wSELSLOT );
@@ -1093,8 +1133,8 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 		{
 			GLMSG::SNETPC_SKILLHOLD_RS_BRD *pNetMsg = (GLMSG::SNETPC_SKILLHOLD_RS_BRD *)nmg;
 
-			//	Note : ½ºÅ³ fact µéÀ» Á¾·á.
-			//		¹Ù·Î ¸®»û ÇÏÁö ¾Ê°í ¿©±â¼­ ½Ã°£ Á¶Á¾ÇÏ¿© Á¤»ó Á¾·áµÇ°Ô ÇÔ. ( ÀÌÆÑÆ® Á¾·á ¶§¹®. )
+			//	Note : ï¿½ï¿½Å³ fact ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+			//		ï¿½Ù·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½â¼­ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½ï¿½. ( ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. )
 			for ( int i=0; i<SKILLFACT_SIZE; ++i )
 			{
 				if ( pNetMsg->bRESET[i] )
@@ -1136,7 +1176,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			pSTATEBLOW->fSTATE_VAR1 = pNetMsg->fSTATE_VAR1;
 			pSTATEBLOW->fSTATE_VAR2 = pNetMsg->fSTATE_VAR2;
 
-			//	Note : È¿°ú »ý¼º.
+			//	Note : È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			FACTEFF::NewBlowEffect ( STARGETID(CROW_PC,m_dwGaeaID,m_vPos), m_pSkinChar, pSTATEBLOW->emBLOW, m_matTrans, m_vDir );
 		}
 		break;
@@ -1197,7 +1237,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 		{
 			GLMSG::SNETPC_REQ_GETSTORAGE_FB *pNetMsg = (GLMSG::SNETPC_REQ_GETSTORAGE_FB *)nmg;
 			
-			//	Note : Ã¢°í Á¤º¸ »õ·Î ¹Þ±â ½Ãµµ.
+			//	Note : Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ ï¿½Ãµï¿½.
 			//
 			const DWORD dwChannel = pNetMsg->dwChannel;
 
@@ -1231,7 +1271,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			}
 
 			// PET
-			// ÆÖÄ«µå Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
+			// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 			SITEM* pItem = GLItemMan::GetInstance().GetItem ( sInvenItem.sItemCustom.sNativeID );
 			if ( pItem && pItem->sBasicOp.emItemType == ITEM_PET_CARD && sInvenItem.sItemCustom.dwPetID != 0 )
 			{
@@ -1252,7 +1292,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			m_cStorage[dwChannel].InsertItem ( sInvenItem.sItemCustom, sInvenItem.wPosX, sInvenItem.wPosY );
 
 			// PET
-			// ÆÖÄ«µå Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
+			// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 			SITEM* pItem = GLItemMan::GetInstance().GetItem ( sInvenItem.sItemCustom.sNativeID );
 			if ( pItem && pItem->sBasicOp.emItemType == ITEM_PET_CARD && sInvenItem.sItemCustom.dwPetID != 0 )
 			{
@@ -1270,7 +1310,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			const DWORD dwChannel = pNetMsg->dwChannel;
 /*
 			// PET
-			// ÆÖÄ«µå Á¤º¸¸¦ Á¦°ÅÇØÁØ´Ù.
+			// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 			SINVENITEM* pInvenItem = m_cStorage[dwChannel].GetItem ( pNetMsg->wPosX, pNetMsg->wPosY );
 			if ( pInvenItem )
 			{
@@ -1302,7 +1342,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			DWORD dwChannel = pNetMsg->dwChannel;
 /*
 			// PET
-			// ÆÖÄ«µå Á¤º¸¸¦ Á¦°ÅÇØÁØ´Ù.
+			// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 			SINVENITEM* pInvenItem = m_cStorage[dwChannel].GetItem ( pNetMsg->wDelX, pNetMsg->wDelX );
 			if ( pInvenItem )
 			{
@@ -1314,7 +1354,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			m_cStorage[dwChannel].InsertItem ( pNetMsg->sInsert.sItemCustom, pNetMsg->sInsert.wPosX, pNetMsg->sInsert.wPosY );
 
 			// PET
-			// ÆÖÄ«µå Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
+			// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 			SITEM* pItem = GLItemMan::GetInstance().GetItem ( pNetMsg->sInsert.sItemCustom.sNativeID );
 			if ( pItem && pItem->sBasicOp.emItemType == ITEM_PET_CARD && pNetMsg->sInsert.sItemCustom.dwPetID != 0  )
 			{
@@ -1351,7 +1391,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			GLMSG::SNETPC_REQ_SKILLQUICK_FB *pNetMsg = (GLMSG::SNETPC_REQ_SKILLQUICK_FB *)nmg;
 			m_sSKILLQUICK[pNetMsg->wSLOT] = pNetMsg->skill_id;
 
-			//	Note : ·± ½ºÅ³·Î ÁöÁ¤µÈ ½ºÅ³ÀÌ Á¸Á¦ÇÏÁö ¾ÊÀ» °æ¿ì ÁöÁ¤ÇØÁÜ.
+			//	Note : ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 			if ( GetskillRunSlot()==NATIVEID_NULL() )
 			{
 				ReqSkillRunSet(pNetMsg->wSLOT);
@@ -1620,7 +1660,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			GLMSG::SNET_PUSHPULL_BRD *pNetMsg = (GLMSG::SNET_PUSHPULL_BRD *)nmg;
 			const D3DXVECTOR3 &vMovePos = pNetMsg->vMovePos;
 
-			//	Note : ¹Ð·Á³¯ À§Ä¡·Î ÀÌµ¿ ½Ãµµ.
+			//	Note : ï¿½Ð·ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ãµï¿½.
 			//
 			BOOL bSucceed = m_actorMove.GotoLocation
 			(
@@ -1630,7 +1670,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 			if ( bSucceed )
 			{
-				//	Note : ¹Ð·Á³ª´Â ¿¢¼Ç ½ÃÀÛ.
+				//	Note : ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				//
 				m_sTargetID.vPos = vMovePos;
 				TurnAction ( GLAT_PUSHPULL );
@@ -1655,7 +1695,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 			case EMREGEN_GATE_SUCCEED:
 				{
-					// Note : ½ÃÀÛ±ÍÈ¯Ä«µå¿¡¼­ »ç¿ëµÉ Á¤º¸¸¦ ¹Þ½À´Ï´Ù.
+					// Note : ï¿½ï¿½ï¿½Û±ï¿½È¯Ä«ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½Ï´ï¿½.
 					m_sStartMapID = pNetMsg->sMapID;
 					m_dwStartGate = pNetMsg->dwGateID;
 					CInnerInterface::GetInstance().PrintMsgText ( NS_UITEXTCOLOR::PALEGREEN, ID2GAMEINTEXT("EMREGEN_GATE_SUCCEED") );
@@ -1685,7 +1725,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 					SetDefenseSkill( false );
 					m_sREACTION.RESET();
 
-					//	Note : ¸¸¾à SKILL »ç¿ëÁßÀÌ¶ó¸é ¸ðµÎ ¸®¼Â.
+					//	Note : ï¿½ï¿½ï¿½ï¿½ SKILL ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 					//
 					if ( IsACTION(GLAT_SKILL) )
 					{
@@ -1736,7 +1776,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			D3DXMATRIX matEffect;
 			D3DXMatrixTranslation ( &matEffect, pNetMsg->vPOS.x, pNetMsg->vPOS.y, pNetMsg->vPOS.z );
 
-			//	º¸ÀÌÁö ¾Ê´Â Å¸°¹ÀÏ °æ¿ì Å¸°Ý ÀÌÆÑÆ®´Â »ý·«µÊ.
+			//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 			DxEffGroupPlayer::GetInstance().NewEffGroup
 			(
 				pITEM->GetTargetEffect(),
@@ -1937,10 +1977,10 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			case EMREQ_INVENLINE_FB_OK:
 				CInnerInterface::GetInstance().PrintMsgTextDlg ( NS_UITEXTCOLOR::PALEGREEN, ID2GAMEINTEXT("EMREQ_INVENLINE_FB_OK") );
 				
-				//	Note : ÀÎº¥ ÁÙ¼ö ¼³Á¤.
+				//	Note : ï¿½Îºï¿½ ï¿½Ù¼ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				m_wINVENLINE = pNetMsg->wINVENLINE;
 
-				//	Note : ÇöÁ¦ È°¼ºÈ­µÈ ÀÎº¥ ¶óÀÎ ¼³Á¤.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				//
 				m_cInventory.SetAddLine ( GetOnINVENLINE(), true );
 				CInnerInterface::GetInstance().SetInventorySlotViewSize ( EM_INVEN_DEF_SIZE_Y + GetOnINVENLINE() );
@@ -2002,7 +2042,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 		}
 		break;
 
-		// ¶ôÄ¿ °ü¸®ÀÎ°úÀÇ ´ëÈ­¸¦ Á¦¿ÜÇÑ ±×¹ÛÀÇ ¹æ¹ýÀ¸·Î Ã¢°í ¿­¶÷ ( ±ä±Þ Ã¢°í ¿¬°á Ä«µå... etc )
+		// ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½... etc )
 	case NET_MSG_GCTRL_INVEN_STORAGEOPEN_FB:
 		{
 			GLMSG::SNET_INVEN_STORAGEOPEN_FB *pNetMsg = (GLMSG::SNET_INVEN_STORAGEOPEN_FB *) nmg;
@@ -2016,7 +2056,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			case EMREQ_STORAGEOPEN_FB_OK:
 				CInnerInterface::GetInstance().PrintMsgTextDlg ( NS_UITEXTCOLOR::PALEGREEN, ID2GAMEINTEXT("EMREQ_STORAGEOPEN_FB_OK") );
 				
-				//	Note : Ã¢°í ¿­±â.
+				//	Note : Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				CInnerInterface::GetInstance().SetDefaultPosInterface( INVENTORY_WINDOW );
 				CInnerInterface::GetInstance().SetDefaultPosInterface( STORAGE_WINDOW );
 				CInnerInterface::GetInstance().ShowGroupFocus ( INVENTORY_WINDOW );
@@ -2052,7 +2092,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 					m_tPREMIUM = pNetMsg->tLMT;
 					m_bPREMIUM = true;
 
-					//	Note : ÇöÁ¦ È°¼ºÈ­µÈ ÀÎº¥ ¶óÀÎ ¼³Á¤.
+					//	Note : ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 					//
 					m_cInventory.SetAddLine ( GetOnINVENLINE(), true );
 					CInnerInterface::GetInstance().SetInventorySlotViewSize ( EM_INVEN_DEF_SIZE_Y + GetOnINVENLINE() );
@@ -2135,6 +2175,25 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 		}
 		break;
 
+	case NET_MSG_GCTRL_GET_ITEMSHOP_FROMDB_FB:
+		{
+			GLMSG::SNET_GET_ITEMSHOP_FROMDB_FB* pNetMsg = (GLMSG::SNET_GET_ITEMSHOP_FROMDB_FB*)nmg;
+			switch ( pNetMsg->emFB )
+			{
+			case EMREQ_CHARGEDITEM_FROMDB_FB_END:
+				{
+					CInnerInterface::GetInstance().SetItemShopInfo ();
+				}break;
+
+			case EMREQ_CHARGEDITEM_FROMDB_FB_OK:
+				{
+					ADDITEMSHOP ( pNetMsg->szPurKey,pNetMsg->nidITEM , pNetMsg->wPrice , pNetMsg->wStock , pNetMsg->wCtg , pNetMsg->wCurrency ); 
+				}
+				break;
+			}
+		}
+		break;
+
 	case NET_MSG_GCTRL_GET_CHARGEDITEM_FROMDB_FB:
 		{
 			GLMSG::SNET_GET_CHARGEDITEM_FROMDB_FB* pNetMsg = (GLMSG::SNET_GET_CHARGEDITEM_FROMDB_FB*)nmg;
@@ -2213,33 +2272,33 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 	case NET_MSG_GCTRL_GETEXP_RECOVERY_FB:
 		{
-// °æÇèÄ¡È¸º¹_Á¤ÀÇ_Normal
+// ï¿½ï¿½ï¿½ï¿½Ä¡È¸ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½_Normal
 #if defined( _RELEASED ) || defined ( KRT_PARAM ) || defined ( KR_PARAM ) 
 			GLMSG::SNETPC_REQ_GETEXP_RECOVERY_FB *pNetMsg = (GLMSG::SNETPC_REQ_GETEXP_RECOVERY_FB *)nmg;
 
-			// È¸º¹ÇÒ °æÇèÄ¡°¡ ¾ø½À´Ï´Ù.
+			// È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 			if ( pNetMsg->nReExp <= 0 )	
 			{
 				CInnerInterface::GetInstance().PrintMsgText( 
 						NS_UITEXTCOLOR::NEGATIVE, ID2GAMEINTEXT( "EMREQ_RECOVERY_FB_NOREEXP" ) );
 
-				// ºÎÈ°ÇÏ±â
+				// ï¿½ï¿½È°ï¿½Ï±ï¿½
 				ReqReBirth();					
-				// ¿­·ÁÁø Ã¢µé ´Ý±â
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½Ý±ï¿½
 				CInnerInterface::GetInstance().CloseAllWindow ();
 
 				return;
 			}
 
-			// ¼ÒÁö ±Ý¾×ÀÌ ¸ðÀÚ¸£´Ù¸é ºÎÈ°½ÃÅ²´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½È°ï¿½ï¿½Å²ï¿½ï¿½.
 			if ( pNetMsg->nDecMoney > m_lnMoney )	
 			{
 				CInnerInterface::GetInstance().PrintMsgText( 
 						NS_UITEXTCOLOR::NEGATIVE, ID2GAMEINTEXT( "EMREQ_RECOVERY_FB_NOMONEY" ) );
 
-				// ºÎÈ°ÇÏ±â
+				// ï¿½ï¿½È°ï¿½Ï±ï¿½
 				ReqReBirth();					
-				// ¿­·ÁÁø Ã¢µé ´Ý±â
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½Ý±ï¿½
 				CInnerInterface::GetInstance().CloseAllWindow ();
 
 				return;				
@@ -2257,11 +2316,11 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 	case NET_MSG_GCTRL_GETEXP_RECOVERY_NPC_FB:
 		{
-// °æÇèÄ¡È¸º¹_Á¤ÀÇ_Npc
+// ï¿½ï¿½ï¿½ï¿½Ä¡È¸ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½_Npc
 #if defined( _RELEASED ) || defined ( KRT_PARAM ) || defined ( KR_PARAM ) || defined ( TH_PARAM ) || defined ( MYE_PARAM ) || defined ( MY_PARAM ) || defined ( PH_PARAM ) || defined ( CH_PARAM ) || defined ( TW_PARAM ) || defined ( HK_PARAM ) || defined ( GS_PARAM )
 			GLMSG::SNETPC_REQ_GETEXP_RECOVERY_NPC_FB *pNetMsg = (GLMSG::SNETPC_REQ_GETEXP_RECOVERY_NPC_FB *)nmg;
 
-			// È¸º¹ÇÒ °æÇèÄ¡°¡ ¾ø½À´Ï´Ù.
+			// È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 			if ( pNetMsg->nReExp <= 0 )	
 			{
 				CInnerInterface::GetInstance().PrintMsgText( 
@@ -2270,7 +2329,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 				return;
 			}
 
-			// ¼ÒÁö ±Ý¾×ÀÌ ¸ðÀÚ¸£´Ù¸é ºÎÈ°½ÃÅ²´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½È°ï¿½ï¿½Å²ï¿½ï¿½.
 			if ( pNetMsg->nDecMoney > m_lnMoney )	
 			{
 				CInnerInterface::GetInstance().PrintMsgText( 
@@ -2292,7 +2351,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 	
 	case NET_MSG_GCTRL_RECOVERY_FB:
 		{
-// °æÇèÄ¡È¸º¹_Á¤ÀÇ_Normal
+// ï¿½ï¿½ï¿½ï¿½Ä¡È¸ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½_Normal
 #if defined( _RELEASED ) || defined ( KRT_PARAM ) || defined ( KR_PARAM )
 
 			GLMSG::SNETPC_REQ_RECOVERY_FB *pNetNsg = (GLMSG::SNETPC_REQ_RECOVERY_FB *)nmg;
@@ -2327,7 +2386,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 	case NET_MSG_GCTRL_RECOVERY_NPC_FB:
 		{
-// °æÇèÄ¡È¸º¹_Á¤ÀÇ_Npc
+// ï¿½ï¿½ï¿½ï¿½Ä¡È¸ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½_Npc
 #if defined( _RELEASED ) || defined ( KRT_PARAM ) || defined ( KR_PARAM ) || defined ( TH_PARAM ) || defined ( MYE_PARAM ) || defined ( MY_PARAM ) || defined ( PH_PARAM ) || defined ( CH_PARAM ) || defined ( TW_PARAM ) || defined ( HK_PARAM ) || defined ( GS_PARAM )
 			GLMSG::SNETPC_REQ_RECOVERY_NPC_FB *pNetNsg = (GLMSG::SNETPC_REQ_RECOVERY_NPC_FB *)nmg;
 
@@ -2364,7 +2423,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			GLMSG::SNETPC_PMARKET_TITLE_FB *pNetMsg = (GLMSG::SNETPC_PMARKET_TITLE_FB *) nmg;
 			m_sPMarket.SetTITLE ( pNetMsg->szPMarketTitle );
 
-			//	Note : ÀÎÅÍÆäÀÌ½º¿¡ °»½Å?
+			//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½?
 		}
 		break;
 
@@ -2387,7 +2446,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 					{
 						m_sPMarket.RegItem ( *pINVENITEM, pNetMsg->dwMoney, pNetMsg->dwNum, pNetMsg->sSALEPOS );
 
-						//	Note : ÀÎÅÍÆäÀÌ½º¿¡ °»½Å?
+						//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½?
 					}
 				}
 				break;
@@ -2413,7 +2472,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 			m_sPMarket.DisItem ( pNetMsg->sSALEPOS );
 
-			//	Note : ÀÎÅÍÆäÀÌ½º¿¡ °»½Å?
+			//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½?
 		}
 		break;
 
@@ -2552,7 +2611,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 				bADD = ADD_PLAYHOSTILE ( pNetMsg->dwCharID, pNetMsg->bBAD );
 			}
 
-			// ÇÐ¿ø°£ ÀÚÀ¯ÇÇÄÉ ÁøÇàÁßÀÌ¸ç »ó´ë°¡ °°Àº ÇÐ±³ÀÏ°æ¿ì Àû´ëÇàÀ§ ´ë»óÀÚ·Î ±¸ºÐÇÏ¿© °ü¸®ÇÔ.
+			// ï¿½Ð¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ë°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ï¿½Ï°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 			if ( bSCHOOLFREEPK && m_wSchool == pNetMsg->wSchoolID )
 			{
 				bADD = ADD_PLAYHOSTILE ( pNetMsg->dwCharID, pNetMsg->bBAD );
@@ -2604,7 +2663,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 					m_wHair = (WORD) pNetMsg->dwID;
 					UpdateSuit( TRUE );
 
-					// Çì¾î½ºÅ¸ÀÏ º¯°æ
+					// ï¿½ï¿½î½ºÅ¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					HairStyleChange( m_wHair );
 
 					CInnerInterface::GetInstance().PrintMsgText ( NS_UITEXTCOLOR::PALEGREEN, ID2GAMEINTEXT("EMINVEN_HAIR_CHANGE_FB_OK") );
@@ -2850,7 +2909,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 				{
 					StringCchCopy ( m_szName, CHAR_SZNAME, pNetMsg->szName );
 
-					// ÀÌ¸§Ç¥ º¯°æ
+					// ï¿½Ì¸ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½
 					CNameDisplayMan *pDISP_NAME_MAN = CInnerInterface::GetInstance().GetDispName();
 					if ( pDISP_NAME_MAN )
 					{
@@ -2880,7 +2939,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 						StringCchCopy ( pPMember->m_szName, CHAR_SZNAME, pNetMsg->szName );
 					}
 
-					//	Note : ÀÎÅÍÆäÀÌ½º¿¡ º¯°æ ¾Ë¸².
+					//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½.
 					CInnerInterface::GetInstance().REFRESH_FRIEND_LIST ();
 					CInnerInterface::GetInstance().REFRESH_CLUB_LIST ();
 
@@ -2921,7 +2980,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			
  			if ( pNetMsg->sFACT.emType == QUESTION_NONE )	break;
 
-			// Å»°Í Å¾½Â½Ã Äù¼Ç¾ÆÀÌÅÛ ¹Ì Àû¿ë
+			// Å»ï¿½ï¿½ Å¾ï¿½Â½ï¿½ ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if ( m_bVehicle )	break;
 
 			DxSoundLib::GetInstance()->PlaySound ( "QITEM_FACT" );
@@ -2950,7 +3009,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 			case QUESTION_EXP_GET:
 				{
-					//	Note : ÀÚ±â À§Ä¡ ÀÌÆåÆ® ¹ß»ý½ÃÅ´.
+					//	Note : ï¿½Ú±ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß»ï¿½ï¿½ï¿½Å´.
 					STARGETID vTARID(CROW_PC,m_dwGaeaID,m_vPos);
 					DxEffGroupPlayer::GetInstance().NewEffGroup ( "QI_expget.egp", m_matTrans, &vTARID );
 				}
@@ -2958,7 +3017,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 			case QUESTION_BOMB:
 				{
-					//	Note : ÀÚ±â À§Ä¡ ÀÌÆåÆ® ¹ß»ý½ÃÅ´.
+					//	Note : ï¿½Ú±ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß»ï¿½ï¿½ï¿½Å´.
 					STARGETID vTARID(CROW_PC,m_dwGaeaID,m_vPos);
 					DxEffGroupPlayer::GetInstance().NewEffGroup ( "QI_bomb.egp", m_matTrans, &vTARID );
 				}
@@ -2969,7 +3028,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 			case QUESTION_HEAL:
 				{
-					//	Note : ÀÚ±â À§Ä¡ ÀÌÆåÆ® ¹ß»ý½ÃÅ´.
+					//	Note : ï¿½Ú±ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß»ï¿½ï¿½ï¿½Å´.
 					STARGETID vTARID(CROW_PC,m_dwGaeaID,m_vPos);
 					DxEffGroupPlayer::GetInstance().NewEffGroup ( "QI_heal.egp", m_matTrans, &vTARID );
 				}
@@ -3213,7 +3272,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 		{
 			GLMSG::SNETPC_UPDATE_LASTCALL *pNetMsg = (GLMSG::SNETPC_UPDATE_LASTCALL *)nmg;
 
-			// Note : Á÷Àü±ÍÈ¯Ä«µå¿¡¼­ »ç¿ëµÉ Á¤º¸¸¦ ¹Þ½À´Ï´Ù.
+			// Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯Ä«ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½Ï´ï¿½.
 			m_sLastCallMapID = pNetMsg->sLastCallMapID;
 			m_vLastCallPos = pNetMsg->vLastCallPos;
 		}
@@ -3223,7 +3282,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 		{
 			GLMSG::SNETPC_UPDATE_STARTCALL *pNetMsg = (GLMSG::SNETPC_UPDATE_STARTCALL *)nmg;
 			
-			// ½ÃÀÛÀ§Ä¡ º¯°æ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 			m_sStartMapID = pNetMsg->sStartMapID;
 			m_dwStartGate = pNetMsg->dwStartGateID;
 			m_vSavePos	  = pNetMsg->vStartPos;
@@ -3268,7 +3327,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 				{
 					StringCchCopy ( m_szPhoneNumber, SMS_RECEIVER, pNetMsg->szPhoneNumber );
 
-					// Ä³¸¯ÅÍ Á¤º¸Ã¢¿¡ Æù ¹øÈ£ º¯°æ
+					// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½
 					//CInnerInterface::GetInstance().GetCharacterWindow()->SetPhoneNumber( CString( pNetMsg->szPhoneNumber ) );
 
 					CInnerInterface::GetInstance().PrintMsgText ( NS_UITEXTCOLOR::PALEGREEN, ID2GAMEINTEXT("EMSMS_PHONE_NUMBER_FB_OK"), pNetMsg->szPhoneNumber );
@@ -3597,7 +3656,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 		{
 			GLMSG::SNET_GM_LIMIT_EVENT_BEGIN_FB *pNetMsg = (GLMSG::SNET_GM_LIMIT_EVENT_BEGIN_FB *) nmg;
 			/*CInnerInterface::GetInstance().PrintMsgText ( NS_UITEXTCOLOR::PALEGREEN, 
-														  "%d ·¹º§ ºÎÅÍ %d ·¹º§ ±îÁö %dºÐ ÇÃ·¹ÀÌ %d ºÎ½ºÅÍ %.2f °æÇèÄ¡ %.2f µå¶øÀ²",
+														  "%d ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ %d ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ %dï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ %d ï¿½Î½ï¿½ï¿½ï¿½ %.2f ï¿½ï¿½ï¿½ï¿½Ä¡ %.2f ï¿½ï¿½ï¿½ï¿½ï¿½",
 														  pNetMsg->start_Lv, pNetMsg->end_Lv, pNetMsg->play_Time, pNetMsg->buster_Time,
 														  pNetMsg->expGain_Rate, pNetMsg->itemGain_Rate );*/
 
@@ -3630,7 +3689,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 	case NET_MSG_GM_LIMIT_EVENT_END_FB:
 		{
-			//CInnerInterface::GetInstance().PrintMsgText ( NS_UITEXTCOLOR::PALEGREEN, "ÀÌº¥Æ® Á¾·á!!" );
+			//CInnerInterface::GetInstance().PrintMsgText ( NS_UITEXTCOLOR::PALEGREEN, "ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½!!" );
 
 			m_bEventApply  = FALSE;
 			m_bEventStart  = FALSE;
@@ -3823,16 +3882,16 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 			case EMVEHICLE_REQ_SLOT_EX_HOLD_FB_OK:
 				{
-					// ÀåÂøµÈ ¾ÆÀÌÅÛ BackUp
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ BackUp
 					SITEMCUSTOM sSlotItemCustom = m_sVehicle.GetSlotitembySuittype ( pNetMsg->emSuit );
 
-					// ¼Õ¿¡µç ¾ÆÀÌÅÛÀ» ÆÖ¿¡°Ô ÀåÂø½ÃÅ°°í
+					// ï¿½Õ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½
 					m_sVehicle.SetSlotItem ( pNetMsg->emSuit, GET_HOLD_ITEM () );
 					m_fVehicleSpeedRate = m_sVehicle.GetSpeedRate();
 					m_fVehicleSpeedVol = m_sVehicle.GetSpeedVol();
 
 
-					// Å»°ÍÀÇ Á¤º¸¸¦ °»½ÅÇØÁØ´Ù.
+					// Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 					VEHICLEITEMINFO_MAP_ITER iter = m_mapVEHICLEItemInfo.find ( m_sVehicle.m_dwGUID );
 					if ( iter!= m_mapVEHICLEItemInfo.end() )
 					{
@@ -3840,7 +3899,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 						sVehicle.m_PutOnItems[(WORD)pNetMsg->emSuit-(WORD)SUIT_VEHICLE_SKIN] = GET_HOLD_ITEM ();
 					}
 
-					// ÀåÂøµÆ´ø ¾ÆÀÌÅÛÀ» ¼Õ¿¡ µç´Ù
+					// ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½
 					HOLD_ITEM ( sSlotItemCustom );
 					UpdateSuit ( FALSE );
 					INIT_DATA( FALSE, FALSE );
@@ -3872,12 +3931,12 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 			case EMVEHICLE_REQ_SLOT_EX_HOLD_FB_OK:
 				{
-					// ¼Õ¿¡µç ¾ÆÀÌÅÛÀ» ÆÖ¿¡°Ô ÀåÂø½ÃÅ°°í
+					// ï¿½Õ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½
 					m_sVehicle.SetSlotItem ( pNetMsg->emSuit, GET_HOLD_ITEM () );
 					m_fVehicleSpeedRate = m_sVehicle.GetSpeedRate();
 					m_fVehicleSpeedVol = m_sVehicle.GetSpeedVol();					
 
-					// Å»°ÍÀÇ Á¤º¸¸¦ °»½ÅÇØÁØ´Ù.
+					// Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 					VEHICLEITEMINFO_MAP_ITER iter = m_mapVEHICLEItemInfo.find ( m_sVehicle.m_dwGUID );
 					if ( iter!= m_mapVEHICLEItemInfo.end() )
 					{
@@ -3885,7 +3944,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 						sVehicle.m_PutOnItems[(WORD)pNetMsg->emSuit-(WORD)SUIT_VEHICLE_SKIN] = GET_HOLD_ITEM ();
 					}
 
-					// ¼Õ¿¡µç ¾ÆÀÌÅÛÀ» Á¦°ÅÇÏ°í
+					// ï¿½Õ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
 					RELEASE_HOLD_ITEM ();
 					UpdateSuit ( FALSE );
 					INIT_DATA( FALSE, FALSE );
@@ -3917,15 +3976,15 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 			case EMVEHICLE_REQ_SLOT_EX_HOLD_FB_OK:
 				{
-					// ÀåÂøµÈ ¾ÆÀÌÅÛ BackUp
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ BackUp
 					SITEMCUSTOM sSlotItemCustom = m_sVehicle.GetSlotitembySuittype ( pNetMsg->emSuit );
 
-					// ÀåÂøµÈ ¾ÆÀÌÅÛ Á¦°Å
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					m_sVehicle.ReSetSlotItem ( pNetMsg->emSuit );
 					m_fVehicleSpeedRate = m_sVehicle.GetSpeedRate();
 					m_fVehicleSpeedVol = m_sVehicle.GetSpeedVol();
 
-					// Å»°ÍÀÇ Á¤º¸¸¦ °»½ÅÇØÁØ´Ù.
+					// Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 					VEHICLEITEMINFO_MAP_ITER iter = m_mapVEHICLEItemInfo.find ( m_sVehicle.m_dwGUID );
 					if ( iter!= m_mapVEHICLEItemInfo.end() )
 					{
@@ -3934,7 +3993,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 						if ( i < VEHICLE_ACCETYPE_SIZE ) sVehicle.m_PutOnItems[i] = SITEMCUSTOM ( NATIVEID_NULL() );
 					}
 
-					// ÀåÂøµÆ´ø ¾ÆÀÌÅÛÀ» ¼Õ¿¡ µç´Ù
+					// ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½
 					HOLD_ITEM ( sSlotItemCustom );
 					UpdateSuit ( FALSE );
 					INIT_DATA( FALSE, FALSE );
@@ -3965,28 +4024,28 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			SITEM* pSlotItem = GLItemMan::GetInstance().GetItem ( sSlotItemCustom.sNativeID );
 			if ( !pSlotItem ) 
 			{
-				// ÀÏ¹Ý ¿À·ù
+				// ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 				return;
 			}
 
 			BOOL bOk = m_cInventory.FindInsrtable ( pSlotItem->sBasicOp.wInvenSizeX, pSlotItem->sBasicOp.wInvenSizeY, wPosX, wPosY );
 			if ( !bOk )
 			{
-				//	ÀÎ¹êÀÌ °¡µæÂþÀ½.
+				//	ï¿½Î¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 				return;
 			}
 
-			// ÀÎº¥¿¡ ³Ö±â
+			// ï¿½Îºï¿½ï¿½ï¿½ ï¿½Ö±ï¿½
 			m_cInventory.InsertItem ( sSlotItemCustom, wPosX, wPosY );
 
-			// ½½·Ô¾ÆÀÌÅÛ Á¦°Å
+			// ï¿½ï¿½ï¿½Ô¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			m_sVehicle.ReSetSlotItem ( pNetMsg->emSuit );
 
 			m_fVehicleSpeedRate = m_sVehicle.GetSpeedRate();
 			m_fVehicleSpeedVol = m_sVehicle.GetSpeedVol();
 
 
-			// Å»°ÍÀÇ Á¤º¸¸¦ °»½ÅÇØÁØ´Ù.
+			// Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 			VEHICLEITEMINFO_MAP_ITER iter = m_mapVEHICLEItemInfo.find ( m_sVehicle.m_dwGUID );
 			if ( iter!= m_mapVEHICLEItemInfo.end() )
 			{
@@ -4017,7 +4076,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			if ( iter!=m_mapVEHICLEItemInfo.end() )
 			{
 				SVEHICLEITEMINFO& sVehicle = (*iter).second;
-				// ÆÖÄ«µåÀÇ Á¤º¸ °»½Å
+				// ï¿½ï¿½Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				sVehicle.m_PutOnItems[pNetMsg->accetype] = SITEMCUSTOM ();	
 			}
 
@@ -4034,7 +4093,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 			if ( iter!=m_mapVEHICLEItemInfo.end() )
 			{
 				SVEHICLEITEMINFO& sVehicle = (*iter).second;
-				// ÆÖÄ«µåÀÇ Á¤º¸ °»½Å
+				// ï¿½ï¿½Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				sVehicle.m_nFull = pNetMsg->nFull;
 			}
 
@@ -4052,7 +4111,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 					SITEM* pVehicleItem	= GLItemMan::GetInstance().GetItem ( pNetMsg->sItemID );
 					if ( pItem && pVehicleItem )
 					{
-						// ÆÖÆ÷¸¸°¨ °»½Å
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 						if ( m_sVehicle.m_dwGUID == pNetMsg->dwVehicleID ) m_sVehicle.IncreaseFull ( pItem->sDrugOp.wCureVolume, pItem->sDrugOp.bRatio );
 
 						if ( DxGlobalStage::GetInstance().IsEmulator() )
@@ -4067,7 +4126,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 						if ( iter!=m_mapVEHICLEItemInfo.end() )
 						{
 							SVEHICLEITEMINFO& sVehicle = (*iter).second;
-							// ÆÖÄ«µåÀÇ Á¤º¸ °»½Å
+							// ï¿½ï¿½Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 							sVehicle.m_nFull = pNetMsg->nFull;
 
 							CInnerInterface::GetInstance().PrintMsgText ( 
@@ -4095,7 +4154,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 		{
 			GLMSG::SNET_VEHICLE_REQ_ITEM_INFO_FB* pNetMsg = ( GLMSG::SNET_VEHICLE_REQ_ITEM_INFO_FB* ) nmg;
 
-			// DB¿¡ ¾øÀ¸¸é ±×³É ÃÊ±â°ªÀ¸·Î ³Ñ¾î¿À´Â °æ¿ì°¡ ÀÖÀ¸¹Ç·Î Ã¼Å©ÇØÁØ´Ù.
+			// DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×³ï¿½ ï¿½Ê±â°ªï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ Ã¼Å©ï¿½ï¿½ï¿½Ø´ï¿½.
 			if ( pNetMsg->emTYPE == VEHICLE_TYPE_NONE ) break;
 
 			SVEHICLEITEMINFO sVehicleItemInfo;
@@ -4363,7 +4422,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 					CInnerInterface::GetInstance().PrintMsgText ( NS_UITEXTCOLOR::PALEGREEN, 
 							ID2GAMEINTEXT("EMREQ_GATHER_RESULT_SUCCESS") );
 
-					m_dwANISUBGESTURE = 0;	//	¼º°ø
+					m_dwANISUBGESTURE = 0;	//	ï¿½ï¿½ï¿½ï¿½
 				}
 				break;
 			case EMREQ_GATHER_RESULT_SUCCESS_EX:
@@ -4371,7 +4430,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 					CInnerInterface::GetInstance().PrintMsgText 
 						( NS_UITEXTCOLOR::DISABLE, ID2GAMEINTEXT("EMREQ_GATHER_RESULT_SUCCESS_EX") );	
 					
-					m_dwANISUBGESTURE = 0;	//	¼º°ø
+					m_dwANISUBGESTURE = 0;	//	ï¿½ï¿½ï¿½ï¿½
 				}
 				break;
 			case EMREQ_GATHER_RESULT_FAIL:
@@ -4379,7 +4438,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 					CInnerInterface::GetInstance().PrintMsgText 
 						( NS_UITEXTCOLOR::DISABLE, ID2GAMEINTEXT("EMREQ_GATHER_RESULT_FAIL") );	
 
-					m_dwANISUBGESTURE = 1;	//	½ÇÆÐ
+					m_dwANISUBGESTURE = 1;	//	ï¿½ï¿½ï¿½ï¿½
 				}
 				break;
 			case EMREQ_GATHER_RESULT_ITEMFAIL:
@@ -4387,7 +4446,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 					CInnerInterface::GetInstance().PrintMsgText 
 						( NS_UITEXTCOLOR::DISABLE, ID2GAMEINTEXT("EMREQ_GATHER_RESULT_ITEMFAIL") );					
 					
-					m_dwANISUBGESTURE = 1;	//	½ÇÆÐ
+					m_dwANISUBGESTURE = 1;	//	ï¿½ï¿½ï¿½ï¿½
 				}
 				break;
 			}			
@@ -4396,7 +4455,7 @@ void GLCharacter::MsgProcess ( NET_MSG_GENERIC* nmg )
 		}
 		break;
 	default:
-		CDebugSet::ToListView ( "GLCharacter::MsgProcess() ºÐ·ùµÇÁö ¾ÊÀº ¸Þ½ÃÁö ¼ö½Å. TYPE[%d]", nmg->nType );
+		CDebugSet::ToListView ( "GLCharacter::MsgProcess() ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. TYPE[%d]", nmg->nType );
 		break;
 	};
 
@@ -4420,7 +4479,7 @@ void GLCharacter::MsgDefenseSkillActive( GLMSG::SNETPC_DEFENSE_SKILL_ACTIVE* nmg
 		return;
 	}
 	
-	// ½ºÅ³ Äµ½½ ¸Þ¼¼Áö
+	// ï¿½ï¿½Å³ Äµï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 	if ( IsACTION(GLAT_SKILL) )
 	{
 		TurnAction(GLAT_IDLE);
@@ -4437,7 +4496,7 @@ void GLCharacter::MsgDefenseSkillActive( GLMSG::SNETPC_DEFENSE_SKILL_ACTIVE* nmg
 	m_sActiveSkill = nmg->sNativeID;
 	SkillReaction ( sTID, DXKEY_UP, false, bMove, vMoveTo );
 
-	//	Note : Reaction ¿¡¼­ ÀÌµ¿À» ¿äÃ»ÇÑ °æ¿ì.
+	//	Note : Reaction ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	//
 	if ( bMove )
 	{

@@ -9,8 +9,8 @@
 #include "../../EngineLib/G-Logic/GLDefine.h"
 #include "../../NetClientLib/s_NetGlobal.h"
 
-#define CHAR_SZNAME CHR_ID_LENGTH //	ÄÉ¸¯ÅÍ ÀÌ¸§ Á¦ÇÑ.
-#define CHAR_TEMPMONEY 64		  //   TempMoney ÃÖ´ë Char ¹è¿­ÀÇ ±æÀÌ
+#define CHAR_SZNAME CHR_ID_LENGTH //	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½.
+#define CHAR_TEMPMONEY 64		  //   TempMoney ï¿½Ö´ï¿½ Char ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 enum EMCHARDEFINE
 {
@@ -19,9 +19,9 @@ enum EMCHARDEFINE
 	CLUB_NULL			= (0),
 	PARTY_NULL			= (GAEAID_NULL),
 
-	//CHAR_SZNAME			= CHR_ID_LENGTH,	//	ÄÉ¸¯ÅÍ ÀÌ¸§ Á¦ÇÑ.
-	CHAR_SZNOTE			= 160,				// ÂÊÁöÀÇ ±æÀÌ Á¦ÇÑ
-	CHAR_MAXSKILL		= 32,				//	½Àµæ °¡´É ÃÖ´ë ½ºÅ³ °¹¼ö.
+	//CHAR_SZNAME			= CHR_ID_LENGTH,	//	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	CHAR_SZNOTE			= 160,				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	CHAR_MAXSKILL		= 32,				//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½.
 	
 	SALE_INVEN_X		= 6,
 	SALE_INVEN_Y		= 8,	
@@ -35,6 +35,9 @@ enum EMCHARDEFINE
 	STORAGE_INVEN_X		= 6,
 	STORAGE_INVEN_Y		= 8,
 
+	ITEMSHOP_INVEN_X		= 3,
+	ITEMSHOP_INVEN_Y		= 12,
+
 	CHARGED_INVEN_X		= 6,
 	CHARGED_INVEN_Y		= 32,
 };
@@ -42,34 +45,34 @@ enum EMCHARDEFINE
 
 enum EMCLUB
 {
-	EMCLUB_MARK_SX			= 16, // Å¬·´¸¶Å©ÀÇ Æø 16 ÇÈ¼¿
-	EMCLUB_MARK_SY			= 11, // Å¬·´¸¶Å©ÀÇ ³ôÀÌ 11 ÇÈ¼¿
+	EMCLUB_MARK_SX			= 16, // Å¬ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ 16 ï¿½È¼ï¿½
+	EMCLUB_MARK_SY			= 11, // Å¬ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 11 ï¿½È¼ï¿½
 
     EMCLUB_MARK_SIZE = sizeof(DWORD)*EMCLUB_MARK_SX*EMCLUB_MARK_SY,
 
 	EMCLUB_NOTICE_LEN_LINE	= 40,
 	EMCLUB_NOTICE_LINE		= 10,
 	
-	// Å¬·´ °øÁöÀÇ ±ÛÀÚ¼ö Á¦ÇÑ ( ±ÛÀÚ¼ö * ¶óÀÎ + ( ¶óÀÎ°³ÇàÇ¥½Ã )  ) 								   
+	// Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½Ú¼ï¿½ * ï¿½ï¿½ï¿½ï¿½ + ( ï¿½ï¿½ï¿½Î°ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ )  ) 								   
 	EMCLUB_NOTICE_LEN		=  ( EMCLUB_NOTICE_LEN_LINE * EMCLUB_NOTICE_LINE ) + (( EMCLUB_NOTICE_LINE - 1 ) * 2 ),
 
-	EMCLUB_SUBMATER_JOIN	= 0x0001, // Å¬·´¿¡ °¡ÀÔ ½ÃÅ³ ¼ö ÀÖ´Â ±ÇÇÑ
-	EMCLUB_SUBMATER_KICK	= 0x0002, // Å¬·´¿¡¼­ Á¦¸í ½ÃÅ³ ¼ö ÀÖ´Â ±ÇÇÑ
-	EMCLUB_SUBMATER_NOTICE	= 0x0004, // Å¬·´ °øÁö¸¦ ÀÛ¼ºÇÒ ¼ö ÀÖ´Â ±ÇÇÑ
-	EMCLUB_SUBMATER_CD		= 0x0008, // ¼±µµÅ¬·´ °áÁ¤Àü¿¡ CD ¸¦ ÀÎÁõ ÇÒ ¼ö ÀÖ´Â ±ÇÇÑ
-	EMCLUB_SUBMATER_MARK	= 0x0010, // Å¬·´ ¸¶Å©¸¦ º¯°æÇÒ ¼ö ÀÖ´Â ±ÇÇÑ
-	EMCLUB_SUBMATER_CDM		= 0x0020, // CDM Âü°¡ ÀÚ°Ý
+	EMCLUB_SUBMATER_JOIN	= 0x0001, // Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMCLUB_SUBMATER_KICK	= 0x0002, // Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMCLUB_SUBMATER_NOTICE	= 0x0004, // Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMCLUB_SUBMATER_CD		= 0x0008, // ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ CD ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMCLUB_SUBMATER_MARK	= 0x0010, // Å¬ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMCLUB_SUBMATER_CDM		= 0x0020, // CDM ï¿½ï¿½ï¿½ï¿½ ï¿½Ú°ï¿½
 
 	EMCLUB_SUBMATER_ALL		= EMCLUB_SUBMATER_JOIN | EMCLUB_SUBMATER_KICK | EMCLUB_SUBMATER_NOTICE | EMCLUB_SUBMATER_CD | EMCLUB_SUBMATER_MARK | EMCLUB_SUBMATER_CDM,
 };
 
 enum EMLAND
 {
-	MAXITEM			= 3000,		//	SUIT, ¸ã»ó¿¡ Á¸Àç ÇÒ¼ö ÀÖ´Â ÃÖ´ë °¹¼ö.
-	MAXMONEY		= 3000,		//	MONEY, ¸ã»ó¿¡ Á¸Àç ÇÒ¼ö ÀÖ´Â ÃÖ´ë °¹¼ö.
+	MAXITEM			= 3000,		//	SUIT, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MAXMONEY		= 3000,		//	MONEY, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	MAXCROW			= 3000,		//	CROW, ¸ã»ó¿¡ Á¸Àç ÇÒ¼ö ÀÖ´Â ÃÖ´ë °¹¼ö.
-	MAXPET			= 3000,		//  PET, ¸Ê»ó¿¡ Á¸Àç ÇÒ¼ö ÀÖ´Â ÃÖ´ë °¹¼ö.
+	MAXCROW			= 3000,		//	CROW, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	MAXPET			= 3000,		//  PET, ï¿½Ê»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¼ï¿½ ï¿½Ö´ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMIDTYPE
@@ -108,17 +111,17 @@ enum EMLOGACTION
 	EMLOGACT_CLUB_AUTHORITY		= 24,
 };
 
-//	Note : Ä³¸¯ÅÍ FLAG.
+//	Note : Ä³ï¿½ï¿½ï¿½ï¿½ FLAG.
 //
 enum EMCHARCLASS
 {
-	GLCC_NONE		= 0X0000,	//	Ãß°¡, ¾Æ¹«°Íµµ ¼±ÅÃµÇÁö ¾ÊÀº »óÅÂ
-	GLCC_FIGHTER_M	= 0x0001,	// GLCC_FIGHTER_MÀ¸·Î CHANGE...
-	GLCC_ARMS_M		= 0x0002,	// GLCC_ARMS_MÀ¸·Î CHANGE...
-	GLCC_ARCHER_W	= 0x0004,	// GLCC_ARCHER_WÀ¸·Î CHANGE...
-	GLCC_SPIRIT_W	= 0x0008,	// GLCC_SPIRIT_WÀ¸·Î CHANGE...
-	GLCC_EXTREME_M	= 0x0010,   // ±Ø°­ºÎ ³²
-	GLCC_EXTREME_W	= 0x0020,   // ±Ø°­ºÎ ¿©
+	GLCC_NONE		= 0X0000,	//	ï¿½ß°ï¿½, ï¿½Æ¹ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	GLCC_FIGHTER_M	= 0x0001,	// GLCC_FIGHTER_Mï¿½ï¿½ï¿½ï¿½ CHANGE...
+	GLCC_ARMS_M		= 0x0002,	// GLCC_ARMS_Mï¿½ï¿½ï¿½ï¿½ CHANGE...
+	GLCC_ARCHER_W	= 0x0004,	// GLCC_ARCHER_Wï¿½ï¿½ï¿½ï¿½ CHANGE...
+	GLCC_SPIRIT_W	= 0x0008,	// GLCC_SPIRIT_Wï¿½ï¿½ï¿½ï¿½ CHANGE...
+	GLCC_EXTREME_M	= 0x0010,   // ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½
+	GLCC_EXTREME_W	= 0x0020,   // ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½
 	
 	GLCC_FIGHTER_W	= 0x0040,
 	GLCC_ARMS_W		= 0x0080,
@@ -194,7 +197,7 @@ enum EMSCHOOLFLAG
 WORD school2index ( const EMSCHOOLFLAG emSchool );
 EMSCHOOLFLAG index2school ( const WORD wSchool );
 
-//	Note : Ä³¸¯ÅÍ ÀÎµ¦½º.
+//	Note : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½.
 //
 
 enum EMCHARINDEX
@@ -260,12 +263,12 @@ enum EMSTATS
 
 struct FCHARSTATS
 {
-	float		fPow;	//	Èû.
-	float		fStr;	//	Ã¼·Â.
-	float		fSpi;	//	Á¤½Å.
-	float		fDex;	//	¹ÎÃ¸.
-	float		fInt;	//	Áö·Â.
-	float		fSta;	//	±Ù·Â.
+	float		fPow;	//	ï¿½ï¿½.
+	float		fStr;	//	Ã¼ï¿½ï¿½.
+	float		fSpi;	//	ï¿½ï¿½ï¿½ï¿½.
+	float		fDex;	//	ï¿½ï¿½Ã¸.
+	float		fInt;	//	ï¿½ï¿½ï¿½ï¿½.
+	float		fSta;	//	ï¿½Ù·ï¿½.
 
 	FCHARSTATS () :
 		fPow(0),
@@ -308,12 +311,12 @@ struct FCHARSTATS
 
 struct SCHARSTATS
 {
-	DWORD		dwPow;	//	Èû.
-	DWORD		dwStr;	//	Ã¼·Â.
-	DWORD		dwSpi;	//	Á¤½Å.
-	DWORD		dwDex;	//	¹ÎÃ¸.
-	DWORD		dwInt;	//	Áö·Â.
-	DWORD		dwSta;	//	±Ù·Â.		--(Ãß°¡)
+	DWORD		dwPow;	//	ï¿½ï¿½.
+	DWORD		dwStr;	//	Ã¼ï¿½ï¿½.
+	DWORD		dwSpi;	//	ï¿½ï¿½ï¿½ï¿½.
+	DWORD		dwDex;	//	ï¿½ï¿½Ã¸.
+	DWORD		dwInt;	//	ï¿½ï¿½ï¿½ï¿½.
+	DWORD		dwSta;	//	ï¿½Ù·ï¿½.		--(ï¿½ß°ï¿½)
 
 	SCHARSTATS () :
 		dwPow(0),
@@ -335,7 +338,7 @@ struct SCHARSTATS
 	{
 	}
 
-	//	Note : ÇöÁ¦ÀÇ ¼öÄ¡°¡ ¿ä±¸¼öÄ¡¿¡ ºÎÇÕµÇ´ÂÁö °Ë»ç.
+	//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ä±¸ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ÕµÇ´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½.
 	BOOL CHECK_REQ ( SCHARSTATS sREQ, DWORD waccept=0 )
 	{
 		if ( dwDex+waccept < sREQ.dwDex )	return FALSE;
@@ -478,32 +481,32 @@ inline FCHARSTATS& operator * ( const FCHARSTATS& lvalue, const int rvalue )
 
 struct SSEARCHITEMDATA
 {
-	char		 szItemName[MAP_NAME_LENGTH]; // ¾ÆÀÌÅÛ ÀÌ¸§
-	DWORD		 dwReqCharClass;			  // Âø¿ë Å¬·¹½º
-	DWORD		 dwSuitType;				  // ¾ÆÀÌÅÛ Å¸ÀÔ
-	WORD		 wReqLevel;					  // Âø¿ë ÃÖ¼Ò ·¹º§
-	SCHARSTATS	 sReqStats;					  // ¾ÆÀÌÅÛ Âø¿ë ½ºÅÝÄ¡
-	LONGLONG	 llPRICE;					  // ¾ÆÀÌÅÛ °¡°Ý
+	char		 szItemName[MAP_NAME_LENGTH]; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+	DWORD		 dwReqCharClass;			  // ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
+	DWORD		 dwSuitType;				  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
+	WORD		 wReqLevel;					  // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	SCHARSTATS	 sReqStats;					  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
+	LONGLONG	 llPRICE;					  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		
-	BYTE		 RandOptTYPE1;				// ·£´ý ¿É¼ÇÅ¸ÀÔ 1
-	BYTE		 RandOptTYPE2;				// ·£´ý ¿É¼ÇÅ¸ÀÔ 2
-	BYTE		 RandOptTYPE3;				// ·£´ý ¿É¼ÇÅ¸ÀÔ 3
-	BYTE		 RandOptTYPE4;				// ·£´ý ¿É¼ÇÅ¸ÀÔ 4
+	BYTE		 RandOptTYPE1;				// ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½Å¸ï¿½ï¿½ 1
+	BYTE		 RandOptTYPE2;				// ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½Å¸ï¿½ï¿½ 2
+	BYTE		 RandOptTYPE3;				// ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½Å¸ï¿½ï¿½ 3
+	BYTE		 RandOptTYPE4;				// ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½Å¸ï¿½ï¿½ 4
 
-	float		 fRandOptValue1;			// ·£´ý ¿É¼Ç°ª 1	
-	float		 fRandOptValue2;			// ·£´ý ¿É¼Ç°ª 2
-	float		 fRandOptValue3;			// ·£´ý ¿É¼Ç°ª 3	
-	float		 fRandOptValue4;			// ·£´ý ¿É¼Ç°ª 4
+	float		 fRandOptValue1;			// ï¿½ï¿½ï¿½ï¿½ ï¿½É¼Ç°ï¿½ 1	
+	float		 fRandOptValue2;			// ï¿½ï¿½ï¿½ï¿½ ï¿½É¼Ç°ï¿½ 2
+	float		 fRandOptValue3;			// ï¿½ï¿½ï¿½ï¿½ ï¿½É¼Ç°ï¿½ 3	
+	float		 fRandOptValue4;			// ï¿½ï¿½ï¿½ï¿½ ï¿½É¼Ç°ï¿½ 4
 
 
-	BYTE		 cDAMAGE;					//	°ø°Ý·Â °³Á¶ µî±Þ.
-	BYTE		 cDEFENSE;					//	¹æ¾î·Â °³Á¶ µî±Þ.
+	BYTE		 cDAMAGE;					//	ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	BYTE		 cDEFENSE;					//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 
-	BYTE		 cRESIST_FIRE;				//	ÀúÇ×(È­) °³Á¶ µî±Þ.
-	BYTE		 cRESIST_ICE;				//	ÀúÇ×(ºù) °³Á¶ µî±Þ.
-	BYTE		 cRESIST_ELEC;				//	ÀúÇ×(Àü) °³Á¶ µî±Þ.
-	BYTE		 cRESIST_POISON;			//	ÀúÇ×(µ¶) °³Á¶ µî±Þ.
-	BYTE		 cRESIST_SPIRIT;			//	ÀúÇ×(Á¤) °³Á¶ µî±Þ.
+	BYTE		 cRESIST_FIRE;				//	ï¿½ï¿½ï¿½ï¿½(È­) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	BYTE		 cRESIST_ICE;				//	ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	BYTE		 cRESIST_ELEC;				//	ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	BYTE		 cRESIST_POISON;			//	ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	BYTE		 cRESIST_SPIRIT;			//	ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 
 
 	SSEARCHITEMDATA() 
@@ -563,7 +566,7 @@ enum EMELEMENT
 	EMELEMENT_ICE			= 2,
 	EMELEMENT_ELECTRIC		= 3,
 	EMELEMENT_POISON		= 4,	
-	EMELEMENT_OLDMAX		= 5,	// ¿¹Àü ÃÖ´ëÄ¡
+	EMELEMENT_OLDMAX		= 5,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½Ä¡
 	
 	EMELEMENT_STONE			= 5,	
 	EMELEMENT_MAD			= 6,
@@ -572,22 +575,22 @@ enum EMELEMENT
 	EMELEMENT_MAXNUM		= 9,	// New
 	
 	EMELEMENT_ARM			= 9,
-	//	element ¼Ó¼ºÀÌ ¹«±â¿¡ Á¾¼ÓÀûÀÏ °æ¿ì.
+	//	element ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 
 	EMELEMENT_MAXNUM2		= 10,
 };
 
 
-//	Note : ¸÷ 100 ¹öÀüÀÇ Á¤º¸¿¡¼­ »ç¿ëµÊ.
+//	Note : ï¿½ï¿½ 100 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 struct SRESIST_100
 {	
-	int		nFire;		//	ºÒ.
-	int		nIce;		//	¾óÀ½.
+	int		nFire;		//	ï¿½ï¿½.
+	int		nIce;		//	ï¿½ï¿½ï¿½ï¿½.
 	
-	int		nElectric;	//	Àü±â.
-	int		nPoison;	//	µ¶.
+	int		nElectric;	//	ï¿½ï¿½ï¿½ï¿½.
+	int		nPoison;	//	ï¿½ï¿½.
 
-	int		nDivine;	//	µ¶.
+	int		nDivine;	//	ï¿½ï¿½.
 
 	SRESIST_100 () :
 		nFire(0),
@@ -602,20 +605,20 @@ struct SRESIST_100
 
 struct SRESIST_101
 {	
-	short	nFire;		//	ºÒ.
-	short	nIce;		//	¾óÀ½.
+	short	nFire;		//	ï¿½ï¿½.
+	short	nIce;		//	ï¿½ï¿½ï¿½ï¿½.
 	
-	short	nElectric;	//	Àü±â.
-	short	nPoison;	//	µ¶.
+	short	nElectric;	//	ï¿½ï¿½ï¿½ï¿½.
+	short	nPoison;	//	ï¿½ï¿½.
 };
 
 struct SRESIST
 {	
-	short	nFire;		//	ºÒ.
-	short	nIce;		//	¾óÀ½.
+	short	nFire;		//	ï¿½ï¿½.
+	short	nIce;		//	ï¿½ï¿½ï¿½ï¿½.
 	
-	short	nElectric;	//	Àü±â.
-	short	nPoison;	//	µ¶.
+	short	nElectric;	//	ï¿½ï¿½ï¿½ï¿½.
+	short	nPoison;	//	ï¿½ï¿½.
 
 	short	nSpirit;
 	short   IsDropOrNot; // add by x-f0rce
@@ -757,13 +760,13 @@ typedef EMACTIONTYPE*		PEMACTIONTYPE;
 
 enum EMTRIBE
 {
-	TRIBE_HUMAN			= 0,	//	ÀÎ°£.
-	TRIBE_MONSTER		= 1,	//	±«¹°.
-	TRIBE_ANGEL			= 2,	//	Ãµ»ç.
-	TRIBE_DEVIL			= 3,	//	¾Ç¸¶.
-	TRIBE_SPIRIT		= 4,	//	Á¤·É.
-	TRIBE_FAIRY			= 5,	//	¿äÁ¤.
-	TRIBE_DRAGON		= 6,	//	µå·¡°ï.
+	TRIBE_HUMAN			= 0,	//	ï¿½Î°ï¿½.
+	TRIBE_MONSTER		= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	TRIBE_ANGEL			= 2,	//	Ãµï¿½ï¿½.
+	TRIBE_DEVIL			= 3,	//	ï¿½Ç¸ï¿½.
+	TRIBE_SPIRIT		= 4,	//	ï¿½ï¿½ï¿½ï¿½.
+	TRIBE_FAIRY			= 5,	//	ï¿½ï¿½ï¿½ï¿½.
+	TRIBE_DRAGON		= 6,	//	ï¿½å·¡ï¿½ï¿½.
 
 	TRIBE_NSIZE			= 7		
 };
@@ -773,35 +776,35 @@ enum EMBRIGHT
 	BRIGHT_LIGHT		= 0,
 	BRIGHT_DARK			= 1,
 	
-	BRIGHT_BOTH			= 2,	//	¸ðµÎ °¡´É. ( item Ç×¸ñ¿¡¼­. )
+	BRIGHT_BOTH			= 2,	//	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ( item ï¿½×¸ñ¿¡¼ï¿½. )
 
 	BRIGHT_SIZE			= 3,
 };
 
 enum EM_BRIGHT_FB
 {
-	BFB_DIS				= 0,	//	ºÒ¸®.
-	BFB_AVER			= 1,	//	º¸Åë.
-	BFB_ADV				= 2,	//	À¯¸®.
+	BFB_DIS				= 0,	//	ï¿½Ò¸ï¿½.
+	BFB_AVER			= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	BFB_ADV				= 2,	//	ï¿½ï¿½ï¿½ï¿½.
 
 	BFB_SIZE			= 3,
 };
 
 enum EMMOVETYPE
 {
-	MOVE_LAND			= 0,	//	Áö¸é ÀÌµ¿.
-	MOVE_FLY			= 1,	//	°øÁß ÀÌµ¿.
-	MOVE_SWIM			= 2,	//	¼ö¸é ÀÌµ¿.
+	MOVE_LAND			= 0,	//	ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½.
+	MOVE_FLY			= 1,	//	ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½.
+	MOVE_SWIM			= 2,	//	ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½.
 
 	MOVETYPE_NSIZE		= 3
 };
 
 enum EMIMPACT_TAR
 {
-	TAR_SELF		= 0,		//	ÀÚ±â À§Ä¡ ¿µÇâ.
-	TAR_SPEC		= 1,		//	´ë»ó À§Ä¡ ¿µÇâ.
-	TAR_SELF_TOSPEC	= 2,		//	ÀÚ±â À§Ä¡¿¡¼­ ´ë»ó À§Ä¡±îÁö. ( È­»ì °üÅë )
-	TAR_ZONE_SPEC	= 3,		//	À§Ä¡ ¿µÇâ.
+	TAR_SELF		= 0,		//	ï¿½Ú±ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
+	TAR_SPEC		= 1,		//	ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
+	TAR_SELF_TOSPEC	= 2,		//	ï¿½Ú±ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½. ( È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
+	TAR_ZONE_SPEC	= 3,		//	ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 	TAR_ZONE		= 4,    //jdev pending
 
 	TAR_SIZE		= 5,
@@ -809,54 +812,54 @@ enum EMIMPACT_TAR
 
 enum EMIMPACT_REALM
 {
-	REALM_SELF		= 0,		//	'¸ñÇ¥' ÀÚ½Å.
-	REALM_ZONE		= 1,		//	'¸ñÇ¥' ÁÖÀ§.
-	REALM_KEEP_ZONE	= 2,		//	'¸ñÇ¥' ÁÖÀ§ Áö¼Ó.
-	REALM_FANWIZE	= 3,		//	'¸ñÇ¥'¸¦ ÇâÇÑ ºÎÃ¤²Ã ¸ð¾ç.
+	REALM_SELF		= 0,		//	'ï¿½ï¿½Ç¥' ï¿½Ú½ï¿½.
+	REALM_ZONE		= 1,		//	'ï¿½ï¿½Ç¥' ï¿½ï¿½ï¿½ï¿½.
+	REALM_KEEP_ZONE	= 2,		//	'ï¿½ï¿½Ç¥' ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	REALM_FANWIZE	= 3,		//	'ï¿½ï¿½Ç¥'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½.
 
 	REALM_SIZE		= 4
 };
 
 enum EMIMPACT_SIDE
 {
-	SIDE_OUR		= 0,		//	ÀÚ±âÆí¿¡°Ô.
-	SIDE_ENERMY		= 1,		//	Àû¿¡°Ô.
-	SIDE_ANYBODY	= 2,		//	¸ðµÎ¿¡°Ô.
+	SIDE_OUR		= 0,		//	ï¿½Ú±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	SIDE_ENERMY		= 1,		//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	SIDE_ANYBODY	= 2,		//	ï¿½ï¿½Î¿ï¿½ï¿½ï¿½.
 
 	SIDE_SIZE		= 3,
 };
 
 enum EMDISORDER
 {
-	DIS_NULL			= 0x00,	// ¾øÀ½
-	DIS_NUMB			= 0x01,	// ¸¶ºñ.
-	DIS_STUN			= 0x02,	// ±âÀý.
-	DIS_STONE			= 0x04,	// ¼®È­.
-	DIS_BURN			= 0x08,	// È­¿°.
-	DIS_FROZEN			= 0x10,	// ³Ãµ¿.
+	DIS_NULL			= 0x00,	// ï¿½ï¿½ï¿½ï¿½
+	DIS_NUMB			= 0x01,	// ï¿½ï¿½ï¿½ï¿½.
+	DIS_STUN			= 0x02,	// ï¿½ï¿½ï¿½ï¿½.
+	DIS_STONE			= 0x04,	// ï¿½ï¿½È­.
+	DIS_BURN			= 0x08,	// È­ï¿½ï¿½.
+	DIS_FROZEN			= 0x10,	// ï¿½Ãµï¿½.
 
-	DIS_MAD				= 0x20,	// Âø¶õ.
-	DIS_POISON			= 0x40,	// Áßµ¶.
-	DIS_CURSE			= 0x80,	// ÀúÁÖ.
+	DIS_MAD				= 0x20,	// ï¿½ï¿½ï¿½ï¿½.
+	DIS_POISON			= 0x40,	// ï¿½ßµï¿½.
+	DIS_CURSE			= 0x80,	// ï¿½ï¿½ï¿½ï¿½.
 
 	DIS_ALL				= (DIS_NUMB | DIS_STUN | DIS_STONE | DIS_BURN | DIS_FROZEN | DIS_MAD | DIS_POISON | DIS_CURSE),
 };
 
-//	»óÅÂ ÀÌ»ó È¿°ú.
+//	ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ È¿ï¿½ï¿½.
 //
 enum EMSTATE_BLOW
 {
-	EMBLOW_NONE			= 0,	//	»óÅÂ ÀÌ»ó À¯¹ß ¾øÀ½.
-	EMBLOW_NUMB			= 1,	//	¸¶ºñ.
-	EMBLOW_STUN			= 2,	//	±âÀý.
-	EMBLOW_STONE		= 3,	//	¼®È­.
-	EMBLOW_BURN			= 4,	//	È­¿°.
-	EMBLOW_FROZEN		= 5,	//	³Ãµ¿.
-	EMBLOW_SINGLE		= 5,	//	´Üµ¶À¸·Î¸¸ ¹ß»ýÇÏ´Â "»óÅÂÀÌ»ó" È¿°ú.
+	EMBLOW_NONE			= 0,	//	ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMBLOW_NUMB			= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMBLOW_STUN			= 2,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMBLOW_STONE		= 3,	//	ï¿½ï¿½È­.
+	EMBLOW_BURN			= 4,	//	È­ï¿½ï¿½.
+	EMBLOW_FROZEN		= 5,	//	ï¿½Ãµï¿½.
+	EMBLOW_SINGLE		= 5,	//	ï¿½Üµï¿½ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ß»ï¿½ï¿½Ï´ï¿½ "ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½" È¿ï¿½ï¿½.
 
-	EMBLOW_MAD			= 6,	//	Âø¶õ.
-	EMBLOW_POISON		= 7,	//	Áßµ¶.
-	EMBLOW_CURSE		= 8,	//	ÀúÁÖ.
+	EMBLOW_MAD			= 6,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMBLOW_POISON		= 7,	//	ï¿½ßµï¿½.
+	EMBLOW_CURSE		= 8,	//	ï¿½ï¿½ï¿½ï¿½.
 	
 	EMBLOW_SIZE			= 9,
 	EMBLOW_MULTI		= 4,
@@ -908,29 +911,29 @@ enum EMGROUP
 enum EMIMPACT_ADDON
 {
 	EMIMPACTA_NONE			= 0,
-	EMIMPACTA_HITRATE		= 1,	//	¸íÁßÀ² º¯È­·®.
-	EMIMPACTA_AVOIDRATE		= 2,	//	È¸ÇÇÀ² º¯È­·®.
+	EMIMPACTA_HITRATE		= 1,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½.
+	EMIMPACTA_AVOIDRATE		= 2,	//	È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½.
 	
-	EMIMPACTA_DAMAGE		= 3,	//	°ø°ÝÄ¡ º¯È­·®.
-	EMIMPACTA_DEFENSE		= 4,	//	¹æ¾îÄ¡ º¯È­·®.
+	EMIMPACTA_DAMAGE		= 3,	//	ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½È­ï¿½ï¿½.
+	EMIMPACTA_DEFENSE		= 4,	//	ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½È­ï¿½ï¿½.
 
-	EMIMPACTA_VARHP			= 5,	//	HP º¯È­À².
-	EMIMPACTA_VARMP			= 6,	//	MP º¯È­À².
-	EMIMPACTA_VARSP			= 7,	//	SP º¯È­À².
-	EMIMPACTA_VARAP			= 8,	//	HP,MP,SP º¯È­À².
+	EMIMPACTA_VARHP			= 5,	//	HP ï¿½ï¿½È­ï¿½ï¿½.
+	EMIMPACTA_VARMP			= 6,	//	MP ï¿½ï¿½È­ï¿½ï¿½.
+	EMIMPACTA_VARSP			= 7,	//	SP ï¿½ï¿½È­ï¿½ï¿½.
+	EMIMPACTA_VARAP			= 8,	//	HP,MP,SP ï¿½ï¿½È­ï¿½ï¿½.
 
-	EMIMPACTA_DAMAGE_RATE	= 9,	//	°ø°ÝÄ¡ º¯È­À².
-	EMIMPACTA_DEFENSE_RATE	= 10,	//	¹æ¾îÄ¡ º¯È­À².
+	EMIMPACTA_DAMAGE_RATE	= 9,	//	ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½È­ï¿½ï¿½.
+	EMIMPACTA_DEFENSE_RATE	= 10,	//	ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½È­ï¿½ï¿½.
 
-	EMIMPACTA_PA			= 11,	//	°ÝÅõÄ¡.
-	EMIMPACTA_SA			= 12,	//	»ç°ÝÄ¡.
-	EMIMPACTA_MA			= 13,	//	¹æ¾îÄ¡.
+	EMIMPACTA_PA			= 11,	//	ï¿½ï¿½ï¿½ï¿½Ä¡.
+	EMIMPACTA_SA			= 12,	//	ï¿½ï¿½ï¿½Ä¡.
+	EMIMPACTA_MA			= 13,	//	ï¿½ï¿½ï¿½Ä¡.
 
-	EMIMPACTA_HP_RATE		= 14,	//	HP ÁõÆøÀ².
-	EMIMPACTA_MP_RATE		= 15,	//	MP ÁõÆøÀ².
-	EMIMPACTA_SP_RATE		= 16,	//	SP ÁõÆøÀ².
+	EMIMPACTA_HP_RATE		= 14,	//	HP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMIMPACTA_MP_RATE		= 15,	//	MP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMIMPACTA_SP_RATE		= 16,	//	SP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
-	EMIMPACTA_RESIST		= 17,	//	ÀúÇ× ¼öÄ¡ º¯°æ
+	EMIMPACTA_RESIST		= 17,	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 
 	EMIMPACTA_STATS			= 18, //jdev pending
 	EMIMPACTA_HPPOT			= 19, //jdev pending
@@ -947,34 +950,34 @@ enum EMIMPACT_ADDON
 
 enum EMSPEC_ADDON
 {
-	EMSPECA_NULL					= 0,	//	±â´É ¾øÀ½.
-	EMSPECA_PUSHPULL				= 1,	//	´ç±â±â/¹Ð±â.
-	EMSPECA_REFDAMAGE				= 2,	//	´ë¹ÌÁö ¹Ý»ç.
-	EMSPECA_REBIRTH					= 3,	//	ºÎÈ°.
-	EMSPECA_HP_GATHER				= 4,	//	HPÀÇ ÀÏÁ¤·®À» »©¾ÑÀ½.
-	EMSPECA_MP_GATHER				= 5,	//	MPÀÇ ÀÏÁ¤·®À» »©¾ÑÀ½.
-	EMSPECA_SP_GATHER				= 6,	//	SPÀÇ ÀÏÁ¤·®À» »©¾ÑÀ½.
-	EMSPECA_HP_DIV					= 7,	//	HPÀÇ ÀÏºÎ¸¦ ³ª´©¾î ÁÜ.
-	EMSPECA_MP_DIV					= 8,	//	MPÀÇ ÀÏºÎ¸¦ ³ª´©¾î ÁÜ.
-	EMSPECA_SP_DIV					= 9,	//	SPÀÇ ÀÏºÎ¸¦ ³ª´©¾î ÁÜ.
-	EMSPECA_NONBLOW					= 10,	//	»óÅÂÀÌ»ó ¹æÁö.
-	EMSPECA_RECBLOW					= 11,	//	»óÅÂÀÌ»ó È¸º¹.
-	EMSPECA_PIERCE					= 12,	//	°üÅëÁ¤µµ.
-	EMSPECA_TARRANGE				= 13,	//	»çÁ¤°Å¸®.
-	EMSPECA_MOVEVELO				= 14,	//	ÀÌµ¿¼Óµµ.
-	EMSPECA_ONWARD					= 15,	//	Áø°Ý.
-	EMSPECA_INVISIBLE				= 16,	//	Åõ¸í.
-	EMSPECA_RECVISIBLE				= 17,	//	Åõ¸í È®ÀÎ.
-	EMSPECA_ATTACKVELO				= 18,	//	°ø°Ý¼Óµµ.
-	EMSPECA_SKILLDELAY				= 19,	//	½ºÅ³ µô·¡ÀÌ ½Ã°£ º¯È­.
-	EMSPECA_CRUSHING_BLOW			= 20,	//  °­ÇÑÅ¸°Ý ½ºÅ³
-	EMSPECA_PSY_DAMAGE_REDUCE		= 21,	// ¹°¸® µ¥¹ÌÁö Èí¼öÀ²
-	EMSPECA_MAGIC_DAMAGE_REDUCE		= 22,	// ¸ÅÁ÷ µ¥¹ÌÁö Èí¼öÀ²
-	EMSPECA_PSY_DAMAGE_REFLECTION	= 23,	// ¹°¸® µ¥¹ÌÁö ¹Ý»çÀ²
-	EMSPECA_MAGIC_DAMAGE_REFLECTION	= 24,	// ¸ÅÁ÷ µ¥¹ÌÁö ¹Ý»çÀ²
-	EMSPECA_BUFF_REMOVE				= 25,	//	¹öÇÁ Á¦°Å
+	EMSPECA_NULL					= 0,	//	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMSPECA_PUSHPULL				= 1,	//	ï¿½ï¿½ï¿½ï¿½/ï¿½Ð±ï¿½.
+	EMSPECA_REFDAMAGE				= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý»ï¿½.
+	EMSPECA_REBIRTH					= 3,	//	ï¿½ï¿½È°.
+	EMSPECA_HP_GATHER				= 4,	//	HPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMSPECA_MP_GATHER				= 5,	//	MPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMSPECA_SP_GATHER				= 6,	//	SPï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMSPECA_HP_DIV					= 7,	//	HPï¿½ï¿½ ï¿½ÏºÎ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+	EMSPECA_MP_DIV					= 8,	//	MPï¿½ï¿½ ï¿½ÏºÎ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+	EMSPECA_SP_DIV					= 9,	//	SPï¿½ï¿½ ï¿½ÏºÎ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+	EMSPECA_NONBLOW					= 10,	//	ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMSPECA_RECBLOW					= 11,	//	ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½ È¸ï¿½ï¿½.
+	EMSPECA_PIERCE					= 12,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMSPECA_TARRANGE				= 13,	//	ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½.
+	EMSPECA_MOVEVELO				= 14,	//	ï¿½Ìµï¿½ï¿½Óµï¿½.
+	EMSPECA_ONWARD					= 15,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMSPECA_INVISIBLE				= 16,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMSPECA_RECVISIBLE				= 17,	//	ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½.
+	EMSPECA_ATTACKVELO				= 18,	//	ï¿½ï¿½ï¿½Ý¼Óµï¿½.
+	EMSPECA_SKILLDELAY				= 19,	//	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½È­.
+	EMSPECA_CRUSHING_BLOW			= 20,	//  ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½Å³
+	EMSPECA_PSY_DAMAGE_REDUCE		= 21,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	EMSPECA_MAGIC_DAMAGE_REDUCE		= 22,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	EMSPECA_PSY_DAMAGE_REFLECTION	= 23,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý»ï¿½ï¿½ï¿½
+	EMSPECA_MAGIC_DAMAGE_REFLECTION	= 24,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý»ï¿½ï¿½ï¿½
+	EMSPECA_BUFF_REMOVE				= 25,	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	EMSPECA_STUN					= 26,
-	EMSPECA_DEFENSE_SKILL_ACTIVE	= 27,	//	ÇÇ°Ý½Ã ¹ßµ¿ 
+	EMSPECA_DEFENSE_SKILL_ACTIVE	= 27,	//	ï¿½Ç°Ý½ï¿½ ï¿½ßµï¿½ 
 	EMSPECA_PULL					= 28,	//add pushpull
 	EMSPECA_PUSH					= 29,	//add pushpull
 	EMSPECA_CONTINUEDAMAGE			= 30,	//add continuedamage
@@ -1051,7 +1054,7 @@ enum EMSPEC_ADDON
 	EMSPECA_BLOW_DMG				= 101,	//add skill blowdmg
 	EMSPECA_CRIT_RATE				= 102,	//add skill critrate
 	EMSPECA_CRIT_DMG				= 103,	//add skill critdmg
-	EMSPECA_DEBUFF_REMOVE			= 104,	//	µð¹öÇÁ Á¦°Å
+	EMSPECA_DEBUFF_REMOVE			= 104,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	EMSPECA_COMBATOFF				= 105,
 	EMSPECA_GETEXP					= 106,
 	EMSPECA_NSIZE					= 107,
@@ -1067,21 +1070,21 @@ enum EMCHAR_ACTION
 };
 enum EMCHAR_ACTSTATE
 {
-	EM_ACT_RUN			= 0x00000001,		//	¶Ù±â ÇÃ·¡±×. ( off ½Ã¿¡´Â °Í±â. )
-	EM_ACT_CONTINUEMOVE	= 0x00000002,		//	¿¬¼Ó ÀÌµ¿ ÇÃ·¡±×.
-	EM_ACT_PEACEMODE	= 0x00000004,		//	ºñ°æ°è ¸ðµå.
-	EM_GETVA_AFTER		= 0x00000010,		//	GetViewAround() È®ÀÎ ÀüÀÎÁö Á¡°Ë ÇÃ·¡±×.
-	EM_ACT_WAITING		= 0x00000020,		//	Ä³¸¯ÅÍ ´ë±â ¸ðµå ÇÃ·¡±×.
-	EM_ACT_DIE			= 0x00000040,		//	Ä³¸¯ÅÍ »ç¸Á ¸ðµå ÇÃ·¡±×.
-	EM_REQ_GATEOUT		= 0x00000100,		//	¸Ê ÁøÀÔÈÄ ´ë±â ÇÃ·¡±×.
-	EM_REQ_LOGOUT		= 0x00000200,		//	·Î±×¾Æ¿ô ¿äÃ» ÇÃ·¡±×.
+	EM_ACT_RUN			= 0x00000001,		//	ï¿½Ù±ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½. ( off ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½Í±ï¿½. )
+	EM_ACT_CONTINUEMOVE	= 0x00000002,		//	ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Ã·ï¿½ï¿½ï¿½.
+	EM_ACT_PEACEMODE	= 0x00000004,		//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	EM_GETVA_AFTER		= 0x00000010,		//	GetViewAround() È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½.
+	EM_ACT_WAITING		= 0x00000020,		//	Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½.
+	EM_ACT_DIE			= 0x00000040,		//	Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½.
+	EM_REQ_GATEOUT		= 0x00000100,		//	ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½.
+	EM_REQ_LOGOUT		= 0x00000200,		//	ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½Ã» ï¿½Ã·ï¿½ï¿½ï¿½.
 
-	EM_REQ_VISIBLENONE	= 0x00001000,		//	ÄÉ¸¯ÅÍ ÀüÇô Ãâ·ÂÇÏÁö ¾ÊÀ½.
-	EM_REQ_VISIBLEOFF	= 0x00002000,		//	ÄÉ¸¯ÅÍ ÀÚ½Å¿¡°Ô¸¸ ¹ÝÅõ¸íÇÏ°Ô º¸ÀÌ±â.
+	EM_REQ_VISIBLENONE	= 0x00001000,		//	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EM_REQ_VISIBLEOFF	= 0x00002000,		//	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ú½Å¿ï¿½ï¿½Ô¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½.
 
-	EM_ACT_CONFT_WIN	= 0x00010000,		//	´ë·Ã ½Â¸® ÇÃ·¡±×.
+	EM_ACT_CONFT_WIN	= 0x00010000,		//	ï¿½ï¿½ï¿½ ï¿½Â¸ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½.
 
-	EM_ACT_PK_MODE		= 0x00100000,		//	PK ¸ðµå ÇÃ·¡±×.
+	EM_ACT_PK_MODE		= 0x00100000,		//	PK ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½.
 
 	EM_ACT_BOOSTER		= 0x01000000, //add bike booster
 };
@@ -1173,14 +1176,14 @@ enum EMSKILLCLASS
 //	EMSKILL_PC_CLASSNUM	=	3,
 };
 
-//	Note : ´ë·Ã Å¸ÀÔ.
+//	Note : ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½.
 //
 enum EMCONFT_TYPE
 {
-	EMCONFT_NONE	= 0,	//	¾øÀ½. ( ÁöÇàÇÏ°í ÀÖÁö ¾ÊÀ»¶§. )
-	EMCONFT_ONE		= 1,	//	°³ÀÎ ´ë·Ã.
-	EMCONFT_PARTY	= 2,	//	ÆÄÆ¼ ´ë·Ã.
-	EMCONFT_GUILD	= 3		//	±æµå ´ë·Ã.
+	EMCONFT_NONE	= 0,	//	ï¿½ï¿½ï¿½ï¿½. ( ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. )
+	EMCONFT_ONE		= 1,	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	EMCONFT_PARTY	= 2,	//	ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½.
+	EMCONFT_GUILD	= 3		//	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 };
 
 enum
@@ -1188,12 +1191,12 @@ enum
 	EMCONFT_COUNT	= 5,
 };
 
-//	Note : ´ë·Ã ·Î±×.
+//	Note : ï¿½ï¿½ï¿½ ï¿½Î±ï¿½.
 //
 struct SCONFT_LOG
 {
-	DWORD	dwCOUNT;		//	´ë·Ã È½¼ö.
-	float	fTIMER;			//	ÃÖ±Ù ´ë·ÃÈÄ °æ°ú.
+	DWORD	dwCOUNT;		//	ï¿½ï¿½ï¿½ È½ï¿½ï¿½.
+	float	fTIMER;			//	ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 
 	SCONFT_LOG () :
 		dwCOUNT(0),
@@ -1218,14 +1221,14 @@ enum EMCONFT_BET //add duel bet
 
 struct SCONFT_OPTION
 {
-	bool	bSCHOOL;	//	½ºÄð ´ë·ÃÀÎÁö °Ë»ç.
-	bool	bBOUND;		//	¿µ¿ª Á¦ÇÑ ¿©ºÎ.
-	WORD	wRECOVER;	//	È¸º¹¾à »ç¿ë °¹¼ö Á¦ÇÑ.
+	bool	bSCHOOL;	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½.
+	bool	bBOUND;		//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	WORD	wRECOVER;	//	È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	float	fHP_RATE;		//	Ã¼·Â È®´ë ºñÀ².
-	float	fTAR_HP_RATE;	//	Ã¼·Â È®´ë ºñÀ² [ »ó´ë¹æ(°³ÀÎ´ë·Ã½Ã¸¸) ].
+	float	fHP_RATE;		//	Ã¼ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	float	fTAR_HP_RATE;	//	Ã¼ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ [ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Î´ï¿½Ã½Ã¸ï¿½) ].
 
-	//	ÇÐ±³ ´ë·Ã½Ã¿¡¸¸.
+	//	ï¿½Ð±ï¿½ ï¿½ï¿½Ã½Ã¿ï¿½ï¿½ï¿½.
 	WORD	wMY_SCHOOL;
 	WORD	wTAR_SCHOOL;
 
@@ -1504,35 +1507,35 @@ struct SCONFTING_CLT
 	}
 };
 
-// ÆÄÆ¼ ¾ÆÀÌÅÛ ºÐ¹è ¹æ½Ä
+// ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¹ï¿½ ï¿½ï¿½ï¿½
 enum EMPARTY_ITEM_OPT
 {
 	EMPTYITEMOPT_DEFAULT= 0,
-	EMPTYITEMOPT_FREE	= 1, // ÀÚÀ¯È¹µæ
-	EMPTYITEMOPT_LEADER	= 2, // ÆÄÆ¼ ¸®´õ ¿ì¼±±Ç
-	EMPTYITEMOPT_ROUND	= 3, // ¼øÂ÷½Àµæ
+	EMPTYITEMOPT_FREE	= 1, // ï¿½ï¿½ï¿½ï¿½È¹ï¿½ï¿½
+	EMPTYITEMOPT_LEADER	= 2, // ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ì¼±ï¿½ï¿½
+	EMPTYITEMOPT_ROUND	= 3, // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	EMPTYITEMOPT_SIZE	= 4
 };
 
 enum EMPARTY_MONEY_OPT
 {
 	EMPTYMONEYOPT_DEFAULT	= 0,
-	EMPTYMONEYOPT_FREE		= 1, // ÀÚÀ¯È¹µæ
-	EMPTYMONEYOPT_LEADER	= 2, // ÆÄÆ¼ ¸®´õ ¿ì¼±±Ç
-	EMPTYMONEYOPT_EQUAL		= 3, // µ·, ±ÕµîºÐ¹è
+	EMPTYMONEYOPT_FREE		= 1, // ï¿½ï¿½ï¿½ï¿½È¹ï¿½ï¿½
+	EMPTYMONEYOPT_LEADER	= 2, // ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ì¼±ï¿½ï¿½
+	EMPTYMONEYOPT_EQUAL		= 3, // ï¿½ï¿½, ï¿½Õµï¿½Ð¹ï¿½
 	EMPTYMONEYOPT_SIZE		= 4
 };
 
 
-// ·¹º§ ¿¡µðÅÍ¿¡¼­ ¼³Á¤ÇÏ´Â Æ¯ÀÌ ±â´Éµé
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Æ¯ï¿½ï¿½ ï¿½ï¿½Éµï¿½
 enum EMETCFUNC
 {
-	EMETCFUNC_LIMITTIME	  = 0, // Á¦ÇÑ ½Ã°£
-	EMETCFUNC_CONTROLCAM  = 1, // Ä«¸Þ¶ó Á¦¾î
-	EMETCFUNC_LANDEFFECT  = 2, // ÁöÇü È¿°ú
-	EMETCFUNC_DIFFICULTY  = 3, // ³­ÀÌµµ Á¶Àý
-	EMETCFUNC_AROUNDREGEN = 4, // Æ¯Á¤ ¸ó½ºÅÍ ÁÖº¯¸¸ ¸®Á¨
-	EMETCFUNC_MOBCHASE	  = 5, // ¸ðµç ¸ó½ºÅÍ ÇØ´ç Å¸°ÙÀÌ Á×À»¶§±îÁö ÃßÀû
+	EMETCFUNC_LIMITTIME	  = 0, // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	EMETCFUNC_CONTROLCAM  = 1, // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMETCFUNC_LANDEFFECT  = 2, // ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½
+	EMETCFUNC_DIFFICULTY  = 3, // ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMETCFUNC_AROUNDREGEN = 4, // Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Öºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMETCFUNC_MOBCHASE	  = 5, // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	EMETCFUNC_SIZE,
 };
@@ -1540,23 +1543,23 @@ enum EMETCFUNC
 enum EMLANDEFFECT_TYPE
 {
 
-	EMLANDEFFECT_ATK_SPEED		= 0,	//	°ø°Ý¼Óµµ
-	EMLANDEFFECT_MOVE_SPEED		= 1,	//	ÀÌµ¿¼Óµµ
+	EMLANDEFFECT_ATK_SPEED		= 0,	//	ï¿½ï¿½ï¿½Ý¼Óµï¿½
+	EMLANDEFFECT_MOVE_SPEED		= 1,	//	ï¿½Ìµï¿½ï¿½Óµï¿½
 
-	EMLANDEFFECT_MP_RATE		= 2,	//	HP º¯È­À².
-	EMLANDEFFECT_HP_RATE		= 3,	//	MP º¯È­À²
+	EMLANDEFFECT_MP_RATE		= 2,	//	HP ï¿½ï¿½È­ï¿½ï¿½.
+	EMLANDEFFECT_HP_RATE		= 3,	//	MP ï¿½ï¿½È­ï¿½ï¿½
 
-	EMLANDEFFECT_RECOVER_RATE	= 4,	//	È¸º¹À²
-	EMLANDEFFECT_DAMAGE_RATE	= 5,	//	°ø°ÝÄ¡ º¯È­À²
-	EMLANDEFFECT_DEFENSE_RATE	= 6,	//	¹æ¾îÄ¡ º¯È­À²
-	EMLANDEFFECT_RESIST_RATE	= 7,	//	ÀúÇ× ¼öÄ¡
+	EMLANDEFFECT_RECOVER_RATE	= 4,	//	È¸ï¿½ï¿½ï¿½ï¿½
+	EMLANDEFFECT_DAMAGE_RATE	= 5,	//	ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½È­ï¿½ï¿½
+	EMLANDEFFECT_DEFENSE_RATE	= 6,	//	ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½È­ï¿½ï¿½
+	EMLANDEFFECT_RESIST_RATE	= 7,	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 
-	EMLANDEFFECT_CANCEL_ALLBUFF	= 8,	//	¸ðµç ¹öÇÁ Ãë¼Ò
-	EMLANDEFFECT_SAFE_ZONE		= 9,	//	¸ðµç ¹öÇÁ Ãë¼Ò
+	EMLANDEFFECT_CANCEL_ALLBUFF	= 8,	//	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	EMLANDEFFECT_SAFE_ZONE		= 9,	//	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-	EMLANDEFFECT_SIZE			= 10,	//	¼¼ÀÌÇÁ Á¸
+	EMLANDEFFECT_SIZE			= 10,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
-	EMLANDEFFECT_MULTI			= 4,	//  ÃÖ´ë °ãÃÄÁö´Â ÁöÇüÈ¿°ú
+	EMLANDEFFECT_MULTI			= 4,	//  ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È¿ï¿½ï¿½
 };
 
 struct SGETWHISPERLIST

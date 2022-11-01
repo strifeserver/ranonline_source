@@ -26,6 +26,7 @@
 #include "WaitServerDialogue.h"
 #include "RebirthDialogue.h"
 #include "ItemMixWindow.h"
+#include "ItemShopWindow.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -41,7 +42,7 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 	{
 	case NET_MSG_EVENT_LOTTERY_FB:  
 		{
-			//	·Î¶Ç
+			//	ï¿½Î¶ï¿½
 			NET_EVENT_LOTTERY_FB* pNetMsg = (NET_EVENT_LOTTERY_FB*)nmg;
 			const int nResult = pNetMsg->nResult;
 
@@ -102,14 +103,14 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 			NET_APEX_ANSWER* pNetMsg = (NET_APEX_ANSWER*) nmg;
 			switch( pNetMsg->wAction )
 			{
-			case 1: // ÇÙÀ» »ç¿ëÇÏ´Â°ÍÀ» ¹ß°ßÇßÀ»¶§ À¯ÀúÇÑÅ× °æ°í¸¦ ÁÖ´Â ¸Þ¼¼Áö
+			case 1: // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´Â°ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 				{
 					CString strTemp( ID2GAMEINTEXT( "APEX_ACTION_MESSAGE_WARNING" ) );
 					PrintConsoleText( strTemp.GetString() );
 					DoModal( strTemp, MODAL_INFOMATION, OK, NO_ID );
 				}
 				break;
-			case 2: // ´ëÈ­ ±ÝÁö
+			case 2: // ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
 				{
 					CString strTemp;
 					strTemp.Format( ID2GAMEINTEXT( "APEX_ACTION_MESSAGE_CHATBLOCK" ), (pNetMsg->wHour*60) );
@@ -117,8 +118,8 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 					DoModal( strTemp, MODAL_INFOMATION, OK, NO_ID );
 				}
 				break;
-			case 3: // À¯Àú Å±
-			case 4: // À¯Àú ºí·Ï
+			case 3: // ï¿½ï¿½ï¿½ï¿½ Å±
+			case 4: // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				{
 					CString strTemp( ID2GAMEINTEXT( "APEX_ACTION_MESSAGE_KICK" ) );
 					PrintConsoleText( strTemp.GetString() );
@@ -132,7 +133,7 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 		}
 		break;
 	
-	case NET_MSG_CHAT_CTRL_FB:			// °ü¸®ÀÚ¿ë Ã¤ÆÃ¸Þ½ÃÁö
+	case NET_MSG_CHAT_CTRL_FB:			// ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ Ã¤ï¿½Ã¸Þ½ï¿½ï¿½ï¿½
 		{//edit for add staffchat
 			NET_CHAT_CTRL_FB* pNc = (NET_CHAT_CTRL_FB*) nmg;
 			if ( pNc->bStaff )
@@ -145,7 +146,7 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 			}
 		}
 		break;
-	case NET_MSG_CHAT_FB: // Ã¤ÆÃ¸Þ½ÃÁö  
+	case NET_MSG_CHAT_FB: // Ã¤ï¿½Ã¸Þ½ï¿½ï¿½ï¿½  
 		{
 			NET_CHAT_FB* pNc = (NET_CHAT_FB*) nmg;
 			DisplayChatMessage ( pNc->emType, pNc->szName, pNc->szChatMsg );
@@ -163,7 +164,7 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 		{
 #ifndef CH_PARAM
 			GLMSG::SNETPC_CHAT_BLOCK *pNetMsg = (GLMSG::SNETPC_CHAT_BLOCK *) nmg;
-			CTime cTime( pNetMsg->tChatBlock ); // ¼­¹ö¿¡¼­ 0ÀÌ ³Ñ¾î¿ÀÁö ¾Ê´Â´Ù°í °¡Á¤ÇÑ´Ù.
+			CTime cTime( pNetMsg->tChatBlock ); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			PrintConsoleText( "[%s]:%02d/%02d/%02d %02d:%02d%s", 
 															ID2GAMEWORD("NOTIFY_NAME"),
 															cTime.GetYear()%2000, cTime.GetMonth(), cTime.GetDay(),
@@ -199,7 +200,7 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 			switch ( pNetMsg->emTakeFB )
 			{
 			case EMTAKE_FB_OFF:
-				//pNetMsg->emCrow »ç¶óÁü. (GUI)
+				//pNetMsg->emCrow ï¿½ï¿½ï¿½ï¿½ï¿½. (GUI)
 				switch ( pNetMsg->emCrow)
 				{
 				case CROW_ITEM:
@@ -251,8 +252,8 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 
 			if ( IsVisibleGroup ( PARTY_MODAL_WINDOW ) )
 			{
-				//	Note : ¾ÆÁ÷ ÆÄÆ¼½ÅÃ»¿¡ ´ëÇÑ ´äº¯À» ÇÏÁö ¾ÊÀº °æ¿ì
-				//		   ÃÖÃÊ ÀÌÈÄÀÇ Áú¹®Àº ¸ðµÎ °ÅÀýÇÑ´Ù.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+				//		   ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				GLMSG::SNET_PARTY_LURE_TAR_ANS NetMsg;
 				NetMsg.dwMasterID = pNetMsg->dwMasterID;
 				NetMsg.dwPartyID = pNetMsg->dwPartyID;
@@ -260,11 +261,11 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 				NETSEND ( &NetMsg );
 			}
 
-			//	Note : ÆÄÆ¼ ÀÚµ¿ °ÅºÎ.
+			//	Note : ï¿½ï¿½Æ¼ ï¿½Úµï¿½ ï¿½Åºï¿½.
 			//
 			if ( RANPARAM::bDIS_PARTY )
 			{
-				//	ÆÄÆ¼ °ÅÀý Ã³¸®
+				//	ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				GLMSG::SNET_PARTY_LURE_TAR_ANS NetMsg;
 				NetMsg.dwMasterID = pNetMsg->dwMasterID;
 				NetMsg.dwPartyID = pNetMsg->dwPartyID;
@@ -275,7 +276,7 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 				break;
 			}
 
-			//	Note : ¿äÃ»ÇÑ ÆÄÆ¼ ¿É¼Ç.
+			//	Note : ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½É¼ï¿½.
 			//
 			m_sReqPartyOption = pNetMsg->sOption;
 
@@ -298,12 +299,12 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 			
 			CString strName( pChar->GetName() );
 
-			//	Note : °Å·¡ ÀÚµ¿ °ÅºÎ.
+			//	Note : ï¿½Å·ï¿½ ï¿½Úµï¿½ ï¿½Åºï¿½.
 			//
 			bool bPMARKETOPEN = GLGaeaClient::GetInstance().GetCharacter()->m_sPMarket.IsOpen();
 			if ( RANPARAM::bDIS_TRADE || bPMARKETOPEN )
 			{
-				//	P2P °Å·¡ °ÅÀý Ã³¸®
+				//	P2P ï¿½Å·ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				GLMSG::SNET_TRADE_TAR_ANS NetMsg;
 				NetMsg.dwMasterID = pNetMsg->dwMasterID;
 				NetMsg.emAns = EMTRADE_CANCEL;
@@ -409,8 +410,8 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 
 			if ( IsVisibleGroup ( CONFT_MODAL_WINDOW ) )
 			{
-				//	Note : ¾ÆÁ÷ ´ë·Ã½ÅÃ»¿¡ ´ëÇÑ ´äº¯À» ÇÏÁö ¾ÊÀº °æ¿ì
-				//		   ÃÖÃÊ ÀÌÈÄÀÇ Áú¹®Àº ¸ðµÎ °ÅÀýÇÑ´Ù.
+				//	Note : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+				//		   ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 				GLMSG::SNETPC_REQ_CONFRONT_ANS NetMsgAns;
 				NetMsgAns.emTYPE = pNetMsg->emTYPE;
 				NetMsgAns.dwID = pNetMsg->dwID;
@@ -419,11 +420,11 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 				NETSEND ( &NetMsgAns );
 			}
 			
-			//	Note : ´ë·Ã ÀÚµ¿ °ÅºÎ.
+			//	Note : ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½Åºï¿½.
 			//
 			if ( RANPARAM::bDIS_CONFT )
 			{
-				//	Note : ´ë·Ã °ÅÀý½Ã¿¡ ¸Þ½ÃÁö Àü¼Û.
+				//	Note : ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				GLMSG::SNETPC_REQ_CONFRONT_ANS NetMsgAns;
 				NetMsgAns.emTYPE = pNetMsg->emTYPE;
 				NetMsgAns.dwID = pNetMsg->dwID;
@@ -445,7 +446,7 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 			switch (pNetMsg->emTYPE)
 			{
 			case EMCONFT_NONE:
-//				GASSERT ( 0 && "¿À·ù" );
+//				GASSERT ( 0 && "ï¿½ï¿½ï¿½ï¿½" );
 				return ;
 				break;
 			case EMCONFT_ONE:
@@ -474,7 +475,7 @@ void CInnerInterface::MsgProcess ( LPVOID msgBuffer )
 		break;
 
 //		NOTE
-//			CLOSING MESSAGE Ã³¸®
+//			CLOSING MESSAGE Ã³ï¿½ï¿½
 //	case BLAH_BLAH:
 //		{
 //			SetWaitServerDialogueClose ();
@@ -521,7 +522,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 		{
 			if ( dwMsg & UIMSG_MODAL_OK )
 			{
-				//	ÆÄÆ¼ ¼ö¶ô Ã³¸®
+				//	ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				GLMSG::SNET_PARTY_LURE_TAR_ANS NetMsg;
 				NetMsg.dwMasterID = GetPartyWindow()->GetMasterID ();
 				NetMsg.dwPartyID = GetPartyWindow()->GetPartyID ();
@@ -531,7 +532,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 			}
 			else if ( dwMsg & UIMSG_MODAL_CANCEL )
 			{
-				//	ÆÄÆ¼ °ÅÀý Ã³¸®
+				//	ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				GLMSG::SNET_PARTY_LURE_TAR_ANS NetMsg;
 				NetMsg.dwMasterID = GetPartyWindow()->GetMasterID ();
 				NetMsg.dwPartyID = GetPartyWindow()->GetPartyID ();
@@ -554,7 +555,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 					sOption.emGET_ITEM = (EMPARTY_ITEM_OPT)RANPARAM::dwPARTY_GET_ITEM;
 					sOption.emGET_MONEY = (EMPARTY_MONEY_OPT)RANPARAM::dwPARTY_GET_MONEY;
 
-					//	Note : ¼­¹ö¿¡ »ó´ëÆí°úÀÇ ÆÄÆ¼ ¿äÃ».
+					//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½Ã».
 					//
 					GLMSG::SNET_PARTY_LURE NetMsg;
 					NetMsg.dwGaeaID = dwGaeaID;
@@ -569,7 +570,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 					sOption.emGET_ITEM = (EMPARTY_ITEM_OPT)RANPARAM::dwPARTY_GET_ITEM;
 					sOption.emGET_MONEY = (EMPARTY_MONEY_OPT)RANPARAM::dwPARTY_GET_MONEY;
 
-					//	Note : ¼­¹ö¿¡ »ó´ëÆí°úÀÇ ÆÄÆ¼ ¿äÃ».
+					//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½Ã».
 					//
 					GLMSG::SNET_PARTY_LURE NetMsg;
 					NetMsg.dwGaeaID = 0;
@@ -597,11 +598,43 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 		}
 		break;
 	
+
+	case MODAL_BUYITEM:
+		{
+			if ( dwMsg & UIMSG_MODAL_OK )
+			{
+				GLCharacter* pCharacter = GLGaeaClient::GetInstance().GetCharacter();
+				if ( pCharacter )
+				{
+					//WORD wPosX, wPosY;
+					//GetItemShop ()->GetPosItem ( &wPosX, &wPosY );
+
+					CItemShopWindow* pItemShopWindow = GetItemShop ();
+					int nPosX = nOUTOFRANGE;
+					int nPosY = nOUTOFRANGE;
+					WORD wType = pItemShopWindow->GetPageIndex();
+					WORD wCurrency = pItemShopWindow->GetPageCurrency();
+					pItemShopWindow->GetPosItem ( &nPosX, &nPosY );
+					if ( nPosX < 0 || nPosY < 0 ) return ;
+					SINVENITEM& sInvenItem = pItemShopWindow->GetItem ( nPosX, nPosY );
+					SITEM* pItem = GLItemMan::GetInstance().GetItem ( sInvenItem.sItemCustom.sNativeID );
+
+					if ( !pItem ) return ;
+					if ( pItem )
+					{
+						pCharacter->ReqBuyItem( sInvenItem.szPurKey );//nPosX , nPosY , wType , wCurrency );
+					}
+				}
+			}
+
+		}break;
+
+
 	case MODAL_TRADE_REQ:
 		{
 			if ( dwMsg & UIMSG_MODAL_OK )
 			{
-				//	P2P °Å·¡ ¼ö¶ô Ã³¸®
+				//	P2P ï¿½Å·ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				GLMSG::SNET_TRADE_TAR_ANS NetMsg;
 				NetMsg.dwMasterID = GetTradeWindow()->GetMasterID ();
 				NetMsg.emAns = EMTRADE_OK;
@@ -609,7 +642,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 			}
 			else if ( dwMsg & UIMSG_MODAL_CANCEL )
 			{
-				//	P2P °Å·¡ °ÅÀý Ã³¸®
+				//	P2P ï¿½Å·ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 				GLMSG::SNET_TRADE_TAR_ANS NetMsg;
 				NetMsg.dwMasterID = GetTradeWindow()->GetMasterID ();
 				NetMsg.emAns = EMTRADE_CANCEL;
@@ -624,10 +657,10 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 			{
 				if ( GLGaeaClient::GetInstance().GetCharacter()->IsDie () )
 				{
-					// ºÎÈ°ÇÏ±â
+					// ï¿½ï¿½È°ï¿½Ï±ï¿½
 					GLGaeaClient::GetInstance().GetCharacter()->ReqReBirth();
 					
-					// ¿­·ÁÁø Ã¢µé ´Ý±â
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½Ý±ï¿½
 					CloseAllWindow ();				
 				}
 			}
@@ -642,9 +675,9 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 					}
 					else
 					{
-						// ±ÍÈ¥ÁÖ »ç¿ë
+						// ï¿½ï¿½È¥ï¿½ï¿½ ï¿½ï¿½ï¿½
 						GLGaeaClient::GetInstance().GetCharacter()->ReqReGenRevive ();
-						// ¿­·ÁÁø Ã¢µé ´Ý±â
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½Ý±ï¿½
 						CloseAllWindow ();						
 					}
 				}
@@ -664,10 +697,10 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 			{
 				if ( GLGaeaClient::GetInstance().GetCharacter()->IsDie () )
 				{
-					// ºÎÈ°ÇÏ±â
+					// ï¿½ï¿½È°ï¿½Ï±ï¿½
 					GLGaeaClient::GetInstance().GetCharacter()->ReqReBirth();
 					
-					// ¿­·ÁÁø Ã¢µé ´Ý±â
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½Ý±ï¿½
 					CloseAllWindow ();				
 				}
 			}
@@ -850,7 +883,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 		{
 			if ( dwMsg & UIMSG_MODAL_OK )
 			{
-				//	Note : ´ë·Ã ¼ö¶ô½Ã¿¡ ¸Þ½ÃÁö Àü¼Û.
+				//	Note : ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				GLMSG::SNETPC_REQ_CONFRONT_ANS NetMsgAns;
 				NetMsgAns.emTYPE = m_emConflictReqType;
 				NetMsgAns.dwID = m_ConflictReqID;
@@ -860,7 +893,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 			}
 			else if ( dwMsg & UIMSG_MODAL_CANCEL )
 			{
-				//	Note : ´ë·Ã °ÅÀý½Ã¿¡ ¸Þ½ÃÁö Àü¼Û.
+				//	Note : ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				GLMSG::SNETPC_REQ_CONFRONT_ANS NetMsgAns;
 				NetMsgAns.emTYPE = m_emConflictReqType;
 				NetMsgAns.dwID = m_ConflictReqID;
@@ -964,8 +997,8 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 					//	PrintMsgTextDlg ( NS_UITEXTCOLOR::ORANGE, ID2GAMEINTEXT("BUYITEM_NOMONEY") );
 					//	return ;
 					//}
-					//	¹öÆ° ¸¸µé¾îÁö´Â´ë·Î ³Ö±â
-					//	ÃÖ´ë °³¼ö·Î »ç±â
+					//	ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ï¿½ ï¿½Ö±ï¿½
+					//	ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 					if ( dwMaxCount < dwCount )
 					{												
 						PrintMsgText ( NS_UITEXTCOLOR::ORANGE,
@@ -1005,7 +1038,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 					pMarketWindow->GetItemIndex ( &nPosX, &nPosY );
 					if ( nPosX < 0 || nPosY < 0 ) return ;
 				}
-				CDebugSet::ToView ( 1, 3, "»ç´Â ¾ÆÀÌÅÛ : %d %d", nPosX, nPosY );
+				CDebugSet::ToView ( 1, 3, "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : %d %d", nPosX, nPosY );
 
 				GLGaeaClient::GetInstance().GetCharacter()->ReqNpcTo ( sMarketID, nPageIndex, nPosX, nPosY );
 			}
@@ -1016,7 +1049,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 		{
 			if ( UIMSG_MODAL_OK & dwMsg )
 			{
-				//	Æ÷±â				
+				//	ï¿½ï¿½ï¿½ï¿½				
 				DWORD dwQuestID = GetQuestWindow()->GetQuestID ();
 				GLGaeaClient::GetInstance().GetCharacter ()->ReqQuestGiveUp ( dwQuestID );
 			}
@@ -1059,7 +1092,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 			{
 				if ( !m_strFriendName.GetLength () )
 				{
-					GASSERT ( 0 && "ÀÌ¸§ÀÌ µî·ÏµÇÁö ¾Ê¾Ò½À´Ï´Ù." );
+					GASSERT ( 0 && "ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½." );
 					return ;
 				}
 
@@ -1069,7 +1102,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 			{
 				if ( !m_strFriendName.GetLength () )
 				{
-					GASSERT ( 0 && "ÀÌ¸§ÀÌ µî·ÏµÇÁö ¾Ê¾Ò½À´Ï´Ù." );
+					GASSERT ( 0 && "ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½." );
 					return ;
 				}
 
@@ -1147,7 +1180,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 				GetModalWindow()->GetModalData ( &nPosX, &nPosY );
 				if ( nPosX < 0 || nPosY < 0 ) return ;
 
-				//CDebugSet::ToView ( 1, 3, "»ç´Â ¾ÆÀÌÅÛ : %d %d", nPosX, nPosY );
+				//CDebugSet::ToView ( 1, 3, "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : %d %d", nPosX, nPosY );
 
 				GLGaeaClient::GetInstance().GetCharacter()->ReqPMarketBuy ( dwMarketID, nPosX, nPosY, 1 );
 			}
@@ -1186,8 +1219,8 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 						PrintMsgTextDlg ( NS_UITEXTCOLOR::ORANGE, ID2GAMEINTEXT("BUYITEM_NOMONEY") );
 						return ;
 					}
-					//	¹öÆ° ¸¸µé¾îÁö´Â´ë·Î ³Ö±â
-					//	ÃÖ´ë °³¼ö·Î »ç±â
+					//	ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ï¿½ ï¿½Ö±ï¿½
+					//	ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 					if ( dwMaxCount < dwCount )
 					{												
 						PrintMsgText ( NS_UITEXTCOLOR::ORANGE,
@@ -1307,7 +1340,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 		{
 			if ( UIMSG_MODAL_OK & dwMsg )
 			{
-				//	Å»Åð Req
+				//	Å»ï¿½ï¿½ Req
 				GLGaeaClient::GetInstance().GetCharacter ()->ReqClubSecede ();
 			}
 		}
@@ -1495,7 +1528,7 @@ void CInnerInterface::ModalMsgProcess ( UIGUID nCallerID, DWORD dwMsg )
 		{
 			if ( UIMSG_MODAL_OK & dwMsg )
 			{
-				//	Å»Åð Req
+				//	Å»ï¿½ï¿½ Req
 				GLGaeaClient::GetInstance().GetCharacter ()->ReqClubAllianceSec();
 			}
 		}

@@ -152,8 +152,8 @@ protected:
 };
 
 /**
-* ¾ÆÀÌÅÛÀÇ ·£´ý¿É¼Ç ·Î±×¸¦ ³²±ä´Ù.
-* \param _sLOG ·£´ý¿É¼Ç ±¸Á¶Ã¼
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ ï¿½Î±×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+* \param _sLOG ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼
 */
 class CLogRandomItem : public CDbAction
 {
@@ -168,8 +168,8 @@ protected:
 };
 
 /**
-* ÆêÀÇ ¾×¼Ç ·Î±×¸¦ ³²±ä´Ù.
-* \param _sLOG Æê¾×¼Ç·Î±× ±¸Á¶Ã¼
+* ï¿½ï¿½ï¿½ï¿½ ï¿½×¼ï¿½ ï¿½Î±×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+* \param _sLOG ï¿½ï¿½×¼Ç·Î±ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼
 */
 class CLogPetAction : public CDbAction
 {
@@ -183,7 +183,7 @@ protected:
 };
 
 /**
- * Shop ¿¡¼­ ±¸ÀÔÇÑ ¾ÆÀÌÅÛÀ» °¡Á®¿Â´Ù.
+ * Shop ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
  */
 class CGetPurchaseItem : public CDbAction
 {
@@ -198,13 +198,35 @@ protected:
     std::vector<SHOPPURCHASE> m_vItem;
 };
 
+
+class CGetItemShop : public CDbAction
+{
+public:
+    //CGetItemShop(CString strUID, DWORD dwCharID); 
+	CGetItemShop( /*SNATIVEID sItemID,
+	WORD wItemPrice,
+	WORD wItemStock,
+	WORD wItemNum,*/
+	DWORD dwCharID ); 
+    virtual ~CGetItemShop() {};
+    virtual int Execute(CServer* pServer);
+
+protected:
+	/*SNATIVEID m_sItemID;
+	WORD m_wItemPrice;
+	WORD m_wItemStock;
+	WORD m_wItemNum;*/
+	DWORD	m_dwCharID;
+    std::vector<ITEMSHOP> m_vItem;
+};
+
 /**
- * ½ÇÁ¦·Î °¡Á®°¥ ¼ö ÀÖ´Â »óÇ°ÀÎÁö È®ÀÎÇÑ´Ù.
- * ÀÔ·Â°ª
- * nFlag (0 : ±¸¸Å, 1 : ±¸¸Å¿Ï·á, 2 : ±¸¸ÅÃë¼Ò½ÅÃ», 3 : ±¸¸ÅÃë¼ÒÃ³¸®)
- * Ãâ·Â°ª
- * 1 : °¡Á®°¥¼ö ÀÖÀ½
- * ÀÌ¿ÜÀÇ°ª : °¡Á®°¥¼ö ¾øÀ½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ñ´ï¿½.
+ * ï¿½Ô·Â°ï¿½
+ * nFlag (0 : ï¿½ï¿½ï¿½ï¿½, 1 : ï¿½ï¿½ï¿½Å¿Ï·ï¿½, 2 : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò½ï¿½Ã», 3 : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½)
+ * ï¿½ï¿½Â°ï¿½
+ * 1 : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ * ï¿½Ì¿ï¿½ï¿½Ç°ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
  */
 class CSetPurchaseItem : public CDbAction
 {
@@ -218,8 +240,34 @@ protected:
     int m_nFlag;
 };
 
+class CSetItemShop : public CDbAction
+{
+public:
+    CSetItemShop(CString strItemNum, DWORD dwUserID);
+    virtual ~CSetItemShop() {};
+    virtual int Execute(CServer* pServer);
+
+protected:
+    CString m_strItemNum;
+    DWORD m_dwUserID;
+};
+
+class CItemShop_Get : public CDbAction
+{
+public:
+    CItemShop_Get ( DWORD dwClient, DWORD dwUserID, CString strPurKey );
+    virtual ~CItemShop_Get() {};
+    virtual int Execute(CServer* pServer);
+
+protected:
+	DWORD		m_dwClient;
+	DWORD		m_dwUserID;
+    CString		m_strPurKey;
+};
+
+
 /**
- * ±¸ÀÔÇÑ ¾ÆÀÌÅÛÀ» ÀÎº¥Åä¸®·Î °¡Á®¿É´Ï´Ù.
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½É´Ï´ï¿½.
  */
 class CPurchaseItem_Get : public CDbAction
 {
@@ -237,7 +285,7 @@ protected:
 };
 
 /**
- * ±¸ÀÔÇÑ ¾ÆÀÌÅÛÀ» ÀÎº¥¿¡ ³Ö±â¿¡ ½ÇÆÐÇßÀ» °æ¿ì flag ¸®¼Â.
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½Ö±â¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ flag ï¿½ï¿½ï¿½ï¿½.
  */
 class CPurchaseItem_Restore : public CDbAction
 {
@@ -251,8 +299,8 @@ protected:
 };
 
 /**
- * Ä³¸¯ÅÍÃß°¡Ä«µå ¾ÆÀÌÅÛ
- * ¿µ±¸ÀûÀ¸·Î »ý¼º°¡´ÉÇÑ Ä³¸¯ÅÍ ¼ýÀÚ¸¦ 1 Áõ°¡½ÃÅ²´Ù.
+ * Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ 1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
  */
 class CItemChaCreateNumIncrease : public CDbAction
 {
@@ -266,9 +314,9 @@ protected:
 };
 
 /**
- * ÇØ´ç ¶ôÄ¿ ¸¸·á½Ã°£À» Á¤ÇÑ´Ù.
- * 1 ¹ø 5 ¹ø ¶ôÄ¿´Â Á¤ÇÒ ¼ö ¾øÀ½.
- * 2, 3, 4 ¹ø ¶ôÄ¿¸¸ ¸¸·á½Ã°£À» Á¤ÇÒ ¼ö ÀÖ´Ù.
+ * ï¿½Ø´ï¿½ ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
+ * 1 ï¿½ï¿½ 5 ï¿½ï¿½ ï¿½ï¿½Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+ * 2, 3, 4 ï¿½ï¿½ ï¿½ï¿½Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
  */
 class CSetChaStorageDate : public CDbAction
 {
@@ -284,12 +332,12 @@ protected:
 };
 
 /**
- * ÇØ´ç Ä³¸¯ÅÍÀÇ ÀÎº¥Åä¸® Ãß°¡ ÁÙ¼ö¸¦ ¼¼ÆÃÇÑ´Ù.
- * ÁÖÀÇ 
- * ÃÖÃÊ 0 ¿¡¼­ ÇÑÁÙ Ãß°¡½Ã 1 À» ÀÔ·Â
- * ÇöÀç ÇÑÁÙ »óÅÂ¿¡¼­ ¶Ç ÇÑÁÙ Ãß°¡½Ã 2 ¸¦ ÀÔ·Â (ÃÖÁ¾ ÁÙ¼ö¸¦ ÀÔ·ÂÇÑ´Ù)
- * ÇöÀç µÎÁÙ »óÅÂ¿¡¼­ ÇÑÁÙ Ãß°¡½Ã 3 À» ÀÔ·Â
- * ÃÖ´ë 3±îÁö¸¸ ÀÔ·Â°¡´É.
+ * ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ß°ï¿½ ï¿½Ù¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+ * ï¿½ï¿½ï¿½ï¿½ 
+ * ï¿½ï¿½ï¿½ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ ï¿½Ô·ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ 2 ï¿½ï¿½ ï¿½Ô·ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¼ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ñ´ï¿½)
+ * ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ 3 ï¿½ï¿½ ï¿½Ô·ï¿½
+ * ï¿½Ö´ï¿½ 3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·Â°ï¿½ï¿½ï¿½.
  */
 class CSetChaInvenNum : public CDbAction
 {
@@ -305,7 +353,7 @@ protected:
 
 
 /**
- * ÇØ´ç »ç¿ëÀÚÀÇ ÇÁ¸®¹Ì¾ö ±â°£À» ¼¼ÆÃÇÑ´Ù.
+ * ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½â°£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
  */
 class CSetPremiumTime : public CDbAction
 {
@@ -319,7 +367,7 @@ protected:
 };
 
 /**
- * Á÷Àü±ÍÈ¯ Ä«µå »ç¿ëÀ» À§ÇÑ Æ÷Áö¼ÇÀ» ÀúÀåÇÑ´Ù.
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
  */
 class CSetLastCallPos : public CDbAction
 {
@@ -335,19 +383,19 @@ protected:
 };
 
 /**
- * »õ·Î¿î Å¬·´À» »ý¼ºÇÑ´Ù.
+ * ï¿½ï¿½ï¿½Î¿ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
  */
 class CCreateClub : public CDbAction
 {
 public:
 	/**
-	* »õ·Î¿î Å¬·´À» »ý¼ºÇÑ´Ù.
-	* \param dwClientID Client ¹øÈ£
-	* \param strClubName Å¬·´ÀÌ¸§
-	* \param dwChaNum Å¬·´À» »ý¼ºÇÏ·Á´Â Ä³¸¯ÅÍ ¹øÈ£ (ÀÌ Ä³¸¯ÅÍ°¡ Å¬·´ÀÇ ¸¶½ºÅÍ°¡ µÈ´Ù)
-	* \return -1:ÀÌ¹Ì Å¬·´¸¶½ºÅÍ·Î µî·ÏµÇ¾î ÀÖÀ½ »ý¼ººÒ°¡.
-	* \n      -2:Å¬·´ »ý¼ºÁß ¿¡·¯¹ß»ý (Áßº¹µÈ±æµåÀÌ¸§)
-	* \n       0ÀÌ»ó:»ý¼ºµÈ Å¬·´¹øÈ£ÀÓ
+	* ï¿½ï¿½ï¿½Î¿ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClientID Client ï¿½ï¿½È£
+	* \param strClubName Å¬ï¿½ï¿½ï¿½Ì¸ï¿½
+	* \param dwChaNum Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ (ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½È´ï¿½)
+	* \return -1:ï¿½Ì¹ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ÏµÇ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½.
+	* \n      -2:Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß»ï¿½ (ï¿½ßºï¿½ï¿½È±ï¿½ï¿½ï¿½Ì¸ï¿½)
+	* \n       0ï¿½Ì»ï¿½:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½
 	*/
     CCreateClub ( DWORD dwClientID, CString strClubName, DWORD dwChaNum);
     virtual ~CCreateClub() {} ;
@@ -359,17 +407,17 @@ protected:
 };
 
 /**
- * Å¬·´À» »èÁ¦ÇÑ´Ù.
+ * Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
  */
 class CDeleteClub : public CDbAction
 {
 public:
 	/**
-	* Å¬·´À» »èÁ¦ÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param dwChaNum Å¬·´À» »èÁ¦ÇÏ·Á´Â Ä³¸¯ÅÍ¹øÈ£(Ä³¸¯ÅÍ ¹øÈ£°¡ Å¬·´ ¸¶½ºÅÍ°¡ ¾Æ´Ï¸é »èÁ¦°¡ µÇÁö ¾Ê´Â´Ù)
-	* \return 0:Å¬·´ »èÁ¦ ½ÇÆÐ
-    * \n      1:Å¬·´ »èÁ¦ ¼º°ø
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param dwChaNum Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£(Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½)
+	* \return 0:Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    * \n      1:Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	*/
     CDeleteClub(DWORD dwClub, DWORD dwChaNum);
     virtual ~CDeleteClub() {};
@@ -381,15 +429,15 @@ protected:
 };
 
 /**
- * Å¬·´·©Å©¸¦ ¼¼ÆÃÇÑ´Ù.
+ * Å¬ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
  */
 class CSetClubRank : public CDbAction
 {
 public:
 	/**
-	* Å¬·´·©Å©¸¦ ¼¼ÆÃÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param dwRank ·©Å·
+	* Å¬ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param dwRank ï¿½ï¿½Å·
 	* \return 
 	*/
     CSetClubRank(DWORD dwClub, DWORD dwRank);
@@ -405,11 +453,11 @@ class CWriteClubMarkImage : public CDbAction
 {
 public:
 	/**
-	* Å¬·´ ¸¶Å© ÀÌ¹ÌÁö¸¦ ÀúÀåÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param dwMarkVer ¸¶Å©¹öÀü
-	* \param pData ÀÌ¹ÌÁöµ¥ÀÌÅÍ Æ÷ÀÎÅÍ
-	* \param nSize ÀÌ¹ÌÁöµ¥ÀÌÅÍ »çÀÌÁî
+	* Å¬ï¿½ï¿½ ï¿½ï¿½Å© ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param dwMarkVer ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½
+	* \param pData ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* \param nSize ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
     CWriteClubMarkImage(DWORD dwClub, DWORD dwMarkVer, BYTE* pData, int nSize);
@@ -424,15 +472,15 @@ protected:
 };
 
 /**
- * Å¬·´ ÇØÃ¼½Ã°£À» ¼³Á¤ÇÑ´Ù.
+ * Å¬ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
  */
 class CSetClubDissolutionTime : public CDbAction
 {
 public:
 	/**
-	* Å¬·´ ÇØÃ¼½Ã°£À» ¼³Á¤ÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param tDiss ÇØÃ¼½Ã°£
+	* Å¬ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param tDiss ï¿½ï¿½Ã¼ï¿½Ã°ï¿½
 	* \return 
 	*/
     CSetClubDissolutionTime(DWORD dwClub, __time64_t tDiss);
@@ -445,15 +493,15 @@ protected:
 };
 
 /**
-* Å¬·´ÀÇ µ¿¸ÍÅ»Åð È¤Àº Á¦¸í½Ã°£À» Á¤ÇÑ´Ù.
+* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å»ï¿½ï¿½ È¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CSetClubAllianceSec : public CDbAction
 {
 public:
 	/**
-	* Å¬·´ÀÇ µ¿¸ÍÅ»Åð È¤Àº Á¦¸í½Ã°£À» Á¤ÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param tSec ½Ã°£
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å»ï¿½ï¿½ È¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param tSec ï¿½Ã°ï¿½
 	* \return 
 	*/
     CSetClubAllianceSec(DWORD dwClub, __time64_t tSec);
@@ -466,15 +514,15 @@ protected:
 };
 
 /**
-* Å¬·´ÀÇ µ¿¸ÍÇØ»ê ½Ã°£À» Á¤ÇÑ´Ù.
+* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø»ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CSetClubAllianceDis : public CDbAction
 {
 public:
 	/**
-	* Å¬·´ÀÇ µ¿¸ÍÇØ»ê ½Ã°£À» Á¤ÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param tDis ÇØ»ê½Ã°£
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø»ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param tDis ï¿½Ø»ï¿½Ã°ï¿½
 	* \return 
 	*/
     CSetClubAllianceDis(DWORD dwClub, __time64_t tDis);
@@ -487,15 +535,15 @@ protected:
 };
 
 /**
-* Å¬·´ÀÇ ¸¶½ºÅÍ À§ÀÓ ½Ã°£À» ¼³Á¤ÇÑ´Ù.
+* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CSetClubAuthorityTime : public CDbAction
 {
 public:
 	/**
-	* Å¬·´ÀÇ ¸¶½ºÅÍ À§ÀÓ ½Ã°£À» ¼³Á¤ÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param tDis ¸¶½ºÅÍ À§ÀÓ ½Ã°£
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param tDis ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 	* \return 
 	*/
     CSetClubAuthorityTime(DWORD dwClub, __time64_t tAuthority);
@@ -511,15 +559,15 @@ protected:
 
 
 /**
- * »õ·Î¿î Ä³¸¯ÅÍ¸¦ Å¬·´¿¡ °¡ÀÔ½ÃÅ²´Ù
+ * ï¿½ï¿½ï¿½Î¿ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô½ï¿½Å²ï¿½ï¿½
  */ 
 class CAddClubMember : public CDbAction
 {
 public:
 	/**
-	* »õ·Î¿î Ä³¸¯ÅÍ¸¦ Å¬·´¿¡ °¡ÀÔ½ÃÅ²´Ù
-	* \param dwClub Å¬·´¹øÈ£
-	* \param dwChaNum °¡ÀÔ½ÃÅ°·Á´Â Ä³¸¯ÅÍ¹øÈ£
+	* ï¿½ï¿½ï¿½Î¿ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô½ï¿½Å²ï¿½ï¿½
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param dwChaNum ï¿½ï¿½ï¿½Ô½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
 	* \return 
 	*/
     CAddClubMember(DWORD dwClub, DWORD dwChaNum);
@@ -532,14 +580,14 @@ protected:
 };
 
 /**
- * °¡ÀÔµÇ¾î ÀÖ´Â Ä³¸¯ÅÍ¸¦ Å¬·´¿¡¼­ Å»Åð½ÃÅ²´Ù
+ * ï¿½ï¿½ï¿½ÔµÇ¾ï¿½ ï¿½Ö´ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½Å²ï¿½ï¿½
  */
 class CDeleteClubMember : public CDbAction
 {
 public:
 	/**
-	* °¡ÀÔµÇ¾î ÀÖ´Â Ä³¸¯ÅÍ¸¦ Å¬·´¿¡¼­ Å»Åð½ÃÅ²´Ù
-	* \param dwChaNum Ä³¸¯ÅÍ¹øÈ£
+	* ï¿½ï¿½ï¿½ÔµÇ¾ï¿½ ï¿½Ö´ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½Å²ï¿½ï¿½
+	* \param dwChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
 	* \return 
 	*/
     CDeleteClubMember(DWORD dwChaNum);
@@ -551,18 +599,18 @@ protected:
 };
 
 /**
- * ÇØ´ç Ä³¸¯ÅÍÀÇ °æÇèÄ¡¸¦ ¼¼ÆÃÇÑ´Ù.
+ * ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
  */
 class CSetChaExp : public CDbAction
 {
 public:
 	/**
-	* ÇØ´ç Ä³¸¯ÅÍÀÇ °æÇèÄ¡¸¦ ¼¼ÆÃÇÑ´Ù.
-	* \n ÁÖÀÇ
-    * \n Ä³¸¯ÅÍ¹øÈ£´Â 0 º¸´Ù Ä¿¾ßÇÑ´Ù.
-    * \n °æÇèÄ¡´Â 0 º¸´Ù Ä¿¾ßÇÑ´Ù.
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£
-	* \param llExp °æÇèÄ¡
+	* ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \n ï¿½ï¿½ï¿½ï¿½
+    * \n Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£ï¿½ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½Ñ´ï¿½.
+    * \n ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \param llExp ï¿½ï¿½ï¿½ï¿½Ä¡
 	* \return 
 	*/
     CSetChaExp(int nChaNum, LONGLONG llExp);
@@ -575,19 +623,19 @@ protected:
 };
 
 /**
- * ÇØ´ç Ä³¸¯ÅÍÀÇ °æÇèÄ¡¸¦ °¡Á®¿Â´Ù.
+ * ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
  */
 class CGetChaExp : public CDbAction
 {
 public:
 
 	/**
-	* ÇØ´ç Ä³¸¯ÅÍÀÇ °æÇèÄ¡¸¦ °¡Á®¿Â´Ù.
-	* \n ÁÖÀÇ 
-    * \n Ä³¸¯ÅÍ¹øÈ£´Â 0 º¸´Ù Ä¿¾ßÇÑ´Ù.
-    * \n °æÇèÄ¡°¡ 0 º¸´Ù ÀÛÀ¸¸é ¿¡·¯ÀÌ´Ù.
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£
-	* \return °æÇèÄ¡
+	* ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \n ï¿½ï¿½ï¿½ï¿½ 
+    * \n Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£ï¿½ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½Ñ´ï¿½.
+    * \n ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ 0 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \return ï¿½ï¿½ï¿½ï¿½Ä¡
 	*/
     CGetChaExp(int nChaNum);
     virtual ~CGetChaExp() {};
@@ -598,16 +646,16 @@ protected:
 };
 
 /**
- * °ÔÀÓ³»¿¡¼­ ÁøÁ¤ÀÌ³ª ½Å°í·Î ½Å°íÇÑ ³»¿ëÀ» DB¿¡ ±â·ÏÇÑ´Ù.
+ * ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½Å°ï¿½ï¿½ï¿½ ï¿½Å°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
  */
 class CLogAppeal : public CDbAction
 {
 public:
 	/**
-	* °ÔÀÓ³»¿¡¼­ ÁøÁ¤ÀÌ³ª ½Å°í·Î ½Å°íÇÑ ³»¿ëÀ» DB¿¡ ±â·ÏÇÑ´Ù.
-	* \param nSGNum ¼­¹ö±×·ì
-	* \param nChaNum ½Å°íÇÑ Ä³¸¯ÅÍ¹øÈ£
-	* \param strMsg ½Å°í³»¿ë (ÃÖ´ëÅ©±â´Â CHAT_MSG_SIZE)
+	* ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½Å°ï¿½ï¿½ï¿½ ï¿½Å°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nSGNum ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+	* \param nChaNum ï¿½Å°ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \param strMsg ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½Ö´ï¿½Å©ï¿½ï¿½ï¿½ CHAT_MSG_SIZE)
 	* \return 
 	*/
     CLogAppeal(int nSGNum, int nChaNum, CString strMsg);
@@ -621,16 +669,16 @@ protected:
 };
 
 /**
- * Áö¿ª°ú ±×Áö¿ªÀ» ¼ÒÀ¯ÇÑ Å¬·´ ¼¼À²À» Á¤ÇÑ´Ù.
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
  */ 
 class CSetClubRegion : public CDbAction
 {
 public:
 	/**
-	* Áö¿ª°ú ±×Áö¿ªÀ» ¼ÒÀ¯ÇÑ Å¬·´ ¼¼À²À» Á¤ÇÑ´Ù.
-	* \param dwRegionID Áö¿ª ID
-	* \param dwClub Å¬·´ ID
-	* \param fTax ¼¼À²
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwRegionID ï¿½ï¿½ï¿½ï¿½ ID
+	* \param dwClub Å¬ï¿½ï¿½ ID
+	* \param fTax ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
 	CSetClubRegion(DWORD dwRegionID, DWORD dwClub, float fTax);
@@ -648,10 +696,10 @@ class CSetSwRegion : public CDbAction
 {
 public:
 	/**
-	* Áö¿ª°ú ±×Áö¿ªÀ» ¼ÒÀ¯ÇÑ Å¬·´ ¼¼À²À» Á¤ÇÑ´Ù.
-	* \param dwRegionID Áö¿ª ID
-	* \param dwClub Å¬·´ ID
-	* \param fTax ¼¼À²
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwRegionID ï¿½ï¿½ï¿½ï¿½ ID
+	* \param dwClub Å¬ï¿½ï¿½ ID
+	* \param fTax ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
 	CSetSwRegion(DWORD dwSwID, DWORD dwSwNum);
@@ -663,17 +711,17 @@ protected:
 	DWORD m_dwSwNum;
 };
 /**
- * ÇØ´ç Áö¿ªÀÇ ¼ÒÀ¯ »óÅÂ¸¦ ¸®¼ÂÇÑ´Ù.
+ * ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
  */
 class CDelClubRegion : public CDbAction
 {
 public:
 	/**
-	* ÇØ´ç Áö¿ªÀÇ ¼ÒÀ¯ »óÅÂ¸¦ ¸®¼ÂÇÑ´Ù.
-	* \n ÁÖÀÇ
-	* \n ÇØ´çÁö¿ª ID ¿Í Å¬·´ ID °¡ DB Á¤º¸¿Í Á¤È®È÷ ÀÏÄ¡ÇÏÁö ¾ÊÀ¸¸é Ãë¼ÒµÈ´Ù.
-	* \param dwRegionID Áö¿ª ID
-	* \param dwClub Å¬·´ ID
+	* ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \n ï¿½ï¿½ï¿½ï¿½
+	* \n ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ ID ï¿½ï¿½ Å¬ï¿½ï¿½ ID ï¿½ï¿½ DB ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È®ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ÒµÈ´ï¿½.
+	* \param dwRegionID ï¿½ï¿½ï¿½ï¿½ ID
+	* \param dwClub Å¬ï¿½ï¿½ ID
 	* \return 
 	*/
 	CDelClubRegion(DWORD dwRegionID, DWORD dwClub);
@@ -686,15 +734,15 @@ protected:
 };
 
 /**
- * ÇØ´çÅ¬·´ÀÇ º¸À¯±Ý¾×À» ¼¼ÆÃÇÑ´Ù. (Storage)
+ * ï¿½Ø´ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. (Storage)
  */
 class CSetClubMoney : public CDbAction
 {
 public:
 	/**
-	* ÇØ´çÅ¬·´ÀÇ º¸À¯±Ý¾×À» ¼¼ÆÃÇÑ´Ù. (Storage)
-	* \param dwClub Å¬·´¹øÈ£
-	* \param llMoney º¸À¯±Ý¾× (±Ý¾×Àº >= 0)
+	* ï¿½Ø´ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. (Storage)
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param llMoney ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½ (ï¿½Ý¾ï¿½ï¿½ï¿½ >= 0)
 	* \return 
 	*/
 	CSetClubMoney(DWORD dwClub, LONGLONG llMoney);
@@ -788,15 +836,15 @@ protected:
 	LONGLONG m_llClubWarGoldP;
 };
 /**
- * ÇØ´çÅ¬·´ÀÇ ¼öÀÔ±Ý¾×À» ¼¼ÆÃÇÑ´Ù. (Income money)
+ * ï¿½Ø´ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô±Ý¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. (Income money)
  */
 class CSetClubIncomeMoney : public CDbAction
 {
 public:
 	/**
-	* ÇØ´çÅ¬·´ÀÇ ¼öÀÔ±Ý¾×À» ¼¼ÆÃÇÑ´Ù. (Income money)
-	* \param dwClub Å¬·´¹øÈ£
-	* \param llMoney ¼öÀÔ±Ý¾× (±Ý¾×Àº >= 0)
+	* ï¿½Ø´ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô±Ý¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. (Income money)
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param llMoney ï¿½ï¿½ï¿½Ô±Ý¾ï¿½ (ï¿½Ý¾ï¿½ï¿½ï¿½ >= 0)
 	* \return 
 	*/
 	CSetClubIncomeMoney(DWORD dwClub, LONGLONG llMoney);
@@ -809,16 +857,16 @@ protected:
 };
 
 /**
- * ÇØ´çÅ¬·´ÀÇ Å¬·´Ã¢°í¸¦ ÀúÀåÇÑ´Ù. 
+ * ï¿½Ø´ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
  */
 class CWriteClubStorage : public CDbAction
 {
 public:
 	/**
-	* ÇØ´çÅ¬·´ÀÇ Å¬·´Ã¢°í¸¦ ÀúÀåÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param pData Ã¢°íµ¥ÀÌÅÍ Æ÷ÀÎÅÍ
-	* \param nSize ¹öÆÛÅ©±â
+	* ï¿½Ø´ï¿½Å¬ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param pData Ã¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* \param nSize ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½
 	* \return 
 	*/
 	CWriteClubStorage(DWORD dwClub, const BYTE* pData, int nSize);
@@ -845,7 +893,7 @@ protected:
 };
 
 /**
-* ºÒ¹ýÇÁ·Î±×·¥ »ç¿ë³»¿ªÀ» ±â·ÏÇÑ´Ù.
+* ï¿½Ò¹ï¿½ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ë³»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CLogHackProgram : public CDbAction
 {
@@ -853,11 +901,11 @@ class CLogHackProgram : public CDbAction
 
 public:
 	/**
-	* ºÒ¹ýÇÁ·Î±×·¥ »ç¿ë³»¿ªÀ» ±â·ÏÇÑ´Ù.
-	* \param nUserNum À¯Àú¹øÈ£
-	* \param nChaNum Ä³¸¯ÅÍ¹øÈ£
-	* \param nHackProgramNum ÇØÅ·ÇÁ·Î±×·¥ ¹øÈ£
-	* \param *szINFO ÄÞ¸àÆ®...¹®ÀÚ¿­
+	* ï¿½Ò¹ï¿½ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ë³»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+	* \param nHackProgramNum ï¿½ï¿½Å·ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½È£
+	* \param *szINFO ï¿½Þ¸ï¿½Æ®...ï¿½ï¿½ï¿½Ú¿ï¿½
 	* \return 
 	*/
 	CLogHackProgram(
@@ -876,16 +924,16 @@ protected:
 };
 
 /**
-* ºÎ Å¬·´ÀåÀ» ¼¼ÆÃÇÑ´Ù
+* ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 */
 class CSetClubMasterFlags : public CDbAction
 {
 public:
 	/**
 	*
-	* dwClub : Å¬·´¹øÈ£
-    * dwChaNum : Ä³¸¯ÅÍ¹øÈ£
-    * dwSubMasterFlags : ÇÃ·¡±× (0 À¸·Î ³ÖÀ¸¸é ÀÏ¹Ý±æµå¿øÀÌ µÈ´Ù)
+	* dwClub : Å¬ï¿½ï¿½ï¿½ï¿½È£
+    * dwChaNum : Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+    * dwSubMasterFlags : ï¿½Ã·ï¿½ï¿½ï¿½ (0 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¹Ý±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È´ï¿½)
 	* \param dwClub 
 	* \param dwChaNum 
 	* \param dwSubMasterFlags 
@@ -902,20 +950,20 @@ protected:
 };
 
 /**
-* µ¿¸Í Å¬·´À» °á¼ºÇÑ´Ù.
+* ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½á¼ºï¿½Ñ´ï¿½.
 */
 class CSetClubAlliance : public CDbAction
 {
 public:
 	/**
-	* µ¿¸Í Å¬·´À» °á¼ºÇÑ´Ù.
-	* \n ÁÖÀÇ
-    * \n db ´Â Å¬·´ÀÇ ¹«°á¼ºÀ» Ã¼Å©ÇÏÁö ¾Ê´Â´Ù.
-    * \n A °¡ B ÀÇ º¸Á¶ÀÎ »óÅÂ¿¡¼­ 
-    * \n B °¡ C ÀÇ º¸Á¶·Î µé¾î°¡°í
-    * \n C °¡ A ÀÇ º¸Á¶·Î µé¾î°¡¸é ¼ÒÀ¯±Ç Ã¼ÀÎ ¹®Á¦°¡ ¹ß»ýÇÑ´Ù.
-	* \param dwClubP ÁÖ Å¬·´¹øÈ£ (µ¿¸Í Å¬·´ÀÇ ÁÖ)
-	* \param dwClubS º¸Á¶ Å¬·´¹øÈ£ (ÁÖ Å¬·´ ¹ØÀ¸·Î µé¾î°¡´Â ÇÏÀ§ Å¬·´)
+	* ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½á¼ºï¿½Ñ´ï¿½.
+	* \n ï¿½ï¿½ï¿½ï¿½
+    * \n db ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½á¼ºï¿½ï¿½ Ã¼Å©ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
+    * \n A ï¿½ï¿½ B ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ 
+    * \n B ï¿½ï¿½ C ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½
+    * \n C ï¿½ï¿½ A ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClubP ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
+	* \param dwClubS ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½)
 	* \return 
 	*/
 	CSetClubAlliance(DWORD dwClubP, DWORD dwClubS);
@@ -928,15 +976,15 @@ protected:
 };
 
 /**
-* µ¿¸Í Å¬·´À» ÇØÃ¼ÇÑ´Ù.
+* ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Ñ´ï¿½.
 */
 class CDelClubAlliance : public CDbAction
 {
 public:
 	/**
-	* µ¿¸Í Å¬·´À» ÇØÃ¼ÇÑ´Ù.
-	* \param dwClubP ÁÖ Å¬·´¹øÈ£ (µ¿¸Í Å¬·´ÀÇ ÁÖ)
-	* \param dwClubS º¸Á¶ Å¬·´¹øÈ£ (ÁÖ Å¬·´ ¹ØÀ¸·Î µé¾î°¡´Â ÇÏÀ§ Å¬·´)
+	* ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½Ñ´ï¿½.
+	* \param dwClubP ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
+	* \param dwClubS ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½)
 	* \return 
 	*/
 	CDelClubAlliance(DWORD dwClubP, DWORD dwClubS);
@@ -952,9 +1000,9 @@ class CSetClubBattle : public CDbAction
 {
 public:
 	/**
-	* Å¬·´¹èÆ²À» ½ÃÀÛÇÑ´Ù.
-	* \param dwClubP ÁÖ Å¬·´¹øÈ£ (ÀÚ±âÅ¬·´)
-	* \param dwClubS º¸Á¶ Å¬·´¹øÈ£ (»ó´ëÅ¬·´)
+	* Å¬ï¿½ï¿½ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClubP ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½Ú±ï¿½Å¬ï¿½ï¿½)
+	* \param dwClubS ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½ï¿½ï¿½Å¬ï¿½ï¿½)
 	* \return 
 	*/
 	CSetClubBattle(DWORD dwClubP, DWORD dwClubS, DWORD dwEndTime, bool bAlliance = false );
@@ -972,12 +1020,12 @@ class CEndClubBattle : public CDbAction
 {
 public:
 	/**
-	* Å¬·´¹èÆ²À» Á¾·áÇÑ´Ù.
-	* \param dwClubP ÁÖ Å¬·´¹øÈ£ (ÀÚ±âÅ¬·´)
-	* \param dwClubS º¸Á¶ Å¬·´¹øÈ£ (»ó´ëÅ¬·´)
-	* \param nFlag		Á¾·á Flag
-	* \param nGuKillNum	 Å³¼ö
-	* \param nGuDeathNum µ¥½º¼ö
+	* Å¬ï¿½ï¿½ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClubP ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½Ú±ï¿½Å¬ï¿½ï¿½)
+	* \param dwClubS ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½ï¿½ï¿½Å¬ï¿½ï¿½)
+	* \param nFlag		ï¿½ï¿½ï¿½ï¿½ Flag
+	* \param nGuKillNum	 Å³ï¿½ï¿½
+	* \param nGuDeathNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
 	CEndClubBattle(DWORD dwClubP, DWORD dwClubS, int nFlag, int nGuKillNum, int nGuDeathNum, bool bAlliance = false );
@@ -997,11 +1045,11 @@ class CSaveClubBattle : public CDbAction
 {
 public:
 	/**
-	* Å¬·´¹èÆ²À» ÁøÇà»óÈ²À» ÀúÀåÇÑ´Ù.
-	* \param dwClubP ÁÖ Å¬·´¹øÈ£ (ÀÚ±âÅ¬·´)
-	* \param dwClubS º¸Á¶ Å¬·´¹øÈ£ (»ó´ëÅ¬·´)
-	* \param nGuKillNum	 Å³¼ö
-	* \param nGuDeathNum µ¥½º¼ö
+	* Å¬ï¿½ï¿½ï¿½ï¿½Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClubP ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½Ú±ï¿½Å¬ï¿½ï¿½)
+	* \param dwClubS ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½È£ (ï¿½ï¿½ï¿½Å¬ï¿½ï¿½)
+	* \param nGuKillNum	 Å³ï¿½ï¿½
+	* \param nGuDeathNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
 	CSaveClubBattle(DWORD dwClubP, DWORD dwClubS, int nGuKillNum, int nGuDeathNum );
@@ -1017,14 +1065,14 @@ protected:
 
 
 /**
-* µ¿¸Í¹èÆ² ÀüÀûÀ» ÃÊ±âÈ­ ½ÃÅ²´Ù.
+* ï¿½ï¿½ï¿½Í¹ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½Å²ï¿½ï¿½.
 */
 class CReSetAllianceBattle : public CDbAction
 {
 public:
 	/**
-	* µ¿¸Í¹èÆ² ÀüÀûÀ» ÃÊ±âÈ­ ½ÃÅ²´Ù.	
-	* \param dwClub Å¬·´¹øÈ£
+	* ï¿½ï¿½ï¿½Í¹ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½ï¿½Å²ï¿½ï¿½.	
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
 	* \return 
 	*/
     CReSetAllianceBattle( DWORD dwClub );
@@ -1037,14 +1085,14 @@ protected:
 
 
 /**
-* ÇØ´ç»ç¿ëÀÚÀÇ Ã¤ÆÃºí·Ï½Ã°£À» °¡Á®¿Â´Ù.
+* ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Ãºï¿½ï¿½Ï½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 */
 class CGetChatBlockTime : public CDbAction
 {
 public:
 	/**
-	* ÇØ´ç»ç¿ëÀÚÀÇ Ã¤ÆÃºí·Ï½Ã°£À» °¡Á®¿Â´Ù.
-	* \param nUserNum »ç¿ëÀÚ¹øÈ£
+	* ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Ãºï¿½ï¿½Ï½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
 	* \return 
 	*/
 	CGetChatBlockTime(int nUserNum);
@@ -1056,15 +1104,15 @@ protected:
 };
 
 /*
-* ÇØ´ç»ç¿ëÀÚÀÇ Ã¤ÆÃºí·Ï½Ã°£À» ¼³Á¤ÇÑ´Ù.
+* ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Ãºï¿½ï¿½Ï½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CSetChatBlockTime : public CDbAction
 {
 public:
 	/**
-	* ÇØ´ç»ç¿ëÀÚÀÇ Ã¤ÆÃºí·Ï½Ã°£À» ¼³Á¤ÇÑ´Ù.
-	* \param nUserNum »ç¿ëÀÚ¹øÈ£
-	* \param tBlockTime Ã¤ÆÃ ºí·Ï ¸¸·á½Ã°£
+	* ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Ãºï¿½ï¿½Ï½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nUserNum ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	* \param tBlockTime Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
 	* \return 
 	*/
 	CSetChatBlockTime(int nUserNum, __time64_t tBlockTime);
@@ -1077,15 +1125,15 @@ protected:
 };
 
 /**
-* Å¬·´ÀÇ °øÁö»çÇ×À» ¼¼ÆÃÇÑ´Ù.
+* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CSetClubNotice : public CDbAction
 {
 public:
 	/**
-	* Å¬·´ÀÇ °øÁö»çÇ×À» ¼¼ÆÃÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param szClubNotice °øÁö»çÇ×
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param szClubNotice ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* \return 
 	*/
 	CSetClubNotice(DWORD dwClub, const char* szClubNotice);
@@ -1098,15 +1146,15 @@ protected:
 };
 
 /**
-* Å¬·´ÀÇ ¼±µµÅ¬·´ ÀÎÁõ ´ë¸®ÀÚ¸¦ ¼¼ÆÃÇÑ´Ù.
+* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ë¸®ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CSetClubDeputy : public CDbAction
 {
 public:
 	/**
-	* Å¬·´ÀÇ ¼±µµÅ¬·´ ÀÎÁõ ´ë¸®ÀÚ¸¦ ¼¼ÆÃÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param dwDeputy ÀÎÁõ´ë¸®ÀÚ Ä³¸¯ÅÍ¹øÈ£
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ë¸®ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param dwDeputy ï¿½ï¿½ï¿½ï¿½ï¿½ë¸®ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
 	* \return 
 	*/
 	CSetClubDeputy(DWORD dwClub, DWORD dwDeputy);
@@ -1119,15 +1167,15 @@ protected:
 };
 
 /**
-* Å¬·´ÀÇ ¸¶½ºÅÍ ±ÇÇÑÀ» À§ÀÓÇÑ´Ù.
+* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CSetClubAuthority : public CDbAction
 {
 public:
 	/**
-	* Å¬·´ÀÇ ¼±µµÅ¬·´ ÀÎÁõ ´ë¸®ÀÚ¸¦ ¼¼ÆÃÇÑ´Ù.
-	* \param dwClub Å¬·´¹øÈ£
-	* \param dwDeputy ÀÎÁõ´ë¸®ÀÚ Ä³¸¯ÅÍ¹øÈ£
+	* Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ë¸®ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param dwClub Å¬ï¿½ï¿½ï¿½ï¿½È£
+	* \param dwDeputy ï¿½ï¿½ï¿½ï¿½ï¿½ë¸®ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
 	* \return 
 	*/
 	CSetClubAuthority(DWORD dwClub, DWORD dwMasterID);
@@ -1140,14 +1188,14 @@ protected:
 };
 
 /**
-* Ä³¸¯ÅÍ È°µ¿ ·Î±×¸¦ ±â·ÏÇÑ´Ù.
+* Ä³ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½ ï¿½Î±×¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CLogAction : public CDbAction
 {
 public:
 	/**
-	* Ä³¸¯ÅÍ È°µ¿ ·Î±×¸¦ ±â·ÏÇÑ´Ù.
-	* \param &_sLOG ·Î±×±¸Á¶Ã¼
+	* Ä³ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½ ï¿½Î±×¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param &_sLOG ï¿½Î±×±ï¿½ï¿½ï¿½Ã¼
 	* \return 
 	*/
 	CLogAction ( const SLOGACTION &_sLOG );
@@ -1159,9 +1207,9 @@ protected:
 };
 
 /**
-* Ä³¸¯ÅÍ ÀÌ¸§À» º¯°æÇÑ´Ù.
-* m_dwChaNum Ä³¸¯ÅÍ¹øÈ£
-* m_szCharName º¯°æÇÒ Ä³¸¯ÅÍÀÌ¸§
+* Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+* m_dwChaNum Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+* m_szCharName ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
 */
 class CRenameCharacter : public CDbAction
 {
@@ -1181,9 +1229,9 @@ protected:
 	WORD  m_wPosY;
 };
 
-//! Ä³¸¯ÅÍÀÇ ¸Ó¸®»öÀ» º¯°æÇÑ´Ù.
-//! m_dwChaNum : Ä³¸¯ÅÍ¹øÈ£
-//! m_nHairColor : ¸Ó¸®»ö±ò
+//! Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+//! m_dwChaNum : Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£
+//! m_nHairColor : ï¿½Ó¸ï¿½ï¿½ï¿½ï¿½ï¿½
 class CSetChaHairColor : public CDbAction
 {
 public:
@@ -1197,9 +1245,9 @@ protected:
 	int   m_nHairColor;
 };
 
-//! Ä³¸¯ÅÍÀÇ Çì¾î½ºÅ¸ÀÏÀ» º¯°æÇÑ´Ù.
-//! m_dwChaNum : Ä³¸¯ÅÍ ¹øÈ£
-//! m_nHairStyle : Çì¾î½ºÅ¸ÀÏ
+//! Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î½ºÅ¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+//! m_dwChaNum : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+//! m_nHairStyle : ï¿½ï¿½î½ºÅ¸ï¿½ï¿½
 class CSetChaHairStyle : public CDbAction
 {
 public:
@@ -1213,9 +1261,9 @@ protected:
 	int m_nHairStyle;
 };
 
-//! Ä³¸¯ÅÍÀÇ ¾ó±¼½ºÅ¸ÀÏÀ» º¯°æÇÑ´Ù.
-//! m_dwChaNum : Ä³¸¯ÅÍ ¹øÈ£
-//! m_nFaceStyle : ¾ó±¼½ºÅ¸ÀÏ
+//! Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ó±¼½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+//! m_dwChaNum : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+//! m_nFaceStyle : ï¿½ó±¼½ï¿½Å¸ï¿½ï¿½
 class CSetChaFaceStyle : public CDbAction
 {
 public:
@@ -1230,7 +1278,7 @@ protected:
 };
 
 
-// Ä³¸¯ÅÍ ¼ºº°À» º¯°æÇÑ´Ù.
+// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 class CSetChaGenderChange : public CDbAction
 {
 public:
@@ -1247,25 +1295,25 @@ protected:
 	int m_nHairColor;
 };
 
-//! Ä³¸¯ÅÍÀÇ À§Ä¡Á¤º¸¸¦ ÀúÀåÇÑ´Ù.
+//! Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 class CSaveChaPos : public CDbAction
 {
 public:
-	//! Ä³¸¯ÅÍÀÇ À§Ä¡Á¤º¸¸¦ ÀúÀåÇÑ´Ù.
-	//! \param dwChaNum Ä³¸¯ÅÍ ¹øÈ£
-	//! \param dwStartmapID ½ÃÀÛÇÏ´Â ¸Ê ¹øÈ£
-	//! \param dwStartGate ½ÃÀÛÇÏ´Â °ÔÀÌÆ® ¹øÈ£
-	//! \param fStartPosX ½ÃÀÛÇÏ´Â X ÁÂÇ¥
-	//! \param fStartPosY ½ÃÀÛÇÏ´Â Y ÁÂÇ¥
-	//! \param fStartPosZ ½ÃÀÛÇÏ´Â Z ÁÂÇ¥
-	//! \param dwSaveMapID ¸¶Áö¸·À¸·Î ÇÃ·¹ÀÌÇÑ ¸Ê ¹øÈ£
-	//! \param fSavePosX ¸¶Áö¸·À¸·Î ÇÃ·¹ÀÌÇÑ X ÁÂÇ¥
-	//! \param fSavePosY ¸¶Áö¸·À¸·Î ÇÃ·¹ÀÌÇÑ Y ÁÂÇ¥
-	//! \param fSavePosZ ¸¶Áö¸·À¸·Î ÇÃ·¹ÀÌÇÑ Z ÁÂÇ¥
-	//! \param dwLastCallMapID ½ÃÀÛ ±ÍÈ¯Ä«µå¿¡ ÀúÀåµÈ ¸Ê ¹øÈ£
-	//! \param fLastCallPosX ½ÃÀÛ ±ÍÈ¯Ä«µå¿¡ ÀúÀåµÈ X ÁÂÇ¥
-	//! \param fLastCallPosY ½ÃÀÛ ±ÍÈ¯Ä«µå¿¡ ÀúÀåµÈ Y ÁÂÇ¥
-	//! \param fLastCallPosZ ½ÃÀÛ ±ÍÈ¯Ä«µå¿¡ ÀúÀåµÈ Z ÁÂÇ¥	
+	//! Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	//! \param dwChaNum Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	//! \param dwStartmapID ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
+	//! \param dwStartGate ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È£
+	//! \param fStartPosX ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ X ï¿½ï¿½Ç¥
+	//! \param fStartPosY ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Y ï¿½ï¿½Ç¥
+	//! \param fStartPosZ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Z ï¿½ï¿½Ç¥
+	//! \param dwSaveMapID ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
+	//! \param fSavePosX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ X ï¿½ï¿½Ç¥
+	//! \param fSavePosY ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ Y ï¿½ï¿½Ç¥
+	//! \param fSavePosZ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ Z ï¿½ï¿½Ç¥
+	//! \param dwLastCallMapID ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯Ä«ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
+	//! \param fLastCallPosX ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯Ä«ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ X ï¿½ï¿½Ç¥
+	//! \param fLastCallPosY ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯Ä«ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ Y ï¿½ï¿½Ç¥
+	//! \param fLastCallPosZ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯Ä«ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ Z ï¿½ï¿½Ç¥	
 	CSaveChaPos(DWORD dwClientID,
 				DWORD dwChaNum,
 				DWORD dwFieldServer,
@@ -1304,21 +1352,21 @@ protected:
 };
 
 /**
-* »õ·Î¿î ÆÖÀ» »ý¼ºÇÑ´Ù.
+* ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CCreatePet : public CDbAction
 {
 public:
 	/**
-	* »õ·Î¿î ÆÖÀ» »ý¼ºÇÑ´Ù.
-	* \param nChaNum  ÆÖ ¼ÒÀ¯ÀÚ Ä³¸¯ÅÍ ¹øÈ£
-	* \param szPetName ÆÖÀÌ¸§
-	* \param nPetType ÆÖÀÇ Å¸ÀÔ
-	* \param nPetMID ÆÖ MID
-	* \param nPetSid ÆÖ SID
-	* \param nPetStyle ÆÖÀÇ ½ºÅ¸ÀÏ
-	* \param nPetColor ÆÖÀÇ ÄÃ·¯
-	* \return DB_ERROR ¶Ç´Â ¼º°øÇßÀ»¶§´Â Pet ÀÇ °íÀ¯¹øÈ£
+	* ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nChaNum  ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param szPetName ï¿½ï¿½ï¿½Ì¸ï¿½
+	* \param nPetType ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
+	* \param nPetMID ï¿½ï¿½ MID
+	* \param nPetSid ï¿½ï¿½ SID
+	* \param nPetStyle ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½
+	* \param nPetColor ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½
+	* \return DB_ERROR ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Pet ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 	*/
 	CCreatePet(
 		DWORD dwClientID,
@@ -1354,15 +1402,15 @@ protected:
 };
 
 /**
-* ÆÖÀÇ ÀÌ¸§À» º¯°æÇÑ´Ù.
+* ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CRenamePet : public CDbAction
 {
 public:
 	/**
-	* ÆÖÀÇ ÀÌ¸§À» º¯°æÇÑ´Ù.
-	* \param nPetNum ÆÖÀÇ °íÀ¯¹øÈ£
-	* \param szPetName ÆÖÀÌ¸§	
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nPetNum ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	* \param szPetName ï¿½ï¿½ï¿½Ì¸ï¿½	
 	*/
 	CRenamePet(DWORD dwClientID, int nChaNum, int nPetNum, const TCHAR* szPetName, WORD wPosX, WORD wPosY);
 	virtual ~CRenamePet() {};
@@ -1377,15 +1425,15 @@ protected:
 };
 
 /**
-* ÆÖÀÇ ¼ÒÀ¯±ÇÀ» ÀÌÀüÇÑ´Ù.
+* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CExchangePet : public CDbAction
 {
 public:
 	/**
-	* ÆÖÀÇ ¼ÒÀ¯±ÇÀ» ÀÌÀüÇÑ´Ù.
-	* \param nChaNum ÆÖÀÇ »õ·Î¿î ¼ÒÀ¯ÀÚ
-	* \param nPetNum ¼ÒÀ¯±ÇÀ» ÀÌÀüÇÒ ÆÖ ¹øÈ£
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nChaNum ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* \param nPetNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
 	*/
 	CExchangePet(int nChaNum, int nPetNum);
 	virtual ~CExchangePet() {};
@@ -1398,15 +1446,15 @@ protected:
 
 
 /**
-* ÆÖÀÇ ÄÃ·¯¸¦ º¯°æÇÑ´Ù.
+* ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CSetPetColor : public CDbAction
 {
 public:
 	/**
-	* ÆÖÀÇ ÄÃ·¯¸¦ º¯°æÇÑ´Ù.
-	* \param nPetNum ÄÃ·¯¸¦ º¯°æÇÏ·Á´Â ÆÖÀÇ ¹øÈ£
-	* \param nPetColor ÆÖÀÇ ÄÃ·¯
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nPetNum ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param nPetColor ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½
 	*/
 	CSetPetColor(int nChaNum, int nPetNum, int nPetColor);
 	virtual ~CSetPetColor() {};
@@ -1419,15 +1467,15 @@ protected:
 };
 
 /**
-* ÆÖÀÇ ½ºÅ¸ÀÏÀ» º¯°æÇÑ´Ù.
+* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CSetPetStyle : public CDbAction
 {
 public:
 	/**
-	* ÆÖÀÇ ½ºÅ¸ÀÏÀ» º¯°æÇÑ´Ù.
-	* \param nPetNum ½ºÅ¸ÀÏÀ» º¯°æÇÏ·Á´Â ÆÖÀÇ ¹øÈ£
-	* \param nPetStyle ÆÖÀÇ ½ºÅ¸ÀÏ
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nPetNum ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param nPetStyle ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½
 	*/
 	CSetPetStyle(int nChaNum, int nPetNum, int nPetStyle);
 	virtual ~CSetPetStyle() {};
@@ -1440,15 +1488,15 @@ protected:
 };
 
 /**
-* ÆÖÀÇ Æ÷¸¸µµ¸¦ ¼³Á¤ÇÑ´Ù. Æ÷¸¸µµ´Â 0-100 »çÀÌ
+* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0-100 ï¿½ï¿½ï¿½ï¿½
 */
 class CSetPetFull : public CDbAction
 {
 public:
 	/**
-	* ÆÖÀÇ Æ÷¸¸µµ¸¦ ¼³Á¤ÇÑ´Ù. Æ÷¸¸µµ´Â 0-100 »çÀÌ
-	* \param nPetNum Æ÷¸¸µµ¸¦ ¼³Á¤ÇÒ ÆÖÀÇ ¹øÈ£
-	* \param fPetFull Æ÷¸¸µµ
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0-100 ï¿½ï¿½ï¿½ï¿½
+	* \param nPetNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param fPetFull ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	CSetPetFull(int nChaNum, int nPetNum, int nPetFull);
 	virtual ~CSetPetFull() {};
@@ -1461,7 +1509,7 @@ protected:
 };
 
 /**
-* ÆÖÀÇ ½ºÅ³ ¾÷µ¥ÀÌÆ®
+* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 */
 class CSetPetSkill : public CDbAction
 {
@@ -1484,7 +1532,7 @@ protected:
 };
 
 /**
-* ÆÖÀÇ ÀÎº¥Åä¸® ¾÷µ¥ÀÌÆ®
+* ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 *  
 */
 class CSetPetInven : public CDbAction
@@ -1506,14 +1554,14 @@ protected:
 
 
 /**
-* ÆÖÀ» »èÁ¦ÇÑ´Ù.
+* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 */
 class CDeletePet : public CDbAction
 {
 public:
 	/**
-	* ÆÖÀ» »èÁ¦ÇÑ´Ù.
-	* \param nPetNum »èÁ¦ÇÒ ÆÖÀÇ ¹øÈ£
+	* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	* \param nPetNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	*/
     CDeletePet(int nChaNum, int nPetNum);
 	virtual ~CDeletePet() {};
@@ -1535,7 +1583,7 @@ protected:
 	int m_nPetNum;
 };
 /**
-* ÆÖÀÇ Á¤º¸¸¦ °¡Á®¿Â´Ù.
+* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 */
 class CGetPet : public CDbAction
 {
@@ -1556,9 +1604,9 @@ protected:
 };
 
 /**
-* ÆÖÀÇ Æ÷¸¸°¨À» °¡Á®¿Â´Ù
-* \param dwPetNum ÆÖ ¹øÈ£
-* \return ÆÖÀÇ Æ÷¸¸°¨ or DB_ERROR
+* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
+* \param dwPetNum ï¿½ï¿½ ï¿½ï¿½È£
+* \return ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ or DB_ERROR
 */
 class CGetPetFull : public CDbAction
 {
@@ -1578,8 +1626,8 @@ protected:
 };
 
 /**
-* ¼Ò¸êµÈ ÆÖÀÇ ¸®½ºÆ®¸¦ °¡Á®¿Â´Ù.
-* \param nChaNum ¼Ò¸êµÈ Æê ¸®½ºÆ®¸¦ Ãâ·ÂÇÏ·Á´Â Ä³¸¯ÅÍ ¹øÈ£
+* ï¿½Ò¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+* \param nChaNum ï¿½Ò¸ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 * \reutrn DB_OK or DB_ERROR
 */
 class CGetRestorePetList : public CDbAction
@@ -1594,10 +1642,10 @@ protected:
 };
 
 /**
-* ÆÖÀ» ºÎÈ°½ÃÅ²´Ù.
-* \param nPetNum ºÎÈ°ÇÒ ÆÖ ¹øÈ£
-* \param nChaNum ºÎÈ°À» ¿ä±¸ÇÑ Ä³¸¯ÅÍ ¹øÈ£
-* \return ÆÖ ¹øÈ£ or DB_ERROR
+* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½Å²ï¿½ï¿½.
+* \param nPetNum ï¿½ï¿½È°ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
+* \param nChaNum ï¿½ï¿½È°ï¿½ï¿½ ï¿½ä±¸ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+* \return ï¿½ï¿½ ï¿½ï¿½È£ or DB_ERROR
 */
 class CRestorePet : public CDbAction
 {
@@ -1615,10 +1663,10 @@ protected:
 
 
 /**
-* ÆÖ ½ºÅ² º¯°æ Ä«µå¸¦ Àû¿ë½ÃÅ²´Ù.
-* \param nPetNum ºÎÈ°ÇÒ ÆÖ ¹øÈ£
-* \param nChaNum ºÎÈ°À» ¿ä±¸ÇÑ Ä³¸¯ÅÍ ¹øÈ£
-* \return ÆÖ ¹øÈ£ or DB_ERROR
+* ï¿½ï¿½ ï¿½ï¿½Å² ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
+* \param nPetNum ï¿½ï¿½È°ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È£
+* \param nChaNum ï¿½ï¿½È°ï¿½ï¿½ ï¿½ä±¸ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+* \return ï¿½ï¿½ ï¿½ï¿½È£ or DB_ERROR
 */
 class CPetSkinPack : public CDbAction
 {
@@ -1637,18 +1685,18 @@ protected:
 };
 
 /**
-* SMS ¹®ÀÚ¸Þ½ÃÁö¸¦ ¹ß¼ÛÇÑ´Ù.
+* SMS ï¿½ï¿½ï¿½Ú¸Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¼ï¿½ï¿½Ñ´ï¿½.
 */
 class CSendSMS : public CDbAction
 {
 public:
 	/**
-	* SMS ¹®ÀÚ¸Þ½ÃÁö¸¦ ¹ß¼ÛÇÑ´Ù.
-	* \param nSendChaNum SMS ¸¦ ¹ß¼ÛÇÏ´Â Ä³¸¯ÅÍ ¹øÈ£
-	* \param szSendUserID SMS ¸¦ ¹ß¼ÛÇÏ´Â »ç¿ëÀÚ ID
-	* \param nReceiveChaNum SMS ¸¦ ¹ÞÀ» Ä³¸¯ÅÍ ¹øÈ£
-	* \param szReceivePhone SMS ¸¦ ¹ÞÀ» Ä³¸¯ÅÍÀÇ ÀüÈ­¹øÈ£
-	* \param szSmsMsg SMS ¸Þ½ÃÁö ³»¿ë
+	* SMS ï¿½ï¿½ï¿½Ú¸Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¼ï¿½ï¿½Ñ´ï¿½.
+	* \param nSendChaNum SMS ï¿½ï¿½ ï¿½ß¼ï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param szSendUserID SMS ï¿½ï¿½ ï¿½ß¼ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ID
+	* \param nReceiveChaNum SMS ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param szReceivePhone SMS ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½È£
+	* \param szSmsMsg SMS ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	*/
 	CSendSMS(
 		DWORD dwClientNum,
@@ -1673,15 +1721,15 @@ protected:
 };
 
 /**
-* Ä³¸¯ÅÍÀÇ ÈÞ´ëÆù ¹øÈ£¸¦ ÀúÀå/¾÷µ¥ÀÌÆ®ÇÑ´Ù.
+* Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ñ´ï¿½.
 */
 class CSetChaPhoneNumber : public CDbAction
 {
 public:
 	/**
-	* Ä³¸¯ÅÍÀÇ ÈÞ´ëÆù ¹øÈ£¸¦ ÀúÀå/¾÷µ¥ÀÌÆ®ÇÑ´Ù.
-	* \param nChaNum Ä³¸¯ÅÍ ¹øÈ£
-	* \param szPhoneNumber ÀüÈ­¹øÈ£ NULL ¹®ÀÚ Æ÷ÇÔ 14ÀÚ SMS_RECEIVER
+	* Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ñ´ï¿½.
+	* \param nChaNum Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	* \param szPhoneNumber ï¿½ï¿½È­ï¿½ï¿½È£ NULL ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 14ï¿½ï¿½ SMS_RECEIVER
 	*/
     CSetChaPhoneNumber(
 		DWORD dwClientNum,
@@ -1698,13 +1746,13 @@ protected:
 
 
 /**
-* »õ·Î¿î Å»°ÍÀ» »ý¼ºÇÑ´Ù.
-* \param nChaNum  Å»°Í ¼ÒÀ¯ÀÚ Ä³¸¯ÅÍ ¹øÈ£
-* \param szVehicleName Å»°Í ÀÌ¸§
-* \param nVehicleType Å»°ÍÀÇ Å¸ÀÔ
-* \param nVehicleCardMID Å»°ÍÀÇ ¾ÆÀÌÅÛ MID
-* \param nVehicleCardSID Å»°ÍÀÇ ¾ÆÀÌÅÛ SID
-* \return DB_ERROR ¶Ç´Â ¼º°øÇßÀ»¶§´Â Å»°ÍÀÇ °íÀ¯¹øÈ£
+* ï¿½ï¿½ï¿½Î¿ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+* \param nChaNum  Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+* \param szVehicleName Å»ï¿½ï¿½ ï¿½Ì¸ï¿½
+* \param nVehicleType Å»ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
+* \param nVehicleCardMID Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ MID
+* \param nVehicleCardSID Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SID
+* \return DB_ERROR ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 */
 class CCreateVehicle : public CDbAction
 {
@@ -1731,9 +1779,9 @@ protected:
 
 
 /**
-* Å»°ÍÀÇ ¹èÅÍ¸®¸¦ ¼³Á¤ÇÑ´Ù. ¹èÅÍ¸®´Â 0-1000 »çÀÌ
-* \param nVehicleBttery ¹èÅÍ¸®¸¦ ¼³Á¤ÇÒ Å»°ÍÀÇ ¹øÈ£
-* \param nVehicleBttery ¹èÅÍ¸®
+* Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ 0-1000 ï¿½ï¿½ï¿½ï¿½
+* \param nVehicleBttery ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+* \param nVehicleBttery ï¿½ï¿½ï¿½Í¸ï¿½
 */
 class CSetVehicleBattery : public CDbAction
 {
@@ -1784,9 +1832,9 @@ protected:
 
 
 /**
-* Å»°ÍÀÇ Æ÷¸¸°¨À» °¡Á®¿Â´Ù
-* \param nVehicleNum Å»°Í ¹øÈ£
-* \return Å»°Í Æ÷¸¸°¨ or DB_ERROR
+* Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½
+* \param nVehicleNum Å»ï¿½ï¿½ ï¿½ï¿½È£
+* \return Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ or DB_ERROR
 */
 
 class CGetVehicleBattery : public CDbAction
@@ -1817,8 +1865,8 @@ protected:
 };
 
 /**
-* Å»°ÍÀ» »èÁ¦ÇÑ´Ù.
-* \param nVehicle »èÁ¦ÇÒ Å»°ÍÀÇ ¹øÈ£
+* Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+* \param nVehicle ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 */
 class CDeleteVehicle : public CDbAction
 {
@@ -1838,7 +1886,7 @@ protected:
 };
 
 /**
-* Å»°ÍÀÇ Á¤º¸¸¦ °¡Á®¿Â´Ù.
+* Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
 */
 class CGetVehicle : public CDbAction
 {
@@ -1866,7 +1914,7 @@ protected:
 };
 
 /**
-* Å»°Í ÀÎº¥Åä¸® ¾÷µ¥ÀÌÆ®
+* Å»ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 *  
 */
 class CSetVehicleInven : public CDbAction
@@ -1888,8 +1936,8 @@ protected:
 };
 
 /**
-* Å»°ÍÀÇ ¾×¼Ç ·Î±×¸¦ ³²±ä´Ù.
-* \param _sLOG Æê¾×¼Ç·Î±× ±¸Á¶Ã¼
+* Å»ï¿½ï¿½ï¿½ï¿½ ï¿½×¼ï¿½ ï¿½Î±×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+* \param _sLOG ï¿½ï¿½×¼Ç·Î±ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼
 */
 class CLogVehicleAction : public CDbAction
 {

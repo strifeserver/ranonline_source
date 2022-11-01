@@ -5,162 +5,162 @@
 
 enum EMBUS_TAKE
 {
-	EMBUS_TAKE_FAIL			= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMBUS_TAKE_OK			= 1,	//	Å¾½Â ¼º°ø.
-	EMBUS_TAKE_TICKET		= 2,	//	Æ¼ÄÏ ºÎÁ·.
-	EMBUS_TAKE_CONDITION	= 3,	//	Å¾½Â ¿©°ÇÀÌ ¾ÈµÊ.
-	EMBUS_TAKE_PK_LEVEL		= 4,	//	pk ¼ºÇâÀÌ ³·¾Æ¼­ Å¾½Â ºÒ°¡´É.
+	EMBUS_TAKE_FAIL			= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMBUS_TAKE_OK			= 1,	//	Å¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMBUS_TAKE_TICKET		= 2,	//	Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMBUS_TAKE_CONDITION	= 3,	//	Å¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½.
+	EMBUS_TAKE_PK_LEVEL		= 4,	//	pk ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¼ï¿½ Å¾ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½.
 };
 
 enum EMTAXI_TAKE
 {
-	EMTAXI_TAKE_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMTAXI_TAKE_OK			= 1,	//	Å¾½Â ¼º°ø.
-	EMTAXI_TAKE_TICKET		= 2,	//	Æ¼ÄÏ ºÎÁ·.
-	EMTAXI_TAKE_MONEY		= 3,	//	±Ý¾× ºÎÁ·.
-	EMTAXI_TAKE_CONDITION	= 4,	//	Å¾½Â ¿©°ÇÀÌ ¾ÈµÊ.
-	EMTAXI_TAKE_MAPFAIL		= 5,	//  ¸Ê ¿À·ù
-	EMTAXI_TAKE_STATIONFAIL	= 6,	//  Á¤·ùÀå ¿À·ù
-	EMTAXI_TAKE_NPCFAIL		= 7,	//	NPC ¼³Á¤ ¿À·ù
+	EMTAXI_TAKE_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMTAXI_TAKE_OK			= 1,	//	Å¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMTAXI_TAKE_TICKET		= 2,	//	Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMTAXI_TAKE_MONEY		= 3,	//	ï¿½Ý¾ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMTAXI_TAKE_CONDITION	= 4,	//	Å¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½.
+	EMTAXI_TAKE_MAPFAIL		= 5,	//  ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMTAXI_TAKE_STATIONFAIL	= 6,	//  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMTAXI_TAKE_NPCFAIL		= 7,	//	NPC ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 };
 
 enum EMREQ_FIRECRACKER_FB
 {
-	EMREQ_FIRECRACKER_FB_FAIL	= 0,	//	ÀÏ¹Ý ¿À·ù.
-	EMREQ_FIRECRACKER_FB_OK		= 1,	//	»ç¿ë ¼º°ø.
-	EMREQ_FIRECRACKER_FB_NOITEM	= 2,	//	¾ÆÀÌÅÛ ¿À·ù.
+	EMREQ_FIRECRACKER_FB_FAIL	= 0,	//	ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_FIRECRACKER_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_FIRECRACKER_FB_NOITEM	= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMREQ_REVIVE_FB
 {
-	EMREQ_REVIVE_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMREQ_REVIVE_FB_OK			= 1,	//	»ç¿ë¼º°ø.
-	EMREQ_REVIVE_FB_NOITEM		= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMREQ_REVIVE_FB_NOTUSE		= 3,	//	»ç¿ë ºÒ°¡´ÉÇÑ Áö¿ª.
-	EMREQ_REVIVE_FB_COOLTIME	= 4,	//	¾ÆÀÌÅÛ ÄðÅ¸ÀÓ
+	EMREQ_REVIVE_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMREQ_REVIVE_FB_OK			= 1,	//	ï¿½ï¿½ë¼ºï¿½ï¿½.
+	EMREQ_REVIVE_FB_NOITEM		= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_REVIVE_FB_NOTUSE		= 3,	//	ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMREQ_REVIVE_FB_COOLTIME	= 4,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½
 };
 
 enum EMREQ_RECOVERY_FB
 {
-	EMREQ_RECOVERY_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMREQ_RECOVERY_FB_OK		= 1,	//	»ç¿ë¼º°ø.
-	EMREQ_RECOVERY_FB_NOMONEY	= 2,	//	µ·ÀÌ ºÎÁ·
-	EMREQ_RECOVERY_FB_NOREEXP	= 3,	//	È¸º¹ÇÒ °æÇèÄ¡°¡ ¾øÀ½
-	EMREQ_RECOVERY_FB_NOTUSE	= 4,	//	»ç¿ë ºÒ°¡´ÉÇÑ Áö¿ª.
+	EMREQ_RECOVERY_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMREQ_RECOVERY_FB_OK		= 1,	//	ï¿½ï¿½ë¼ºï¿½ï¿½.
+	EMREQ_RECOVERY_FB_NOMONEY	= 2,	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREQ_RECOVERY_FB_NOREEXP	= 3,	//	È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREQ_RECOVERY_FB_NOTUSE	= 4,	//	ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMREQ_RECOVERY_NPC_FB
 {
-	EMREQ_RECOVERY_NPC_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMREQ_RECOVERY_NPC_FB_OK		= 1,	//	»ç¿ë¼º°ø.
-	EMREQ_RECOVERY_NPC_FB_NOMONEY	= 2,	//	µ·ÀÌ ºÎÁ·
-	EMREQ_RECOVERY_NPC_FB_NOREEXP	= 3,	//	È¸º¹ÇÒ °æÇèÄ¡°¡ ¾øÀ½
-	EMREQ_RECOVERY_NPC_FB_NOTUSE	= 4,	//	»ç¿ë ºÒ°¡´ÉÇÑ Áö¿ª.
+	EMREQ_RECOVERY_NPC_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMREQ_RECOVERY_NPC_FB_OK		= 1,	//	ï¿½ï¿½ë¼ºï¿½ï¿½.
+	EMREQ_RECOVERY_NPC_FB_NOMONEY	= 2,	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREQ_RECOVERY_NPC_FB_NOREEXP	= 3,	//	È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREQ_RECOVERY_NPC_FB_NOTUSE	= 4,	//	ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMINVEN_HAIR_CHANGE_FB
 {
-	EMINVEN_HAIR_CHANGE_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMINVEN_HAIR_CHANGE_FB_OK		= 1,	//	¼º°ø.
-	EMINVEN_HAIR_CHANGE_FB_NOITEM	= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMINVEN_HAIR_CHANGE_FB_BADITEM	= 3,	//	»ç¿ë ºÒ°¡´É ¾ÆÀÌÅÛ.
-	EMINVEN_HAIR_CHANGE_FB_BADCLASS	= 4,	//	ÄÉ¸¯ÅÍ Á÷¾÷ÀÌ Æ²·Á¼­ »ç¿ë ºÒ°¡´É ¾ÆÀÌÅÛ.
-	EMINVEN_HAIR_CHANGE_FB_COOLTIME = 5,	//	ÄðÅ¸ÀÓ ½ÇÆÐ~
+	EMINVEN_HAIR_CHANGE_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMINVEN_HAIR_CHANGE_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_HAIR_CHANGE_FB_NOITEM	= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_HAIR_CHANGE_FB_BADITEM	= 3,	//	ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_HAIR_CHANGE_FB_BADCLASS	= 4,	//	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_HAIR_CHANGE_FB_COOLTIME = 5,	//	ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½~
 };
 
 enum EMINVEN_BIKE_CHANGE_FB //add bike color
 {
-	EMINVEN_BIKE_CHANGE_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMINVEN_BIKE_CHANGE_FB_OK		= 1,	//	¼º°ø.
-	EMINVEN_BIKE_CHANGE_FB_NOITEM	= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMINVEN_BIKE_CHANGE_FB_BADITEM	= 3,	//	»ç¿ë ºÒ°¡´É ¾ÆÀÌÅÛ.
-	EMINVEN_BIKE_CHANGE_FB_BADCLASS	= 4,	//	ÄÉ¸¯ÅÍ Á÷¾÷ÀÌ Æ²·Á¼­ »ç¿ë ºÒ°¡´É ¾ÆÀÌÅÛ.
-	EMINVEN_BIKE_CHANGE_FB_COOLTIME = 5,	//	ÄðÅ¸ÀÓ ½ÇÆÐ~
+	EMINVEN_BIKE_CHANGE_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMINVEN_BIKE_CHANGE_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_BIKE_CHANGE_FB_NOITEM	= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_BIKE_CHANGE_FB_BADITEM	= 3,	//	ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_BIKE_CHANGE_FB_BADCLASS	= 4,	//	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_BIKE_CHANGE_FB_COOLTIME = 5,	//	ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½~
 };
 
 enum EMINVEN_ITEMCOLOR_CHANGE_FB //add itemcolor
 {
-	EMINVEN_ITEMCOLOR_CHANGE_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMINVEN_ITEMCOLOR_CHANGE_FB_OK		= 1,	//	¼º°ø.
-	EMINVEN_ITEMCOLOR_CHANGE_FB_NOITEM	= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMINVEN_ITEMCOLOR_CHANGE_FB_BADITEM	= 3,	//	»ç¿ë ºÒ°¡´É ¾ÆÀÌÅÛ.
-	EMINVEN_ITEMCOLOR_CHANGE_FB_BADCLASS	= 4,	//	ÄÉ¸¯ÅÍ Á÷¾÷ÀÌ Æ²·Á¼­ »ç¿ë ºÒ°¡´É ¾ÆÀÌÅÛ.
-	EMINVEN_ITEMCOLOR_CHANGE_FB_COOLTIME = 5,	//	ÄðÅ¸ÀÓ ½ÇÆÐ~
+	EMINVEN_ITEMCOLOR_CHANGE_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMINVEN_ITEMCOLOR_CHANGE_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_ITEMCOLOR_CHANGE_FB_NOITEM	= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_ITEMCOLOR_CHANGE_FB_BADITEM	= 3,	//	ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_ITEMCOLOR_CHANGE_FB_BADCLASS	= 4,	//	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_ITEMCOLOR_CHANGE_FB_COOLTIME = 5,	//	ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½~
 };
 
 
 enum EMINVEN_FACE_CHANGE_FB
 {
-	EMINVEN_FACE_CHANGE_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMINVEN_FACE_CHANGE_FB_OK		= 1,	//	¼º°ø.
-	EMINVEN_FACE_CHANGE_FB_NOITEM	= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMINVEN_FACE_CHANGE_FB_BADITEM	= 3,	//	»ç¿ë ºÒ°¡´É ¾ÆÀÌÅÛ.
-	EMINVEN_FACE_CHANGE_FB_BADCLASS	= 4,	//	ÄÉ¸¯ÅÍ Á÷¾÷ÀÌ Æ²·Á¼­ »ç¿ë ºÒ°¡´É ¾ÆÀÌÅÛ.
-	EMINVEN_FACE_CHANGE_FB_COOLTIME	= 5,	//	ÄðÅ¸ÀÓ ½ÇÆÐ
+	EMINVEN_FACE_CHANGE_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMINVEN_FACE_CHANGE_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_FACE_CHANGE_FB_NOITEM	= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_FACE_CHANGE_FB_BADITEM	= 3,	//	ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_FACE_CHANGE_FB_BADCLASS	= 4,	//	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_FACE_CHANGE_FB_COOLTIME	= 5,	//	ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 };
 
 enum EMINVEN_GENDER_CHANGE_FB
 {
-	EMINVEN_GENDER_CHANGE_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMINVEN_GENDER_CHANGE_FB_OK			= 1,	//	¼º°ø.
-	EMINVEN_GENDER_CHANGE_FB_NOITEM		= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMINVEN_GENDER_CHANGE_FB_ITEMTYPE	= 3,	//	»ç¿ë ºÒ°¡´É ¾ÆÀÌÅÛ.
-	EMINVEN_GENDER_CHANGE_FB_BADCLASS	= 4,	//	ÄÉ¸¯ÅÍ Á÷¾÷ÀÌ Æ²·Á¼­ »ç¿ë ºÒ°¡´É ¾ÆÀÌÅÛ.
-	EMINVEN_GENDER_CHANGE_FB_NOTVALUE	= 5,	//  Àß¸øµÈ µ¥ÀÌÅÍ 
+	EMINVEN_GENDER_CHANGE_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMINVEN_GENDER_CHANGE_FB_OK			= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_GENDER_CHANGE_FB_NOITEM		= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_GENDER_CHANGE_FB_ITEMTYPE	= 3,	//	ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_GENDER_CHANGE_FB_BADCLASS	= 4,	//	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_GENDER_CHANGE_FB_NOTVALUE	= 5,	//  ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 };
 
 enum EMINVEN_RENAME_FB
 {
-	EMINVEN_RENAME_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMINVEN_RENAME_FB_OK		= 1,	//	¼º°ø.
-	EMINVEN_RENAME_FB_NOITEM	= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMINVEN_RENAME_FB_BADITEM	= 3,	//	»ç¿ë ºÒ°¡´É ¾ÆÀÌÅÛ.
-	EMINVEN_RENAME_FB_LENGTH	= 4,	//	ÀÌ¸§ÀÇ ±æÀÌ°¡ 4ÀÚ ¹Ì¸¸
-	EMINVEN_RENAME_FROM_DB_OK	= 5,	//	¼º°ø.
-	EMINVEN_RENAME_FROM_DB_FAIL	= 6,	//	½ÇÆÐ.(ÀÌ¸§ Áßº¹)
-	EMINVEN_RENAME_FROM_DB_BAD	= 7,	//	½ÇÆÐ.(ÀÌ¸§ ºÒ°¡)
-	EMINVEN_RENAME_FB_THAICHAR_ERROR = 8,	// ÅÂ±¹¾î ¹®ÀÚ Á¶ÇÕ ¿¡·¯
-	EMINVEN_RENAME_FB_VNCHAR_ERROR = 9,  // º£Æ®³² ¹®ÀÚ Á¶ÇÕ ¿¡·¯
+	EMINVEN_RENAME_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMINVEN_RENAME_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_RENAME_FB_NOITEM	= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_RENAME_FB_BADITEM	= 3,	//	ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_RENAME_FB_LENGTH	= 4,	//	ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ 4ï¿½ï¿½ ï¿½Ì¸ï¿½
+	EMINVEN_RENAME_FROM_DB_OK	= 5,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMINVEN_RENAME_FROM_DB_FAIL	= 6,	//	ï¿½ï¿½ï¿½ï¿½.(ï¿½Ì¸ï¿½ ï¿½ßºï¿½)
+	EMINVEN_RENAME_FROM_DB_BAD	= 7,	//	ï¿½ï¿½ï¿½ï¿½.(ï¿½Ì¸ï¿½ ï¿½Ò°ï¿½)
+	EMINVEN_RENAME_FB_THAICHAR_ERROR = 8,	// ï¿½Â±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMINVEN_RENAME_FB_VNCHAR_ERROR = 9,  // ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 };
 
 enum EMSMS_PHONE_NUMBER_FB
 {
-	EMSMS_PHONE_NUMBER_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMSMS_PHONE_NUMBER_FB_OK		= 1,	//	¼º°ø.
-	EMSMS_PHONE_NUMBER_FROM_DB_OK	= 2,	//	¼º°ø.
-	EMSMS_PHONE_NUMBER_FROM_DB_FAIL	= 3,	//	½ÇÆÐ.(ÀÌ¸§ Áßº¹)
+	EMSMS_PHONE_NUMBER_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMSMS_PHONE_NUMBER_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMSMS_PHONE_NUMBER_FROM_DB_OK	= 2,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMSMS_PHONE_NUMBER_FROM_DB_FAIL	= 3,	//	ï¿½ï¿½ï¿½ï¿½.(ï¿½Ì¸ï¿½ ï¿½ßºï¿½)
 };
 
 enum EMSMS_SEND_FB
 {
-	EMSMS_SEND_FB_FAIL		= 0,	//	ÀÏ¹Ý¿À·ù.
-	EMSMS_SEND_FB_OK		= 1,	//	¼º°ø.
-	EMSMS_SEND_FB_NOITEM	= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EMSMS_SEND_FB_BADITEM	= 3,	//	»ç¿ë ºÒ°¡´É ¾ÆÀÌÅÛ.
-	EMSMS_SEND_FROM_DB_OK	= 4,	//	¼º°ø.
-	EMSMS_SEND_FROM_DB_FAIL	= 5,	//	½ÇÆÐ.
+	EMSMS_SEND_FB_FAIL		= 0,	//	ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMSMS_SEND_FB_OK		= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMSMS_SEND_FB_NOITEM	= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMSMS_SEND_FB_BADITEM	= 3,	//	ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMSMS_SEND_FROM_DB_OK	= 4,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMSMS_SEND_FROM_DB_FAIL	= 5,	//	ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMMGAME_ODDEVEN
 {
-	EMMGAME_ODDEVEN_OK			= 0,	// ¹èÆÃ È®ÀÎ
-	EMMGAME_ODDEVEN_CANCEL		= 1,	// Ãë¼Ò
+	EMMGAME_ODDEVEN_OK			= 0,	// ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+	EMMGAME_ODDEVEN_CANCEL		= 1,	// ï¿½ï¿½ï¿½
 	EMMGAME_ODDEVEN_SELECT		= 2,	// È¦,Â¦
-	EMMGAME_ODDEVEN_AGAIN_OK	= 3,	// ¹Ýº¹ È®ÀÎ
+	EMMGAME_ODDEVEN_AGAIN_OK	= 3,	// ï¿½Ýºï¿½ È®ï¿½ï¿½
 	EMMGAME_ODDEVEN_SHUFFLE		= 4,
 	EMMGAME_ODDEVEN_FINISH		= 5,
 };
 
 enum EMMGAME_ODDEVEN_FB
 {
-	EMMGAME_ODDEVEN_FB_OK			= 0,	// ¹èÆÃ ¿Ï·á °ÔÀÓ ½ÃÀÛ
-	EMMGAME_ODDEVEN_FB_FAIL			= 1,	// °ÔÀÓ Ãë¼Ò
-	EMMGAME_ODDEVEN_FB_MONEY_FAIL	= 2,	// ¼ÒÀ¯±Ý¾× ºÎÁ·
-	EMMGAME_ODDEVEN_FB_MAXBATTING	= 3,	// ÃÖ´ë ¹èÆÃ°¡´É ±Ý¾× ÃÊ°ú
-	EMMGAME_ODDEVEN_FB_MAXROUND		= 4,	// ÃÖ´ë ¹Ýº¹ È½¼ö µµ´Þ
+	EMMGAME_ODDEVEN_FB_OK			= 0,	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMMGAME_ODDEVEN_FB_FAIL			= 1,	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	EMMGAME_ODDEVEN_FB_MONEY_FAIL	= 2,	// ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMMGAME_ODDEVEN_FB_MAXBATTING	= 3,	// ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ý¾ï¿½ ï¿½Ê°ï¿½
+	EMMGAME_ODDEVEN_FB_MAXROUND		= 4,	// ï¿½Ö´ï¿½ ï¿½Ýºï¿½ È½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	EMMGAME_ODDEVEN_FB_WIN			= 5,	// 
 	EMMGAME_ODDEVEN_FB_LOSE			= 6,	// 
-	EMMGAME_ODDEVEN_FB_AGAIN_OK		= 7,	// ¹Ýº¹ Çã¶ô
+	EMMGAME_ODDEVEN_FB_AGAIN_OK		= 7,	// ï¿½Ýºï¿½ ï¿½ï¿½ï¿½
 	EMMGAME_ODDEVEN_FB_FINISH_OK	= 8,
 };
 
@@ -172,65 +172,65 @@ enum EMMGAME_ODDEVEN_CASE
 
 enum EM2FRIEND_FB
 {
-	EM2FRIEND_FB_FAIL				= 0,	//	ÀÏ¹Ý ¿À·ù.
-	EM2FRIEND_FB_OK					= 1,	//	¼º°ø.
-	EM2FRIEND_FB_NO_ITEM			= 2,	//	¾ÆÀÌÅÛÀÌ ¾øÀ½.
-	EM2FRIEND_FB_FRIEND_CONDITION	= 3,	//	Ä£±¸ÀÇ »óÅÂ ÀÌ»ó.
-	EM2FRIEND_FB_MY_CONDITION		= 4,	//	ÀÚ½ÅÀÇ »óÅÂ ÀÌ»ó.
-	EM2FRIEND_FB_PK_CONDITION		= 5,	//	ÀÚ½ÅÀÇ »óÅÂ ÀÌ»ó.
-	EM2FRIEND_FB_MAP_CONDITION		= 6,	//	¸Ê ÁøÀÔ Á¶°Ç.
-	EM2FRIEND_FB_FRIEND_CHANNEL		= 7,	//	Ä£±¸¿Í Ã¤³ÎÀÌ Æ²¸².
-	EM2FRIEND_FB_IMMOVABLE			= 8,	//  ÁøÀÔºÒ°¡ ( ÀÌº¥Æ® Áö¿ª )
-	EM2FRIEND_FB_FRIEND_BLOCK		= 9,	//	Ä£±¸°¡ ³ª¸¦ Â÷´Ü.
-	EM2FRIEND_FB_FRIEND_OFF			= 10,	//	Ä£±¸°¡ ³ª¸¦ »èÁ¦.
+	EM2FRIEND_FB_FAIL				= 0,	//	ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EM2FRIEND_FB_OK					= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EM2FRIEND_FB_NO_ITEM			= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EM2FRIEND_FB_FRIEND_CONDITION	= 3,	//	Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½.
+	EM2FRIEND_FB_MY_CONDITION		= 4,	//	ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½.
+	EM2FRIEND_FB_PK_CONDITION		= 5,	//	ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½.
+	EM2FRIEND_FB_MAP_CONDITION		= 6,	//	ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EM2FRIEND_FB_FRIEND_CHANNEL		= 7,	//	Ä£ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½.
+	EM2FRIEND_FB_IMMOVABLE			= 8,	//  ï¿½ï¿½ï¿½ÔºÒ°ï¿½ ( ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ )
+	EM2FRIEND_FB_FRIEND_BLOCK		= 9,	//	Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EM2FRIEND_FB_FRIEND_OFF			= 10,	//	Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
 enum EMGM_MOVE2CHAR_FB
 {
-	EMGM_MOVE2CHAR_FB_FAIL				= 0,	//	ÀÏ¹Ý ¿À·ù.
-	EMGM_MOVE2CHAR_FB_OK				= 1,	//	¼º°ø.
-	EMGM_MOVE2CHAR_FB_TO_CONDITION		= 2,	//	»ó´ëÀÇ »óÅÂ ÀÌ»ó.
-	EMGM_MOVE2CHAR_FB_MY_CONDITION		= 3,	//	ÀÚ½ÅÀÇ »óÅÂ ÀÌ»ó.
-	EMGM_MOVE2CHAR_FB_CHANNEL			= 4,	//	Ã¤³ÎÀÌ Æ²¸².
+	EMGM_MOVE2CHAR_FB_FAIL				= 0,	//	ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMGM_MOVE2CHAR_FB_OK				= 1,	//	ï¿½ï¿½ï¿½ï¿½.
+	EMGM_MOVE2CHAR_FB_TO_CONDITION		= 2,	//	ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½.
+	EMGM_MOVE2CHAR_FB_MY_CONDITION		= 3,	//	ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½.
+	EMGM_MOVE2CHAR_FB_CHANNEL			= 4,	//	Ã¤ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½.
 };
 
 enum EMVEHICLE_SET_FB
 {
 
-	EMVEHICLE_SET_FB_FAIL			= 0,	// ÀÏ¹Ý¿À·ù
-	EMVEHICLE_SET_FB_OK				= 1,	// ¼º°ø
-	EMVEHICLE_SET_FB_NOTENOUGH_OIL	= 2,	// ±â¸§¾øÀ½
-	EMVEHICLE_SET_FB_MAP_FAIL		= 3,	// ºñÈ°¼ºÈ­ ¸Ê
-	EMVEHICLE_SET_FB_NO_ITEM		= 4,	// Å»°Í ¾ÆÀÌÅÛ Ã£À»¼ö ¾øÀ½
-	EMVEHICLE_SET_FB_RESET			= 5,	// ÀÌ¹Ì Å¸°Å³ª ³»·ÈÀ»¶§...
+	EMVEHICLE_SET_FB_FAIL			= 0,	// ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½
+	EMVEHICLE_SET_FB_OK				= 1,	// ï¿½ï¿½ï¿½ï¿½
+	EMVEHICLE_SET_FB_NOTENOUGH_OIL	= 2,	// ï¿½â¸§ï¿½ï¿½ï¿½ï¿½
+	EMVEHICLE_SET_FB_MAP_FAIL		= 3,	// ï¿½ï¿½È°ï¿½ï¿½È­ ï¿½ï¿½
+	EMVEHICLE_SET_FB_NO_ITEM		= 4,	// Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMVEHICLE_SET_FB_RESET			= 5,	// ï¿½Ì¹ï¿½ Å¸ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...
 };
 
 enum EMVEHICLE_GET_FB
 {
-	EMVEHICLE_GET_FB_OK			   = 0,		// ¼º°ø
-	EMVEHICLE_GET_FB_FAIL		   = 1,		// ÀÏ¹ÝÀûÀÎ ¿À·ù
-	EMVEHICLE_GET_FB_INVALIDITEM   = 2,		// ¾ÆÀÌÅÛÀÌ Á¤º¸°¡ ´Ù¸§
-	EMVEHICLE_GET_FB_NOITEM		   = 3,		// ¾ÆÀÌÅÛÀÌ ¾øÀ½
-	EMVEHICLE_GET_FB_NODATA		   = 4,		// DB¿¡ Á¤º¸ ¾øÀ½
+	EMVEHICLE_GET_FB_OK			   = 0,		// ï¿½ï¿½ï¿½ï¿½
+	EMVEHICLE_GET_FB_FAIL		   = 1,		// ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMVEHICLE_GET_FB_INVALIDITEM   = 2,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½
+	EMVEHICLE_GET_FB_NOITEM		   = 3,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMVEHICLE_GET_FB_NODATA		   = 4,		// DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 };
 
 enum EMVEHICLE_REQ_SLOT_EX_HOLD_FB
 {
-	EMVEHICLE_REQ_SLOT_EX_HOLD_FB_FAIL		  = 0,		// ÀÏ¹Ý¿À·ù.
-	EMVEHICLE_REQ_SLOT_EX_HOLD_FB_OK		  = 1,		// ¾ÆÀÌÅÛ ±³Ã¼ ¼º°ø
-	EMVEHICLE_REQ_SLOT_EX_HOLD_FB_NOMATCH	  = 2,		// Å¸ÀÔÀÌ ¸ÂÁö ¾Ê´Â ¾ÆÀÌÅÛ
-	EMVEHICLE_REQ_SLOT_EX_HOLD_FB_INVALIDITEM = 3,		// Å»°Í¿ëÀÌ ¾Æ´Ï´Ù.
+	EMVEHICLE_REQ_SLOT_EX_HOLD_FB_FAIL		  = 0,		// ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½.
+	EMVEHICLE_REQ_SLOT_EX_HOLD_FB_OK		  = 1,		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+	EMVEHICLE_REQ_SLOT_EX_HOLD_FB_NOMATCH	  = 2,		// Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	EMVEHICLE_REQ_SLOT_EX_HOLD_FB_INVALIDITEM = 3,		// Å»ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½.
 };
 
 
 enum EMVEHICLE_REQ_GIVE_BATTERY_FB
 {
-	EMVEHICLE_REQ_GIVE_BATTERY_FB_OK				= 0,	// ¼º°ø
-	EMVEHICLE_REQ_GIVE_BATTERY_FB_FAIL				= 1,	// ÀÏ¹Ý¿À·ù
-	EMVEHICLE_REQ_GIVE_BATTERY_FB_INVALIDBATTERY	= 2,	// ¹èÅÍ¸® ¾Æ´Ô
-	EMVEHICLE_REQ_GIVE_BATTERY_FB_INVALIDITEM		= 3,	// Å»°Í ¾Æ´Ô
-	EMVEHICLE_REQ_GET_BATTERY_FROMDB_OK				= 4,	// µðºñ¿¡¼­ ÀúÀå
-	EMVEHICLE_REQ_GET_BATTERY_FROMDB_FAIL			= 5,	// ½ÇÆÐ
+	EMVEHICLE_REQ_GIVE_BATTERY_FB_OK				= 0,	// ï¿½ï¿½ï¿½ï¿½
+	EMVEHICLE_REQ_GIVE_BATTERY_FB_FAIL				= 1,	// ï¿½Ï¹Ý¿ï¿½ï¿½ï¿½
+	EMVEHICLE_REQ_GIVE_BATTERY_FB_INVALIDBATTERY	= 2,	// ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Æ´ï¿½
+	EMVEHICLE_REQ_GIVE_BATTERY_FB_INVALIDITEM		= 3,	// Å»ï¿½ï¿½ ï¿½Æ´ï¿½
+	EMVEHICLE_REQ_GET_BATTERY_FROMDB_OK				= 4,	// ï¿½ï¿½ñ¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMVEHICLE_REQ_GET_BATTERY_FROMDB_FAIL			= 5,	// ï¿½ï¿½ï¿½ï¿½
 
 	EMVEHICLE_REQ_GET_COLOR_FROMDB_OK			= 6,	//add bike color
 	EMVEHICLE_REQ_GET_COLOR_FROMDB_FAIL			= 7,	//add bike color
@@ -238,34 +238,71 @@ enum EMVEHICLE_REQ_GIVE_BATTERY_FB
 
 enum EMREQ_ATTEND_FB
 {
-	EMREQ_ATTEND_FB_OK			= 0, // ¼º°ø
-	EMREQ_ATTEND_FB_FAIL		= 1, // ½ÇÆÐ
-	EMREQ_ATTEND_FB_ALREADY		= 2, // ½ÇÆÐ( ÀÌ¹Ì ÇßÀ½ ) 
-	EMREQ_ATTEND_FB_ATTENTIME	= 3, //	Á¢¼Ó½Ã°£ Ã¼Å©
+	EMREQ_ATTEND_FB_OK			= 0, // ï¿½ï¿½ï¿½ï¿½
+	EMREQ_ATTEND_FB_FAIL		= 1, // ï¿½ï¿½ï¿½ï¿½
+	EMREQ_ATTEND_FB_ALREADY		= 2, // ï¿½ï¿½ï¿½ï¿½( ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ) 
+	EMREQ_ATTEND_FB_ATTENTIME	= 3, //	ï¿½ï¿½ï¿½Ó½Ã°ï¿½ Ã¼Å©
 };
 
 enum EMREQ_GATHER_FB
 {
-	EMREQ_GATHER_FB_OK			= 0,	//	Ã¤Áý¿äÃ» ¼º°ø
-	EMREQ_GATHER_FB_FAIL		= 1,	//	Ã¤Áý¿äÃ» ½ÇÆÐ
-	EMREQ_GATHER_FB_DISTANCE	= 2,	//	Ã¤Áý °Å¸® 
+	EMREQ_GATHER_FB_OK			= 0,	//	Ã¤ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½
+	EMREQ_GATHER_FB_FAIL		= 1,	//	Ã¤ï¿½ï¿½ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½
+	EMREQ_GATHER_FB_DISTANCE	= 2,	//	Ã¤ï¿½ï¿½ ï¿½Å¸ï¿½ 
 	EMREQ_GATHER_FB_NOTTYPE		= 3,	//	Crow Type
-	EMREQ_GATHER_FB_NOCROW		= 4,	//	Crow ¾øÀ½
-	EMREQ_GATHER_FB_USE			= 5,	//	´Ù¸¥»ç¶÷ÀÌ »ç¿ëÁß
-	EMREQ_GATHER_FB_GATHERING	= 6,	//	ÀÌ¹Ì Ã¤ÁýÁßÀÓ
+	EMREQ_GATHER_FB_NOCROW		= 4,	//	Crow ï¿½ï¿½ï¿½ï¿½
+	EMREQ_GATHER_FB_USE			= 5,	//	ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+	EMREQ_GATHER_FB_GATHERING	= 6,	//	ï¿½Ì¹ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
 enum EMREQ_GATHER_RESULT
 {
-	EMREQ_GATHER_RESULT_SUCCESS		= 0,	// Ã¤Áý ¼º°ø
-	EMREQ_GATHER_RESULT_SUCCESS_EX	= 1,	// ¼º°øÀÌ³ª ¾ÆÀÌÅÛ ·çÆÃ ½ÇÆÐ
-	EMREQ_GATHER_RESULT_FAIL		= 2,	// Ã¤Áý ½ÇÆÐ
-	EMREQ_GATHER_RESULT_ITEMFAIL	= 3,	// ¾ÆÀÌÅÛ È¹µæ ½ÇÆÐ
+	EMREQ_GATHER_RESULT_SUCCESS		= 0,	// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREQ_GATHER_RESULT_SUCCESS_EX	= 1,	// ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREQ_GATHER_RESULT_FAIL		= 2,	// Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EMREQ_GATHER_RESULT_ITEMFAIL	= 3,	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 };
 
 namespace GLMSG
 {
 	#pragma pack(1)
+
+
+
+
+	struct SNETPC_RETRIEVE_POINTS
+	{
+		NET_MSG_GENERIC	nmg;
+		
+		SNETPC_RETRIEVE_POINTS()
+		{
+			nmg.dwSize = sizeof(*this);
+			nmg.nType = NET_MSG_RETRIEVE_POINTS;
+			GASSERT(nmg.dwSize<=NET_DATA_BUFSIZE);
+		}
+
+	};
+
+	
+	struct SNETPC_RETRIEVE_POINTS_FB
+	{
+		NET_MSG_GENERIC	nmg;
+		DWORD	PPoints;
+		DWORD	VPoints;
+		EMREQ_RETRIEVE_POINTS_FB emFB;
+		
+		SNETPC_RETRIEVE_POINTS_FB() : 
+			PPoints(0),
+			 VPoints(0),
+			 emFB(EMREQ_RETRIEVE_POINTS_FAIL)
+		{
+			nmg.dwSize = sizeof(*this);
+			nmg.nType = NET_MSG_RETRIEVE_POINTS_FB;
+			GASSERT(nmg.dwSize<=NET_DATA_BUFSIZE);
+		}
+	};
+
+
 
 	//--------------------------
 
@@ -2426,8 +2463,8 @@ namespace GLMSG
 	{
 		NET_MSG_GENERIC		nmg;
 		
-		SNATIVEID			sLastCallMapID;		//	Á÷Àü±ÍÈ¯ ¸Ê.
-		D3DXVECTOR3			vLastCallPos;		//	Á÷Àü±ÍÈ¯ À§Ä¡.
+		SNATIVEID			sLastCallMapID;		//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯ ï¿½ï¿½.
+		D3DXVECTOR3			vLastCallPos;		//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯ ï¿½ï¿½Ä¡.
 
 		SNETPC_UPDATE_LASTCALL () :
 			vLastCallPos(0,0,0)
@@ -2442,9 +2479,9 @@ namespace GLMSG
 	{
 		NET_MSG_GENERIC		nmg;
 		
-		SNATIVEID			sStartMapID;		// Á÷Àü±ÍÈ¯ ¸Ê
-		DWORD				dwStartGateID;		// Á÷Àü±ÍÈ¯ °ÔÀÌÆ®
-		D3DXVECTOR3			vStartPos;			// Á÷Àü±ÍÈ¯ À§Ä¡
+		SNATIVEID			sStartMapID;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯ ï¿½ï¿½
+		DWORD				dwStartGateID;		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½Æ®
+		D3DXVECTOR3			vStartPos;			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯ ï¿½ï¿½Ä¡
 
 
 		SNETPC_UPDATE_STARTCALL () :
@@ -2464,7 +2501,7 @@ namespace GLMSG
 		DWORD					dwNPCID;
 		EMMGAME_ODDEVEN			emEvent;
 		EMMGAME_ODDEVEN_CASE	emCase;
-		UINT					uiBattingMoney;		// ¹èÆÃ ±Ý¾×
+		UINT					uiBattingMoney;		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¾ï¿½
 
 		SNETPC_MGAME_ODDEVEN () :
 			dwNPCID(0),
@@ -2483,9 +2520,9 @@ namespace GLMSG
 
 		EMMGAME_ODDEVEN_FB		emResult;
 		EMMGAME_ODDEVEN_CASE	emCase;
-		ULONGLONG				ui64DividendMoney;	// ¹è´ç±Ý
-		ULONGLONG				ui64ActualMoney;	// ½Ç¼ö·É±Ý
-		WORD					wRound;				// °ÔÀÓ È¸¼ö
+		ULONGLONG				ui64DividendMoney;	// ï¿½ï¿½ï¿½ï¿½
+		ULONGLONG				ui64ActualMoney;	// ï¿½Ç¼ï¿½ï¿½É±ï¿½
+		WORD					wRound;				// ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
 
 		SNETPC_MGAME_ODDEVEN_FB () :
 			emResult(EMMGAME_ODDEVEN_FB_FAIL),
@@ -2677,8 +2714,8 @@ namespace GLMSG
 	struct SNETPC_VIETNAM_TIME_REQ_FB
 	{
 		NET_MSG_GENERIC		nmg;		
-		LONGLONG			gameTime;  //	ÀúÀåµÈ ´©Àû ½Ã°£
-		__time64_t			loginTime; //	·Î±×ÀÎ ½Ã°£
+		LONGLONG			gameTime;  //	ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+		__time64_t			loginTime; //	ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
 
 
 
@@ -2694,7 +2731,7 @@ namespace GLMSG
 	struct SNETPC_VIETNAM_GAIN_EXP
 	{
 		NET_MSG_GENERIC		nmg;		
-		LONGLONG			gainExp;   //	ÀúÀåµÈ ´©Àû °æÇèÄ¡
+		LONGLONG			gainExp;   //	ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
 
 		SNETPC_VIETNAM_GAIN_EXP () :
 							gainExp(0)
@@ -2707,7 +2744,7 @@ namespace GLMSG
 	struct SNETPC_VIETNAM_GAIN_MONEY
 	{
 		NET_MSG_GENERIC		nmg;		
-		LONGLONG			gainMoney;   //	ÀúÀåµÈ ´©Àû µ·
+		LONGLONG			gainMoney;   //	ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
 		SNETPC_VIETNAM_GAIN_MONEY () :
 							gainMoney(0)
@@ -2891,9 +2928,9 @@ namespace GLMSG
 		NET_MSG_GENERIC		nmg;
 
 		VEHICLE_TYPE		emTYPE;
-		DWORD				dwGUID;					// Å»°ÍÀÇ GUID
-		DWORD				dwOwner;					// ÁÖÀÎ GaeaID
-		SNATIVEID			sVehicleID;				// ¼ÒÈ¯À» ¿äÃ»ÇÑ Å»°Í ¾ÆÀÌÅÛÀÇ Mid/Sid
+		DWORD				dwGUID;					// Å»ï¿½ï¿½ï¿½ï¿½ GUID
+		DWORD				dwOwner;					// ï¿½ï¿½ï¿½ï¿½ GaeaID
+		SNATIVEID			sVehicleID;				// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Mid/Sid
 		int					nFull;
 		SITEMCUSTOM			PutOnItems[VEHICLE_ACCETYPE_SIZE];
 		WORD				wColor; //add bike color
@@ -2927,9 +2964,9 @@ namespace GLMSG
 	struct SNETPC_GET_VEHICLE_BRD : public SNETPC_BROAD
 	{
 	
-		DWORD				dwGUID;					// Å»°ÍÀÇ GUID
+		DWORD				dwGUID;					// Å»ï¿½ï¿½ï¿½ï¿½ GUID
 		VEHICLE_TYPE		emTYPE;
-		SNATIVEID			sVehicleID;				// ¼ÒÈ¯À» ¿äÃ»ÇÑ Å»°Í ¾ÆÀÌÅÛÀÇ Mid/Sid
+		SNATIVEID			sVehicleID;				// ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Mid/Sid
 		SITEMCUSTOM			PutOnItems[VEHICLE_ACCETYPE_SIZE];
 
 
@@ -2949,8 +2986,8 @@ namespace GLMSG
 		NET_MSG_GENERIC		nmg;
 		
 		VEHICLE_TYPE		emTYPE;
-		SNATIVEID			sVehicleID;					// Á¤º¸ ¿äÃ»ÇÑ ITEM ID
-		DWORD				dwVehicleID;				// Å»°ÍÀÇ °íÀ¯ID
+		SNATIVEID			sVehicleID;					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ITEM ID
+		DWORD				dwVehicleID;				// Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ID
 
 		enum { EMMSG_SIZE = sizeof(NET_MSG_GENERIC)+sizeof(VEHICLE_TYPE)+sizeof(SNATIVEID)+sizeof(DWORD) };
 		char				m_cBUFFER[NET_DATA_BUFSIZE-EMMSG_SIZE];
@@ -2972,7 +3009,7 @@ namespace GLMSG
 		NET_MSG_GENERIC		nmg;
 		
 		PGLVEHICLE			pVehicle;
-		DWORD				dwVehicleNum;			// ¼ÒÈ¯ ¿äÃ»ÀÇ Å»°ÍÀÇ °íÀ¯ ID
+		DWORD				dwVehicleNum;			// ï¿½ï¿½È¯ ï¿½ï¿½Ã»ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ID
 		bool				bLMTItemCheck;
 		bool				bCardInfo;
 		bool				bTrade;
@@ -3020,7 +3057,7 @@ namespace GLMSG
 		NET_MSG_GENERIC		nmg;
 		
 		VEHICLE_ACCESSORYTYPE	accetype;
-		DWORD					dwVehicleNum;			// ¼ÒÈ¯ ¿äÃ»ÀÇ Å»°ÍÀÇ °íÀ¯ ID
+		DWORD					dwVehicleNum;			// ï¿½ï¿½È¯ ï¿½ï¿½Ã»ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ID
 
 		SNET_VEHICLE_ACCESSORY_DELETE () :
 		accetype ( VEHICLE_ACCETYPE_SIZE ),

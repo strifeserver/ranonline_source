@@ -756,6 +756,17 @@ HRESULT GLCharacter::ReqVNInveReset ()
 	return S_OK;
 }
 
+
+
+HRESULT GLCharacter::ReqRetrievePoints ()
+{
+	GLMSG::SNETPC_RETRIEVE_POINTS NetMsg;
+	NETSENDTOFIELD ( &NetMsg );
+	return S_OK;
+}
+
+
+
 // *****************************************************
 // Desc: ������ ��þƮ �õ�
 // *****************************************************
@@ -3251,6 +3262,52 @@ HRESULT GLCharacter::ReqItemBankInfo ()
 
 	return S_OK;
 }
+
+
+HRESULT GLCharacter::ReqDeducPoints ( DWORD wPoint1 , DWORD wPoint2 )
+{
+	//if ( wPoint1 )
+	//	 COuterInterface::GetInstance().SetUserPointDeduc(wPoint1);
+	//else
+		// COuterInterface::GetInstance().SetUserPoint2Deduc(wPoint2);
+	return S_OK;
+}
+
+HRESULT GLCharacter::ReqItemShopInfo ()
+{
+	for (int i=0;i<13;++i)
+	{
+		m_cInvenItemShopVote[i].DeleteItemAll ();
+		m_mapItemShopVoteKey[i].clear();
+		m_cInvenItemShopPremium[i].DeleteItemAll ();
+		m_mapItemShopPremiumKey[i].clear();
+		m_cInvenItemShop[i].DeleteItemAll ();
+		m_mapItemShopKey[i].clear();
+	}
+
+	GLMSG::SNET_GET_ITEMSHOP_FROMDB NetMsg;
+	NetMsg.dwCharID = m_dwCharID;
+	StringCchCopy ( NetMsg.szUID, USR_ID_LENGTH+1, m_szUID );
+
+	NETSENDTOFIELD ( &NetMsg );
+
+	GLMSG::SNETPC_RETRIEVE_POINTS pNetMsg;
+	NETSENDTOFIELD ( &pNetMsg );
+	
+	return S_OK;
+}
+
+HRESULT GLCharacter::ReqBuyItem ( const char* szPurkey )
+{
+	if ( !IsValidBody() )						return E_FAIL;
+	
+		GLMSG::SNET_ITEMSHOP_BUY NetMsg;
+		StringCchCopy ( NetMsg.szPurKey, PURKEY_LENGTH+1, szPurkey  );
+		NETSENDTOFIELD ( &NetMsg );
+
+	return S_OK;
+}
+
 
 HRESULT GLCharacter::ReqChargedItemTo ( WORD wPosX, WORD wPosY )
 {

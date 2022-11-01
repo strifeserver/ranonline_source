@@ -6,10 +6,10 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
-// Shop ¿¡¼­ ±¸ÀÔÇÑ ¾ÆÀÌÅÛÀ» °¡Á®¿Â´Ù.
-// °¡Á®¿Â ¾ÆÀÌÅÛÀº ½ÇÁ¦·Î °¡Á® °¥ ¼ö ÀÖ´Â ¾ÆÀÌÅÛÀÌ ¾Æ´Ï´Ù.
-// ¾ÆÀÌÅÛÀ» °¡Á®°¥¶§´Â ½ÇÁ¦·Î °¡Á®°¥ ¼ö ÀÖ´ÂÁö ´Ù½Ã È®ÀÎÇØ¾ß ÇÑ´Ù. (SetPurchaseItem)
-// À¥À» ÅëÇÑ ±¸¸Å¿Í Ãë¼Ò ¹× °ÔÀÓ³» Ä³¸¯ÅÍÀÇ µ¿±âÈ­ ¹®Á¦.
+// Shop ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½.
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ È®ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ñ´ï¿½. (SetPurchaseItem)
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ó³ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½.
 int COdbcManager::GetPurchaseItem(CString strUID, std::vector<SHOPPURCHASE> &v)
 {
     ODBC_STMT* pConn = m_pShopDB->GetConnection();
@@ -40,7 +40,7 @@ int COdbcManager::GetPurchaseItem(CString strUID, std::vector<SHOPPURCHASE> &v)
 		Print(GetErrorString(pConn->hStmt));
 		m_pShopDB->FreeConnection(pConn);
 
-		//strTemp.freeze( false );	// Note : std::strstreamÀÇ freeze. ¾È ÇÏ¸é Leak ¹ß»ý.
+		//strTemp.freeze( false );	// Note : std::strstreamï¿½ï¿½ freeze. ï¿½ï¿½ ï¿½Ï¸ï¿½ Leak ï¿½ß»ï¿½.
 
         return DB_ERROR;
 	}
@@ -54,7 +54,7 @@ int COdbcManager::GetPurchaseItem(CString strUID, std::vector<SHOPPURCHASE> &v)
 			Print(GetErrorString(pConn->hStmt));
             m_pShopDB->FreeConnection(pConn);
 
-			//strTemp.freeze( false );	// Note : std::strstreamÀÇ freeze. ¾È ÇÏ¸é Leak ¹ß»ý.
+			//strTemp.freeze( false );	// Note : std::strstreamï¿½ï¿½ freeze. ï¿½ï¿½ ï¿½Ï¸ï¿½ Leak ï¿½ß»ï¿½.
 
             return DB_ERROR;
 		}
@@ -80,19 +80,117 @@ int COdbcManager::GetPurchaseItem(CString strUID, std::vector<SHOPPURCHASE> &v)
 		}
 		Sleep( 0 );
 	}
-	//strTemp.freeze( false );	// Note : std::strstreamÀÇ freeze. ¾È ÇÏ¸é Leak ¹ß»ý.
+	//strTemp.freeze( false );	// Note : std::strstreamï¿½ï¿½ freeze. ï¿½ï¿½ ï¿½Ï¸ï¿½ Leak ï¿½ß»ï¿½.
 
 	m_pShopDB->FreeConnection(pConn);
     return DB_OK;
 }
 
+
+
+int COdbcManager::GetItemShop(std::vector<ITEMSHOP> &v)
+{
+    ODBC_STMT* pConn = m_pShopDB->GetConnection();
+	if (!pConn)	return DB_ERROR;    
+
+	TCHAR szTemp[256] = {0};
+	_snprintf( szTemp, 256, "SELECT ProductNum, ItemMain, ItemSub , Itemstock , ItemPrice , ItemCtg , ItemSec , isHide FROM viewShopItemMap where Itemstock > 0 AND isHide = 0");
+
+	SQLCHAR    szPurKey[PURKEY_LENGTH+1] = {0}; SQLINTEGER cbPurKey = SQL_NTS;
+	SQLINTEGER nItemMain = 0, cbItemMain =SQL_NTS;
+    SQLINTEGER nItemSub  = 0, cbItemSub  =SQL_NTS;
+    SQLINTEGER nItemStock  = 0, cbItemStock  =SQL_NTS;
+    SQLINTEGER nItemPrice  = 0, cbItemPrice  =SQL_NTS;
+    SQLINTEGER nItemCtg  = 0, cbItemCtg  =SQL_NTS;
+	SQLINTEGER nItemCurrency = 0, cbItemCurrency =SQL_NTS;
+    SQLRETURN  sReturn=0;
+
+    sReturn = ::SQLExecDirect(pConn->hStmt,
+							(SQLCHAR*)szTemp, 
+							SQL_NTS);
+
+	if ((sReturn != SQL_SUCCESS) && (sReturn != SQL_SUCCESS_WITH_INFO)) 
+	{
+        Print(szTemp);		
+		Print(GetErrorString(pConn->hStmt));
+		m_pShopDB->FreeConnection(pConn);
+
+		//strTemp.freeze( false );	// Note : std::strstreamï¿½ï¿½ freeze. ï¿½ï¿½ ï¿½Ï¸ï¿½ Leak ï¿½ß»ï¿½.
+
+        return DB_ERROR;
+	}
+
+    while(true)
+	{
+		sReturn = ::SQLFetch(pConn->hStmt);
+		if (sReturn == SQL_ERROR || sReturn == SQL_SUCCESS_WITH_INFO)
+        {
+            Print(szTemp);		
+			Print(GetErrorString(pConn->hStmt));
+            m_pShopDB->FreeConnection(pConn);
+
+			//strTemp.freeze( false );	// Note : std::strstreamï¿½ï¿½ freeze. ï¿½ï¿½ ï¿½Ï¸ï¿½ Leak ï¿½ß»ï¿½.
+
+            return DB_ERROR;
+		}
+
+		if (sReturn == SQL_SUCCESS || sReturn == SQL_SUCCESS_WITH_INFO)
+		{   
+			::SQLGetData(pConn->hStmt, 1, SQL_C_CHAR, szPurKey,   PURKEY_LENGTH+1, &cbPurKey);
+            ::SQLGetData(pConn->hStmt, 2, SQL_C_LONG, &nItemMain, 0,             &cbItemMain);
+            ::SQLGetData(pConn->hStmt, 3, SQL_C_LONG, &nItemSub,  0,             &cbItemSub);
+            ::SQLGetData(pConn->hStmt, 4, SQL_C_LONG, &nItemStock,  0,             &cbItemStock);
+            ::SQLGetData(pConn->hStmt, 5, SQL_C_LONG, &nItemPrice,  0,             &cbItemPrice);
+            ::SQLGetData(pConn->hStmt, 6, SQL_C_LONG, &nItemCtg,  0,             &cbItemCtg);
+            ::SQLGetData(pConn->hStmt, 7, SQL_C_LONG, &nItemCurrency,  0,             &cbItemCurrency);
+
+
+            ITEMSHOP sTemp;
+			if (cbPurKey != 0 && cbPurKey != -1)
+                sTemp.strItemNum = szPurKey;
+            sTemp.sID.wMainID = static_cast<WORD> (nItemMain);
+            sTemp.sID.wSubID  = static_cast<WORD> (nItemSub);
+            sTemp.wItemStock  = static_cast<WORD> (nItemStock);
+			sTemp.wItemPrice  = static_cast<WORD> (nItemPrice);
+			sTemp.wItemCtg  = static_cast<WORD> (nItemCtg);
+			sTemp.wItemCurrency = static_cast<WORD> (nItemCurrency);
+
+            v.push_back(sTemp);
+		}
+		else
+		{
+			break;
+		}
+		Sleep( 0 );
+	}
+	//strTemp.freeze( false );	// Note : std::strstreamï¿½ï¿½ freeze. ï¿½ï¿½ ï¿½Ï¸ï¿½ Leak ï¿½ß»ï¿½.
+
+	m_pShopDB->FreeConnection(pConn);
+    return DB_OK;
+}
+
+
+
+int COdbcManager::SetItemShop(CString strItemNum, DWORD dwUserID)
+{
+	
+	TCHAR szTemp[256] = {0};
+	_snprintf( szTemp, 256, "{call sp_InsertItem2Bank('%s',%d,?)}", strItemNum.GetString() , dwUserID );
+	int nReturn = m_pShopDB->ExecuteSpInt(szTemp);
+	//CString strText;
+	//strText.Format(" returned %d",nReturn);
+	//MessageBox(NULL,strText,NULL,NULL);
+	return nReturn;
+	
+}
+
 ///////////////////////////////////////////////////////////////////////////////
-// ½ÇÁ¦·Î °¡Á®°¥ ¼ö ÀÖ´Â »óÇ°ÀÎÁö È®ÀÎÇÑ´Ù.
-// ÀÔ·Â°ª
-// nFlag  : (0 : ±¸¸Å, 1 : ±¸¸Å¿Ï·á, 2 : ±¸¸ÅÃë¼Ò½ÅÃ», 3 : ±¸¸ÅÃë¼ÒÃ³¸®)
-// Ãâ·Â°ª
-// 1 : °¡Á®°¥¼ö ÀÖÀ½
-// ÀÌ¿ÜÀÇ°ª : °¡Á®°¥¼ö ¾øÀ½
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ñ´ï¿½.
+// ï¿½Ô·Â°ï¿½
+// nFlag  : (0 : ï¿½ï¿½ï¿½ï¿½, 1 : ï¿½ï¿½ï¿½Å¿Ï·ï¿½, 2 : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò½ï¿½Ã», 3 : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½)
+// ï¿½ï¿½Â°ï¿½
+// 1 : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// ï¿½Ì¿ï¿½ï¿½Ç°ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 int COdbcManager::SetPurchaseItem(CString strPurKey, int nFlag)
 {
 	//std::strstream strTemp;
@@ -105,7 +203,7 @@ int COdbcManager::SetPurchaseItem(CString strPurKey, int nFlag)
 	_snprintf( szTemp, 256, "{call sp_purchase_change_state('%s',%d,?)}", strPurKey.GetString(), nFlag );
 
 	int nReturn = m_pShopDB->ExecuteSpInt(szTemp);
-	//strTemp.freeze( false );	// Note : std::strstreamÀÇ freeze. ¾È ÇÏ¸é Leak ¹ß»ý.
+	//strTemp.freeze( false );	// Note : std::strstreamï¿½ï¿½ freeze. ï¿½ï¿½ ï¿½Ï¸ï¿½ Leak ï¿½ß»ï¿½.
 
 	return nReturn;
 }

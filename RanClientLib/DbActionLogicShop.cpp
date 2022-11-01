@@ -11,10 +11,10 @@
 #endif
 
 /**
-* Shop ¿¡¼­ ±¸ÀÔÇÑ ¾ÆÀÌÅÛÀ» °¡Á®¿Â´Ù.
-* °¡Á®¿Â ¾ÆÀÌÅÛÀº ½ÇÁ¦·Î °¡Á® °¥ ¼ö ÀÖ´Â ¾ÆÀÌÅÛÀÌ ¾Æ´Ï´Ù.
-* ¾ÆÀÌÅÛÀ» °¡Á®°¥¶§´Â ½ÇÁ¦·Î °¡Á®°¥ ¼ö ÀÖ´ÂÁö ´Ù½Ã È®ÀÎÇØ¾ß ÇÑ´Ù.
-* À¥À» ÅëÇÑ ±¸¸Å¿Í Ãë¼Ò ¹× °ÔÀÓ³» Ä³¸¯ÅÍÀÇ µ¿±âÈ­ ¹®Á¦.
+* Shop ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï´ï¿½.
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ È®ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ñ´ï¿½.
+* ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ó³ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½.
 */
 CGetPurchaseItem::CGetPurchaseItem(
 	CString strUID,
@@ -39,13 +39,49 @@ int CGetPurchaseItem::Execute(
     return NET_OK;
 }
 
+
+
+CGetItemShop::CGetItemShop(
+	DWORD dwCharID )
+{
+	m_dwCharID = dwCharID;
+}
+
+int CGetItemShop::Execute(
+	CServer* pServer )
+{
+    m_pDbManager->GetItemShop( m_vItem );
+
+	PGLCHAR pChar = GLGaeaServer::GetInstance().GetCharID( m_dwCharID );
+	if ( pChar )
+	{
+		pChar->SETITEMSHOP( m_vItem );
+		pChar->SENDBOXITEMSHOPINFO();
+	}
+	
+    return NET_OK;
+}
+CSetItemShop::CSetItemShop(
+	CString strItemNum,
+	DWORD dwUserID )
+{
+    m_strItemNum = strItemNum;
+    m_dwUserID = dwUserID;
+}
+
+int CSetItemShop::Execute(
+	CServer* pServer )
+{
+    return m_pDbManager->SetItemShop( m_strItemNum, m_dwUserID );
+}
+
 /**
- * ½ÇÁ¦·Î °¡Á®°¥ ¼ö ÀÖ´Â »óÇ°ÀÎÁö È®ÀÎÇÑ´Ù.
- * ÀÔ·Â°ª
- * nFlag (0 : ±¸¸Å, 1 : ±¸¸Å¿Ï·á, 2 : ±¸¸ÅÃë¼Ò½ÅÃ», 3 : ±¸¸ÅÃë¼ÒÃ³¸®)
- * Ãâ·Â°ª
- * 1 : °¡Á®°¥¼ö ÀÖÀ½
- * ÀÌ¿ÜÀÇ°ª : °¡Á®°¥¼ö ¾øÀ½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ñ´ï¿½.
+ * ï¿½Ô·Â°ï¿½
+ * nFlag (0 : ï¿½ï¿½ï¿½ï¿½, 1 : ï¿½ï¿½ï¿½Å¿Ï·ï¿½, 2 : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò½ï¿½Ã», 3 : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½)
+ * ï¿½ï¿½Â°ï¿½
+ * 1 : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ * ï¿½Ì¿ï¿½ï¿½Ç°ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
  */
 CSetPurchaseItem::CSetPurchaseItem(
 	CString strPurKey,
@@ -62,7 +98,7 @@ int CSetPurchaseItem::Execute(
 }
 
 /**
-*	±¸ÀÔÇÑ ¾ÆÀÌÅÛÀ» ÀÎº¥¿¡ ³Ö±â¿¡ ½ÇÆÐÇßÀ» °æ¿ì flag ¸®¼Â.
+*	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½Ö±â¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ flag ï¿½ï¿½ï¿½ï¿½.
 */
 CPurchaseItem_Restore::CPurchaseItem_Restore(
 	CString strPurKey )
@@ -77,7 +113,7 @@ int CPurchaseItem_Restore::Execute(
 }
 
 /**
-* ±¸ÀÔÇÑ ¾ÆÀÌÅÛÀ» ÀÎº¥À¸·Î °¡Á®¿É´Ï´Ù.
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½É´Ï´ï¿½.
 */
 CPurchaseItem_Get::CPurchaseItem_Get(
 	DWORD dwClient,
@@ -105,7 +141,7 @@ int CPurchaseItem_Get::Execute(
 		int nRET = m_pDbManager->SetPurchaseItem( m_strPurKey, 1 );
 		if ( nRET==1 )
 		{
-			//	Note : ÀÎº¥¿¡ ¾ÆÀÌÅÛ ³Ö±â¸¦ ¿äÃ»ÇÑ´Ù.
+			//	Note : ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±â¸¦ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 			//
 			GLMSG::SNET_CHARGED_ITEM2_INVEN NetMsg;
 			NetMsg.dwUserID = m_dwUserID;
@@ -118,4 +154,39 @@ int CPurchaseItem_Get::Execute(
 		}
 		return nRET;
 	}
+}
+
+CItemShop_Get::CItemShop_Get(
+	DWORD dwClient,
+	DWORD dwUserID,
+	CString strPurKey )
+	:  CDbAction( dwClient )
+{	
+	m_dwUserID  = dwUserID;
+	m_dwClient  = dwClient;
+	m_strPurKey = strPurKey;
+}
+
+int CItemShop_Get::Execute(
+	CServer* pServer )
+{
+	GLMSG::SNET_ITEMSHOP_ITEM_BUY NetMsg;
+	int nRET = m_pDbManager->SetItemShop( m_strPurKey, m_dwUserID );
+	if ( nRET == 1 )
+	{
+		//MessageBox(NULL,"TEST ITEMSHOP_ITEM_BUY 1",NULL,NULL);
+		NetMsg.dwUserID = m_dwUserID;
+		NetMsg.bBuy = true;
+	}else 
+	{
+		//MessageBox(NULL,"TEST ITEMSHOP_ITEM_BUY",NULL,NULL);
+		NetMsg.bBuy = false;
+	}
+	CFieldServer* pTemp = reinterpret_cast<CFieldServer*> (pServer);
+	if ( pTemp ) 
+	{
+		//MessageBox(NULL,"TEST ITEMSHOP_ITEM_BUY INIT",NULL,NULL);
+		pTemp->InsertMsg ( m_dwClient, (char*) &NetMsg );
+	}
+	return nRET;
 }

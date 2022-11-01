@@ -327,21 +327,21 @@ protected:
 protected:
 	BOOL					m_bUpdate;
 	bool					m_bEmulator;
-	bool					m_bReservedStop;		// ¼­¹ö Á¤Áö ¿¹¾à
+	bool					m_bReservedStop;		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	bool					m_bGenItemHold;
-	bool					m_bClubBattleStarted;	// ¼±µµÀü ½ÃÀÛÇß´ÂÁö À¯¹«
-	bool					m_bClubDMStarted;		// Å¬·´µ¥½º¸ÅÄ¡ ½ÃÀÛ¿©ºÎ
+	bool					m_bClubBattleStarted;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	bool					m_bClubDMStarted;		// Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½
 	bool					m_bSchoolWarsStarted;
 	bool					m_bRoyalRumbleStarted;
 	bool					m_bTowerWarsStarted;
 
-	//float					m_fMaxDelayMsgProc;		//	¸Þ½ÃÁö Ã³¸®ÀÇ ÃÖ´ë Áö¿¬ ½Ã°£.  ( ¼­¹ö Flip Time )
+	//float					m_fMaxDelayMsgProc;		//	ï¿½Þ½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½.  ( ï¿½ï¿½ï¿½ï¿½ Flip Time )
 
 	DWORD					m_dwMaxClient;
-	PGLCHAR*				m_PCArray;				//	PC ¹è¿­.
+	PGLCHAR*				m_PCArray;				//	PC ï¿½è¿­.
 	
-	GLCHARLIST				m_GaeaPCList;			//	PC ¸®½ºÆ®.
+	GLCHARLIST				m_GaeaPCList;			//	PC ï¿½ï¿½ï¿½ï¿½Æ®.
 	GLCHAR_MAP				m_PCNameMap;			//	PC Name map.
 	CLIENTMAP				m_PCClientIDMAP;		//	PC ClientID map.
 	CLIENTMAP				m_mapCHARID;			//	CID map.
@@ -349,27 +349,27 @@ protected:
 	// PET
 	PGLPETFIELD*			m_PETArray;
 	CMemPool<GLPetField>	m_poolPET;
-	CMList<DWORD>			m_FreePETGIDs;			//	¹Ì»ç¿ëµÈ PET GlobID µé.
+	CMList<DWORD>			m_FreePETGIDs;			//	ï¿½Ì»ï¿½ï¿½ï¿½ PET GlobID ï¿½ï¿½.
 	VPETID					m_reqDropOutPet;		//  DropOutPet PET GUID
 
 	// Summon
 	PGLSUMMONFIELD*			m_SummonArray;
 	CMemPool<GLSummonField>	m_poolSummon;
-	CMList<DWORD>			m_FreeSummonGIDs;			//	¹Ì»ç¿ëµÈ SUMMON GlobID µé.
+	CMList<DWORD>			m_FreeSummonGIDs;			//	ï¿½Ì»ï¿½ï¿½ï¿½ SUMMON GlobID ï¿½ï¿½.
 	VSUMMONID				m_reqDropOutSummon;		//  DropOutSummon SUMMON GUID
 
-	GLLandMan*				m_pLandMan[MAXLANDMID][MAXLANDSID];	// ·£µå Æ÷ÀÎÅÍ.
+	GLLandMan*				m_pLandMan[MAXLANDMID][MAXLANDSID];	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	VEC_LANDMAN				m_vecLandMan;
 
-	VEC_INSTANT_MAPID		m_vecInstantMapId;						// ÀÎ´ø ¸Ê ¾ÆÀÌµð º¤ÅÍ
-	VEC_LANDMAN				m_vecInstantMapSrcLandMan;				// ÀÎ´ø º¹»ç ´ë»ó ¸Ê º¤ÅÍ
+	VEC_INSTANT_MAPID		m_vecInstantMapId;						// ï¿½Î´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½
+	VEC_LANDMAN				m_vecInstantMapSrcLandMan;				// ï¿½Î´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	GLPartyFieldMan			m_cPartyFieldMan;
 	GLClubMan				m_cClubMan;
 
-	VPCID					m_reqDropOutChar;		//	dropout ¿äÃ».
+	VPCID					m_reqDropOutChar;		//	dropout ï¿½ï¿½Ã».
 	
-	PCID					m_reqSaveDBUserID;		//	ÀúÀå¿äÃ»ÇÑ userid.
+	PCID					m_reqSaveDBUserID;		//	ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ userid.
 
 	float					m_fTIMER_CLUB;
 
@@ -497,7 +497,7 @@ public:
 public:
 	BOOL ReserveServerStop ();
 
-	// Á¾·á½Ã ¸ðµç Å¬·´ ¹èÆ² ÁøÇà»óÈ²À» ÀúÀåÇÑ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 public:
 	BOOL SaveClubBattle();
 	void DelPlayHostileClubBattle( DWORD dwClub_P, DWORD dwClub_S );
@@ -542,7 +542,7 @@ public:
 	BOOL		RequestUsePETCARD ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNETPET_REQ_USEPETCARD* pNetMsg );
 	BOOL		RequestRevivePet ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNETPET_REQ_REVIVE* pNetMsg );
 	BOOL		RevivePet ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNETPET_REQ_REVIVE_FROMDB_FB* pNetMsg );
-	BOOL		RequestViewProperties ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNET_VIEW_PROPERTIES *pNetMsg );//¬d¬ÝÄÝ©Ê
+	BOOL		RequestViewProperties ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNET_VIEW_PROPERTIES *pNetMsg );//ï¿½dï¿½ï¿½ï¿½Ý©ï¿½
 	BOOL		ReqActiveVehicle ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNETPC_ACTIVE_VEHICLE* pNetMsg );
 	BOOL		ReqGetVehicle( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNETPC_GET_VEHICLE* pNetMsg );
 	BOOL		CreateVehicle( DWORD dwClientID, DWORD dwGaeaID, DWORD dwVehicleID );
@@ -553,12 +553,12 @@ public:
 	void		SetActiveVehicle ( DWORD dwClientID, DWORD dwGaeaID, bool bActive );
 	void		GetVehicleItemInfo ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNET_VEHICLE_REQ_ITEM_INFO* pNetMsg );
 
-	//	¿¹¾à ¸Þ½ÃÁö Ã³¸®
+	//	ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 	void		ReserveMessage( DWORD dwClientID, DWORD dwGaeaID, CTime time, LPVOID nmg );
 	void		ReserveMessage( DWORD dwClientID, DWORD dwGaeaID, DWORD dwLatterSec, LPVOID nmg );
 	void		ReserveMessageProcess();
 
-	// ¼ÒÈ¯¼ö
+	// ï¿½ï¿½È¯ï¿½ï¿½
 	BOOL		RequestSummon ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNETPC_REQ_USE_SUMMON* pNetMsg );
 
 	PGLSUMMONFIELD CreateSummon ( PGLSUMMON pSummonData, DWORD dwOwner, DWORD dwSummonID, bool bValid = true );
@@ -568,12 +568,12 @@ public:
 	void		ReserveDropOutSummon ( SDROPOUTSUMMONINFO sSummonInfo ) { m_reqDropOutSummon.push_back (sSummonInfo); }
 	void		ClearReserveDropOutSummon ();
 
-	//	ºÎÈ° ½ºÅ³ »ç¿ë ¿©ºÎ
+	//	ï¿½ï¿½È° ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void		SetNonRebirth ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNET_NON_REBIRTH_REQ* pNetMsg );
-	// QBox On/Off ¿É¼Ç
+	// QBox On/Off ï¿½É¼ï¿½
 	void		ReqQBoxEnable ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNET_QBOX_OPTION_REQ_FLD* pNetMsg );
 
-	//	Å¬·´µ¥½º¸ÅÄ¡ ·©Å· ¿äÃ»
+	//	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½Å· ï¿½ï¿½Ã»
 	BOOL	ReqClubDeathMatchRanking ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNET_CLUB_DEATHMATCH_RANKING_REQ* pNetMsg );
 	BOOL	ReqSchoolWarsRanking ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNET_SCHOOL_WARS_RANKING_REQ* pNetMsg );
 	BOOL	ReqSchoolWarsPRanking ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNET_SCHOOL_WARS_PRANKING_REQ* pNetMsg );
@@ -626,6 +626,7 @@ public:
 	BOOL RequestClubAuthority ( GLMSG::SNET_CLUB_AUTHORITY_FLD *pNetMsg );	
 
 	BOOL RequestChargedItem2Inven ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNET_CHARGED_ITEM2_INVEN *pNetMsg );
+	BOOL RequestItemShopBuyItem ( DWORD dwClientID, DWORD dwGaeaID, GLMSG::SNET_ITEMSHOP_ITEM_BUY *pNetMsg );
 
 	BOOL RequestConftSPtyExp ( GLMSG::SNET_CONFT_SPTY_EXP_FLD *pNetMsg );
 

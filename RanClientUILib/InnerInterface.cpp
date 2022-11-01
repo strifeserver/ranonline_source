@@ -107,6 +107,7 @@ void CInnerInterface::ResetControl()
 	m_pItemMove = NULL;
 	m_pBlockProgramAlarm = NULL;
 	//m_pItemBankWindow = NULL;
+	m_pItemShopWindow = NULL;
 	m_pVNGainSysInventory = NULL;
 	m_pTradeInventoryWindow = NULL;
 	m_pHeadChatDisplayMan = NULL;	
@@ -188,6 +189,7 @@ void CInnerInterface::ResetControl()
 	m_bFirstVNGainSysCall = true;	
 
 	m_fItemBankDelay = 5.0f;
+	m_fItemShopDelay = 5.0f;
 	m_pItemPreviewWindow = NULL;
 	m_pItemMixWindow = NULL;
 	m_pItemMixInvenWindow = NULL;
@@ -231,45 +233,49 @@ HRESULT CInnerInterface::FrameMove ( LPDIRECT3DDEVICEQ pd3dDevice, float fTime, 
 {
 	GASSERT( pd3dDevice );
 
-	// Å»°Í µô·¹ÀÌ ÃøÁ¤
+	// Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	m_fVehicleDelay += fElapsedTime;
 
-	//	¹«Á¶°Ç ¾È º¸ÀÌ°Ô ¸¸µê.
-	//	»ç¿ë½Ã¿¡ Update()¿¡¼­ ÄÑ°í µ¿ÀÛ.
+	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	//	ï¿½ï¿½ï¿½Ã¿ï¿½ Update()ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	HideGroup ( INFO_DISPLAY );
 	HideGroup ( INFO_DISPLAY_EX );
 
 	ResetTargetInfoCrow (); //Add new Interface
 	ResetTargetInfoCrowNpc ();
 	ResetTargetInfoCrowPlayer ();
-	ResetTargetInfo ();		//	Å¸°Ù Á¤º¸Ã¢ ¸®¼Â
+	ResetTargetInfo ();		//	Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½
 	ResetTargetInfoNpc ();
 	ResetTargetInfoPlayer ();
-	ResetCharMoveBlock ();	//	Ä³¸¯ÅÍ ¿òÁ÷ÀÓ Àá±Ý Ç®±â	
-	ResetSnapItem ();		//	¾ÆÀÌÅÛ ½º³À ¸®¼Â
-	ResetFirstItemSlot ();	//	¾ÆÀÌÅÛ½½·Ô ºÙ±â ¸®¼Â
+	ResetCharMoveBlock ();	//	Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½	
+	ResetSnapItem ();		//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	ResetFirstItemSlot ();	//	ï¿½ï¿½ï¿½ï¿½ï¿½Û½ï¿½ï¿½ï¿½ ï¿½Ù±ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	m_bUSING_INFO_DISPLAY = false;
 
 
-	// ¾ÆÀÌÅÛ ¹ðÅ©Ã¢ µô·¹ÀÌ ÃøÁ¤
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( !IsVisibleGroup( INVENTORY_WINDOW ) && m_fItemBankDelay < 5.0f )
 	{
 		m_fItemBankDelay += fElapsedTime;
+	}
+	if( !IsVisibleGroup( ITEMSHOP_WINDOW ) && m_fItemShopDelay < 5.0f )
+	{
+		m_fItemShopDelay += fElapsedTime;
 	}
 
 	bool bKEYBOARD_BLOCK = false;
 	if( IsVisibleGroup ( MODAL_WINDOW ) ||
 		IsVisibleGroup ( REBIRTH_DIALOGUE ) ||
-		//IsVisibleGroup ( HELP_WINDOW ) ||	// À¥ ºê¶ó¿ìÀú¿ë, ¾ÆÁ÷ »ç¿ë ¾ÈÇÔ ( ÁØÇõ )
+		//IsVisibleGroup ( HELP_WINDOW ) ||	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½ )
 		IsVisibleGroup ( ITEMSHOP_WINDOW ) ||
 		DXInputString::GetInstance().IsOn () )
 	{
 		bKEYBOARD_BLOCK = true;
 	}
 
-	// WebBrowser°¡ ¹ÝÅõ¸íÀÌ Áö¿øµÇÁö ¾ÊÀ¸¹Ç·Î
-	// ÇÊ¿äÇÑ »óÈ²¿¡¼­´Â HELP_WINDOW¸¦ ´Ý´Â´Ù ( ÁØÇõ )
+	// WebBrowserï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½
+	// ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ HELP_WINDOWï¿½ï¿½ ï¿½Ý´Â´ï¿½ ( ï¿½ï¿½ï¿½ï¿½ )
 	if( CCommonWeb::Get()->GetCreate() )
 	{
 		if( IsVisibleGroup ( MODAL_WINDOW ) ||
@@ -444,17 +450,17 @@ void CInnerInterface::UpdateShortcutBefore ()
 				return ;
 			}
 
-			//	ÆÄÆ¼
-			GLPARTY_CLIENT *pMaster = GLPartyClient::GetInstance().GetMaster();	//	¸¶½ºÅÍ
+			//	ï¿½ï¿½Æ¼
+			GLPARTY_CLIENT *pMaster = GLPartyClient::GetInstance().GetMaster();	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if ( pMaster )
 			{
 				GLCharacter *pMyCharacter = GLGaeaClient::GetInstance().GetCharacter();			
 
-				if ( pMyCharacter->GetConfting().IsCONFRONTING() )	//	ÆÄÆ¼ ´ë·Ã ÁßÀÎ°¡?
+				if ( pMyCharacter->GetConfting().IsCONFRONTING() )	//	ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î°ï¿½?
 				{
 					m_pNameDisplayMan->SetNameType ( NAME_DISPLAY_PARTY_CONFT );			
 				}
-				else	//	ÆÄÆ¼ ±¸¼º µÈ °æ¿ì
+				else	//	ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 				{
 					m_pNameDisplayMan->SetNameType ( NAME_DISPLAY_PARTY );		
 				}
@@ -462,7 +468,7 @@ void CInnerInterface::UpdateShortcutBefore ()
 			}
 			else
 			{
-				//	¹«Á¶°Ç »Ñ¸²
+				//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¸ï¿½
 				m_pNameDisplayMan->SetNameType ( NAME_DISPLAY_DEFAULT );
 				ShowGroupBottom ( NAME_DISPLAY_MAN );
 			}
@@ -477,9 +483,9 @@ void CInnerInterface::UpdateShortcutAfter ()
 		bool bALLHIDE = true;
 
 		//	NOTE
-		//		µ¿½Ã¿¡ µÎ °÷¿¡¼­ FocusList¿¡
-		//		Á¢±ÙÇÒ °¡´É¼ºÀÌ ¾ø´Ù´Â °¡Á¤ÀÌ ÀÖ¾î¾ß ÇÑ´Ù.
-		//		À§ÇèÇÏ±º ¤Ñ.¤Ñ
+		//		ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ FocusListï¿½ï¿½
+		//		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½Ñ´ï¿½.
+		//		ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½.ï¿½ï¿½
 		CUIFocusContainer::UICONTROL_FOCUSLIST list = GetFocusList()->GetFocusList ();
 		CUIFocusContainer::UICONTROL_FOCUSLIST_RITER riter = list.rbegin ();
 		CUIFocusContainer::UICONTROL_FOCUSLIST_RITER riter_end = list.rend ();
@@ -527,7 +533,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 				else if ( cID == MINIPARTY_WINDOW )
 				{
 					ShowGroupBottom ( MINIPARTY_OPEN );
-// #ifdef CH_PARAM // Áß±¹ ÀÎÅÍÆäÀÌ½º º¯°æ
+// #ifdef CH_PARAM // ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //					UpdatePotionTrayPosition();
 // #endif
 				}
@@ -547,11 +553,11 @@ void CInnerInterface::UpdateShortcutAfter ()
 				{
 					CloseItemRebuildWindow();
 				}
-				else if( cID == ITEM_GARBAGE_WINDOW || cID == GARBAGEINVENTORY_WINDOW )	// ÈÞÁöÅë
+				else if( cID == ITEM_GARBAGE_WINDOW || cID == GARBAGEINVENTORY_WINDOW )	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				{
 					CloseItemGarbageWindow();
 				}
-				else if( cID == ITEM_MIX_WINDOW || cID == ITEM_MIX_INVEN_WINDOW )	// ¾ÆÀÌÅÛ Á¶ÇÕ
+				else if( cID == ITEM_MIX_WINDOW || cID == ITEM_MIX_INVEN_WINDOW )	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				{
 					CloseItemMixWindow();
 				}
@@ -615,7 +621,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 		}
 	}
 
-	// Tab Key ¿¹¾àÁßÀÌ¶ó¸é
+	// Tab Key ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
 	if ( m_bTabReserve ) 
 	{
 		if ( !GLGaeaClient::GetInstance().GetCharacter()->IsACTION(GLAT_SKILL) )
@@ -634,7 +640,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 			{
 				if (GLCONST_CHAR::bDUAL_WEAPON_BRAWLER )
 				{
-				// ½ºÅ³ »ç¿ëÁßÀ¸·Î ½ÇÆÐÇÏ¸é Tab Key ¿¹¾à
+				// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ Tab Key ï¿½ï¿½ï¿½ï¿½
 					if ( E_FAIL == GLGaeaClient::GetInstance().GetCharacter()->ReqSlotChange() )
 						m_bTabReserve = true;
 				}
@@ -643,7 +649,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 			{
 				if (GLCONST_CHAR::bDUAL_WEAPON_SWORDSMAN )
 				{
-				// ½ºÅ³ »ç¿ëÁßÀ¸·Î ½ÇÆÐÇÏ¸é Tab Key ¿¹¾à
+				// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ Tab Key ï¿½ï¿½ï¿½ï¿½
 					if ( E_FAIL == GLGaeaClient::GetInstance().GetCharacter()->ReqSlotChange() )
 						m_bTabReserve = true;
 				}
@@ -652,7 +658,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 			{
 				if (GLCONST_CHAR::bDUAL_WEAPON_ARCHER)
 				{
-				// ½ºÅ³ »ç¿ëÁßÀ¸·Î ½ÇÆÐÇÏ¸é Tab Key ¿¹¾à
+				// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ Tab Key ï¿½ï¿½ï¿½ï¿½
 					if ( E_FAIL == GLGaeaClient::GetInstance().GetCharacter()->ReqSlotChange() )
 						m_bTabReserve = true;
 				}
@@ -661,7 +667,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 			{
 				if (GLCONST_CHAR::bDUAL_WEAPON_SHAMMAN )
 				{
-				// ½ºÅ³ »ç¿ëÁßÀ¸·Î ½ÇÆÐÇÏ¸é Tab Key ¿¹¾à
+				// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ Tab Key ï¿½ï¿½ï¿½ï¿½
 					if ( E_FAIL == GLGaeaClient::GetInstance().GetCharacter()->ReqSlotChange() )
 						m_bTabReserve = true;
 				}
@@ -670,7 +676,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 			{
 				if (GLCONST_CHAR::bDUAL_WEAPON_EXTREME )
 				{
-				// ½ºÅ³ »ç¿ëÁßÀ¸·Î ½ÇÆÐÇÏ¸é Tab Key ¿¹¾à
+				// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ Tab Key ï¿½ï¿½ï¿½ï¿½
 					if ( E_FAIL == GLGaeaClient::GetInstance().GetCharacter()->ReqSlotChange() )
 						m_bTabReserve = true;
 				}
@@ -679,7 +685,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 			{
 				if (GLCONST_CHAR::bDUAL_WEAPON_SCIENCE )
 				{
-				// ½ºÅ³ »ç¿ëÁßÀ¸·Î ½ÇÆÐÇÏ¸é Tab Key ¿¹¾à
+				// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ Tab Key ï¿½ï¿½ï¿½ï¿½
 					if ( E_FAIL == GLGaeaClient::GetInstance().GetCharacter()->ReqSlotChange() )
 						m_bTabReserve = true;
 				}
@@ -688,7 +694,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 			{
 				if (GLCONST_CHAR::bDUAL_WEAPON_ASSASIN )
 				{
-				// ½ºÅ³ »ç¿ëÁßÀ¸·Î ½ÇÆÐÇÏ¸é Tab Key ¿¹¾à
+				// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ Tab Key ï¿½ï¿½ï¿½ï¿½
 					if ( E_FAIL == GLGaeaClient::GetInstance().GetCharacter()->ReqSlotChange() )
 						m_bTabReserve = true;
 				}
@@ -697,7 +703,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 			{
 				if (GLCONST_CHAR::bDUAL_WEAPON_TESTING )
 				{
-				// ½ºÅ³ »ç¿ëÁßÀ¸·Î ½ÇÆÐÇÏ¸é Tab Key ¿¹¾à
+				// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ Tab Key ï¿½ï¿½ï¿½ï¿½
 					if ( E_FAIL == GLGaeaClient::GetInstance().GetCharacter()->ReqSlotChange() )
 						m_bTabReserve = true;
 				}
@@ -723,10 +729,19 @@ void CInnerInterface::UpdateShortcutAfter ()
 			return;
 		}
 
-		pCharacter->ReqSetVehicle( !pCharacter->m_bVehicle ); // È°¼º ºñÈ°¼º
+		pCharacter->ReqSetVehicle( !pCharacter->m_bVehicle ); // È°ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½
 		m_fVehicleDelay = 0.0f;
 	}
 
+	if ( UIKeyCheck::GetInstance()->CheckSimple ( RANPARAM::MenuShotcut[SHOTCUT_ITEMSHOP], DXKEY_DOWN ) )
+	{
+		if ( GLTradeClient::GetInstance().Valid() ) return;
+		GLCharacter* const pCharacter = GLGaeaClient::GetInstance().GetCharacter ();
+
+		if ( IsVisibleGroup ( ITEMSHOP_WINDOW ) )	HideGroup ( ITEMSHOP_WINDOW );
+		else										SetItemShopWindowOpen ();
+
+	}
 
 	if ( UIKeyCheck::GetInstance()->CheckSimple ( DIK_LMENU, DXKEY_PRESSED ) )
 	{
@@ -741,7 +756,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 	GLCharacter* const pCharacter = GLGaeaClient::GetInstance().GetCharacter ();
 	if ( pCharacter )
 	{
-		//	Äü ½ºÅ³
+		//	ï¿½ï¿½ ï¿½ï¿½Å³
 		for( int i = 0; i < QUICK_SKILL_SLOT_MAX; ++i)
 		{
             if ( UIKeyCheck::GetInstance()->Check ( RANPARAM::SkillSlot[i], DXKEY_DOWN ) )
@@ -775,7 +790,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 		}
 	}
 
-////#ifdef _RELEASED // ¼ÒÈ¯¼ö ³»ºÎ¿¡¼­¸¸ µÇ°Ô ¸·À½
+////#ifdef _RELEASED // ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	if ( GLCONST_CHAR::wENABLE_SUMMON > 0 )
 //	{
 //		if ( UIKeyCheck::GetInstance()->CheckSimple( DIK_SLASH, DXKEY_DOWN ) )
@@ -1010,7 +1025,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 	/////////////////////////
 
 
-//#if defined ( CH_PARAM ) || defined ( TH_PARAM ) || defined( PH_PARAM ) || defined ( JP_PARAM ) || defined( _RELEASED ) // ÇÊ¸®ÇÉ ¾ÆÀÌÅÛ¼¥
+//#if defined ( CH_PARAM ) || defined ( TH_PARAM ) || defined( PH_PARAM ) || defined ( JP_PARAM ) || defined( _RELEASED ) // ï¿½Ê¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¼ï¿½
 	if ( UIKeyCheck::GetInstance()->Check ( RANPARAM::MenuShotcut[SHOTCUT_ITEMSHOP], DXKEY_DOWN) )
 	{
 		if ( !IsVisibleGroup ( ITEMSHOP_WINDOW ) )
@@ -1096,7 +1111,7 @@ void CInnerInterface::UpdateShortcutAfter ()
 		}
 	}
 
-//#ifndef CH_PARAM // Áß±¹ ÀÎÅÍÆäÀÌ½º º¯°æ
+//#ifndef CH_PARAM // ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( UIKeyCheck::GetInstance()->Check ( DIK_GRAVE, DXKEY_DOWN ) ||
 		UIKeyCheck::GetInstance()->Check ( DIK_Y, DXKEY_DOWN ) )
 	{
@@ -1202,7 +1217,7 @@ void CInnerInterface::UpdateStatus ()
 	}
 	
 	
-	//	Ä³¸¯ÅÍ »ýÁ¸ »óÅÂ È®ÀÎ
+	//	Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 	if ( pCharacter->IsDie () )
 	{
 		if ( !IsVisibleGroup ( REBIRTH_DIALOGUE ) )
@@ -1211,7 +1226,7 @@ void CInnerInterface::UpdateStatus ()
 			bool bAutoRebirth = false;
 			bool bCantUseRebirth = FALSE;
 
-			//	±ÍÈ¥ÁÖ Äð Å¸ÀÓ Ã¼Å©
+			//	ï¿½ï¿½È¥ï¿½ï¿½ ï¿½ï¿½ Å¸ï¿½ï¿½ Ã¼Å©
 			if ( bItemRebirth ) 
 			{
 				SITEM* pITEM = pCharacter->GET_SLOT_ITEMDATA(SLOT_NECK);
@@ -1229,7 +1244,7 @@ void CInnerInterface::UpdateStatus ()
 
 			if ( bItemRebirth )
 			{
-				// ¼Ò¸ð¼º ±ÍÈ¥ÁÖÀÌ¸é ÀÚµ¿ ±ÍÈ¥ÁÖ »ç¿ë
+				// ï¿½Ò¸ï¿½ ï¿½ï¿½È¥ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Úµï¿½ ï¿½ï¿½È¥ï¿½ï¿½ ï¿½ï¿½ï¿½
 				SITEM* pITEM = pCharacter->GET_SLOT_ITEMDATA(SLOT_NECK);
 				if ( pITEM && !pITEM->ISINSTANCE() ) bAutoRebirth = true;
 			}
@@ -1246,7 +1261,7 @@ void CInnerInterface::UpdateStatus ()
 
 		if ( IsGateOpen () )
 		{
-			//	¸¸¾à ¸Ê ÀÌ¸§ÀÌ ¾ø´Ù¸é, ÀÌµ¿ÇÒ ¼ö ¾ø´Ù.
+			//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½, ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			if ( m_pMapMoveDisplay )
 			{
 				CString strMapName = pCharacter->DetectGateToMapName();
@@ -1266,14 +1281,14 @@ void CInnerInterface::UpdateStatus ()
 		}
 	}
 
-	//	½ºÇÙ, ¿ÀÅä ÇÁ·Î¼¼½º Ã¼Å©
+	//	ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ Ã¼Å©
 	if ( IsBlockProgramFound () )
 	{
 		if ( !IsVisibleGroup ( WAITSERVER_DISPLAY ) )
 			DoModal ( ID2GAMEINTEXT("BLOCK_PROGRAM_FOUND"), MODAL_INFOMATION, OK, MODAL_CLOSEGAME );
 	}
 
-	if ( !DxGlobalStage::GetInstance().IsEmulator() )		//³×Æ®¿öÅ© ¿¬°áÀÌ ²÷¾îÁø °æ¿ì
+	if ( !DxGlobalStage::GetInstance().IsEmulator() )		//ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	{
 		if ( !DxGlobalStage::GetInstance().IsSTATE( DxGlobalStage::EM_CHANGE ) )
 		{
@@ -1308,7 +1323,7 @@ void CInnerInterface::UpdateStatus ()
 	//	}
 
 	BOOL bPartyState = FALSE;
-	GLPARTY_CLIENT *pMaster = GLPartyClient::GetInstance().GetMaster();	//	¸¶½ºÅÍ
+	GLPARTY_CLIENT *pMaster = GLPartyClient::GetInstance().GetMaster();	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if ( pMaster )
 	{
 		bPartyState = TRUE;
@@ -1328,7 +1343,7 @@ void CInnerInterface::UpdateStatus ()
 		}
 		m_bPartyStateBack = bPartyState;
 
-// #ifdef CH_PARAM // Áß±¹ ÀÎÅÍÆäÀÌ½º º¯°æ
+// #ifdef CH_PARAM // ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		UpdatePotionTrayPosition();
 // #endif
 	}
@@ -1357,7 +1372,7 @@ void CInnerInterface::MoveBasicInfoWindow ()
 {
 	CUIControl * pControl(NULL);
 
-//#ifdef CH_PARAM // Áß±¹ ÀÎÅÍÆäÀÌ½º º¯°æ
+//#ifdef CH_PARAM // ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	pControl = m_pBasicQuickSkillSlot;
 //#else
 	pControl = m_pUILeftTopGroup;
@@ -1378,7 +1393,7 @@ void CInnerInterface::MoveBasicInfoWindow ()
 	const D3DXVECTOR2 vDist = vBasicInfoViewDummy - vBasicInfoView;
 	const float fDist = D3DXVec2LengthSq ( &vDist );
 
-	if ( fDist > 900.0f )	//	ÄÁÆ®·ÑÀÌ ¶³¾îÁ³³ª?
+	if ( fDist > 900.0f )	//	ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?
 	{	
 		if ( vBasicInfoViewDummy != vLeftTopGroup ) pControl->SetGlobalPos ( vBasicInfoViewDummy );
 	}
@@ -1393,7 +1408,7 @@ void CInnerInterface::BasicInfoViewDoubleClick()
 {
 	CUIControl * pControl(NULL);
 
-//#ifdef CH_PARAM // Áß±¹ ÀÎÅÍÆäÀÌ½º º¯°æ
+//#ifdef CH_PARAM // ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	pControl = m_pBasicQuickSkillSlot;
 //#else
 	pControl = m_pUILeftTopGroup;
@@ -1418,7 +1433,7 @@ void CInnerInterface::BasicInfoViewDoubleClick()
 //************************************
 BOOL CInnerInterface::IsOpenWindowToMoveBlock()
 {
-	// ¿©±â¿¡ Ãß°¡µÇ´Â ÄÁÆ®·ÑÀº ¹ÝµíÀÌ InitDeviceObjects¿¡¼­ »ý¼º½Ã SetVisibleSingle( FALSE )¸¦ ÇØÁà¾ß ÇÑ´Ù.
+	// ï¿½ï¿½ï¿½â¿¡ ï¿½ß°ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ýµï¿½ï¿½ï¿½ InitDeviceObjectsï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SetVisibleSingle( FALSE )ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 	if( IsVisibleGroup( TRADE_WINDOW ) || 
 		IsVisibleGroup( TRADEINVENTORY_WINDOW ) || 
 		IsVisibleGroup( MARKET_WINDOW ) || 
@@ -1438,10 +1453,10 @@ BOOL CInnerInterface::IsOpenWindowToMoveBlock()
 		IsVisibleGroup( ITEM_REBUILD_WINDOW ) || 
 		IsVisibleGroup( REBUILDINVENTORY_WINDOW ) ||	// ITEMREBUILD_MARK
 		IsVisibleGroup( ITEM_GARBAGE_WINDOW ) || 
-		IsVisibleGroup( GARBAGEINVENTORY_WINDOW ) ||	// ÈÞÁöÅë
+		IsVisibleGroup( GARBAGEINVENTORY_WINDOW ) ||	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		IsVisibleGroup( ITEMSHOP_WINDOW ) ||
 		IsVisibleGroup( ITEM_SHOP_SEARCH_WINDOW ) ||
-		IsVisibleGroup( ITEM_SEARCH_RESULT_WINDOW ) || // ¾ÆÀÌÅÛ °Ë»ö Ã¢
+		IsVisibleGroup( ITEM_SEARCH_RESULT_WINDOW ) || // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ Ã¢
 		IsVisibleGroup( PETSKIN_MIX_IMAGE_WINDOW ) ||
 		IsVisibleGroup( ITEM_MIX_WINDOW ) ||
 		IsVisibleGroup( ITEM_MIX_INVEN_WINDOW ) )
@@ -1456,7 +1471,7 @@ BOOL CInnerInterface::IsOpenWindowToMoveBlock()
 }
 
 /*
-#ifdef CH_PARAM // Áß±¹ ÀÎÅÍÆäÀÌ½º º¯°æ
+#ifdef CH_PARAM // ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void CInnerInterface::UpdatePotionTrayPosition()
 {
 	m_pUILeftTopGroup->SetGlobalPos( m_pBasicPotionTrayDummy->GetGlobalPos() );
@@ -1468,7 +1483,7 @@ void CInnerInterface::UpdatePotionTrayPosition()
 	if( bVisibleQuest && bVisibleMini ) return;
 
 	UIRECT rcDummy = m_pUILeftTopGroup->GetGlobalPos();
-	rcDummy.left += 41; // Äù½ºÆ®, ¹Ì´ÏÆÄÆ¼ ¹öÆ°ÀÇ °¡·Î Å©±â°¡ 41
+	rcDummy.left += 41; // ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½Ì´ï¿½ï¿½ï¿½Æ¼ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½â°¡ 41
 	rcDummy.right = rcDummy.left + rcDummy.sizeX;
 	m_pUILeftTopGroup->SetGlobalPos( rcDummy );
 
@@ -1516,7 +1531,7 @@ bool CInnerInterface::ItemShopAuth ()
 
 	m_bItemShopLoad = true;
 
-	// ·Îµù ¿Ï·á ¸Þ¼¼Áö°¡ ¿Ã¶§±îÁö ±â´Ù¸°´Ù.
+	// ï¿½Îµï¿½ ï¿½Ï·ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½.
 	return false;
 #endif	
 	return true;

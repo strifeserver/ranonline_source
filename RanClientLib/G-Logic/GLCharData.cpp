@@ -11,16 +11,16 @@ DWORD SCHARSKILL::SIZE		= sizeof(SCHARSKILL);
 
 bool SCHARDATA::IsKEEP_STORAGE ( DWORD dwCHANNEL )
 {
-	//	±âº» Ã¢°íÀÏ °æ¿ì Âü.
+	//	ï¿½âº» Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½.
 	if ( EMSTORAGE_CHANNEL_DEF <= dwCHANNEL && dwCHANNEL < EMSTORAGE_CHANNEL_DEF+EMSTORAGE_CHANNEL_DEF_SIZE )				return true;
 
-	//	Ãß°¡ Ã¢°íÀÏ °æ¿ì.
+	//	ï¿½ß°ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	if ( EMSTORAGE_CHANNEL_SPAN <= dwCHANNEL && dwCHANNEL < EMSTORAGE_CHANNEL_SPAN+EMSTORAGE_CHANNEL_SPAN_SIZE )
 	{
 		return m_bSTORAGE[dwCHANNEL-EMSTORAGE_CHANNEL_SPAN];
 	}
 
-	//	Ãß°¡ Ã¢°íÀÏ °æ¿ì.
+	//	ï¿½ß°ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	if ( EMSTORAGE_CHANNEL_PREMIUM <= dwCHANNEL && dwCHANNEL < EMSTORAGE_CHANNEL_PREMIUM+EMSTORAGE_CHANNEL_PREMIUM_SIZE )
 	{
 		return m_bPREMIUM;
@@ -31,16 +31,16 @@ bool SCHARDATA::IsKEEP_STORAGE ( DWORD dwCHANNEL )
 
 CTime SCHARDATA::GetStorageTime (  DWORD dwCHANNEL )
 {
-	//	±âº» Ã¢°íÀÏ °æ¿ì Âü.
+	//	ï¿½âº» Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½.
 	if ( EMSTORAGE_CHANNEL_DEF <= dwCHANNEL && dwCHANNEL < EMSTORAGE_CHANNEL_DEF+EMSTORAGE_CHANNEL_DEF_SIZE )				return CTime(0);
 
-	//	Ãß°¡ Ã¢°íÀÏ °æ¿ì.
+	//	ï¿½ß°ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	if ( EMSTORAGE_CHANNEL_SPAN <= dwCHANNEL && dwCHANNEL < EMSTORAGE_CHANNEL_SPAN+EMSTORAGE_CHANNEL_SPAN_SIZE )
 	{
 		return CTime(m_tSTORAGE[dwCHANNEL-EMSTORAGE_CHANNEL_SPAN]);
 	}
 
-	//	Ãß°¡ Ã¢°íÀÏ °æ¿ì.
+	//	ï¿½ß°ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	if ( EMSTORAGE_CHANNEL_PREMIUM <= dwCHANNEL && dwCHANNEL < EMSTORAGE_CHANNEL_PREMIUM+EMSTORAGE_CHANNEL_PREMIUM_SIZE )
 	{
 		return CTime(0);
@@ -97,6 +97,13 @@ SCHARDATA2::SCHARDATA2() :
 
 	m_cInvenCharged.SetState ( CHARGED_INVEN_X, CHARGED_INVEN_Y );
 
+	for( int i=0;i<13; i++)
+	{
+		m_cInvenItemShop[i].SetState ( ITEMSHOP_INVEN_X-2, 50 );
+		m_cInvenItemShopVote[i].SetState ( ITEMSHOP_INVEN_X-2, 50 );
+		m_cInvenItemShopPremium[i].SetState ( ITEMSHOP_INVEN_X-2, 50 );
+	}
+
 	InitRebuildData();	// ITEMREBUILD_MARK
 	CloseRebuild();
 }
@@ -135,6 +142,22 @@ void SCHARDATA2::Assign ( SCHARDATA2 &sDATA )
 	m_mapCharged = sDATA.m_mapCharged;
 	m_cInvenCharged.Assign ( sDATA.m_cInvenCharged );
 	m_mapChargedKey = sDATA.m_mapChargedKey;
+	for ( int i=0; i<13; i++ )
+	{	
+
+		m_cInvenItemShop[i].Assign ( sDATA.m_cInvenItemShop[i] );
+		m_mapItemShopKey[i] = sDATA.m_mapItemShopKey[i];
+
+		m_cInvenItemShopVote[i].Assign ( sDATA.m_cInvenItemShopVote[i] );
+		m_mapItemShopVoteKey[i] = sDATA.m_mapItemShopVoteKey[i];
+
+		
+		m_cInvenItemShopPremium[i].Assign ( sDATA.m_cInvenItemShopPremium[i] );
+		m_mapItemShopPremiumKey[i] = sDATA.m_mapItemShopPremiumKey[i];
+
+	}
+	
+	m_mapItemShop = sDATA.m_mapItemShop;
 
 	m_sStartMapID = sDATA.m_sStartMapID;
 	m_dwStartGate = sDATA.m_dwStartGate;
@@ -156,7 +179,7 @@ void SCHARDATA2::Assign ( SCHARDATA2 &sDATA )
 	m_sSummonPosionID	= sDATA.m_sSummonPosionID;
 
 	m_dwThaiCCafeClass	= sDATA.m_dwThaiCCafeClass;
-	m_nMyCCafeClass		= sDATA.m_nMyCCafeClass;					// ¸»·¹ÀÌ½Ã¾Æ PC¹æ ÀÌº¥Æ®
+	m_nMyCCafeClass		= sDATA.m_nMyCCafeClass;					// ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã¾ï¿½ PCï¿½ï¿½ ï¿½Ìºï¿½Æ®
 }
 
 BOOL SCHARDATA2::SETEXPSKILLS_BYBUF ( CByteStream &ByteStream )
@@ -374,7 +397,7 @@ BOOL SCHARDATA2::SETINVENTORY_BYBUF ( CByteStream &ByteStream )
 	BOOL bOk = cInven.SETITEM_BYBUFFER ( ByteStream );
 	if ( !bOk )		return TRUE;
 
-	// ÇÁ¸®¹Ì¾ö °è»ê.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½.
 	CalcPREMIUM();
 	m_cInventory.SetAddLine ( GetOnINVENLINE(), true );
 
@@ -439,7 +462,7 @@ BOOL SCHARDATA2::GETSTORAGE_BYBUF ( CByteStream &ByteStream ) const
 	return TRUE;
 }
 
-// º£Æ®³² Å½´Ð¹æÁö Ãß°¡¿¡ µû¸¥ Ãß°¡ ÀÎº¥Åä¸® ¼ÂÆÃ
+// ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½Ð¹ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½
 BOOL SCHARDATA2::SETVTADDINVENTORY_BYBUF ( CByteStream &ByteStream )
 {
 	if ( ByteStream.IsEmpty() )		return TRUE;
@@ -450,13 +473,13 @@ BOOL SCHARDATA2::SETVTADDINVENTORY_BYBUF ( CByteStream &ByteStream )
 
 	m_cVietnamInventory.SetAddLine ( 6, true );
 
-	// º£Æ®³² Å½´Ð ¹æÁö ¾ÆÀÌÅÛ Ç¥½Ã ÇÑ´Ù.
+	// ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½Ñ´ï¿½.
 	GLInventory::CELL_MAP* pmapITEM = cInven.GetItemList();
 	GLInventory::CELL_MAP_CITER pos = pmapITEM->begin();
 	GLInventory::CELL_MAP_CITER end = pmapITEM->end();
 	for ( ; pos!=end; ++pos )
 	{
-		// º£Æ®³² Å½´Ð ¾ÆÀÌÅÛ Ç¥½Ã
+		// ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 		(*pos).second->sItemCustom.bVietnamGainItem = true;		
 	}
 
@@ -559,7 +582,7 @@ BOOL SCHARDATA2::SETITEMCOOLTIME_BYBUF( CByteStream &ByteStream )
 	return TRUE;
 }
 
-// º£Æ®³² Å½Á÷ ¹æÁö Ãß°¡¿¡ µû¸¥ Ãß°¡ ÀÎº¥Åä¸® Á¤º¸ °¡Á®¿À±â
+// ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 BOOL SCHARDATA2::GETVTADDINVENTORYE_BYBUF ( CByteStream &ByteStream ) const
 {
 	ByteStream.ClearBuffer ();
@@ -596,6 +619,154 @@ BOOL SCHARDATA2::SETSHOPPURCHASE ( VECSHOP &vecSHOP )
 	return TRUE;
 }
 
+
+BOOL SCHARDATA2::SETITEMSHOP ( VECITEMSHOP &vecSHOP )
+{
+	m_mapItemShop.clear();
+	DWORD dwSIZE = static_cast<DWORD>(vecSHOP.size());
+	for ( DWORD i=0; i<dwSIZE; ++i )
+	{
+		const ITEMSHOP &sITEMSHOP = vecSHOP[i];
+		m_mapItemShop.insert ( std::make_pair(sITEMSHOP.strItemNum,sITEMSHOP) );
+	}
+	return TRUE;
+}
+
+BOOL SCHARDATA2::ADDITEMSHOP ( const char* szPurKey, SNATIVEID nidITEM , const WORD wPrice , const WORD wStock , WORD wItemCtg , WORD wCurrency )
+{
+	SITEMCUSTOM sCUSTOM(nidITEM);
+
+	SITEM *pITEM_DATA = GLItemMan::GetInstance().GetItem ( nidITEM );
+	if ( !pITEM_DATA )		
+	{
+		//MessageBox(NULL,"No Data Item","",NULL);
+		return FALSE;
+	}
+	sCUSTOM.wTurnNum = pITEM_DATA->GETAPPLYNUM();
+
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½ )
+	sCUSTOM.cDAMAGE = (BYTE)pITEM_DATA->sBasicOp.wGradeAttack;
+	sCUSTOM.cDEFENSE = (BYTE)pITEM_DATA->sBasicOp.wGradeDefense;
+
+	
+	if ( wCurrency == 1 )
+	{
+	WORD wPosX(0), wPosY(0);
+		m_cInvenItemShopVote[wItemCtg].FindInsrtable ( pITEM_DATA->sBasicOp.wInvenSizeX, pITEM_DATA->sBasicOp.wInvenSizeY, wPosX, wPosY );
+			BOOL bOK = m_cInvenItemShopVote[wItemCtg].InsertItem2Shop ( sCUSTOM, wPosX, wPosY ,false, wPrice , wStock , wItemCtg , wCurrency , szPurKey );
+			if ( !bOK ) 
+			{
+				CString strText;
+				strText.Format("%s %s %d",pITEM_DATA->GetName(),szPurKey,wItemCtg);
+				//MessageBox(NULL,strText,"Vote",NULL);
+				return FALSE;
+			}
+			
+			SNATIVEID nid(wPosX,wPosY);
+			m_mapItemShopVoteKey[wItemCtg].insert ( std::make_pair(nid.dwID,szPurKey) );
+		wPosX = 0, wPosY = 0;
+		m_cInvenItemShopVote[0].FindInsrtable ( pITEM_DATA->sBasicOp.wInvenSizeX, pITEM_DATA->sBasicOp.wInvenSizeY, wPosX, wPosY );
+			BOOL bOK3 = m_cInvenItemShopVote[0].InsertItem2Shop ( sCUSTOM, wPosX, wPosY ,false, wPrice , wStock , 0 , wCurrency , szPurKey );
+			if ( !bOK3 ) 
+			{
+				CString strText;
+				strText.Format("%s %s %d",pITEM_DATA->GetName(),szPurKey,0);
+				//MessageBox(NULL,strText,"Vote",NULL);
+				return FALSE; 
+			}
+			m_mapItemShopVoteKey[0].insert ( std::make_pair(nid.dwID,szPurKey) );
+
+wPosX = 0, wPosY = 0;
+		m_cInvenItemShop[wItemCtg].FindInsrtable ( pITEM_DATA->sBasicOp.wInvenSizeX, pITEM_DATA->sBasicOp.wInvenSizeY, wPosX, wPosY );
+			BOOL bOK2 = m_cInvenItemShop[wItemCtg].InsertItem2Shop ( sCUSTOM, wPosX, wPosY ,false, wPrice , wStock , wItemCtg , wCurrency , szPurKey );
+			if ( !bOK2 )
+			{
+				
+				CString strText;
+				strText.Format("%s %s %d",pITEM_DATA->GetName(),szPurKey,wItemCtg);
+				//MessageBox(NULL,strText,"All",NULL);
+				return FALSE;
+			}
+				
+			m_mapItemShopKey[wItemCtg].insert ( std::make_pair(nid.dwID,szPurKey) );
+
+	wPosX = 0, wPosY = 0;
+		m_cInvenItemShop[0].FindInsrtable ( pITEM_DATA->sBasicOp.wInvenSizeX, pITEM_DATA->sBasicOp.wInvenSizeY, wPosX, wPosY );
+			BOOL bOKALL = m_cInvenItemShop[0].InsertItem2Shop ( sCUSTOM, wPosX, wPosY ,false, wPrice , wStock , 0 , wCurrency , szPurKey );
+			if ( !bOKALL )
+			{
+				CString strText;
+				strText.Format("%s %s %d",pITEM_DATA->GetName(),szPurKey,0);
+				//MessageBox(NULL,strText,"ALL",NULL);
+				return FALSE;	
+			}
+				
+			m_mapItemShopKey[0].insert ( std::make_pair(nid.dwID,szPurKey) );
+
+		
+
+	}
+	if ( wCurrency == 2 )
+	{
+	WORD wPosX(0), wPosY(0);
+		m_cInvenItemShopPremium[wItemCtg].FindInsrtable ( pITEM_DATA->sBasicOp.wInvenSizeX, pITEM_DATA->sBasicOp.wInvenSizeY, wPosX, wPosY );
+			BOOL bOK = m_cInvenItemShopPremium[wItemCtg].InsertItem2Shop ( sCUSTOM, wPosX, wPosY ,false, wPrice , wStock , wItemCtg , wCurrency , szPurKey );
+			if ( !bOK )
+			{
+				CString strText;
+				strText.Format("%s %s %d",pITEM_DATA->GetName(),szPurKey,wItemCtg);
+				//MessageBox(NULL,strText,"Premium",NULL);
+				return FALSE;
+			} 
+			
+			SNATIVEID nid(wPosX,wPosY);
+			m_mapItemShopPremiumKey[wItemCtg].insert ( std::make_pair(nid.dwID,szPurKey) );
+
+		wPosX = 0, wPosY = 0;
+		m_cInvenItemShopPremium[0].FindInsrtable ( pITEM_DATA->sBasicOp.wInvenSizeX, pITEM_DATA->sBasicOp.wInvenSizeY, wPosX, wPosY );
+			BOOL bOK3 = m_cInvenItemShopPremium[0].InsertItem2Shop ( sCUSTOM, wPosX, wPosY ,false, wPrice , wStock , 0 , wCurrency , szPurKey );
+			if ( !bOK3 ) 
+			{
+				CString strText;
+				strText.Format("%s %s %d",pITEM_DATA->GetName(),szPurKey,0);
+				//MessageBox(NULL,strText,"Premium",NULL);
+				return FALSE;
+			}
+			m_mapItemShopPremiumKey[0].insert ( std::make_pair(nid.dwID,szPurKey) );
+
+		wPosX = 0, wPosY = 0;
+		m_cInvenItemShop[wItemCtg].FindInsrtable ( pITEM_DATA->sBasicOp.wInvenSizeX, pITEM_DATA->sBasicOp.wInvenSizeY, wPosX, wPosY );
+			BOOL bOK2 = m_cInvenItemShop[wItemCtg].InsertItem2Shop ( sCUSTOM, wPosX, wPosY ,false, wPrice , wStock , wItemCtg , wCurrency , szPurKey );
+			if ( !bOK2 )
+			{	
+				CString strText;
+				strText.Format("%s %s %d",pITEM_DATA->GetName(),szPurKey,wItemCtg);
+				//MessageBox(NULL,strText,"ALL",NULL);
+				return FALSE;	
+			}
+				
+			m_mapItemShopKey[wItemCtg].insert ( std::make_pair(nid.dwID,szPurKey) );
+
+		wPosX = 0, wPosY = 0;
+		m_cInvenItemShop[0].FindInsrtable ( pITEM_DATA->sBasicOp.wInvenSizeX, pITEM_DATA->sBasicOp.wInvenSizeY, wPosX, wPosY );
+			BOOL bOKALL = m_cInvenItemShop[0].InsertItem2Shop ( sCUSTOM, wPosX, wPosY ,false, wPrice , wStock , 0 , wCurrency , szPurKey );
+			if ( !bOKALL )
+			{
+				CString strText;
+				strText.Format("%s %s %d",pITEM_DATA->GetName(),szPurKey,0);
+				//MessageBox(NULL,strText,"ALL",NULL);
+				return FALSE;	
+			}
+				
+			m_mapItemShopKey[0].insert ( std::make_pair(nid.dwID,szPurKey) );
+
+		
+	}
+
+	return TRUE;
+}
+
+
 BOOL SCHARDATA2::ADDSHOPPURCHASE ( const char* szPurKey, SNATIVEID nidITEM )
 {
 	SITEMCUSTOM sCUSTOM(nidITEM);
@@ -605,7 +776,7 @@ BOOL SCHARDATA2::ADDSHOPPURCHASE ( const char* szPurKey, SNATIVEID nidITEM )
 
 	sCUSTOM.wTurnNum = pITEM_DATA->GETAPPLYNUM();
 
-	// ¾ÆÀÌÅÛ ¿¡µðÆ®¿¡¼­ ÀÔ·ÂÇÑ °³Á¶ µî±Þ Àû¿ë ( ÁØÇõ )
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½ )
 	sCUSTOM.cDAMAGE = (BYTE)pITEM_DATA->sBasicOp.wGradeAttack;
 	sCUSTOM.cDEFENSE = (BYTE)pITEM_DATA->sBasicOp.wGradeDefense;
 

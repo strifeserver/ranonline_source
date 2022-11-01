@@ -580,6 +580,8 @@ public:
 	//	Note : �� ���� ��Ų ������ ����.
 	HRESULT ReqPetSkinPackOpen ( WORD wPosX, WORD wPosY );
 
+	HRESULT	ReqRetrievePoints ();
+
 	//	Note : �����ϱ�.
 	HRESULT ReqGrinding ( WORD wPosX, WORD wPosY );
 
@@ -698,6 +700,7 @@ public:
 
 	//	Note : ������ ������ ���� ��������
 	HRESULT ReqItemBankInfo ();
+	HRESULT ReqItemShopInfo ();
 
 public:
 	//	Note : �ʵ� ������(��) ������.

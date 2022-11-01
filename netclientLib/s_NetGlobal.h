@@ -108,7 +108,7 @@ static CMinLzo* g_pMinLzo;
 #define NET_ERROR					-1
 #define NET_CLIENT_LISTEN			50
 #define NET_TIME_OUT				180000	// 1000 msec * 60 sec * 3 = 3 minutes
-#define NET_BLOCK_TIME              1800000 // 1000 msec * 60 sec * 30 = 30ºÐµ¿¾È block µî·ÏÀ» ÇÑ´Ù.
+#define NET_BLOCK_TIME              1800000 // 1000 msec * 60 sec * 30 = 30ï¿½Ðµï¿½ï¿½ï¿½ block ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 
 // Connection protocols
 // This version not support UDP protocol
@@ -117,9 +117,9 @@ static CMinLzo* g_pMinLzo;
 
 enum EM_NET_STATE
 {
-	NET_OFFLINE    = 0, //! ¿¬°á Á¾·á
-	NET_ONLINE     = 1, //! ¿¬°áµÈ »óÅÂ
-	//NET_CLOSE_WAIT = 2, //! ¿¬°á Á¾·á ´ë±â»óÅÂ
+	NET_OFFLINE    = 0, //! ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_ONLINE     = 1, //! ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	//NET_CLOSE_WAIT = 2, //! ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 
 //#define NET_ONLINE					1
@@ -127,34 +127,34 @@ enum EM_NET_STATE
 
 #define NET_MAX_CLIENT				1000	///< Default max client number of per server
 
-#define MAX_WORKER_THREAD		    32       ///< ¼ýÀÚ°¡ 4°³ÀÌÇÏÀÏ¶§ µô·¹ÀÌ¹ß»ý
-                                            ///< ÀÇµµÀûÀ¸·Î 6 °³·Î Çß´Ù.
+#define MAX_WORKER_THREAD		    32       ///< ï¿½ï¿½ï¿½Ú°ï¿½ 4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹ß»ï¿½
+                                            ///< ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 6 ï¿½ï¿½ï¿½ï¿½ ï¿½ß´ï¿½.
 #ifndef MAX_CHAR_LENGTH
 #define MAX_CHAR_LENGTH	            255
 #endif
 
-#define MAX_SERVER_GROUP			20		///< ÃÖ´ë ¼­¹ö±×·ì
-#define MAX_SERVER_NUMBER			10		///< ¼­¹ö±×·ì´ç ÃÖ´ë ¼­¹ö¼ýÀÚ
+#define MAX_SERVER_GROUP			20		///< ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½
+#define MAX_SERVER_NUMBER			10		///< ï¿½ï¿½ï¿½ï¿½ï¿½×·ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-#define MAX_IP_LENGTH               20      ///< IP ¹øÈ£ ¹®ÀÚ¿­ ÃÖ´ë°ª
-#define SVR_STATE_UPDATE_TIME		180000	///< 300000 msec = 5 min:°ÔÀÓ¼­¹ö »óÅÂ ¾÷µ¥ÀÌÆ®
+#define MAX_IP_LENGTH               20      ///< IP ï¿½ï¿½È£ ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½Ö´ë°ª
+#define SVR_STATE_UPDATE_TIME		180000	///< 300000 msec = 5 min:ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 
-#define FIELDSERVER_MAX				10      ///< Ã¤³Î´ç ÃÖ´ë ÇÊµå¼­¹ö °¹¼ö
-#define MAX_CHANNEL_NUMBER          10      ///< ¼­¹ö´ç ÃÖ´ë Ã¤³Î °¹¼ö
+#define FIELDSERVER_MAX				10      ///< Ã¤ï¿½Î´ï¿½ ï¿½Ö´ï¿½ ï¿½Êµå¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define MAX_CHANNEL_NUMBER          10      ///< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 #define NET_RESERVED_SLOT			100     ///< FIELDSERVER_MAX * MAX_CHANNEL_NUMBER 
-                                            ///< ¼­¹ö°£ Åë½ÅÀ» À§ÇØ ¿¹¾àµÈ Å¬¶óÀÌ¾ðÆ® ¼ÒÄÏ slot
+                                            ///< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ slot
 //#define NET_SESSION_START           90
 //#define NET_SESSION_END             99
 
 #define NET_RESERVED_SESSION		99      ///< NET_RESERVED_SLOT - 1	             
-                                            ///< ¼¼¼Ç¼­¹ö¿ÍÀÇ Åë½ÅÀ» À§ÇØ ¿¹¾àµÈ Å¬¶óÀÌ¾ðÆ® ¼ÒÄÏ slot
+                                            ///< ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ slot
 
-#define NET_STATE_LOGIN				1		///< ·Î±×ÀÎ¼­¹ö Á¢¼Ó»óÅÂ
-#define NET_STATE_AGENT				2		///< °ÔÀÓ¼­¹ö Á¢¼Ó»óÅÂ
-#define NET_STATE_FIELD				3		///< °ÔÀÓ¼­¹ö Á¢¼Ó»óÅÂ
-#define NET_STATE_BOARD				4		///< °ÔÀÓ¼­¹ö Á¢¼Ó»óÅÂ
-#define NET_STATE_CTRL				5		///< ¿ø°Ý ÄÁÆ®·Ñ ÇÁ·Î±×·¥ Á¢¼Ó»óÅÂ
+#define NET_STATE_LOGIN				1		///< ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó»ï¿½ï¿½ï¿½
+#define NET_STATE_AGENT				2		///< ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó»ï¿½ï¿½ï¿½
+#define NET_STATE_FIELD				3		///< ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó»ï¿½ï¿½ï¿½
+#define NET_STATE_BOARD				4		///< ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó»ï¿½ï¿½ï¿½
+#define NET_STATE_CTRL				5		///< ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½Ó»ï¿½ï¿½ï¿½
 
 #define NET_PACKET_HEAD				0
 #define NET_PACKET_BODY				1
@@ -172,12 +172,12 @@ enum EM_NET_STATE
 #define DB_SVR_NAME_LENGTH			50
 #define DB_NAME_LENGTH				50
 
-// #define MAX_SERVERCHAR_NUM			2	// ÃÖ´ë »ý¼ºÇÒ ¼ö ÀÖ´Â Ä³¸¯ÅÍ ¼ö	
-// ±Ø°­ºÎ Ãß°¡
+// #define MAX_SERVERCHAR_NUM			2	// ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½	
+// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 #if defined(KRT_PARAM) || defined(_RELEASED) || defined ( KR_PARAM ) || defined ( TW_PARAM ) || defined ( HK_PARAM )|| defined( TH_PARAM ) || defined ( MYE_PARAM ) || defined ( MY_PARAM ) || defined ( CH_PARAM ) || defined ( PH_PARAM ) || defined ( JP_PARAM ) 
-#define MAX_ONESERVERCHAR_NUM		16 // ÇÑ ¼­¹ö¿¡¼­ ¸¸µé¼ö ÀÖ´Â Ä³¸¯ÅÍ °¹¼ö
+#define MAX_ONESERVERCHAR_NUM		16 // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #else
-#define MAX_ONESERVERCHAR_NUM		4 // ÇÑ ¼­¹ö¿¡¼­ ¸¸µé¼ö ÀÖ´Â Ä³¸¯ÅÍ °¹¼ö
+#define MAX_ONESERVERCHAR_NUM		4 // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #endif
 
 #define SERVER_NAME_LENGTH			50
@@ -187,13 +187,13 @@ enum EM_NET_STATE
 #define ENCRYPT_KEY					12
 
 //////////////////////////////////////////////////////////////////////////////
-// "GID": GameID   (»ç¿ëÀÚ°¡ Á÷Á¢ ÀÔ·ÂÇß´ø ID) - e.g. test1     16 ÀÚ¸®
-// "UID": UniqueID (½Ã½ºÅÛÀÌ ºÎ¿©ÇÑ »ç¿ëÀÚ ID) - e.g. 15ftgr     6 ÀÚ¸®
-// "SSNHEAD": »ý³â¿ùÀÏ - e.g. 731201                             6 ÀÚ¸®
-// "SEX": ¼ºº°(M:³²ÀÚ, F:¿©ÀÚ)                                   1 ÀÚ¸®
-// "NAMECHECK": ½Ç¸íÈ®ÀÎ ¿©ºÎ(1=ÇßÀ½, 0=¾ÈÇßÀ½)                  1 ÀÚ¸®
-// "IP": Á¢¼ÓÇÑ IP
-// "STATUS": »ç¿ëÀÚ »óÅÂ(A: Á¤È¸¿ø, W: ÁØÈ¸¿ø(±âÈ¹¿¹Á¤), D: Å»Åð½ÅÃ»È¸¿ø, B: ºÒ·®À¯Àú)
+// "GID": GameID   (ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ß´ï¿½ ID) - e.g. test1     16 ï¿½Ú¸ï¿½
+// "UID": UniqueID (ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ID) - e.g. 15ftgr     6 ï¿½Ú¸ï¿½
+// "SSNHEAD": ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - e.g. 731201                             6 ï¿½Ú¸ï¿½
+// "SEX": ï¿½ï¿½ï¿½ï¿½(M:ï¿½ï¿½ï¿½ï¿½, F:ï¿½ï¿½ï¿½ï¿½)                                   1 ï¿½Ú¸ï¿½
+// "NAMECHECK": ï¿½Ç¸ï¿½È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(1=ï¿½ï¿½ï¿½ï¿½, 0=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)                  1 ï¿½Ú¸ï¿½
+// "IP": ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IP
+// "STATUS": ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(A: ï¿½ï¿½È¸ï¿½ï¿½, W: ï¿½ï¿½È¸ï¿½ï¿½(ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½), D: Å»ï¿½ï¿½ï¿½Ã»È¸ï¿½ï¿½, B: ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½)
 #define DAUM_MAX_PARAM_LENGTH       500
 #define DAUM_MAX_GID_LENGTH         20
 #define DAUM_MAX_UID_LENGTH         20
@@ -247,7 +247,7 @@ enum EM_NET_STATE
 #define GS_USER_PASS		20
 
 
-//! ¼­¹öÀÇ Å¸ÀÔ
+//! ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
 enum EMSEVERTYPE
 {
 	SERVER_LOGIN	= 1,
@@ -260,72 +260,72 @@ enum EMSEVERTYPE
 enum EM_SMS
 {
 	SMS_DEFAULT  = 0,
-	SMS_LENGTH   = 80, // SMS ÀÇ ÀüÃ¼±æÀÌ Á¦ÇÑ.
-	SMS_SENDER   = 14, // SMS º¸³»´Â »ç¶÷ ±æÀÌ.
-	SMS_RECEIVER = 14  // SMS ¹Þ´Â »ç¶÷ ±æÀÌ.
+	SMS_LENGTH   = 80, // SMS ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	SMS_SENDER   = 14, // SMS ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	SMS_RECEIVER = 14  // SMS ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
-//! ÇØÅ·ÇÁ·Î±×·¥ DB ·Î±×¿ë ¹øÈ£
+//! ï¿½ï¿½Å·ï¿½ï¿½ï¿½Î±×·ï¿½ DB ï¿½Î±×¿ï¿½ ï¿½ï¿½È£
 enum EMHACKPROGRAM
 {
 	DEFAULT_HACK_NUM  =   0,
 	NPROTECT_HACK_NUM = 998,
-	APEX_HACK_NUM     = 999, // APEX ·Î±×
+	APEX_HACK_NUM     = 999, // APEX ï¿½Î±ï¿½
 };
 
-//! ÅÂ±¹¿ë ¼³Á¤°ªµé
-#define THAI_LIMIT_MIN 180 // ÅÂ±¹Àº 18 ¼¼ ÀÌÇÏ´Â ÇÏ·ç 180 ºÐ µ¿¾È¸¸ °ÔÀÓ°¡´É
+//! ï¿½Â±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define THAI_LIMIT_MIN 180 // ï¿½Â±ï¿½ï¿½ï¿½ 18 ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ï·ï¿½ 180 ï¿½ï¿½ ï¿½ï¿½ï¿½È¸ï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½
 #define THAI_CHECK_TIME 60000 // 1000 msec X 60 = 1 min
 
-//! ÅÂ±¹ ³ªÀÌÁ¦ÇÑ
+//! ï¿½Â±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 enum EMTHAIUSERFLAG
 {
-	THAI_UNDER18  = 0, // 18 ¼¼ ÀÌÇÏ
-	THAI_OVER18   = 1, // 18 ¼¼ ÀÌ»ó
-	THAI_FREETIME = 2, // 24 ½Ã°£ »ç¿ë°¡´É
+	THAI_UNDER18  = 0, // 18 ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	THAI_OVER18   = 1, // 18 ï¿½ï¿½ ï¿½Ì»ï¿½
+	THAI_FREETIME = 2, // 24 ï¿½Ã°ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½
 };
 
-//! »ç¿ëÀÚ Å¸ÀÔ¼³Á¤
+//! ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ô¼ï¿½ï¿½ï¿½
 enum EMUSERTYPE
 {
-    USER_COMMON  =  0, // ÀÏ¹Ý»ç¿ëÀÚ
-    USER_PREMIUM =  1, // ÇÁ¸®¹Ì¾ö À¯Àú
-	USER_SPECIAL = 10, // Æ¯º°»ç¿ëÀÚ (°ÔÀÓ¹æ ¾÷Ã¼ »çÀå, ±âÀÚ µîµî)
-	USER_GM4     = 19, // GM 4 ±Þ, Web GM ¿ë
-	USER_GM3	 = 20, // GM 3 ±Þ
-	USER_GM2	 = 21, // GM 2 ±Þ
-	USER_GM1	 = 22, // GM 1 ±Þ
+    USER_COMMON  =  0, // ï¿½Ï¹Ý»ï¿½ï¿½ï¿½ï¿½
+    USER_PREMIUM =  1, // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+	USER_SPECIAL = 10, // Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½Ó¹ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½)
+	USER_GM4     = 19, // GM 4 ï¿½ï¿½, Web GM ï¿½ï¿½
+	USER_GM3	 = 20, // GM 3 ï¿½ï¿½
+	USER_GM2	 = 21, // GM 2 ï¿½ï¿½
+	USER_GM1	 = 22, // GM 1 ï¿½ï¿½
 	USER_MASTER  = 30, // Master
 };
 
 enum EM_NEW_CHA_FB
 {
-	EM_CHA_NEW_FB_SUB_OK	= 1, // Ä³¸¯ÅÍ »ý¼º ¼º°ø
-	EM_CHA_NEW_FB_SUB_DUP	= 2, // °ÔÀÓ¼­¹ö->Å¬¶óÀÌ¾ðÆ® : °°Àº ÀÌ¸§ÀÇ Ä³¸¯ÅÍ°¡ ÀÌ¹Ì Á¸ÀçÇÔ
-	EM_CHA_NEW_FB_SUB_LENGTH= 3, // Ä³¸¯ÅÍ ±ÛÀÚ¼ö Á¦ÇÑ
-	EM_CHA_NEW_FB_SUB_MAX	= 4, // °ÔÀÓ¼­¹ö->Å¬¶óÀÌ¾ðÆ® : ´õÀÌ»óÄ³¸¯ÅÍ ¸¸µé¼ö ¾øÀ½(ÃÖ´ëÄ³¸¯ÅÍ ¼ýÀÚ ÃÊ°ú)
-	EM_CHA_NEW_FB_SUB_ERROR = 5, // °ÔÀÓ¼­¹ö->Å¬¶óÀÌ¾ðÆ® : ¿¡·¯¹ß»ý ¸¸µé¼ö ¾øÀ½(½Ã½ºÅÛ¿¡·¯, Çã¿ëµÇÁö ¾Ê´Â ÀÌ¸§)
-	EM_CHA_NEW_FB_SUB_THAICHAR_ERROR = 6, // ÅÂ±¹¾î¹®ÀÚ ¿Ï¼ºµÇÁö ¾ÊÀº ¹®ÀÚ Á¶ÇÕ ¿¡·¯
-	EM_CHA_NEW_FB_SUB_VNCHAR_ERROR = 7,	 // º£Æ®³² ¹®ÀÚ Á¶ÇÕ ¿¡·¯
+	EM_CHA_NEW_FB_SUB_OK	= 1, // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EM_CHA_NEW_FB_SUB_DUP	= 2, // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	EM_CHA_NEW_FB_SUB_LENGTH= 3, // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EM_CHA_NEW_FB_SUB_MAX	= 4, // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : ï¿½ï¿½ï¿½Ì»ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ö´ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½)
+	EM_CHA_NEW_FB_SUB_ERROR = 5, // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : ï¿½ï¿½ï¿½ï¿½ï¿½ß»ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ã½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½Ì¸ï¿½)
+	EM_CHA_NEW_FB_SUB_THAICHAR_ERROR = 6, // ï¿½Â±ï¿½ï¿½î¹®ï¿½ï¿½ ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EM_CHA_NEW_FB_SUB_VNCHAR_ERROR = 7,	 // ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	EM_CHA_NEW_FB_SUB_BAD_NAME = 8,
 };
 
 enum EMNET_MSG_CHAT
 {
-	CHAT_TYPE_GLOBAL		= (1), // °ü¸®¿ë ±Û·Î¹ú ¸Þ½ÃÁö
-	CHAT_TYPE_NORMAL		= (2), // ÀÏ¹ÝÀû Ã¤ÆÃ ¸Þ½ÃÁö
-	CHAT_TYPE_PARTY			= (3), // ÆÄÆ¼¿ø¿¡°Ô Àü´ÞµÇ´Â ¸Þ½ÃÁö
-	CHAT_TYPE_PRIVATE		= (4), // °³ÀÎÀûÀÎ ¸Þ½ÃÁö, ±Ó¸», ¼Ó»èÀÓ
-	CHAT_TYPE_GUILD			= (5), // ±æµå¿ø¿¡°Ô Àü´ÞµÇ´Â ¸Þ½ÃÁö
-	CHAT_TYPE_LOUDSPEAKER	= (6), // È®¼º±â.
-	CHAT_TYPE_ALLIANCE		= (7), // µ¿¸Í¿¡°Ô Àü´ÞµÇ´Â ¸Þ½ÃÁö
+	CHAT_TYPE_GLOBAL		= (1), // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û·Î¹ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	CHAT_TYPE_NORMAL		= (2), // ï¿½Ï¹ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	CHAT_TYPE_PARTY			= (3), // ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÞµÇ´ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	CHAT_TYPE_PRIVATE		= (4), // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½, ï¿½Ó¸ï¿½, ï¿½Ó»ï¿½ï¿½ï¿½
+	CHAT_TYPE_GUILD			= (5), // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÞµÇ´ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	CHAT_TYPE_LOUDSPEAKER	= (6), // È®ï¿½ï¿½ï¿½ï¿½.
+	CHAT_TYPE_ALLIANCE		= (7), // ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÞµÇ´ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 
 	CHAT_TYPE_CTRL_GLOBAL	= (8),
 	CHAT_TYPE_CTRL_GLOBAL2	= (9),
 	CHAT_TYPE_GLOBAL_STAFF		= (10),
 };
 
-// ¼­ºñ½º Á¦°ø¾÷ÀÚ
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 enum EMSERVICE_PROVIDER
 {
 	SP_MINCOMS  = 0, // Korea (Mincoms)
@@ -337,37 +337,37 @@ enum EMSERVICE_PROVIDER
 	SP_THAILAND = 6, // Thailand (Terra)
 	SP_GLOBAL   = 7, // Global Service ( GSP ) 
 	SP_MALAYSIA = 8, // MY,MYE 
-	SP_GS		= 9, // Global Service ( ½Å±Ô ) 
+	SP_GS		= 9, // Global Service ( ï¿½Å±ï¿½ ) 
 };
 
 enum EM_LOGIN_FB_SUB
 {	
-    EM_LOGIN_FB_SUB_OK             =  0, // ·Î±×ÀÎ ¼º°ø
-	EM_LOGIN_FB_SUB_FAIL	       =  1, // ·Î±×ÀÎ ½ÇÆÐ
-	EM_LOGIN_FB_SUB_SYSTEM	       =  2, // ½Ã½ºÅÛ¿¡·¯·Î ·Î±×ÀÎ ½ÇÆÐ
-	EM_LOGIN_FB_SUB_USAGE	       =  3, // Çã°¡µÈ »ç¿ë½Ã°£ ¿¡·¯
-	EM_LOGIN_FB_SUB_DUP		       =  4, // Áßº¹µÈ Á¢¼Ó
-	EM_LOGIN_FB_SUB_INCORRECT      =  5, // ID/PWD ºÒÀÏÄ¡ = (»õ·Î¿î °èÁ¤À» »ý¼º ¶Ç´Â ÀçÀÔ·Â¿ä±¸),
-	EM_LOGIN_FB_SUB_IP_BAN	       =  6, // ID/PWD °¡ ÀÏÄ¡ÇÏÁö¸¸ IP °¡ »ç¿ëºÒ°¡´É »óÅÂ= (Á¢±Ù Â÷´ÜµÈ IP),	
-	EM_LOGIN_FB_SUB_BLOCK          =  7, // ID °¡ ºí·ÏµÈ »óÅÂ
-	EM_LOGIN_FB_SUB_UNCON          =  8, // Daum : ºñÁ¤»óÀû ·Î±×ÀÎµ¥ÀÌÅ¸ (»õ·Ó°Ô À¥¿¡¼­ ·Î±×ÀÎÈÄ °ÔÀÓ½ÇÇà)
-	EM_LOGIN_FB_SUB_EXPIRED        =  9, // Daum : ÀÎÁõ½Ã°£ÀÌ ÃÊ°úµÈ »ç¿ëÀÚÀÌ±â ¶§¹®¿¡, À¥¿¡ ÀçÁ¢¼ÓÀ» ÇÏ¶ó´Â ¸Þ½ÃÁö¸¦ º¸³½´Ù
-	EM_LOGIN_FB_SUB_GID_ERR        = 10, // Daum : GID°¡ ¾øÀ½ À¥¿¡¼­ »õ·Ó°Ô ·Î±×ÀÎ
-	EM_LOGIN_FB_SUB_UID_ERR        = 11, // Daum : UID°¡ ¾øÀ½ À¥¿¡¼­ »õ·Ó°Ô ·Î±×ÀÎ
-	EM_LOGIN_FB_SUB_UNKNOWN        = 12, // Daum : À¯Àú »ðÀÔ½ÇÆÐ
-	EM_LOGIN_FB_SUB_SSNHEAD        = 13, // Daum : ÁÖ¹Î¹øÈ£¿À·ù
-	EM_LOGIN_FB_SUB_ADULT          = 14, // Daum : ¼ºÀÎÀÎÁõ½ÇÆÐ
-	EM_LOGIN_FB_CH_FULL            = 15, // Ã¤³ÎÀÌ Full ÀÎ »óÅÂ Á¢¼ÓºÒ°¡
-	EM_LOGIN_FB_THAI_UNDER18_3HOUR = 16, // 18 ¼¼¹Ì¸¸ 3 ½Ã°£ °æ°ú 
-	EM_LOGIN_FB_THAI_UNDER18_TIME  = 17, // 18 ¼¼¹Ì¸¸ Á¢¼ÓºÒ°¡´É ½Ã°£
-	EM_LOGIN_FB_THAI_OVER18_TIME   = 18, // 18 ¼¼ÀÌ»ó Á¢¼ÓºÒ°¡´É ½Ã°£
-	EM_LOGIN_FB_SUB_RANDOM_PASS    = 19, // ·£´ýÆÐ½º¿öµå ¿¡·¯
-	EM_LOGIN_FB_SUB_PASS_OK		   = 20, // ÃÊ±â ÆÐ½º¿öµå ¾÷µ¥ÀÌÆ® ¼º°ø
-	EM_LOGIN_FB_SUB_ALREADYOFFLINE = 21, // ·Î±×ÀÎ¼º°øÀÌÁö¸¸ ÀÌ¹Ì ¿ÀÇÁ¶óÀÎÀÏ¶§
-	EM_LOGIN_FB_SUB_SECID_ALREADY  = 22, // ¾ÆµÚ°¡ Áßº¹µË´Ï´Ù.
+    EM_LOGIN_FB_SUB_OK             =  0, // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_SUB_FAIL	       =  1, // ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_SUB_SYSTEM	       =  2, // ï¿½Ã½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_SUB_USAGE	       =  3, // ï¿½ã°¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_SUB_DUP		       =  4, // ï¿½ßºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_SUB_INCORRECT      =  5, // ID/PWD ï¿½ï¿½ï¿½ï¿½Ä¡ = (ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½Ô·Â¿ä±¸),
+	EM_LOGIN_FB_SUB_IP_BAN	       =  6, // ID/PWD ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IP ï¿½ï¿½ ï¿½ï¿½ï¿½Ò°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½= (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Üµï¿½ IP),	
+	EM_LOGIN_FB_SUB_BLOCK          =  7, // ID ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ ï¿½ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_SUB_UNCON          =  8, // Daum : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½Îµï¿½ï¿½ï¿½Å¸ (ï¿½ï¿½ï¿½Ó°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½)
+	EM_LOGIN_FB_SUB_EXPIRED        =  9, // Daum : ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¶ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_SUB_GID_ERR        = 10, // Daum : GIDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ ï¿½Î±ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_SUB_UID_ERR        = 11, // Daum : UIDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ ï¿½Î±ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_SUB_UNKNOWN        = 12, // Daum : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_SUB_SSNHEAD        = 13, // Daum : ï¿½Ö¹Î¹ï¿½È£ï¿½ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_SUB_ADULT          = 14, // Daum : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_CH_FULL            = 15, // Ã¤ï¿½ï¿½ï¿½ï¿½ Full ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÓºÒ°ï¿½
+	EM_LOGIN_FB_THAI_UNDER18_3HOUR = 16, // 18 ï¿½ï¿½ï¿½Ì¸ï¿½ 3 ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ 
+	EM_LOGIN_FB_THAI_UNDER18_TIME  = 17, // 18 ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ÓºÒ°ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	EM_LOGIN_FB_THAI_OVER18_TIME   = 18, // 18 ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½ÓºÒ°ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	EM_LOGIN_FB_SUB_RANDOM_PASS    = 19, // ï¿½ï¿½ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_SUB_PASS_OK		   = 20, // ï¿½Ê±ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	EM_LOGIN_FB_SUB_ALREADYOFFLINE = 21, // ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½
+	EM_LOGIN_FB_SUB_SECID_ALREADY  = 22, // ï¿½ÆµÚ°ï¿½ ï¿½ßºï¿½ï¿½Ë´Ï´ï¿½.
 };
 
-// Ä£±¸Á¤º¸ Friend
+// Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Friend
 struct CHA_FRIEND
 {
 	int nChaS;
@@ -383,7 +383,7 @@ struct CHA_FRIEND
 };
 typedef CHA_FRIEND* LPCHA_FRIEND;
 
-// Ä£±¸Á¤º¸(SMS Æ÷ÇÔ)
+// Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(SMS ï¿½ï¿½ï¿½ï¿½)
 struct CHA_FRIEND_SMS
 {
 	int nChaS;
@@ -461,10 +461,10 @@ typedef PER_IO_OPERATION_DATA* LPPER_IO_OPERATION_DATA;
 
 struct G_SERVER_INFO
 {
-	int	nServerType;			  ///< ¼­¹ö À¯Çü
-	int	nServerGroup;			  ///< ¼­¹ö ±×·ì ¹øÈ£
-	int	nServerNumber;			  ///< ¼­¹ö ¹øÈ£
-	int	nServerField;			  ///< ÇÊµå¹øÈ£	
+	int	nServerType;			  ///< ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int	nServerGroup;			  ///< ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ ï¿½ï¿½È£
+	int	nServerNumber;			  ///< ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	int	nServerField;			  ///< ï¿½Êµï¿½ï¿½È£	
 	int	nServerMaxClient;		  ///< Max clients
 	int	nServerCurrentClient;	  ///< Current connected client number
 	int nServerChannel;           ///< Channel number
@@ -605,62 +605,62 @@ typedef CHANNEL_INFO* LPCHANNEL_INFO;
 // If user find packet order, change NET_MSG_BASE number
 // All Message Number must less than 2 byte(65535)
 
-// Memo : ¾Æ·¡ ±âº» ¸Þ¼¼Áö´Â Áßº¹ÀÌ µÇÁö ¾Êµµ·Ï Á¤ÀÇÇÑ´Ù.
+// Memo : ï¿½Æ·ï¿½ ï¿½âº» ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 //
 #if defined(CH_PARAM)
-	#define NET_MSG_BASE				1016				  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				1016				  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #elif defined(HK_PARAM)
-	#define NET_MSG_BASE				1004				  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				1004				  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #elif defined(ID_PARAM)
-	#define NET_MSG_BASE				974					  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				974					  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #elif defined(JP_PARAM)
-	#define NET_MSG_BASE				1028				  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				1028				  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #elif defined(KR_PARAM)
-	#define NET_MSG_BASE				984					  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				984					  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #elif defined(KRT_PARAM)
-	#define NET_MSG_BASE				968					  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				968					  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #elif defined(MY_PARAM)
-	#define NET_MSG_BASE				967					  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				967					  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #elif defined(MYE_PARAM)
-	#define NET_MSG_BASE				1002				  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				1002				  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #elif defined(PH_PARAM)
-	#define NET_MSG_BASE				1014				  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				1014				  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #elif defined(VN_PARAM)
-	#define NET_MSG_BASE				1018				  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				1018				  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #elif defined(TW_PARAM)
-	#define NET_MSG_BASE				994					  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				994					  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #elif defined(TH_PARAM)
-	#define NET_MSG_BASE				986					  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				986					  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #elif defined(GS_PARAM)
-	#define NET_MSG_BASE				1001				  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				1001				  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #else
-	#define NET_MSG_BASE				992					  // ±âº» ¸Þ½ÃÁö
+	#define NET_MSG_BASE				992					  // ï¿½âº» ï¿½Þ½ï¿½ï¿½ï¿½
 #endif
 
 /*
-#define NET_MSG_LGIN				(NET_MSG_BASE +  507) // ·Î±×ÀÎ¼­¹ö ¸Þ½ÃÁö
-#define NET_MSG_LOBBY				(NET_MSG_BASE + 1013) // °ÔÀÓ¼­¹ö ·Îºñ
-#define NET_MSG_LOBBY_MAX			(NET_MSG_BASE + 1509) // °ÔÀÓ¼­¹ö ·Îºñ ÃÖ´ë°ª
+#define NET_MSG_LGIN				(NET_MSG_BASE +  507) // ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+#define NET_MSG_LOBBY				(NET_MSG_BASE + 1013) // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½Îºï¿½
+#define NET_MSG_LOBBY_MAX			(NET_MSG_BASE + 1509) // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½Ö´ë°ª
 
-#define NET_MSG_GCTRL				(NET_MSG_BASE + 2011) // °ÔÀÓ¼­¹ö °ÔÀÓÇÃ·¹ÀÌ
-#define NET_MSG_GCTRL_MAX			(NET_MSG_BASE + 4010) // °ÔÀÓ¼­¹ö °ÔÀÓÇÃ·¹ÀÌ ÃÖ´ë°ª
+#define NET_MSG_GCTRL				(NET_MSG_BASE + 2011) // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½
+#define NET_MSG_GCTRL_MAX			(NET_MSG_BASE + 4010) // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ö´ë°ª
 */
 
 // 2005-11-04
-//#define NET_MSG_LGIN				(NET_MSG_BASE +  413) // ·Î±×ÀÎ¼­¹ö ¸Þ½ÃÁö
-//#define NET_MSG_LOBBY				(NET_MSG_BASE +  913) // °ÔÀÓ¼­¹ö ·Îºñ
-//#define NET_MSG_LOBBY_MAX			(NET_MSG_BASE + 1413) // °ÔÀÓ¼­¹ö ·Îºñ ÃÖ´ë°ª
+//#define NET_MSG_LGIN				(NET_MSG_BASE +  413) // ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+//#define NET_MSG_LOBBY				(NET_MSG_BASE +  913) // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½Îºï¿½
+//#define NET_MSG_LOBBY_MAX			(NET_MSG_BASE + 1413) // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½Ö´ë°ª
 //
-//#define NET_MSG_GCTRL				(NET_MSG_BASE + 1823) // °ÔÀÓ¼­¹ö °ÔÀÓÇÃ·¹ÀÌ
-//#define NET_MSG_GCTRL_MAX			(NET_MSG_BASE + 3823) // °ÔÀÓ¼­¹ö °ÔÀÓÇÃ·¹ÀÌ ÃÖ´ë°ª
+//#define NET_MSG_GCTRL				(NET_MSG_BASE + 1823) // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½
+//#define NET_MSG_GCTRL_MAX			(NET_MSG_BASE + 3823) // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ö´ë°ª
 
 // 2007-04-11
-#define NET_MSG_LGIN				(NET_MSG_BASE +  450) // ·Î±×ÀÎ¼­¹ö ¸Þ½ÃÁö
-#define NET_MSG_LOBBY				(NET_MSG_BASE +  950) // °ÔÀÓ¼­¹ö ·Îºñ
-#define NET_MSG_LOBBY_MAX			(NET_MSG_BASE + 1450) // °ÔÀÓ¼­¹ö ·Îºñ ÃÖ´ë°ª
+#define NET_MSG_LGIN				(NET_MSG_BASE +  450) // ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+#define NET_MSG_LOBBY				(NET_MSG_BASE +  950) // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½Îºï¿½
+#define NET_MSG_LOBBY_MAX			(NET_MSG_BASE + 1450) // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½Ö´ë°ª
 
-#define NET_MSG_GCTRL				(NET_MSG_BASE + 1900) // °ÔÀÓ¼­¹ö °ÔÀÓÇÃ·¹ÀÌ
-#define NET_MSG_GCTRL_MAX			(NET_MSG_BASE + 3900) // °ÔÀÓ¼­¹ö °ÔÀÓÇÃ·¹ÀÌ ÃÖ´ë°ª
+#define NET_MSG_GCTRL				(NET_MSG_BASE + 1900) // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½
+#define NET_MSG_GCTRL_MAX			(NET_MSG_BASE + 3900) // ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ö´ë°ª
 
 // Login information
 enum EMNET_MSG
@@ -670,14 +670,14 @@ enum EMNET_MSG
 	///////////////////////////////////////////////////////////////////////////
 	// Version check and downloading new version
 	// Do not change version and Crypt key message
-	NET_MSG_VERSION_OK			= 100, //< ¹öÀüÀÌ ÀÏÄ¡ÇÔ
-	NET_MSG_VERSION_INFO		= 110, //< ¹öÀü Á¤º¸¸¦ º¸³¿
-	NET_MSG_VERSION_REQ			= 120, //< ¹öÀü Á¤º¸¸¦ ¿äÃ»ÇÔ
-	NET_MSG_REQ_CRYT_KEY		= 130, //< Å¬¶óÀÌ¾ðÆ®->°ÔÀÓ¼­¹ö : ¾ÏÈ£Å° ¿äÃ»
-	NET_MSG_SND_CRYT_KEY		= 140, //< °ÔÀÓ¼­¹ö->Å¬¶óÀÌ¾ðÆ® : ¾ÏÈ£Å° Àü¼Û	
-	NET_MSG_RANDOM_NUM          = 141, //< Agent->Client : ·£´ý³Ñ¹ö
-//	NET_MSG_PING_REQUEST		= 150, //< ¼­¹ö·ÎÀÇ ping À» ¿äÃ»ÇÑ´Ù.
-//	NET_MSG_PING_ANSWER		    = 151, //< ¼­¹ö¿¡¼­ ping À» ÀÀ´äÇÑ´Ù.	
+	NET_MSG_VERSION_OK			= 100, //< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½
+	NET_MSG_VERSION_INFO		= 110, //< ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_VERSION_REQ			= 120, //< ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½
+	NET_MSG_REQ_CRYT_KEY		= 130, //< Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®->ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ : ï¿½ï¿½È£Å° ï¿½ï¿½Ã»
+	NET_MSG_SND_CRYT_KEY		= 140, //< ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : ï¿½ï¿½È£Å° ï¿½ï¿½ï¿½ï¿½	
+	NET_MSG_RANDOM_NUM          = 141, //< Agent->Client : ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½
+//	NET_MSG_PING_REQUEST		= 150, //< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ping ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
+//	NET_MSG_PING_ANSWER		    = 151, //< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ping ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.	
     NET_MSG_HEARTBEAT_SERVER_REQ= 153, //< SERVER->SERVER Server HeartBeat Request
     NET_MSG_HEARTBEAT_SERVER_ANS= 154, //< SERVER->SERVER Server HeartBeat Answer
     NET_MSG_SVR_DOWN            = 155, //< Server System Down!
@@ -688,211 +688,211 @@ enum EMNET_MSG
 
 	///////////////////////////////////////////////////////////////////////////	
 	// Server info message
-	NET_MSG_REQ_GAME_SVR		= (NET_MSG_LGIN + 100), //< Å¬¶óÀÌ¾ðÆ®°¡ -> ·Î±×ÀÎ¼­¹ö : °ÔÀÓ ¼­¹öÀÇ Á¤º¸¸¦ ¿äÃ»
-	NET_MSG_SND_GAME_SVR	    = (NET_MSG_LGIN + 110), //< ·Î±×ÀÎ¼­¹ö   -> Å¬¶óÀÌ¾ðÆ® : °ÔÀÓ ¼­¹öÀÇ Á¤º¸¸¦ Àü¼Û
-	NET_MSG_SND_GAME_SVR_END	= (NET_MSG_LGIN + 120), //< ·Î±×ÀÎ¼­¹ö   -> Å¬¶óÀÌ¾ðÆ® : °ÔÀÓ ¼­¹ö Á¤º¸ Àü´Þ ³¡
-	NET_MSG_REQ_FULL_SVR_INFO	= (NET_MSG_LGIN + 130), //< ¼¼¼Ç¼­¹ö -> ·Î±×ÀÎ¼­¹ö, °ÔÀÓ¼­¹ö : ¼­¹ö ÀüÃ¼ Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
-	NET_MSG_SND_FULL_SVR_INFO	= (NET_MSG_LGIN + 140), //< ·Î±×ÀÎ¼­¹ö, °ÔÀÓ¼­¹ö -> ¼¼¼Ç¼­¹ö : ¼­¹ö ÀüÃ¼ Á¤º¸¸¦ Session ¼­¹ö¿¡ Àü¼ÛÇÑ´Ù.
-	NET_MSG_REQ_CUR_STATE		= (NET_MSG_LGIN + 150), //< ¼¼¼Ç¼­¹ö -> ·Î±×ÀÎ¼­¹ö, °ÔÀÓ¼­¹ö : ÇöÀç ¼­¹ö»óÅÂ= (°£·«ÇÑ),¸¦ ¿äÃ»ÇÑ´Ù.
-	NET_MSG_SND_CUR_STATE		= (NET_MSG_LGIN + 160), //< ·Î±×ÀÎ¼­¹ö, °ÔÀÓ¼­¹ö -> ¼¼¼Ç¼­¹ö : ÇöÀç ¼­¹ö»óÅÂ= (°£·«ÇÑ),¸¦ Àü¼ÛÇÑ´Ù.
-	NET_MSG_SND_CHANNEL_STATE   = (NET_MSG_LGIN + 161), //< Agent->Session : ÇöÀç Ã¤³Î»óÅÂ¸¦ Àü¼ÛÇÑ´Ù.
-	NET_MSG_REQ_SVR_INFO		= (NET_MSG_LGIN + 170), //< ·Î±×ÀÎ¼­¹ö -> ¼¼¼Ç¼­¹ö : °ÔÀÓ¼­¹öÀÇ »óÅÂÁ¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
-	NET_MSG_SND_SVR_INFO		= (NET_MSG_LGIN + 180), //< ¼¼¼Ç¼­¹ö -> ·Î±×ÀÎ¼­¹ö : °ÔÀÓ¼­¹öÀÇ »óÅÂÁ¤º¸¸¦ Àü¼ÛÇÑ´Ù.
-	NET_MSG_SND_SVR_INFO_RESET	= (NET_MSG_LGIN + 190), //< ¼¼¼Ç¼­¹ö -> ·Î±×ÀÎ¼­¹ö : °ÔÀÓ¼­¹öÀÇ »óÅÂÁ¤º¸¸¦ ¸®¼ÂÇÏ¶ó°í ¸í·É.
-	NET_MSG_REQ_ALL_SVR_INFO    = (NET_MSG_LGIN + 191), //< °ü¸®ÇÁ·Î±×·¥->¼¼¼Ç¼­¹ö : ¸ðµç ¼­¹öÀÇ »óÅÂÁ¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
-	NET_MSG_SND_ALL_SVR_INFO    = (NET_MSG_LGIN + 192), //< ¼¼¼Ç¼­¹ö->°ü¸®ÇÁ·Î±×·¥ : ¸ðµç ¼­¹öÀÇ »óÅÂÁ¤º¸¸¦ Àü¼ÛÇÑ´Ù.
-	NET_MSG_SND_ALL_SVR_INFO_S  = (NET_MSG_LGIN + 193), //< ¼¼¼Ç¼­¹ö->°ü¸®ÇÁ·Î±×·¥ : »óÅÂÁ¤º¸Àü¼Û ½ÃÀÛ
-	NET_MSG_SND_ALL_SVR_INFO_E	= (NET_MSG_LGIN + 194), //< ¼¼¼Ç¼­¹ö->°ü¸®ÇÁ·Î±×·¥ : »óÅÂÁ¤º¸¸¦ ¸ðµÎ º¸³ÂÀ½À» ¾Ë¸°´Ù.
-	NET_MSG_RECONNECT_FIELD     = (NET_MSG_LGIN + 195), //< ¼¼¼Ç¼­¹ö->¿¡ÀÌÀüÆ® : ÇÊµå·Î ´Ù½Ã Á¢¼ÓÇÏ¶ó.
-	NET_MSG_I_AM_AGENT          = (NET_MSG_LGIN + 196), //< Agent->Field : ÀÚ½ÅÀÌ ¼­¹öÅë½Å¿ë ½½·ÔÀÓÀ» ¾Ë¸²
+	NET_MSG_REQ_GAME_SVR		= (NET_MSG_LGIN + 100), //< Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ -> ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_SND_GAME_SVR	    = (NET_MSG_LGIN + 110), //< ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½   -> Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_SND_GAME_SVR_END	= (NET_MSG_LGIN + 120), //< ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½   -> Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	NET_MSG_REQ_FULL_SVR_INFO	= (NET_MSG_LGIN + 130), //< ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ -> ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
+	NET_MSG_SND_FULL_SVR_INFO	= (NET_MSG_LGIN + 140), //< ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Session ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	NET_MSG_REQ_CUR_STATE		= (NET_MSG_LGIN + 150), //< ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ -> ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½= (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½),ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
+	NET_MSG_SND_CUR_STATE		= (NET_MSG_LGIN + 160), //< ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½= (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½),ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	NET_MSG_SND_CHANNEL_STATE   = (NET_MSG_LGIN + 161), //< Agent->Session : ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Î»ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	NET_MSG_REQ_SVR_INFO		= (NET_MSG_LGIN + 170), //< ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
+	NET_MSG_SND_SVR_INFO		= (NET_MSG_LGIN + 180), //< ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ -> ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	NET_MSG_SND_SVR_INFO_RESET	= (NET_MSG_LGIN + 190), //< ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ -> ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_REQ_ALL_SVR_INFO    = (NET_MSG_LGIN + 191), //< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î±×·ï¿½->ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
+	NET_MSG_SND_ALL_SVR_INFO    = (NET_MSG_LGIN + 192), //< ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î±×·ï¿½ : ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	NET_MSG_SND_ALL_SVR_INFO_S  = (NET_MSG_LGIN + 193), //< ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î±×·ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_SND_ALL_SVR_INFO_E	= (NET_MSG_LGIN + 194), //< ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î±×·ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ï¿½ï¿½.
+	NET_MSG_RECONNECT_FIELD     = (NET_MSG_LGIN + 195), //< ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® : ï¿½Êµï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½.
+	NET_MSG_I_AM_AGENT          = (NET_MSG_LGIN + 196), //< Agent->Field : ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
 
-	NET_MSG_LOGOUT_G_S			= (NET_MSG_LGIN + 200), //< Agent->Session : ·Î±×¾Æ¿ô Á¤º¸	
-	NET_MSG_LOGOUT_G_S_S		= (NET_MSG_LGIN + 201), //< Agent->Session : ·Î±×¾Æ¿ô Á¤º¸. »ç¿ëÀÚ ID ¸¸ Àü¼Û
-	DAUM_NET_MSG_LOGOUT_G_S     = (NET_MSG_LGIN + 202), //< Agent->Session : Daum ·Î±×¾Æ¿ô Á¤º¸
+	NET_MSG_LOGOUT_G_S			= (NET_MSG_LGIN + 200), //< Agent->Session : ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½	
+	NET_MSG_LOGOUT_G_S_S		= (NET_MSG_LGIN + 201), //< Agent->Session : ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ ID ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	DAUM_NET_MSG_LOGOUT_G_S     = (NET_MSG_LGIN + 202), //< Agent->Session : Daum ï¿½Î±×¾Æ¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	//< User Information message
-	NET_MSG_REQ_USER_INFO		= (NET_MSG_LGIN + 210), //< »ç¿ëÀÚ Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
-	NET_MSG_USER_INFO			= (NET_MSG_LGIN + 220), //< »ç¿ëÀÚ Á¤º¸¸¦ Àü¼ÛÇÑ´Ù.
+	NET_MSG_REQ_USER_INFO		= (NET_MSG_LGIN + 210), //< ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
+	NET_MSG_USER_INFO			= (NET_MSG_LGIN + 220), //< ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 
 	//< Server control message	
 	NET_MSG_SVR_CMD				= (NET_MSG_LGIN + 300),
-	NET_MSG_SVR_PAUSE			= (NET_MSG_LGIN + 310), //< ¼­¹ö¸¦ Àá½Ã ¸ØÃá´Ù.
-	NET_MSG_SVR_RESUME			= (NET_MSG_LGIN + 311), //< ¸ØÃß¾îÁø ¼­¹ö¸¦ ´Ù½Ã °¡µ¿½ÃÅ²´Ù.	
-	NET_MSG_SVR_RESTART			= (NET_MSG_LGIN + 312), //< ¼­¹ö¸¦ ¿ÏÀüÈ÷ ¸ØÃß°í »õ·Ó°Ô °¡µ¿½ÃÅ²´Ù.
-	NET_MSG_SVR_STOP			= (NET_MSG_LGIN + 313), //< ¼­¹ö¸¦ ¿ÏÀüÈ÷ ¸ØÃá´Ù.
-	NET_MSG_SND_CHANNEL_FULL_STATE = (NET_MSG_LGIN + 314), //< ¼­¹öÀÇ Ã¤³Î FULL »óÅÂ¸¦ LoginServer¿¡ º¸³½´Ù.
+	NET_MSG_SVR_PAUSE			= (NET_MSG_LGIN + 310), //< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_SVR_RESUME			= (NET_MSG_LGIN + 311), //< ï¿½ï¿½ï¿½ß¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.	
+	NET_MSG_SVR_RESTART			= (NET_MSG_LGIN + 312), //< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß°ï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
+	NET_MSG_SVR_STOP			= (NET_MSG_LGIN + 313), //< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_SND_CHANNEL_FULL_STATE = (NET_MSG_LGIN + 314), //< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ FULL ï¿½ï¿½ï¿½Â¸ï¿½ LoginServerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
 	//<-----------------------------------------------------------------------------------------------------[LOBBY]	
-	// NET_MSG_LOGIN				= (NET_MSG_LOBBY + 100), //< ·Î±×ÀÎ 
-	NET_MSG_LOGIN_2 			= (NET_MSG_LOBBY + 107), //< ·Î±×ÀÎ
-	NET_MSG_LOGIN_FB			= (NET_MSG_LOBBY + 108), //< ·Î±×ÀÎ °á°ú	
-	NET_MSG_LOGIN_FB_SUB_OK_FIELD=(NET_MSG_LOBBY + 109), //< ·Î±×ÀÎ¼º°ø°á°ú¸¦ ÇÊµå¼­¹ö·Î Àü¼ÛÇØ¼­ ¼¼ÆÃÇÏ°Ô ÇÑ´Ù.		
+	// NET_MSG_LOGIN				= (NET_MSG_LOBBY + 100), //< ï¿½Î±ï¿½ï¿½ï¿½ 
+	NET_MSG_LOGIN_2 			= (NET_MSG_LOBBY + 107), //< ï¿½Î±ï¿½ï¿½ï¿½
+	NET_MSG_LOGIN_FB			= (NET_MSG_LOBBY + 108), //< ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½	
+	NET_MSG_LOGIN_FB_SUB_OK_FIELD=(NET_MSG_LOBBY + 109), //< ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµå¼­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ñ´ï¿½.		
 	
-	DAUM_NET_MSG_LOGIN			= (NET_MSG_LOBBY + 110), //< Daum ·Î±×ÀÎ
-	DAUM_NET_MSG_LOGIN_FB		= (NET_MSG_LOBBY + 111), //< Daum ·Î±×ÀÎ °á°ú Agent->Client	
+	DAUM_NET_MSG_LOGIN			= (NET_MSG_LOBBY + 110), //< Daum ï¿½Î±ï¿½ï¿½ï¿½
+	DAUM_NET_MSG_LOGIN_FB		= (NET_MSG_LOBBY + 111), //< Daum ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Agent->Client	
 
-	MET_MSG_SVR_FULL            = (NET_MSG_LOBBY + 112), //< ¼­¹ö Full
+	MET_MSG_SVR_FULL            = (NET_MSG_LOBBY + 112), //< ï¿½ï¿½ï¿½ï¿½ Full
 
-	CHINA_NET_MSG_LOGIN         = (NET_MSG_LOBBY + 113), //< China ·Î±×ÀÎ
-	CHINA_NET_MSG_LOGIN_FB      = (NET_MSG_LOBBY + 114), //< China ·Î±×ÀÎ °á°ú Agent->Client
+	CHINA_NET_MSG_LOGIN         = (NET_MSG_LOBBY + 113), //< China ï¿½Î±ï¿½ï¿½ï¿½
+	CHINA_NET_MSG_LOGIN_FB      = (NET_MSG_LOBBY + 114), //< China ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Agent->Client
 
-	GSP_NET_MSG_LOGIN           = (NET_MSG_LOBBY + 115), //< GSP ·Î±×ÀÎ
-	GSP_NET_MSG_LOGIN_FB        = (NET_MSG_LOBBY + 116), //< GSP ·Î±×ÀÎ °á°ú AGent->Client
+	GSP_NET_MSG_LOGIN           = (NET_MSG_LOBBY + 115), //< GSP ï¿½Î±ï¿½ï¿½ï¿½
+	GSP_NET_MSG_LOGIN_FB        = (NET_MSG_LOBBY + 116), //< GSP ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ AGent->Client
 
-	TERRA_NET_MSG_LOGIN         = (NET_MSG_LOBBY + 120), //< Terra ·Î±×ÀÎ
-	TERRA_NET_MSG_LOGIN_FB		= (NET_MSG_LOBBY + 121), //< Terra ·Î±×ÀÎ °á°ú Agent->Client
+	TERRA_NET_MSG_LOGIN         = (NET_MSG_LOBBY + 120), //< Terra ï¿½Î±ï¿½ï¿½ï¿½
+	TERRA_NET_MSG_LOGIN_FB		= (NET_MSG_LOBBY + 121), //< Terra ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Agent->Client
 
 	TERRA_NET_MSG_PASSCHECK     = (NET_MSG_LOBBY + 122), //< Terra Password Check
 	DAUM_NET_MSG_PASSCHECK      = (NET_MSG_LOBBY + 123), //< Daum Password Check
-	NET_MSG_PASSCHECK_FB		= (NET_MSG_LOBBY + 124), //< Password Check °á°ú Agent->Client
+	NET_MSG_PASSCHECK_FB		= (NET_MSG_LOBBY + 124), //< Password Check ï¿½ï¿½ï¿½ Agent->Client
 	EXCITE_NET_MSG_PASSCHECK    = (NET_MSG_LOBBY + 125), //< Excite Password Check
 
-	EXCITE_NET_MSG_LOGIN        = (NET_MSG_LOBBY + 130), //< Excite ·Î±×ÀÎ
-	EXCITE_NET_MSG_LOGIN_FB		= (NET_MSG_LOBBY + 131), //< Excite ·Î±×ÀÎ °á°ú Agent->Client
+	EXCITE_NET_MSG_LOGIN        = (NET_MSG_LOBBY + 130), //< Excite ï¿½Î±ï¿½ï¿½ï¿½
+	EXCITE_NET_MSG_LOGIN_FB		= (NET_MSG_LOBBY + 131), //< Excite ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Agent->Client
 
-	JAPAN_NET_MSG_LOGIN         = (NET_MSG_LOBBY + 132), //< ÀÏº»(Gonzo) ·Î±×ÀÎ
-	JAPAN_NET_MSG_LOGIN_FB		= (NET_MSG_LOBBY + 133), //< ÀÏº»(Gonzo) ·Î±×ÀÎ °á°ú Agent->Client
-	JAPAN_NET_MSG_UUID			= (NET_MSG_LOBBY + 134), //< ÀÏº»(Gonzo) ·Î±×ÀÎ UUID
+	JAPAN_NET_MSG_LOGIN         = (NET_MSG_LOBBY + 132), //< ï¿½Ïºï¿½(Gonzo) ï¿½Î±ï¿½ï¿½ï¿½
+	JAPAN_NET_MSG_LOGIN_FB		= (NET_MSG_LOBBY + 133), //< ï¿½Ïºï¿½(Gonzo) ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Agent->Client
+	JAPAN_NET_MSG_UUID			= (NET_MSG_LOBBY + 134), //< ï¿½Ïºï¿½(Gonzo) ï¿½Î±ï¿½ï¿½ï¿½ UUID
 
-	GS_NET_MSG_LOGIN			= (NET_MSG_LOBBY + 135), //< GS ·Î±×ÀÎ
-	GS_NET_MSG_LOGIN_FB			= (NET_MSG_LOBBY + 136), //< GS ·Î±×ÀÎ °á°ú Agent->Client
+	GS_NET_MSG_LOGIN			= (NET_MSG_LOBBY + 135), //< GS ï¿½Î±ï¿½ï¿½ï¿½
+	GS_NET_MSG_LOGIN_FB			= (NET_MSG_LOBBY + 136), //< GS ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Agent->Client
 
-	THAI_NET_MSG_LOGIN          = (NET_MSG_LOBBY + 140), //< Thailand ·Î±×ÀÎ
-	THAI_NET_MSG_LOGIN_FB		= (NET_MSG_LOBBY + 141), //< Thailand ·Î±×ÀÎ °á°ú Agent->Client
+	THAI_NET_MSG_LOGIN          = (NET_MSG_LOBBY + 140), //< Thailand ï¿½Î±ï¿½ï¿½ï¿½
+	THAI_NET_MSG_LOGIN_FB		= (NET_MSG_LOBBY + 141), //< Thailand ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Agent->Client
 
-	NET_MSG_REQ_RAND_KEY        = (NET_MSG_LOBBY + 150), //< ·£´ýÅ° ¿äÃ» Client->Agent
+	NET_MSG_REQ_RAND_KEY        = (NET_MSG_LOBBY + 150), //< ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½Ã» Client->Agent
 	
-	NET_MSG_SND_ENCRYPT_KEY		= (NET_MSG_LOBBY + 160), //< ·Î±×ÀÎ ·£´ýÅ° Àü¼Û Login->Session
+	NET_MSG_SND_ENCRYPT_KEY		= (NET_MSG_LOBBY + 160), //< ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å° ï¿½ï¿½ï¿½ï¿½ Login->Session
 
 	//< Character create message
-	NET_MSG_CHA_INFO			= (NET_MSG_LOBBY + 200), //< Ä³¸¯ÅÍ Á¤º¸
-	NET_MSG_CHA_NEW				= (NET_MSG_LOBBY + 201), //< »õ·Î¿î Ä³¸¯ÅÍ »ý¼º
-	NET_MSG_CHA_NEW_FB			= (NET_MSG_LOBBY + 202), //< Ä³¸¯ÅÍ »ý¼º ¼º°ø/½ÇÆÐ ¸Þ½ÃÁö
+	NET_MSG_CHA_INFO			= (NET_MSG_LOBBY + 200), //< Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_CHA_NEW				= (NET_MSG_LOBBY + 201), //< ï¿½ï¿½ï¿½Î¿ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_CHA_NEW_FB			= (NET_MSG_LOBBY + 202), //< Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 	
-	NET_MSG_CHA_DEL				= (NET_MSG_LOBBY + 210), //< Client->Agent : ÄÉ¸¯ÅÍ »èÁ¦
-	NET_MSG_CHA_DEL_FB			= (NET_MSG_LOBBY + 211), //< Agent->Client : ÄÉ¸¯ÅÍ »èÁ¦ °á°ú
-	NET_MSG_CHA_DEL_FB_OK		= (NET_MSG_LOBBY + 212), //< Agent->Client : ÄÉ¸¯ÅÍ »èÁ¦ ¼º°ø
-	NET_MSG_CHA_DEL_FB_ERROR	= (NET_MSG_LOBBY + 213), //< Agent->Client : ÄÉ¸¯ÅÍ »èÁ¦ ½ÇÆÐ
-	DAUM_NET_MSG_CHA_DEL		= (NET_MSG_LOBBY + 214), //< Client->Agent : ÄÉ¸¯ÅÍ »èÁ¦
-    NET_MSG_CHA_DEL_FB_CLUB	    = (NET_MSG_LOBBY + 215), //< Agent->Client : ÄÉ¸¯ÅÍ »èÁ¦ ½ÇÆÐ(Å¬·´¸¶½ºÅÍÀÌ±â ¶§¹®¿¡ »èÁ¦°¡ µÇÁö ¾Ê´Â´Ù)
-	TERRA_NET_MSG_CHA_DEL		= (NET_MSG_LOBBY + 216), //< Client->Agent : ÄÉ¸¯ÅÍ »èÁ¦
-	EXCITE_NET_MSG_CHA_DEL		= (NET_MSG_LOBBY + 217), //< Client->Agent : ÄÉ¸¯ÅÍ »èÁ¦
-	GSP_NET_MSG_CHA_DEL		    = (NET_MSG_LOBBY + 218), //< Client->Agent : ÄÉ¸¯ÅÍ »èÁ¦
-	JAPAN_NET_MSG_CHA_DEL		= (NET_MSG_LOBBY + 219), //< Client->Agent : ÄÉ¸¯ÅÍ »èÁ¦
-	GS_NET_MSG_CHA_DEL			= (NET_MSG_LOBBY + 220), //< Client->Agent : ÄÉ¸¯ÅÍ »èÁ¦
+	NET_MSG_CHA_DEL				= (NET_MSG_LOBBY + 210), //< Client->Agent : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_CHA_DEL_FB			= (NET_MSG_LOBBY + 211), //< Agent->Client : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	NET_MSG_CHA_DEL_FB_OK		= (NET_MSG_LOBBY + 212), //< Agent->Client : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_CHA_DEL_FB_ERROR	= (NET_MSG_LOBBY + 213), //< Agent->Client : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	DAUM_NET_MSG_CHA_DEL		= (NET_MSG_LOBBY + 214), //< Client->Agent : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    NET_MSG_CHA_DEL_FB_CLUB	    = (NET_MSG_LOBBY + 215), //< Agent->Client : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½)
+	TERRA_NET_MSG_CHA_DEL		= (NET_MSG_LOBBY + 216), //< Client->Agent : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	EXCITE_NET_MSG_CHA_DEL		= (NET_MSG_LOBBY + 217), //< Client->Agent : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	GSP_NET_MSG_CHA_DEL		    = (NET_MSG_LOBBY + 218), //< Client->Agent : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	JAPAN_NET_MSG_CHA_DEL		= (NET_MSG_LOBBY + 219), //< Client->Agent : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	GS_NET_MSG_CHA_DEL			= (NET_MSG_LOBBY + 220), //< Client->Agent : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_CHA_DECREASE        = (NET_MSG_LOBBY + 240), //< Agent->Session : Ä³¸¯ÅÍ »ý¼º, °¹¼ö °¨¼Ò
-	NET_MSG_TEST_CHA_DECREASE   = (NET_MSG_LOBBY + 241), //< Agent->Session : Ä³¸¯ÅÍ »ý¼º, °¹¼ö °¨¼Ò
-	DAUM_NET_MSG_CHA_DECREASE   = (NET_MSG_LOBBY + 242), //< DAUM : Agent->Session : Ä³¸¯ÅÍ »ý¼º, °¹¼ö °¨¼Ò
-	DAUM_NET_MSG_TEST_CHA_DECREASE=(NET_MSG_LOBBY+ 243), //< DAUM : Agent->Session : Ä³¸¯ÅÍ »ý¼º, °¹¼ö °¨¼Ò
+	NET_MSG_CHA_DECREASE        = (NET_MSG_LOBBY + 240), //< Agent->Session : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_TEST_CHA_DECREASE   = (NET_MSG_LOBBY + 241), //< Agent->Session : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	DAUM_NET_MSG_CHA_DECREASE   = (NET_MSG_LOBBY + 242), //< DAUM : Agent->Session : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	DAUM_NET_MSG_TEST_CHA_DECREASE=(NET_MSG_LOBBY+ 243), //< DAUM : Agent->Session : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_CHA_INCREASE        = (NET_MSG_LOBBY + 244), //< Agent->Session : Ä³¸¯ÅÍ »èÁ¦, °¹¼ö Áõ°¡
-	NET_MSG_TEST_CHA_INCREASE   = (NET_MSG_LOBBY + 245), //< Agent->Session : Ä³¸¯ÅÍ »èÁ¦, °¹¼ö Áõ°¡
-	DAUM_NET_MSG_CHA_INCREASE   = (NET_MSG_LOBBY + 246), //< DAUM : Agent->Session : Ä³¸¯ÅÍ »èÁ¦, °¹¼ö Áõ°¡
-	DAUM_NET_MSG_TEST_CHA_INCREASE= (NET_MSG_LOBBY+247),//< DAUM : Agent->Session : Ä³¸¯ÅÍ »èÁ¦, °¹¼ö Áõ°¡
+	NET_MSG_CHA_INCREASE        = (NET_MSG_LOBBY + 244), //< Agent->Session : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_TEST_CHA_INCREASE   = (NET_MSG_LOBBY + 245), //< Agent->Session : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	DAUM_NET_MSG_CHA_INCREASE   = (NET_MSG_LOBBY + 246), //< DAUM : Agent->Session : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	DAUM_NET_MSG_TEST_CHA_INCREASE= (NET_MSG_LOBBY+247),//< DAUM : Agent->Session : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_REQ_CHA_ALL_INFO	= (NET_MSG_LOBBY + 300), //< ¸ðµç Ä³¸¯ÅÍÀÇ Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
-	NET_MSG_REQ_CHA_INFO		= (NET_MSG_LOBBY + 301), //< Æ¯Á¤ Ä³¸¯ÅÍÀÇ Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
-	NET_MSG_REQ_CHA_BINFO		= (NET_MSG_LOBBY + 302), //< Æ¯Á¤ Ä³¸¯ÅÍÀÇ ±âº»= (Ä³¸¯ÅÍ¼±ÅÃÈ­¸é),Á¤º¸ ¿äÃ»ÇÑ´Ù.
-	NET_MSG_REQ_CHA_FEEDBACK	= (NET_MSG_LOBBY + 303), //< Ä³¸¯ÅÍ Á¤º¸ ÇÇµå¹éµ¥ÀÌÅÍ
-	NET_MSG_CHA_INFO_LOGIN		= (NET_MSG_LOBBY + 304), //< ·Î±×ÀÎ¼­¹ö¿¡¼­ Å¬¶óÀÌ¾ðÆ®¿¡°Ô ³Ñ°ÜÁÖ´Â Ä³¸¯ÅÍ Á¤º¸
-	NET_MSG_REQ_CHA_BAINFO		= (NET_MSG_LOBBY + 305), //< Å¬¶óÀÌ¾ðÆ®->°ÔÀÓ¼­¹ö : Ä³¸¯ÅÍ ±âÃÊÁ¤º¸ ¿äÃ»
-	NET_MSG_CHA_BAINFO			= (NET_MSG_LOBBY + 306), //< °ÔÀÓ¼­¹ö->Å¬¶óÀÌ¾ðÆ® : Ä³¸¯ÅÍ ±âÃÊÁ¤º¸	
+	NET_MSG_REQ_CHA_ALL_INFO	= (NET_MSG_LOBBY + 300), //< ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
+	NET_MSG_REQ_CHA_INFO		= (NET_MSG_LOBBY + 301), //< Æ¯ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
+	NET_MSG_REQ_CHA_BINFO		= (NET_MSG_LOBBY + 302), //< Æ¯ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº»= (Ä³ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½È­ï¿½ï¿½),ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
+	NET_MSG_REQ_CHA_FEEDBACK	= (NET_MSG_LOBBY + 303), //< Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Çµï¿½éµ¥ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_CHA_INFO_LOGIN		= (NET_MSG_LOBBY + 304), //< ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ö´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_REQ_CHA_BAINFO		= (NET_MSG_LOBBY + 305), //< Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®->ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_CHA_BAINFO			= (NET_MSG_LOBBY + 306), //< ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
 	
-	NET_MSG_LOBBY_CHAR_SEL		= (NET_MSG_LOBBY + 390), //< ÇÊµå¼­¹ö->Å¬¶óÀÌ¾ðÆ® : Ä³¸¯ÅÍ ¼±ÅÃ¿ë Á¤º¸.
-	NET_MSG_LOBBY_CHAR_JOIN		= (NET_MSG_LOBBY + 391), //< ÇÊµå¼­¹ö->Å¬¶óÀÌ¾ðÆ® : ¼±ÅÃµÈ Ä³¸¯ÅÍ Á¤º¸¸¦ º¸³¿.
-	NET_MSG_LOBBY_CHAR_ITEM		= (NET_MSG_LOBBY + 392), //< ÇÊµå¼­¹ö->Å¬¶óÀÌ¾ðÆ® : ¼±ÅÃµÈ Ä³¸¯ÅÍ ÀÎº¥Åä¸® ¾ÆÀÌÅÛÀ» º¸³¿.
-	NET_MSG_LOBBY_CHAR_JOIN_FB	= (NET_MSG_LOBBY + 393), //< ÇÊµå¼­¹ö->Å¬¶óÀÌ¾ðÆ® : ¼±ÅÃµÈ Ä³¸¯ÅÍÀÇ Á¢¼ÓÂü°¡ ½ÇÆÐ ¸Þ½ÃÁö.
-	NET_MSG_LOBBY_CHAR_SKILL	= (NET_MSG_LOBBY + 394), //<	ÇÊµå¼­¹ö->Å¬¶óÀÌ¾ðÆ® : ¼±ÅÃµÈ Ä³¸¯ÅÍ°¡ ¹è¿î ½ºÅ³ Á¤º¸ Àü¼Û.
-	NET_MSG_LOBBY_QUEST_END		= (NET_MSG_LOBBY + 395), //<	Äù½ºÆ® ¿Ï·á Á¤º¸.
-	NET_MSG_LOBBY_QUEST_PROG	= (NET_MSG_LOBBY + 396), //<	Äù½ºÆ® ÁøÇà Á¤º¸.
-	NET_MSG_LOBBY_CHARGE_ITEM	= (NET_MSG_LOBBY + 397), //<	±¸ÀÔ ¾ÆÀÌÅÛ Àü¼Û.
-	NET_MSG_LOBBY_CHAR_PUTON	= (NET_MSG_LOBBY + 398), //< ÇÊµå¼­¹ö->Å¬¶óÀÌ¾ðÆ® : ¼±ÅÃµÈ Ä³¸¯ÅÍ Âø¿ë ¾ÆÀÌÅÛÀ» º¸³¿.
+	NET_MSG_LOBBY_CHAR_SEL		= (NET_MSG_LOBBY + 390), //< ï¿½Êµå¼­ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_LOBBY_CHAR_JOIN		= (NET_MSG_LOBBY + 391), //< ï¿½Êµå¼­ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : ï¿½ï¿½ï¿½Ãµï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_LOBBY_CHAR_ITEM		= (NET_MSG_LOBBY + 392), //< ï¿½Êµå¼­ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : ï¿½ï¿½ï¿½Ãµï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_LOBBY_CHAR_JOIN_FB	= (NET_MSG_LOBBY + 393), //< ï¿½Êµå¼­ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : ï¿½ï¿½ï¿½Ãµï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½.
+	NET_MSG_LOBBY_CHAR_SKILL	= (NET_MSG_LOBBY + 394), //<	ï¿½Êµå¼­ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : ï¿½ï¿½ï¿½Ãµï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_LOBBY_QUEST_END		= (NET_MSG_LOBBY + 395), //<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_LOBBY_QUEST_PROG	= (NET_MSG_LOBBY + 396), //<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_LOBBY_CHARGE_ITEM	= (NET_MSG_LOBBY + 397), //<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_LOBBY_CHAR_PUTON	= (NET_MSG_LOBBY + 398), //< ï¿½Êµå¼­ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : ï¿½ï¿½ï¿½Ãµï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_LOBBY_CLUB_INFO		= (NET_MSG_LOBBY + 399), //<	Å¬·´ Á¤º¸.
-	NET_MSG_LOBBY_CLUB_MEMBER	= (NET_MSG_LOBBY + 400), //<	Å¬·´ ¸â¹ö.
-	NET_MSG_LOBBY_CLUB_ALLIANCE	= (NET_MSG_LOBBY + 401), //<	Å¬·´ µ¿¸Í.
-	NET_MSG_LOBBY_CLUB_BATTLE	= (NET_MSG_LOBBY + 402), //<	Å¬·´ ¹èÆ².
+	NET_MSG_LOBBY_CLUB_INFO		= (NET_MSG_LOBBY + 399), //<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_LOBBY_CLUB_MEMBER	= (NET_MSG_LOBBY + 400), //<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	NET_MSG_LOBBY_CLUB_ALLIANCE	= (NET_MSG_LOBBY + 401), //<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_LOBBY_CLUB_BATTLE	= (NET_MSG_LOBBY + 402), //<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ².
 
-	NET_MSG_CHARPOS_FROMDB2AGT	= (NET_MSG_LOBBY + 403), //<	Ä³¸¯ÅÍ À§Ä¡ DB ÀúÀå °á°ú
+	NET_MSG_CHARPOS_FROMDB2AGT	= (NET_MSG_LOBBY + 403), //<	Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	
-	NET_MSG_LOBBY_ITEM_COOLTIME = (NET_MSG_LOBBY + 404), //<	¾ÆÀÌÅÛ ÄðÅ¸ÀÓ
+	NET_MSG_LOBBY_ITEM_COOLTIME = (NET_MSG_LOBBY + 404), //<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½
 	
-	NET_MSG_LOBBY_GAME_JOIN			= (NET_MSG_LOBBY + 411), //< Å¬¶óÀÌ¾ðÆ®  ->ÀÌÀÌÀüÆ®¼­¹ö : ·Îºñ¿¡¼­ ¼±ÅÃÇÑ Ä³¸¯ÅÍ·Î °ÔÀÓÁ¢¼Ó	
-	NET_MSG_LOBBY_GAME_COMPLETE		= (NET_MSG_LOBBY + 412), //< Å¬¶óÀÌ¾ðÆ®  ->Å¬¶óÀÌ¾ðÆ®   : °ÔÀÓ¿¡ µé¾î°¥ Á¤º¸¸¦ ¸ðµÎ ¹Þ¾Æ¼­ °ÔÀÓ¿¡ µé¾î°¨.
-	NET_MSG_GAME_JOIN_OK			= (NET_MSG_LOBBY + 413), //< ÇÊµå¼­¹ö    ->¼¼¼Ç¼­¹ö     : ÇØ´ç Ä³¸¯ÅÍ°¡ Á¶ÀÎ¼º°ø
-	MET_MSG_GAME_JOIN_FIELDSVR		= (NET_MSG_LOBBY + 414), //< ¿¡ÀÌÀüÆ®¼­¹ö->ÇÊµå¼­¹ö     : ÇØ´çÄ³¸¯ÅÍ°¡ °ÔÀÓ¿¡ Á¶ÀÎ¿äÃ»
-	MET_MSG_GAME_JOIN_FIELDSVR_FB	= (NET_MSG_LOBBY + 415), //< ÇÊµå¼­¹ö->¿¡ÀÌÀüÆ®¼­¹ö:¼±ÅÃµÈ Ä³¸¯ÅÍ·Î Á¶ÀÎÇÔ
+	NET_MSG_LOBBY_GAME_JOIN			= (NET_MSG_LOBBY + 411), //< Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®  ->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ : ï¿½Îºñ¿¡¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	NET_MSG_LOBBY_GAME_COMPLETE		= (NET_MSG_LOBBY + 412), //< Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®  ->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®   : ï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¼ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½î°¨.
+	NET_MSG_GAME_JOIN_OK			= (NET_MSG_LOBBY + 413), //< ï¿½Êµå¼­ï¿½ï¿½    ->ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½     : ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½Î¼ï¿½ï¿½ï¿½
+	MET_MSG_GAME_JOIN_FIELDSVR		= (NET_MSG_LOBBY + 414), //< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½->ï¿½Êµå¼­ï¿½ï¿½     : ï¿½Ø´ï¿½Ä³ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½Ã»
+	MET_MSG_GAME_JOIN_FIELDSVR_FB	= (NET_MSG_LOBBY + 415), //< ï¿½Êµå¼­ï¿½ï¿½->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½ï¿½Ãµï¿½ Ä³ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_CONNECT_CLIENT_FIELD	= (NET_MSG_LOBBY + 416), //<	¿¡ÀÌÀüÆ®¼­¹ö->Å¬¶óÀÌ¾ðÆ®   : ÇØ´çÇÊµå¼­¹ö·Î Á¢¼Ó ¸í·É
-	NET_MSG_JOIN_FIELD_IDENTITY		= (NET_MSG_LOBBY + 417), //<	Å¬¶óÀÌ¾ðÆ®  ->ÇÊµå¼­¹ö     : »õ·Î¿î Field ¼­¹ö¿¡ Á¢¼ÓÈÄ ÀÚ½ÅÀÇ ÀÎ½ÄÀÚ Àü¼Û.
+	NET_MSG_CONNECT_CLIENT_FIELD	= (NET_MSG_LOBBY + 416), //<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®   : ï¿½Ø´ï¿½ï¿½Êµå¼­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_JOIN_FIELD_IDENTITY		= (NET_MSG_LOBBY + 417), //<	Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®  ->ï¿½Êµå¼­ï¿½ï¿½     : ï¿½ï¿½ï¿½Î¿ï¿½ Field ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_LOBBY_REQ_GAME_JOIN		= (NET_MSG_LOBBY + 421), //< Å¬¶óÀÌ¾ðÆ®  ->Å¬¶óÀÌ¾ðÆ®   : ÀÎÅÍÆäÀÌ½º·Î ¼±ÅÃµÈ ÄÉ¸¯À¸·Î Á¢¼ÓÀ» ¸í·ÉÇÏ±â À§ÇØ¼­.
+	NET_MSG_LOBBY_REQ_GAME_JOIN		= (NET_MSG_LOBBY + 421), //< Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®  ->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®   : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½É¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½.
 	
-	NET_MSG_AGENT_REQ_JOIN			= (NET_MSG_LOBBY + 422), //< ¿¡ÀÌÁ¯Æ®DB  ->¿¡ÀÌÁ¯Æ®   : db¿¡¼­ ÀÐÀº char·Î Á¢¼Ó½Ãµµ.
-	NET_MSG_FIELD_REQ_JOIN			= (NET_MSG_LOBBY + 423), //< ÇÊµåDB		->ÇÊµå¼­¹ö   : db¿¡¼­ ÀÐÀº char·Î Á¢¼Ó½Ãµµ.
+	NET_MSG_AGENT_REQ_JOIN			= (NET_MSG_LOBBY + 422), //< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®DB  ->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®   : dbï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ charï¿½ï¿½ ï¿½ï¿½ï¿½Ó½Ãµï¿½.
+	NET_MSG_FIELD_REQ_JOIN			= (NET_MSG_LOBBY + 423), //< ï¿½Êµï¿½DB		->ï¿½Êµå¼­ï¿½ï¿½   : dbï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ charï¿½ï¿½ ï¿½ï¿½ï¿½Ó½Ãµï¿½.
 
-	NET_MSG_EVENT_LOTTERY           = (NET_MSG_LOBBY + 430), //< Å¬¶óÀÌ¾ðÆ®  ->¿¡ÀÌÀüÆ®   : º¹±ÇÀÔ·Â
-	NET_MSG_EVENT_LOTTERY_FB        = (NET_MSG_LOBBY + 431), //< ¿¡ÀÌÀüÆ®    ->Å¬¶óÀÌ¾ðÆ® : º¹±Ç°á°ú
+	NET_MSG_EVENT_LOTTERY           = (NET_MSG_LOBBY + 430), //< Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®  ->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®   : ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½
+	NET_MSG_EVENT_LOTTERY_FB        = (NET_MSG_LOBBY + 431), //< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®    ->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : ï¿½ï¿½ï¿½Ç°ï¿½ï¿½
 
-	NET_MSG_LOBBY_CHINA_ERROR		= (NET_MSG_LOBBY + 432), //< Áß±¹ ·Î±×ÀÎ½Ã ÇÃ·¹ÀÌ ´©Àû½Ã°£ÀÌ 5½Ã°£ÀÌ ³Ñ°í ¿ÀÇÁ¶óÀÎ ´©Àû½Ã°£ÀÌ 5½Ã°£ÀÌ µÇÁö ¾Ê¾ÒÀ» °æ¿ì ¿¡·¯ ¸Þ½ÃÁö
+	NET_MSG_LOBBY_CHINA_ERROR		= (NET_MSG_LOBBY + 432), //< ï¿½ß±ï¿½ ï¿½Î±ï¿½ï¿½Î½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ 5ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ 5ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 
-	NET_MSG_LOBBY_CHAR_VIETNAM_ITEM = (NET_MSG_LOBBY + 433), //< º£Æ®³² ÀÎº¥Åä¸® ¾ÆÀÌÅÛ Àü¼Û ¸Þ½ÃÁö
+	NET_MSG_LOBBY_CHAR_VIETNAM_ITEM = (NET_MSG_LOBBY + 433), //< ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 
-	NET_MSG_LOBBY_CHAR_PUTON_EX		= (NET_MSG_LOBBY + 434), //< ÇÊµå¼­¹ö->Å¬¶óÀÌ¾ðÆ® : ¼±ÅÃµÈ Ä³¸¯ÅÍ Âø¿ë ¾ÆÀÌÅÛÀ» º¸³¿. ( ÇÑ°³¾¿ º¸³¿ )
+	NET_MSG_LOBBY_CHAR_PUTON_EX		= (NET_MSG_LOBBY + 434), //< ï¿½Êµå¼­ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® : ï¿½ï¿½ï¿½Ãµï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ( ï¿½Ñ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
 
 	//<-----------------------------------------------------------------------------------------------------[GAME CONTRL]
 	
-	NET_MSG_COMBINE					= (NET_MSG_GCTRL +  10), //< º´ÇÕ ¸Þ½ÃÁö. ( ÇÊµå ¼­¹ö -> Å¬¶óÀÌ¾ðÆ® )
+	NET_MSG_COMBINE					= (NET_MSG_GCTRL +  10), //< ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½. ( ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ -> Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® )
 
 	///////////////////////////////////////////////////////////////////////////
 	// nProtect
-	NET_MSG_GAMEGUARD_AUTH          = (NET_MSG_GCTRL +  20), //< nProtect GameGuard Auth ¿äÃ» ¸Þ½ÃÁö
-	NET_MSG_GAMEGUARD_ANSWER        = (NET_MSG_GCTRL +  21), //< nProtect GameGuard Auth Answer ¸Þ½ÃÁö
-	NET_MSG_GAMEGUARD_AUTH_1        = (NET_MSG_GCTRL +  22), //< nProtect GameGuard Auth ¿äÃ» ¸Þ½ÃÁö
-	NET_MSG_GAMEGUARD_ANSWER_1      = (NET_MSG_GCTRL +  23), //< nProtect GameGuard Auth Answer ¸Þ½ÃÁö
-	NET_MSG_GAMEGUARD_AUTH_2        = (NET_MSG_GCTRL +  24), //< nProtect GameGuard Auth ¿äÃ» ¸Þ½ÃÁö
-	NET_MSG_GAMEGUARD_ANSWER_2      = (NET_MSG_GCTRL +  25), //< nProtect GameGuard Auth Answer ¸Þ½ÃÁö
+	NET_MSG_GAMEGUARD_AUTH          = (NET_MSG_GCTRL +  20), //< nProtect GameGuard Auth ï¿½ï¿½Ã» ï¿½Þ½ï¿½ï¿½ï¿½
+	NET_MSG_GAMEGUARD_ANSWER        = (NET_MSG_GCTRL +  21), //< nProtect GameGuard Auth Answer ï¿½Þ½ï¿½ï¿½ï¿½
+	NET_MSG_GAMEGUARD_AUTH_1        = (NET_MSG_GCTRL +  22), //< nProtect GameGuard Auth ï¿½ï¿½Ã» ï¿½Þ½ï¿½ï¿½ï¿½
+	NET_MSG_GAMEGUARD_ANSWER_1      = (NET_MSG_GCTRL +  23), //< nProtect GameGuard Auth Answer ï¿½Þ½ï¿½ï¿½ï¿½
+	NET_MSG_GAMEGUARD_AUTH_2        = (NET_MSG_GCTRL +  24), //< nProtect GameGuard Auth ï¿½ï¿½Ã» ï¿½Þ½ï¿½ï¿½ï¿½
+	NET_MSG_GAMEGUARD_ANSWER_2      = (NET_MSG_GCTRL +  25), //< nProtect GameGuard Auth Answer ï¿½Þ½ï¿½ï¿½ï¿½
 
-	// Apex Àû¿ë
-	NET_MSG_APEX_DATA				= (NET_MSG_GCTRL +	30), //< Apex Data ¸Þ¼¼Áö
-	NET_MSG_APEX_ANSWER				= (NET_MSG_GCTRL +	31), //< Apex Answer ¸Þ¼¼Áö
-//	NET_MSG_APEX_RSAKEY				= (NET_MSG_GCTRL +	32), //< Apex RSA Key ¸Þ¼¼Áö
-	// Apex Àû¿ë( È«Äá )
+	// Apex ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_APEX_DATA				= (NET_MSG_GCTRL +	30), //< Apex Data ï¿½Þ¼ï¿½ï¿½ï¿½
+	NET_MSG_APEX_ANSWER				= (NET_MSG_GCTRL +	31), //< Apex Answer ï¿½Þ¼ï¿½ï¿½ï¿½
+//	NET_MSG_APEX_RSAKEY				= (NET_MSG_GCTRL +	32), //< Apex RSA Key ï¿½Þ¼ï¿½ï¿½ï¿½
+	// Apex ï¿½ï¿½ï¿½ï¿½( È«ï¿½ï¿½ )
 	NET_MSG_APEX_RETURN 			= (NET_MSG_GCTRL +	33), //< Apex Client Return 
 
-	NET_MSG_REQ_FRIENDLIST			= (NET_MSG_GCTRL +  50), //< Ä£±¸ ¸ñ·Ï Àü¼Û ¿äÃ».
-	NET_MSG_REQ_FRIENDADD			= (NET_MSG_GCTRL +  51), //< Ä£±¸ Ãß°¡ ¿äÃ».
-	NET_MSG_REQ_FRIENDADD_LURE		= (NET_MSG_GCTRL +  52), //< Ä£±¸ Ãß°¡ ¹®ÀÇ.
-	NET_MSG_REQ_FRIENDADD_ANS		= (NET_MSG_GCTRL +  53), //< Ä£±¸ Ãß°¡ ¼ö¶ô ¿©ºÎ È¸½Å.
-	NET_MSG_REQ_FRIENDADD_FB		= (NET_MSG_GCTRL +  54), //< Ä£±¸ Ãß°¡ ¿äÃ» °á°ú.
-	NET_MSG_REQ_FRIENDDEL			= (NET_MSG_GCTRL +  55), //< Ä£±¸ »èÁ¦ ¿äÃ».
-	NET_MSG_REQ_FRIENDDEL_FB		= (NET_MSG_GCTRL +  56), //< Ä£±¸ »èÁ¦ °á°ú.
+	NET_MSG_REQ_FRIENDLIST			= (NET_MSG_GCTRL +  50), //< Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_REQ_FRIENDADD			= (NET_MSG_GCTRL +  51), //< Ä£ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_REQ_FRIENDADD_LURE		= (NET_MSG_GCTRL +  52), //< Ä£ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_REQ_FRIENDADD_ANS		= (NET_MSG_GCTRL +  53), //< Ä£ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½.
+	NET_MSG_REQ_FRIENDADD_FB		= (NET_MSG_GCTRL +  54), //< Ä£ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½.
+	NET_MSG_REQ_FRIENDDEL			= (NET_MSG_GCTRL +  55), //< Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_REQ_FRIENDDEL_FB		= (NET_MSG_GCTRL +  56), //< Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 
-	NET_MSG_FRIENDINFO				= (NET_MSG_GCTRL +  57), //< Ä£±¸ Á¤º¸.
-	NET_MSG_FRIENDSTATE				= (NET_MSG_GCTRL +  58), //< Ä£±¸ »óÅÂ.
+	NET_MSG_FRIENDINFO				= (NET_MSG_GCTRL +  57), //< Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_FRIENDSTATE				= (NET_MSG_GCTRL +  58), //< Ä£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_REQ_FRIENDBLOCK			= (NET_MSG_GCTRL +  59), //< ±Ó¼Ó¸» ºí·° ¿äÃ».
-	NET_MSG_REQ_FRIENDBLOCK_FB		= (NET_MSG_GCTRL +  60), //< ±Ó¼Ó¸» ºí·° ¿äÃ» °á°ú.
+	NET_MSG_REQ_FRIENDBLOCK			= (NET_MSG_GCTRL +  59), //< ï¿½Ó¼Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_REQ_FRIENDBLOCK_FB		= (NET_MSG_GCTRL +  60), //< ï¿½Ó¼Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½.
 
-	NET_MSG_CHAT					= (NET_MSG_GCTRL + 100), //< Ã¤ÆÃ¸Þ½ÃÁö Á¤ÀÇ ( Å¬¶óÀÌ¾ðÆ®->°ÔÀÓ¼­¹ö )
-	NET_MSG_CHAT_FB					= (NET_MSG_GCTRL + 101), //< Ã¤ÆÃ¸Þ½ÃÁö Á¤ÀÇ ( °ÔÀÓ¼­¹ö->Å¬¶óÀÌ¾ðÆ® )
-	NET_MSG_CHAT_PRIVATE_FAIL		= (NET_MSG_GCTRL + 102), //< Ã¤ÆÃ, ±Ó¼Ó¸» º¸³»±â¿¡ ½ÇÆÐÇÏ¿´À» °æ¿ì. ( °ÔÀÓ¼­¹ö->Å¬¶óÀÌ¾ðÆ® )	
+	NET_MSG_CHAT					= (NET_MSG_GCTRL + 100), //< Ã¤ï¿½Ã¸Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®->ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ )
+	NET_MSG_CHAT_FB					= (NET_MSG_GCTRL + 101), //< Ã¤ï¿½Ã¸Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® )
+	NET_MSG_CHAT_PRIVATE_FAIL		= (NET_MSG_GCTRL + 102), //< Ã¤ï¿½ï¿½, ï¿½Ó¼Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½. ( ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® )	
 
-	NET_MSG_CHAT_LOUDSPEAKER		= (NET_MSG_GCTRL + 103), //< È®¼º±â ¸Þ½Ã½Ã.
-	NET_MSG_CHAT_LOUDSPEAKER_AGT	= (NET_MSG_GCTRL + 104), //< È®¼º±â ¸Þ½ÃÁö agt ¿¡ º¸³¿.
-	NET_MSG_CHAT_LOUDSPEAKER_FB		= (NET_MSG_GCTRL + 105), //< È®¼º±â ¸Þ½ÃÁö Ã³¸® FB.
+	NET_MSG_CHAT_LOUDSPEAKER		= (NET_MSG_GCTRL + 103), //< È®ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½Ã½ï¿½.
+	NET_MSG_CHAT_LOUDSPEAKER_AGT	= (NET_MSG_GCTRL + 104), //< È®ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ agt ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_CHAT_LOUDSPEAKER_FB		= (NET_MSG_GCTRL + 105), //< È®ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ FB.
 
-	NET_MSG_CHAT_BLOCK				= (NET_MSG_GCTRL + 106), //< Ã¤ÆÃ Â÷´Ü »óÅÂÀÏ °æ¿ì. ( °ÔÀÓ¼­¹ö -> Å¬¶óÀÌ¾ðÆ® )
+	NET_MSG_CHAT_BLOCK				= (NET_MSG_GCTRL + 106), //< Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½. ( ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ -> Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® )
 
-	NET_MSG_FIELDSVR_CHARCHK		= (NET_MSG_GCTRL + 110), //< ÇÊµå¼­¹ö¿¡ ÄÉ¸¯ÅÍ ÁøÀÔÀü¿¡ ÀÜÁ¸ CHAR Á¦°Å À§ÇÑ ¸Þ½ÃÁö Àü¼Û.
-	NET_MSG_FIELDSVR_CHARCHK_FB		= (NET_MSG_GCTRL + 111), //< ÇÊµå¼­¹ö¿¡ ÄÉ¸¯ÅÍ ÁøÀÔÀü¿¡ ÀÜÁ¸ CHAR Á¦°Å À§ÇÑ ¸Þ½ÃÁö Àü¼Û.
+	NET_MSG_FIELDSVR_CHARCHK		= (NET_MSG_GCTRL + 110), //< ï¿½Êµå¼­ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ CHAR ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_FIELDSVR_CHARCHK_FB		= (NET_MSG_GCTRL + 111), //< ï¿½Êµå¼­ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ CHAR ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_FIELDSVR_OUT		= (NET_MSG_GCTRL + 115), //< ÇÊµå¼­¹ö¿¡¼­ ³ª¿À±â À§ÇÑ ¿¹ºñ Ã³¸®¸¦ ºÎÅ¹. ( ÇÊµå¼­¹ö ÀÌµ¿½Ã. )
-	NET_MSG_GCTRL_FIELDSVR_OUT_FB	= (NET_MSG_GCTRL + 116), //< ÇÊµå¼­¹ö¿¡¼­ ³ª¿À±â À§ÇÑ ¿¹ºñ Ã³¸® °á°ú. ( ÇÊµå¼­¹ö ÀÌµ¿½Ã. )
+	NET_MSG_GCTRL_FIELDSVR_OUT		= (NET_MSG_GCTRL + 115), //< ï¿½Êµå¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¹. ( ï¿½Êµå¼­ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½. )
+	NET_MSG_GCTRL_FIELDSVR_OUT_FB	= (NET_MSG_GCTRL + 116), //< ï¿½Êµå¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½. ( ï¿½Êµå¼­ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½. )
 
-	NET_MSG_GCTRL_REBIRTH_OUT		= (NET_MSG_GCTRL + 117), //< ´Ù¸¥ ÇÊµå¼­¹ö¿¡¼­ ºÎÈ°ÇÏ±â À§ÇÑ ¿¹ºñ Ã³¸® ºÎÅ¹.
-	NET_MSG_GCTRL_REBIRTH_OUT_FB	= (NET_MSG_GCTRL + 118), //< ´Ù¸¥ ÇÊµå¼­¹ö¿¡¼­ ºÎÈ°ÇÏ±â À§ÇÑ ¿¹ºñ Ã³¸® °á°ú.
+	NET_MSG_GCTRL_REBIRTH_OUT		= (NET_MSG_GCTRL + 117), //< ï¿½Ù¸ï¿½ ï¿½Êµå¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½Å¹.
+	NET_MSG_GCTRL_REBIRTH_OUT_FB	= (NET_MSG_GCTRL + 118), //< ï¿½Ù¸ï¿½ ï¿½Êµå¼­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½.
 
 	NET_MSG_GCTRL_DROP_ITEM			= (NET_MSG_GCTRL + 120),
 	NET_MSG_GCTRL_DROP_MONEY		= (NET_MSG_GCTRL + 121),
@@ -931,346 +931,346 @@ enum EMNET_MSG
 	NET_MSG_GCTRL_ATTACK_DAMAGE		= (NET_MSG_GCTRL + 151),
 	NET_MSG_GCTRL_ATTACK_DAMAGE_BRD	= (NET_MSG_GCTRL + 152),
 
-	NET_MSG_GCTRL_ACTION_BRD		= (NET_MSG_GCTRL + 153),	//<	Çàµ¿ º¯È­.
-	NET_MSG_GCTRL_UPDATE_STATE		= (NET_MSG_GCTRL + 154),	//<	»óÅÂ º¯È­ ¾÷´ëÀÌÆ®.
-	NET_MSG_GCTRL_UPDATE_EXP		= (NET_MSG_GCTRL + 155),	//<	°æÇèÄ¡ º¯È­½Ã ¹ß»ý.
-	NET_MSG_GCTRL_UPDATE_MONEY		= (NET_MSG_GCTRL + 156),	//<	°æÇèÄ¡ º¯È­½Ã ¹ß»ý.
+	NET_MSG_GCTRL_ACTION_BRD		= (NET_MSG_GCTRL + 153),	//<	ï¿½àµ¿ ï¿½ï¿½È­.
+	NET_MSG_GCTRL_UPDATE_STATE		= (NET_MSG_GCTRL + 154),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
+	NET_MSG_GCTRL_UPDATE_EXP		= (NET_MSG_GCTRL + 155),	//<	ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ß»ï¿½.
+	NET_MSG_GCTRL_UPDATE_MONEY		= (NET_MSG_GCTRL + 156),	//<	ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ß»ï¿½.
 
-	NET_MSG_GCTRL_UPDATE_SP			= (NET_MSG_GCTRL + 157),	//<	SP º¯È­½Ã ¹ß»ý.
-	NET_MSG_GCTRL_UPDATE_LP			= (NET_MSG_GCTRL + 158),	//<	Living Point º¯È­½Ã ¹ß»ý.
-	NET_MSG_GCTRL_UPDATE_SKP		= (NET_MSG_GCTRL + 160),	//<	½ºÅ³ Æ÷ÀÎÆ® º¯È­½Ã ¹ß»ý.
+	NET_MSG_GCTRL_UPDATE_SP			= (NET_MSG_GCTRL + 157),	//<	SP ï¿½ï¿½È­ï¿½ï¿½ ï¿½ß»ï¿½.
+	NET_MSG_GCTRL_UPDATE_LP			= (NET_MSG_GCTRL + 158),	//<	Living Point ï¿½ï¿½È­ï¿½ï¿½ ï¿½ß»ï¿½.
+	NET_MSG_GCTRL_UPDATE_SKP		= (NET_MSG_GCTRL + 160),	//<	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È­ï¿½ï¿½ ï¿½ß»ï¿½.
 
-	NET_MSG_GCTRL_UPDATE_STATE_BRD	= (NET_MSG_GCTRL + 161),	//<	»óÅÂ º¯È­ ¾÷´ëÀÌÆ®.
-	NET_MSG_GCTRL_UPDATE_PASSIVE_BRD= (NET_MSG_GCTRL + 162),	//<	passive skill »óÅÂ º¯È­ ¾÷´ëÀÌÆ®.
+	NET_MSG_GCTRL_UPDATE_STATE_BRD	= (NET_MSG_GCTRL + 161),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
+	NET_MSG_GCTRL_UPDATE_PASSIVE_BRD= (NET_MSG_GCTRL + 162),	//<	passive skill ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
 
-	NET_MSG_GCTRL_POSITIONCHK_BRD	= (NET_MSG_GCTRL + 163),	//<	¼­¹ö¿¡¼­ÀÇ À§Ä¡¸¦ Å¬¶óÀÌ¾ðÆ®¿¡¼­ Ã¼Å©ÇÏ±â À§ÇØ¼­.
+	NET_MSG_GCTRL_POSITIONCHK_BRD	= (NET_MSG_GCTRL + 163),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½.
 
-	NET_MSG_GCTRL_UPDATE_BRIGHT		= (NET_MSG_GCTRL + 164),	//<	bright(¼Ó¼º)Ä¡ ¾÷´ëÀÌÆ®.
-	NET_MSG_GCTRL_UPDATE_BRIGHT_BRD	= (NET_MSG_GCTRL + 165),	//<	bright(¼Ó¼º)Ä¡ ¾÷´ëÀÌÆ®.
-	NET_MSG_GCTRL_UPDATE_STATS		= (NET_MSG_GCTRL + 166),	//<	stats ¾÷´ëÀÌÆ®.
+	NET_MSG_GCTRL_UPDATE_BRIGHT		= (NET_MSG_GCTRL + 164),	//<	bright(ï¿½Ó¼ï¿½)Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
+	NET_MSG_GCTRL_UPDATE_BRIGHT_BRD	= (NET_MSG_GCTRL + 165),	//<	bright(ï¿½Ó¼ï¿½)Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
+	NET_MSG_GCTRL_UPDATE_STATS		= (NET_MSG_GCTRL + 166),	//<	stats ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
 
-	NET_MSG_GCTRL_UPDATE_FLAGS		= (NET_MSG_GCTRL + 167),	//<	flags ¾÷´ëÀÌÆ®.
+	NET_MSG_GCTRL_UPDATE_FLAGS		= (NET_MSG_GCTRL + 167),	//<	flags ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
 
-	NET_MSG_GCTRL_PUSHPULL_BRD		= (NET_MSG_GCTRL + 171),	//<	¹Ð°Å³ª ´ç±â´Â ¾×¼Ç ¹ß»ý½Ã.
-	NET_MSG_GCTRL_JUMP_POS_BRD		= (NET_MSG_GCTRL + 172),	//<	ÄÉ¸¯ÅÍÀÇ À§Ä¡°¡ ¼ø°£ÀûÀ¸·Î º¯°æµÇ¾úÀ» °æ¿ì. Å¬¶óÀÌ¾ðÆ®¿¡ ¹Ý¿µ.
+	NET_MSG_GCTRL_PUSHPULL_BRD		= (NET_MSG_GCTRL + 171),	//<	ï¿½Ð°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¼ï¿½ ï¿½ß»ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_JUMP_POS_BRD		= (NET_MSG_GCTRL + 172),	//<	ï¿½É¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½. Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½Ý¿ï¿½.
 
-	NET_MSG_GCTRL_INVEN_INSERT		= (NET_MSG_GCTRL + 200),	//<	ÀÎ¹ê¿¡ ¾ÆÀÌÅÆ »ðÀÔµÊ.
-	NET_MSG_GCTRL_INVEN_DELETE		= (NET_MSG_GCTRL + 201),	//<	ÀÎ¹ê   ¾ÆÀÌÅÆ »èÁ¦.
-	NET_MSG_GCTRL_INVEN_DEL_INSERT	= (NET_MSG_GCTRL + 202),	//<	ÀÎ¹ê¿¡ ÀÖ´ø ¾ÆÀÌÅÆ »èÁ¦ÈÄ ¾ÆÀÌÅÆ »ðÀÔ.
+	NET_MSG_GCTRL_INVEN_INSERT		= (NET_MSG_GCTRL + 200),	//<	ï¿½Î¹ê¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ôµï¿½.
+	NET_MSG_GCTRL_INVEN_DELETE		= (NET_MSG_GCTRL + 201),	//<	ï¿½Î¹ï¿½   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_INVEN_DEL_INSERT	= (NET_MSG_GCTRL + 202),	//<	ï¿½Î¹ê¿¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_PUTON_RELEASE		= (NET_MSG_GCTRL + 203),	//<	½½·ÔÀÇ ¾ÆÀÌÅÆÀ» Á¦°ÅÇÔ.
-	NET_MSG_GCTRL_PUTON_RELEASE_BRD	= (NET_MSG_GCTRL + 204),	//<	½½·ÔÀÇ ¾ÆÀÌÅÆÀ» Á¦°ÅÇÔ.
-	NET_MSG_GCTRL_PUTON_UPDATE		= (NET_MSG_GCTRL + 205),	//<	½½·Ô¿¡ ¾ÆÀÌÅÆ º¯°æ.
-	NET_MSG_GCTRL_PUTON_UPDATE_BRD	= (NET_MSG_GCTRL + 206),	//<	[¹æ¼Û] »ç¿ë ¾ÆÀÌÅÆÀÌ º¯°æµÊ.
+	NET_MSG_GCTRL_PUTON_RELEASE		= (NET_MSG_GCTRL + 203),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PUTON_RELEASE_BRD	= (NET_MSG_GCTRL + 204),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PUTON_UPDATE		= (NET_MSG_GCTRL + 205),	//<	ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PUTON_UPDATE_BRD	= (NET_MSG_GCTRL + 206),	//<	[ï¿½ï¿½ï¿½] ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_INVEN_DRUG_UPDATE	= (NET_MSG_GCTRL + 207),	//<	¼Ò¸ðÇü ¾ÆÀÌÅÆ ¼Ò¸ðµÊÀ» ¾÷´ëÀÌÆ®.
-	NET_MSG_GCTRL_PUTON_DRUG_UPDATE	= (NET_MSG_GCTRL + 208),	//<	¼Ò¸ðÇü ¾ÆÀÌÅÆ ¼Ò¸ðµÊÀ» ¾÷´ëÀÌÆ®.
+	NET_MSG_GCTRL_INVEN_DRUG_UPDATE	= (NET_MSG_GCTRL + 207),	//<	ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
+	NET_MSG_GCTRL_PUTON_DRUG_UPDATE	= (NET_MSG_GCTRL + 208),	//<	ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
 
-	NET_MSG_GCTRL_INVEN_ITEM_UPDATE	= (NET_MSG_GCTRL + 209),	//<	ÀÎ¹ê ¾ÆÀÌÅÛ ¼öÄ¡ ¾÷µ¥ÀÌÆ®.
+	NET_MSG_GCTRL_INVEN_ITEM_UPDATE	= (NET_MSG_GCTRL + 209),	//<	ï¿½Î¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®.
 
-	NET_MSG_GCTRL_PICKUP_MONEY		= (NET_MSG_GCTRL + 221),	//<	µ· ½Àµæ.
-	NET_MSG_GCTRL_PICKUP_ITEM		= (NET_MSG_GCTRL + 222),	//<	¾ÆÀÌÅÛ ½Àµæ ¾Ë¸².
+	NET_MSG_GCTRL_PICKUP_MONEY		= (NET_MSG_GCTRL + 221),	//<	ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PICKUP_ITEM		= (NET_MSG_GCTRL + 222),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½.
 
-	NET_MSG_GCTRL_2_FRIEND_REQ		= (NET_MSG_GCTRL + 231),	//<	Ä£±¸·Î °¡±â ¿äÃ».
-	NET_MSG_GCTRL_2_FRIEND_CK		= (NET_MSG_GCTRL + 232),	//<	Ä£±¸·Î °¡±â Ä£±¸°¡ ÀÖ´ÂÁö °Ë»çÈÄ À§Ä¡ ¹ÝÈ¯.
-	NET_MSG_GCTRL_2_FRIEND_AG		= (NET_MSG_GCTRL + 233),	//<	Ä£±¸·Î °¡±â AG·Î È¸½Å ( Ä£±¸ À§Ä¡ Á¤º¸ ).
-	NET_MSG_GCTRL_2_FRIEND_FLD		= (NET_MSG_GCTRL + 234),	//<	Ä£±¸·Î °¡±â FLD·Î ÀÌµ¿ ¸í·É.
-	NET_MSG_GCTRL_2_FRIEND_FB		= (NET_MSG_GCTRL + 235),	//<	Ä£±¸·Î °¡±â Ã³¸® °á°ú Åëº¸.
+	NET_MSG_GCTRL_2_FRIEND_REQ		= (NET_MSG_GCTRL + 231),	//<	Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_2_FRIEND_CK		= (NET_MSG_GCTRL + 232),	//<	Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½È¯.
+	NET_MSG_GCTRL_2_FRIEND_AG		= (NET_MSG_GCTRL + 233),	//<	Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ AGï¿½ï¿½ È¸ï¿½ï¿½ ( Ä£ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ).
+	NET_MSG_GCTRL_2_FRIEND_FLD		= (NET_MSG_GCTRL + 234),	//<	Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ FLDï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_2_FRIEND_FB		= (NET_MSG_GCTRL + 235),	//<	Ä£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ëº¸.
 
-	NET_MSG_GCTRL_REQ_TAKE_FB		= (NET_MSG_GCTRL + 300),	//<	ÁÝ±â ½Ãµµ °á°ú.
-	NET_MSG_GCTRL_REQ_FIELD_TO_INVEN= (NET_MSG_GCTRL + 301),	//<	¾ÆÀÌÅÆ,µ· ÁÝ±â ½Ãµµ.
-	NET_MSG_GCTRL_REQ_FIELD_TO_HOLD	= (NET_MSG_GCTRL + 302),	//<	Field¿¡ ÀÖ´Â ¾ÆÀÌÅÆÀ» µé±â ½Ãµµ.
+	NET_MSG_GCTRL_REQ_TAKE_FB		= (NET_MSG_GCTRL + 300),	//<	ï¿½Ý±ï¿½ ï¿½Ãµï¿½ ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_FIELD_TO_INVEN= (NET_MSG_GCTRL + 301),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ ï¿½Ý±ï¿½ ï¿½Ãµï¿½.
+	NET_MSG_GCTRL_REQ_FIELD_TO_HOLD	= (NET_MSG_GCTRL + 302),	//<	Fieldï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ãµï¿½.
 
-	NET_MSG_GCTRL_REQ_INVEN_TO_HOLD	= (NET_MSG_GCTRL + 303),	//<	ÀÎ¹ê¿¡ ÀÖ´Â ¾ÆÀÌÅÆÀ» µé±â ½Ãµµ.
-	NET_MSG_GCTRL_REQ_INVEN_EX_HOLD	= (NET_MSG_GCTRL + 304),	//<	ÀÎ¹ê¿¡ ÀÖ´Â ¾ÆÀÌÅÆÀ» µé±â ½Ãµµ.
+	NET_MSG_GCTRL_REQ_INVEN_TO_HOLD	= (NET_MSG_GCTRL + 303),	//<	ï¿½Î¹ê¿¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ãµï¿½.
+	NET_MSG_GCTRL_REQ_INVEN_EX_HOLD	= (NET_MSG_GCTRL + 304),	//<	ï¿½Î¹ê¿¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ãµï¿½.
 
-	NET_MSG_GCTRL_REQ_SLOT_TO_HOLD	= (NET_MSG_GCTRL + 305),	//<	¾ÆÀÌÅÆ, ½½·Ô¿¡¼­ ¼ÕÀ¸·Î.
-	NET_MSG_GCTRL_REQ_SLOT_EX_HOLD	= (NET_MSG_GCTRL + 306),	//<	¾ÆÀÌÅÆ, ½½·Ô¿¡ ÀÖ´Â°Í°ú ¼Õ¿¡ µé°í ÀÖ´Â°Í ±³È¯.
+	NET_MSG_GCTRL_REQ_SLOT_TO_HOLD	= (NET_MSG_GCTRL + 305),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_SLOT_EX_HOLD	= (NET_MSG_GCTRL + 306),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½Ö´Â°Í°ï¿½ ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´Â°ï¿½ ï¿½ï¿½È¯.
 
-	NET_MSG_GCTRL_REQ_HOLD_TO_FIELD	= (NET_MSG_GCTRL + 307),	//<	¾ÆÀÌÅÆÀ» ¹Ù´Ú¿¡ ¶³¾îÆ®¸².
-	NET_MSG_GCTRL_REQ_HOLD_TO_INVEN	= (NET_MSG_GCTRL + 308),	//<	¾ÆÀÌÅÆÀ» INVEN¿¡ ³ÖÀ½.
-	NET_MSG_GCTRL_REQ_HOLD_TO_SLOT	= (NET_MSG_GCTRL + 309),	//<	¾ÆÀÌÅÆ, ¼Õ¿¡¼­ ½½·ÔÀ¸·Î.
+	NET_MSG_GCTRL_REQ_HOLD_TO_FIELD	= (NET_MSG_GCTRL + 307),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù´Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_HOLD_TO_INVEN	= (NET_MSG_GCTRL + 308),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ INVENï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_HOLD_TO_SLOT	= (NET_MSG_GCTRL + 309),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Õ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_REQ_HOLD_FB		= (NET_MSG_GCTRL + 310),	//<	ÀÎ¹ê¿¡ ÀÖ´Â ¾ÆÀÌÅÆÀ» µé±â ½Ãµµ½Ã °á°ú ÇÇµå¹é.
-	NET_MSG_GCTRL_REQ_INVEN_TO_SLOT	= (NET_MSG_GCTRL + 311),	//<	ÀÎ¹ê¿¡ ÀÖ´Â ¾ÆÀÌÅÆÀ» ½½·Ô¿¡ ³Ö±â.
+	NET_MSG_GCTRL_REQ_HOLD_FB		= (NET_MSG_GCTRL + 310),	//<	ï¿½Î¹ê¿¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ãµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_INVEN_TO_SLOT	= (NET_MSG_GCTRL + 311),	//<	ï¿½Î¹ê¿¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½Ö±ï¿½.
 
-	NET_MSG_GCTRL_REQ_MONEY_TO_FIELD= (NET_MSG_GCTRL + 312),	//<	µ·À» ÇÊµå¿¡ ¹ö¸®±â.
-	NET_MSG_GCTRL_REQ_INVEN_SPLIT	= (NET_MSG_GCTRL + 313),	//<	ÀÎº¥¿¡ ÀÖ´Â °ãÄ§ ¾ÆÀÌÅÛ ºÐ¸®.
+	NET_MSG_GCTRL_REQ_MONEY_TO_FIELD= (NET_MSG_GCTRL + 312),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½Êµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_INVEN_SPLIT	= (NET_MSG_GCTRL + 313),	//<	ï¿½Îºï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Ä§ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¸ï¿½.
 
-	NET_MSG_GCTRL_PUTON_CHANGE		= (NET_MSG_GCTRL + 314),	//<	¹«±â ½º¿Ò.
-	NET_MSG_GCTRL_PUTON_CHANGE_BRD	= (NET_MSG_GCTRL + 315),	//<	[¹æ¼Û] ¹«±â ½º¿Ò ¾Ë¸².
-	NET_MSG_GCTRL_PUTON_CHANGE_AG	= (NET_MSG_GCTRL + 316),	//<	Agent·Î ¹«±â ½º¿Ò ¾Ë¸².
-	NET_MSG_GCTRL_REQ_SLOT_CHANGE	= (NET_MSG_GCTRL + 317),	//<	¹«±â ½½·Ô Ã¼ÀÎÁö.
+	NET_MSG_GCTRL_PUTON_CHANGE		= (NET_MSG_GCTRL + 314),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PUTON_CHANGE_BRD	= (NET_MSG_GCTRL + 315),	//<	[ï¿½ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½.
+	NET_MSG_GCTRL_PUTON_CHANGE_AG	= (NET_MSG_GCTRL + 316),	//<	Agentï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½.
+	NET_MSG_GCTRL_REQ_SLOT_CHANGE	= (NET_MSG_GCTRL + 317),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_REQ_BUY_FROM_NPC	= (NET_MSG_GCTRL + 350),	//<	NPC¿¡°Ô ¹°Ç° ÆÇ¸Å ½Ãµµ.
-	NET_MSG_GCTRL_REQ_SALE_TO_NPC	= (NET_MSG_GCTRL + 351),	//<	NPC¿¡°Ô ¹°Ç° ÆÇ¸Å ½Ãµµ.
+	NET_MSG_GCTRL_REQ_BUY_FROM_NPC	= (NET_MSG_GCTRL + 350),	//<	NPCï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½Ç¸ï¿½ ï¿½Ãµï¿½.
+	NET_MSG_GCTRL_REQ_SALE_TO_NPC	= (NET_MSG_GCTRL + 351),	//<	NPCï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½Ç¸ï¿½ ï¿½Ãµï¿½.
 
-	NET_MSG_GCTRL_REQ_REBIRTH		= (NET_MSG_GCTRL + 380),	//<	ºÎÈ° ¿äÃ».
-	NET_MSG_GCTRL_REQ_REBIRTH_FB	= (NET_MSG_GCTRL + 381),	//<	ºÎÈ° ¿äÃ» ÀÀ´ä.
+	NET_MSG_GCTRL_REQ_REBIRTH		= (NET_MSG_GCTRL + 380),	//<	ï¿½ï¿½È° ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_REBIRTH_FB	= (NET_MSG_GCTRL + 381),	//<	ï¿½ï¿½È° ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_REQ_LEVELUP		= (NET_MSG_GCTRL + 382),	//<	·¦¾÷ ¿äÃ».
-	NET_MSG_GCTRL_REQ_LEVELUP_FB	= (NET_MSG_GCTRL + 383),	//<	·¦¾÷ ¿äÃ» ÀÀ´ä.
-	NET_MSG_GCTRL_REQ_LEVELUP_BRD	= (NET_MSG_GCTRL + 384),	//<	·¦¾÷ È¿°ú.
+	NET_MSG_GCTRL_REQ_LEVELUP		= (NET_MSG_GCTRL + 382),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_LEVELUP_FB	= (NET_MSG_GCTRL + 383),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_LEVELUP_BRD	= (NET_MSG_GCTRL + 384),	//<	ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½.
 
 	NET_MSG_GCTRL_REQ_STATSUP		= (NET_MSG_GCTRL + 385),	//<	STATS UP
-	NET_MSG_GCTRL_REQ_STATSUP_FB	= (NET_MSG_GCTRL + 386),	//<	STATS UP ÀÀ´ä.
+	NET_MSG_GCTRL_REQ_STATSUP_FB	= (NET_MSG_GCTRL + 386),	//<	STATS UP ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_REQ_INVENDRUG		= (NET_MSG_GCTRL + 400),	//<	ÀÎ¹ê ¾àÇ° ¸Ô±â.
-	NET_MSG_GCTRL_REQ_LEARNSKILL	= (NET_MSG_GCTRL + 401),	//<	ÀÎ¹ê ½ºÅ³ ½Àµæ ¿äÃ».
-	NET_MSG_GCTRL_REQ_LEARNSKILL_FB	= (NET_MSG_GCTRL + 402),	//<	ÀÎ¹ê ½ºÅ³ ½Àµæ ÀÀ´ä.
-	NET_MSG_GCTRL_REQ_SKILLUP		= (NET_MSG_GCTRL + 403),	//<	½ºÅ³ ¾÷±×·¡ÀÌµå ¿äÃ».
-	NET_MSG_GCTRL_REQ_SKILLUP_FB	= (NET_MSG_GCTRL + 404),	//<	½ºÅ³ ¾÷±×·¡ÀÌµå ÀÀ´ä.
+	NET_MSG_GCTRL_REQ_INVENDRUG		= (NET_MSG_GCTRL + 400),	//<	ï¿½Î¹ï¿½ ï¿½ï¿½Ç° ï¿½Ô±ï¿½.
+	NET_MSG_GCTRL_REQ_LEARNSKILL	= (NET_MSG_GCTRL + 401),	//<	ï¿½Î¹ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_LEARNSKILL_FB	= (NET_MSG_GCTRL + 402),	//<	ï¿½Î¹ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_SKILLUP		= (NET_MSG_GCTRL + 403),	//<	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_SKILLUP_FB	= (NET_MSG_GCTRL + 404),	//<	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_REQ_RECALL		= (NET_MSG_GCTRL + 405),	//<	±ÍÈ¯ ¾ÆÀÌÅÛ »ç¿ë ¿äÃ».
-	NET_MSG_GCTRL_REQ_RECALL_FB		= (NET_MSG_GCTRL + 406),	//<	±ÍÈ¯ ¾ÆÀÌÅÛ »ç¿ë ÀÀ´ä.
-	NET_MSG_GCTRL_REQ_RECALL_AG		= (NET_MSG_GCTRL + 407),	//<	±ÍÈ¯À» ¿¡ÀÌÁ¯Æ® ¼­¹ö¿¡ ¿äÃ».
+	NET_MSG_GCTRL_REQ_RECALL		= (NET_MSG_GCTRL + 405),	//<	ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_RECALL_FB		= (NET_MSG_GCTRL + 406),	//<	ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_RECALL_AG		= (NET_MSG_GCTRL + 407),	//<	ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
 
-	NET_MSG_GCTRL_REQ_BUS			= (NET_MSG_GCTRL + 408),	//<	¹ö½º ½ÂÂ÷ ¿äÃ».
-	NET_MSG_GCTRL_REQ_BUS_FB		= (NET_MSG_GCTRL + 409),	//<	¹ö½º ½ÂÂ÷ ¿äÃ» ÀÀ´ä.
+	NET_MSG_GCTRL_REQ_BUS			= (NET_MSG_GCTRL + 408),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_BUS_FB		= (NET_MSG_GCTRL + 409),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_REQ_SKILL			= (NET_MSG_GCTRL + 411),	//<	½ºÅ³ ¹ßµ¿ ¿äÃ».
-	NET_MSG_GCTRL_REQ_SKILL_FB		= (NET_MSG_GCTRL + 412),	//<	½ºÅ³ ¹ßµ¿ ¿äÃ» ÀÀ´ä.
-	NET_MSG_GCTRL_REQ_SKILL_BRD		= (NET_MSG_GCTRL + 413),	//<	½ºÅ³ ¹ßµ¿.
-	NET_MSG_GCTRL_SKILLFACT_BRD		= (NET_MSG_GCTRL + 414),	//<	½ºÅ³ Àû¿ë½Ã Ã¼·Â º¯È­.
-	NET_MSG_GCTRL_SKILLHOLD_BRD		= (NET_MSG_GCTRL + 415),	//<	½ºÅ³ Àû¿ë½Ã Áö¼Ó È¿°ú.
-	NET_MSG_GCTRL_SKILLCONSUME_FB	= (NET_MSG_GCTRL + 416),	//<	½ºÅ³ ¹ßµ¿ÈÄ ¼Ò¸ðµÇ´Â ¼öÄ¡°ª.
+	NET_MSG_GCTRL_REQ_SKILL			= (NET_MSG_GCTRL + 411),	//<	ï¿½ï¿½Å³ ï¿½ßµï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_SKILL_FB		= (NET_MSG_GCTRL + 412),	//<	ï¿½ï¿½Å³ ï¿½ßµï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_SKILL_BRD		= (NET_MSG_GCTRL + 413),	//<	ï¿½ï¿½Å³ ï¿½ßµï¿½.
+	NET_MSG_GCTRL_SKILLFACT_BRD		= (NET_MSG_GCTRL + 414),	//<	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ ï¿½ï¿½È­.
+	NET_MSG_GCTRL_SKILLHOLD_BRD		= (NET_MSG_GCTRL + 415),	//<	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½.
+	NET_MSG_GCTRL_SKILLCONSUME_FB	= (NET_MSG_GCTRL + 416),	//<	ï¿½ï¿½Å³ ï¿½ßµï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½Ç´ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½.
 
-	NET_MSG_GCTRL_SKILL_CANCEL		= (NET_MSG_GCTRL + 417),	//<	½ºÅ³ Ãë¼Ò.
-	NET_MSG_GCTRL_SKILL_CANCEL_BRD	= (NET_MSG_GCTRL + 418),	//<	½ºÅ³ Ãë¼Ò Å¬¶óÀÌ¾ðÆ®¿¡ ¹Ý¿µ.
+	NET_MSG_GCTRL_SKILL_CANCEL		= (NET_MSG_GCTRL + 417),	//<	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_SKILL_CANCEL_BRD	= (NET_MSG_GCTRL + 418),	//<	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½Ý¿ï¿½.
 
-	NET_MSG_GCTRL_SKILLHOLD_RS_BRD	= (NET_MSG_GCTRL + 419),	//<	½ºÅ³ Áö¼Ó È¿°ú Á¦°Å.
-	NET_MSG_GCTRL_SKILLHOLDEX_BRD	= (NET_MSG_GCTRL + 420),	//<	½ºÅ³ Àû¿ë½Ã Áö¼Ó È¿°ú.
+	NET_MSG_GCTRL_SKILLHOLD_RS_BRD	= (NET_MSG_GCTRL + 419),	//<	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_SKILLHOLDEX_BRD	= (NET_MSG_GCTRL + 420),	//<	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½.
 
-	NET_MSG_GCTRL_STATEBLOW_BRD		= (NET_MSG_GCTRL + 426),	//<	»óÅÂÀÌ»ó.
-	NET_MSG_GCTRL_CURESTATEBLOW_BRD	= (NET_MSG_GCTRL + 427),	//<	»óÅÂÀÌ»ó.
-	NET_MSG_GCTRL_LANDEFFECT		= (NET_MSG_GCTRL + 428),	//< ÁöÇü¿¡ °ü·ÃµÈ »óÅÂ ÀÌ»ó
+	NET_MSG_GCTRL_STATEBLOW_BRD		= (NET_MSG_GCTRL + 426),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½.
+	NET_MSG_GCTRL_CURESTATEBLOW_BRD	= (NET_MSG_GCTRL + 427),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½.
+	NET_MSG_GCTRL_LANDEFFECT		= (NET_MSG_GCTRL + 428),	//< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì»ï¿½
 
-	NET_MSG_GCTRL_REQ_SKILLQ_ACTIVE	= (NET_MSG_GCTRL + 430),	//<	½ºÅ³ Äü½½·ÔÀÇ ¾×Æ¼ºê ½ºÅ³.
-	NET_MSG_GCTRL_REQ_SKILLQ_SET	= (NET_MSG_GCTRL + 431),	//<	½ºÅ³ Äü½½·Ô ÁöÁ¤ ¿äÃ».
-	NET_MSG_GCTRL_REQ_SKILLQ_RESET	= (NET_MSG_GCTRL + 432),	//<	½ºÅ³ Äü½½·Ô ÇØÁö ¿äÃ».
-	NET_MSG_GCTRL_REQ_SKILLQ_FB		= (NET_MSG_GCTRL + 433),	//<	½ºÅ³ Äü½½·Ô ¿äÃ»¿¡ µû¸¥ º¯°æ»çÇ× Å¬¶óÀÌ¾ðÆ®¿¡ ÅëÁö.
+	NET_MSG_GCTRL_REQ_SKILLQ_ACTIVE	= (NET_MSG_GCTRL + 430),	//<	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½Å³.
+	NET_MSG_GCTRL_REQ_SKILLQ_SET	= (NET_MSG_GCTRL + 431),	//<	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_SKILLQ_RESET	= (NET_MSG_GCTRL + 432),	//<	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_SKILLQ_FB		= (NET_MSG_GCTRL + 433),	//<	ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_REQ_ACTIONQ_SET	= (NET_MSG_GCTRL + 435),	//<	¿¢¼Ç½½·Ô ÁöÁ¤ ¿äÃ».
-	NET_MSG_GCTRL_REQ_ACTIONQ_RESET	= (NET_MSG_GCTRL + 436),	//<	¿¢¼Ç½½·Ô ÇØÁö ¿äÃ».
-	NET_MSG_GCTRL_REQ_ACTIONQ_FB	= (NET_MSG_GCTRL + 437),	//<	¿¢¼Ç½½·Ô ¿äÃ»¿¡ µû¸¥ º¯°æ»çÇ× Å¬¶óÀÌ¾ðÆ®¿¡ ÅëÁö.
+	NET_MSG_GCTRL_REQ_ACTIONQ_SET	= (NET_MSG_GCTRL + 435),	//<	ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_ACTIONQ_RESET	= (NET_MSG_GCTRL + 436),	//<	ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_ACTIONQ_FB	= (NET_MSG_GCTRL + 437),	//<	ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_REQ_GETSTORAGE		= (NET_MSG_GCTRL + 441),	//<	Ã¢°í Á¤º¸ °¡Á®¿À±â.
-	NET_MSG_GCTRL_REQ_GETSTORAGE_FB		= (NET_MSG_GCTRL + 442),	//<	Ã¢°í Á¤º¸ °¡Á®¿À±â.
-	NET_MSG_GCTRL_REQ_GETSTORAGE_ITEM	= (NET_MSG_GCTRL + 443),	//<	Ã¢°í Á¤º¸ °¡Á®¿À±â.
+	NET_MSG_GCTRL_REQ_GETSTORAGE		= (NET_MSG_GCTRL + 441),	//<	Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_GETSTORAGE_FB		= (NET_MSG_GCTRL + 442),	//<	Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_GETSTORAGE_ITEM	= (NET_MSG_GCTRL + 443),	//<	Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_REQ_STORAGEDRUG		= (NET_MSG_GCTRL + 444),	//<	Ã¢°í ¾àÇ° ¸Ô±â.
-	NET_MSG_GCTRL_REQ_STORAGESKILL		= (NET_MSG_GCTRL + 445),	//<	Ã¢°í ½ºÅ³ ¸Ô±â.
+	NET_MSG_GCTRL_REQ_STORAGEDRUG		= (NET_MSG_GCTRL + 444),	//<	Ã¢ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½Ô±ï¿½.
+	NET_MSG_GCTRL_REQ_STORAGESKILL		= (NET_MSG_GCTRL + 445),	//<	Ã¢ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½Ô±ï¿½.
 
-	NET_MSG_GCTRL_REQ_STORAGE_TO_HOLD	= (NET_MSG_GCTRL + 446),	//<	Ã¢°í¿¡ ÀÖ´Â ¾ÆÀÌÅÆÀ» µé±â ½Ãµµ.
-	NET_MSG_GCTRL_REQ_STORAGE_EX_HOLD	= (NET_MSG_GCTRL + 447),	//<	Ã¢°í¿¡ ÀÖ´Â ¾ÆÀÌÅÆÀ» µé±â ½Ãµµ.
-	NET_MSG_GCTRL_REQ_HOLD_TO_STORAGE	= (NET_MSG_GCTRL + 448),	//<	¾ÆÀÌÅÆÀ» Ã¢°í¿¡ ³ÖÀ½.
+	NET_MSG_GCTRL_REQ_STORAGE_TO_HOLD	= (NET_MSG_GCTRL + 446),	//<	Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ãµï¿½.
+	NET_MSG_GCTRL_REQ_STORAGE_EX_HOLD	= (NET_MSG_GCTRL + 447),	//<	Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ãµï¿½.
+	NET_MSG_GCTRL_REQ_HOLD_TO_STORAGE	= (NET_MSG_GCTRL + 448),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_STORAGE_INSERT		= (NET_MSG_GCTRL + 449),	//<	Ã¢°í¿¡ ¾ÆÀÌÅÆ »ðÀÔµÊ.
-	NET_MSG_GCTRL_STORAGE_DELETE		= (NET_MSG_GCTRL + 450),	//<	Ã¢°í ¾ÆÀÌÅÆ »èÁ¦.
-	NET_MSG_GCTRL_STORAGE_DEL_INSERT	= (NET_MSG_GCTRL + 451),	//<	Ã¢°í ¾ÆÀÌÅÆ »èÁ¦ ¹× »ðÀÔ.
-	NET_MSG_GCTRL_STORAGE_DRUG_UPDATE	= (NET_MSG_GCTRL + 452),	//<	Ã¢°í ¼Ò¸ðÇ° »ç¿ëÈ½¼ö ÆÄ¾Ç.
+	NET_MSG_GCTRL_STORAGE_INSERT		= (NET_MSG_GCTRL + 449),	//<	Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ôµï¿½.
+	NET_MSG_GCTRL_STORAGE_DELETE		= (NET_MSG_GCTRL + 450),	//<	Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_STORAGE_DEL_INSERT	= (NET_MSG_GCTRL + 451),	//<	Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_STORAGE_DRUG_UPDATE	= (NET_MSG_GCTRL + 452),	//<	Ã¢ï¿½ï¿½ ï¿½Ò¸ï¿½Ç° ï¿½ï¿½ï¿½È½ï¿½ï¿½ ï¿½Ä¾ï¿½.
 
-	NET_MSG_GCTRL_STORAGE_SAVE_MONEY	= (NET_MSG_GCTRL + 453),	//<	Ã¢°í¿¡ µ·À» ÀúÀå.
-	NET_MSG_GCTRL_STORAGE_DRAW_MONEY	= (NET_MSG_GCTRL + 454),	//<	Ã¢°í¿¡¼­ µ·À» »©³¿.
-	NET_MSG_GCTRL_STORAGE_UPDATE_MONEY	= (NET_MSG_GCTRL + 455),	//<	Ã¢°íÀÇ µ· ¾×¼ö º¯È­.
+	NET_MSG_GCTRL_STORAGE_SAVE_MONEY	= (NET_MSG_GCTRL + 453),	//<	Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_STORAGE_DRAW_MONEY	= (NET_MSG_GCTRL + 454),	//<	Ã¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_STORAGE_UPDATE_MONEY	= (NET_MSG_GCTRL + 455),	//<	Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½×¼ï¿½ ï¿½ï¿½È­.
 
-	NET_MSG_GCTRL_REQ_STORAGE_SPLIT		= (NET_MSG_GCTRL + 456),	//<	Ã¢°í¿¡ ÀÖ´Â °ãÄ§ ¾ÆÀÌÅÛ ºÐ¸®.
-	NET_MSG_GCTRL_STORAGE_STATE			= (NET_MSG_GCTRL + 457),	//<	Ã¢°í »ç¿ë°¡´É ¼Ó¼º.
-	NET_MSG_GCTRL_PREMIUM_STATE			= (NET_MSG_GCTRL + 458),	//<	ÇÁ¸®¹Ì¾ö ¼Ó¼º.
+	NET_MSG_GCTRL_REQ_STORAGE_SPLIT		= (NET_MSG_GCTRL + 456),	//<	Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Ä§ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¸ï¿½.
+	NET_MSG_GCTRL_STORAGE_STATE			= (NET_MSG_GCTRL + 457),	//<	Ã¢ï¿½ï¿½ ï¿½ï¿½ë°¡ï¿½ï¿½ ï¿½Ó¼ï¿½.
+	NET_MSG_GCTRL_PREMIUM_STATE			= (NET_MSG_GCTRL + 458),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½Ó¼ï¿½.
 
-	NET_MSG_GCTRL_PARTY_LURE			= (NET_MSG_GCTRL + 460),	//<	ÆÄÆ¼ °¡ÀÔ ¿äÃ».			Å¬¶óÀÌ¾ðÆ® -> ¼­¹ö.
-	NET_MSG_GCTRL_PARTY_LURE_FB			= (NET_MSG_GCTRL + 461),	//<	ÆÄÆ¼ °¡ÀÔ ¿äÃ»ÀÇ °á°ú.	Å¬¶óÀÌ¾ðÆ® -> ¼­¹ö.
-	NET_MSG_GCTRL_PARTY_LURE_TAR		= (NET_MSG_GCTRL + 462),	//<	ÆÄÆ¼ °¡ÀÔ ¿äÃ».			¼­¹ö -> Å¬¶óÀÌ¾ðÆ®.
-	NET_MSG_GCTRL_PARTY_LURE_TAR_ANS	= (NET_MSG_GCTRL + 463),	//<	ÆÄÆ¼ °¡ÀÔ ¿äÃ» ÀÀ´ä.	Å¬¶óÀÌ¾ðÆ® -> ¼­¹ö.
+	NET_MSG_GCTRL_PARTY_LURE			= (NET_MSG_GCTRL + 460),	//<	ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».			Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® -> ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PARTY_LURE_FB			= (NET_MSG_GCTRL + 461),	//<	ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½.	Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® -> ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PARTY_LURE_TAR		= (NET_MSG_GCTRL + 462),	//<	ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».			ï¿½ï¿½ï¿½ï¿½ -> Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®.
+	NET_MSG_GCTRL_PARTY_LURE_TAR_ANS	= (NET_MSG_GCTRL + 463),	//<	ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½.	Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® -> ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_PARTY_SECEDE			= (NET_MSG_GCTRL + 464),	//<	ÆÄÆ¼ Å»Åð ¿äÃ».
+	NET_MSG_GCTRL_PARTY_SECEDE			= (NET_MSG_GCTRL + 464),	//<	ï¿½ï¿½Æ¼ Å»ï¿½ï¿½ ï¿½ï¿½Ã».
 
-	NET_MSG_GCTRL_PARTY_ADD				= (NET_MSG_GCTRL + 465),	//<	ÆÄÆ¼¿ø Ãß°¡.
-	NET_MSG_GCTRL_PARTY_ADD_FB			= (NET_MSG_GCTRL + 466),	//<	ÆÄÆ¼¿ø Ãß°¡ FB.
+	NET_MSG_GCTRL_PARTY_ADD				= (NET_MSG_GCTRL + 465),	//<	ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ß°ï¿½.
+	NET_MSG_GCTRL_PARTY_ADD_FB			= (NET_MSG_GCTRL + 466),	//<	ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ß°ï¿½ FB.
 
-	NET_MSG_GCTRL_PARTY_DEL				= (NET_MSG_GCTRL + 467),	//<	ÆÄÆ¼¿ø Á¦°Å.
-	NET_MSG_GCTRL_PARTY_DEL_FB			= (NET_MSG_GCTRL + 468),	//<	ÆÄÆ¼¿ø Á¦°Å FB
+	NET_MSG_GCTRL_PARTY_DEL				= (NET_MSG_GCTRL + 467),	//<	ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PARTY_DEL_FB			= (NET_MSG_GCTRL + 468),	//<	ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ FB
 
-	NET_MSG_GCTRL_PARTY_AUTHORITY		= (NET_MSG_GCTRL + 469),	//< ÆÄÆ¼Àå À§ÀÓ
+	NET_MSG_GCTRL_PARTY_AUTHORITY		= (NET_MSG_GCTRL + 469),	//< ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_GCTRL_PARTY_DISSOLVE		= (NET_MSG_GCTRL + 470),	//<	ÆÄÆ¼ ÇØÃ¼.
+	NET_MSG_GCTRL_PARTY_DISSOLVE		= (NET_MSG_GCTRL + 470),	//<	ï¿½ï¿½Æ¼ ï¿½ï¿½Ã¼.
 
-	NET_MSG_GCTRL_PARTY_FNEW			= (NET_MSG_GCTRL + 471),	//<	ÆÄÆ¼ »ý¼º. (field).
-	NET_MSG_GCTRL_PARTY_MBR_DETAIL		= (NET_MSG_GCTRL + 472),	//<	ÆÄÆ¼¿øÀÇ ¼¼ºÎ Á¤º¸.
-	NET_MSG_GCTRL_PARTY_MBR_MOVEMAP		= (NET_MSG_GCTRL + 473),	//<	ÆÄÆ¼¿øÀÇ map ÀÌµ¿.
-	NET_MSG_GCTRL_PARTY_MBR_POINT		= (NET_MSG_GCTRL + 474),	//<	ÆÄÆ¼¿øÀÇ POINT º¯È­.
-	NET_MSG_GCTRL_PARTY_MBR_POS			= (NET_MSG_GCTRL + 475),	//<	ÆÄÆ¼¿øÀÇ À§Ä¡ º¯È­.
-	NET_MSG_GCTRL_PARTY_MBR_PICKUP_BRD	= (NET_MSG_GCTRL + 476),	//<	ÆÄÆ¼¿øÀÇ ¾ÆÀÌÅÛ ½ÀµæÀ» ¾Ë¸².
+	NET_MSG_GCTRL_PARTY_FNEW			= (NET_MSG_GCTRL + 471),	//<	ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½. (field).
+	NET_MSG_GCTRL_PARTY_MBR_DETAIL		= (NET_MSG_GCTRL + 472),	//<	ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PARTY_MBR_MOVEMAP		= (NET_MSG_GCTRL + 473),	//<	ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ map ï¿½Ìµï¿½.
+	NET_MSG_GCTRL_PARTY_MBR_POINT		= (NET_MSG_GCTRL + 474),	//<	ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ POINT ï¿½ï¿½È­.
+	NET_MSG_GCTRL_PARTY_MBR_POS			= (NET_MSG_GCTRL + 475),	//<	ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½È­.
+	NET_MSG_GCTRL_PARTY_MBR_PICKUP_BRD	= (NET_MSG_GCTRL + 476),	//<	ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½.
 
-	NET_MSG_GCTRL_PARTY_BRD				= (NET_MSG_GCTRL + 477),	//<	ÄÉ¸¯ÅÍÀÇ ÆÄÆ¼ ¼Ò¼Ó º¯È­¸¦ ÁÖº¯ Å¬¶óÀÌ¾ðÆ®µé¿¡ ¾Ë¸².
-	NET_MSG_GCTRL_PARTY_MASTER_RENEW	= (NET_MSG_GCTRL + 478),	//< ÆÄÆ¼¸¶½ºÅÍ Àç¼³Á¤.
+	NET_MSG_GCTRL_PARTY_BRD				= (NET_MSG_GCTRL + 477),	//<	ï¿½É¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½Ò¼ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½Öºï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½é¿¡ ï¿½Ë¸ï¿½.
+	NET_MSG_GCTRL_PARTY_MASTER_RENEW	= (NET_MSG_GCTRL + 478),	//< ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ç¼³ï¿½ï¿½.
 
-	NET_MSG_GCTRL_TRADE					= (NET_MSG_GCTRL + 480),	//<	Æ®·¡ÀÌµå ¿äÃ». ( Å¬¶óÀÌ¾ðÆ®1 -> ¼­¹ö )
-	NET_MSG_GCTRL_TRADE_FB				= (NET_MSG_GCTRL + 481),	//<	Æ®·¡ÀÌµå ¿äÃ» ÀÀ´ä. ( ¼­¹ö -> Å¬¶óÀÌ¾ðÆ®1 )
-	NET_MSG_GCTRL_TRADE_TAR				= (NET_MSG_GCTRL + 482),	//<	Æ®·¡ÀÌµå »ó´ë¿¡°Ô ¿äÃ». ( ¼­¹ö -> Å¬¶óÀÌ¾ðÆ®2 )
-	NET_MSG_GCTRL_TRADE_TAR_ANS			= (NET_MSG_GCTRL + 483),	//<	Æ®·¡ÀÌµå »ó´ëÀÇ ÀÀ´ä. ( Å¬¶óÀÌ¾ðÆ®2 -> ¼­¹ö )
+	NET_MSG_GCTRL_TRADE					= (NET_MSG_GCTRL + 480),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½Ã». ( Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®1 -> ï¿½ï¿½ï¿½ï¿½ )
+	NET_MSG_GCTRL_TRADE_FB				= (NET_MSG_GCTRL + 481),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½. ( ï¿½ï¿½ï¿½ï¿½ -> Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®1 )
+	NET_MSG_GCTRL_TRADE_TAR				= (NET_MSG_GCTRL + 482),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ë¿¡ï¿½ï¿½ ï¿½ï¿½Ã». ( ï¿½ï¿½ï¿½ï¿½ -> Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®2 )
+	NET_MSG_GCTRL_TRADE_TAR_ANS			= (NET_MSG_GCTRL + 483),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ( Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®2 -> ï¿½ï¿½ï¿½ï¿½ )
 
-	NET_MSG_GCTRL_TRADE_AGREE			= (NET_MSG_GCTRL + 484),	//<	Æ®·¡ÀÌµå ½ÂÀÎ ÁöÁ¤.
+	NET_MSG_GCTRL_TRADE_AGREE			= (NET_MSG_GCTRL + 484),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	
-	NET_MSG_GCTRL_TRADE_AGREE_TAR		= (NET_MSG_GCTRL + 486),	//<	Æ®·¡ÀÌµå ½ÂÀÎ ÁöÁ¤ »ó´ë¹æ¿¡°Ô ¾Ë¸². ( »ó´ë¹æ¿¡°Ô. )
+	NET_MSG_GCTRL_TRADE_AGREE_TAR		= (NET_MSG_GCTRL + 486),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½Ë¸ï¿½. ( ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½. )
 
-	NET_MSG_GCTRL_TRADE_ITEM_REGIST		= (NET_MSG_GCTRL + 487),	//<	Æ®·¡ÀÌµåÇÒ ¾ÆÀÌÅÛ µî·Ï.
-	NET_MSG_GCTRL_TRADE_ITEM_REGIST_TAR	= (NET_MSG_GCTRL + 488),	//<	Æ®·¡ÀÌµåÇÒ ¾ÆÀÌÅÛ µî·Ï. ( »ó´ë¹æ¿¡°Ô. )
-	NET_MSG_GCTRL_TRADE_ITEM_REMOVE		= (NET_MSG_GCTRL + 489),	//<	Æ®·¡ÀÌµåÇÒ ¾ÆÀÌÅÛ ¸ñ·Ï¿¡¼­ Á¦°Å.
-	NET_MSG_GCTRL_TRADE_ITEM_REMOVE_TAR	= (NET_MSG_GCTRL + 490),	//<	Æ®·¡ÀÌµåÇÒ ¾ÆÀÌÅÛ ¸ñ·Ï¿¡¼­ Á¦°Å. ( »ó´ë¹æ¿¡°Ô. )
+	NET_MSG_GCTRL_TRADE_ITEM_REGIST		= (NET_MSG_GCTRL + 487),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_TRADE_ITEM_REGIST_TAR	= (NET_MSG_GCTRL + 488),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½. ( ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½. )
+	NET_MSG_GCTRL_TRADE_ITEM_REMOVE		= (NET_MSG_GCTRL + 489),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_TRADE_ITEM_REMOVE_TAR	= (NET_MSG_GCTRL + 490),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ( ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½. )
 
-	NET_MSG_GCTRL_TRADE_MONEY			= (NET_MSG_GCTRL + 491),	//<	Æ®·¡ÀÌµåÇÒ ±Ý¾×.
-	NET_MSG_GCTRL_TRADE_MONEY_TAR		= (NET_MSG_GCTRL + 492),	//<	Æ®·¡ÀÌµåÇÒ ±Ý¾×À» »ó´ë¹æ¿¡°Ô ¾Ë¸².
+	NET_MSG_GCTRL_TRADE_MONEY			= (NET_MSG_GCTRL + 491),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ý¾ï¿½.
+	NET_MSG_GCTRL_TRADE_MONEY_TAR		= (NET_MSG_GCTRL + 492),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ý¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½ ï¿½Ë¸ï¿½.
 
-	NET_MSG_GCTRL_TRADE_COMPLETE_TAR	= (NET_MSG_GCTRL + 493),	//<	Æ®·¡ÀÌµå ¿Ï·á.
+	NET_MSG_GCTRL_TRADE_COMPLETE_TAR	= (NET_MSG_GCTRL + 493),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ï·ï¿½.
 
-	NET_MSG_GCTRL_TRADE_CANCEL			= (NET_MSG_GCTRL + 494),	//<	Æ®·¡ÀÌµå Ãë¼Ò.
-	NET_MSG_GCTRL_TRADE_CANCEL_TAR		= (NET_MSG_GCTRL + 495),	//<	Æ®·¡ÀÌµå Ãë¼Ò. ( »ó´ë¹æ¿¡°Ô. )
+	NET_MSG_GCTRL_TRADE_CANCEL			= (NET_MSG_GCTRL + 494),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_TRADE_CANCEL_TAR		= (NET_MSG_GCTRL + 495),	//<	Æ®ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½. ( ï¿½ï¿½ï¿½æ¿¡ï¿½ï¿½. )
 
-	NET_MSG_GCTRL_INVEN_BOXOPEN			= (NET_MSG_GCTRL + 496),	//<	box open ¿äÃ».
-	NET_MSG_GCTRL_INVEN_BOXOPEN_FB		= (NET_MSG_GCTRL + 497),	//<	box open ¿äÃ» FB.
+	NET_MSG_GCTRL_INVEN_BOXOPEN			= (NET_MSG_GCTRL + 496),	//<	box open ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_BOXOPEN_FB		= (NET_MSG_GCTRL + 497),	//<	box open ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_INVEN_DISGUISE		= (NET_MSG_GCTRL + 498),	//<	º¹Àå¿¡ ÄÚ½ºÃãÀ» µ¡¾º¿ò.
-	NET_MSG_GCTRL_INVEN_DISGUISE_FB		= (NET_MSG_GCTRL + 499),	//<	º¹Àå¿¡ ÄÚ½ºÃãÀ» µ¡¾º¿ò FB.
+	NET_MSG_GCTRL_INVEN_DISGUISE		= (NET_MSG_GCTRL + 498),	//<	ï¿½ï¿½ï¿½å¿¡ ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_INVEN_DISGUISE_FB		= (NET_MSG_GCTRL + 499),	//<	ï¿½ï¿½ï¿½å¿¡ ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_INVEN_GRINDING		= (NET_MSG_GCTRL + 501),	//<	INVEN ¾ÆÀÌÅÛ ¿¬¸¶ ½Ãµµ.
-	NET_MSG_GCTRL_INVEN_GRINDING_FB		= (NET_MSG_GCTRL + 502),	//<	INVEN ¾ÆÀÌÅÛ ¿¬¸¶ ½Ãµµ.
+	NET_MSG_GCTRL_INVEN_GRINDING		= (NET_MSG_GCTRL + 501),	//<	INVEN ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½.
+	NET_MSG_GCTRL_INVEN_GRINDING_FB		= (NET_MSG_GCTRL + 502),	//<	INVEN ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½.
 
-	NET_MSG_GCTRL_REGEN_GATE			= (NET_MSG_GCTRL + 503),	//<	ºÎÈ° À§Ä¡ ÁöÁ¤.
-	NET_MSG_GCTRL_REGEN_GATE_FB			= (NET_MSG_GCTRL + 504),	//<	ºÎÈ° À§Ä¡ ÁöÁ¤ FB.
+	NET_MSG_GCTRL_REGEN_GATE			= (NET_MSG_GCTRL + 503),	//<	ï¿½ï¿½È° ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REGEN_GATE_FB			= (NET_MSG_GCTRL + 504),	//<	ï¿½ï¿½È° ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_CURE					= (NET_MSG_GCTRL + 505),	//<	Ä¡·á ¿äÃ».
-	NET_MSG_GCTRL_CURE_FB				= (NET_MSG_GCTRL + 506),	//<	Ä¡·á ¿äÃ» FB.
+	NET_MSG_GCTRL_CURE					= (NET_MSG_GCTRL + 505),	//<	Ä¡ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CURE_FB				= (NET_MSG_GCTRL + 506),	//<	Ä¡ï¿½ï¿½ ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_CHARRESET				= (NET_MSG_GCTRL + 507),	//<	ÄÉ¸¯ÅÍ Á¤º¸ ¸®¼Â ¿äÃ». ( stats, skill )
-	NET_MSG_GCTRL_CHARRESET_FB			= (NET_MSG_GCTRL + 508),	//<	ÄÉ¸¯ÅÍ Á¤º¸ ¸®¼Â ¿äÃ» FB. ( stats, skill )
+	NET_MSG_GCTRL_CHARRESET				= (NET_MSG_GCTRL + 507),	//<	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã». ( stats, skill )
+	NET_MSG_GCTRL_CHARRESET_FB			= (NET_MSG_GCTRL + 508),	//<	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB. ( stats, skill )
 	
-	NET_MSG_GCTRL_NPC_ITEM_TRADE		= (NET_MSG_GCTRL + 509),	//<	¾ÆÀÌÅÛ ±³È¯ ¿äÃ».
-	NET_MSG_GCTRL_NPC_ITEM_TRADE_FB		= (NET_MSG_GCTRL + 510),	//<	¾ÆÀÌÅÛ ±³È¯ ¿äÃ» FB.
+	NET_MSG_GCTRL_NPC_ITEM_TRADE		= (NET_MSG_GCTRL + 509),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_NPC_ITEM_TRADE_FB		= (NET_MSG_GCTRL + 510),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_CONFRONT				= (NET_MSG_GCTRL + 511),	//<	´ë·Ã ¿äÃ» to (¼­¹ö)
-	NET_MSG_GCTRL_CONFRONT_TAR			= (NET_MSG_GCTRL + 512),	//<	´ë·Ã ¿äÃ» to (»ó´ë¹æ)
-	NET_MSG_GCTRL_CONFRONT_ANS			= (NET_MSG_GCTRL + 513),	//<	´ë·Ã ¿äÃ» ÀÀ´ä to (¼­¹ö)
-	NET_MSG_GCTRL_CONFRONT_FB			= (NET_MSG_GCTRL + 514),	//<	´ë·Ã ¿äÃ» ÀÀ´ä to (¿äÃ»ÀÚ)
+	NET_MSG_GCTRL_CONFRONT				= (NET_MSG_GCTRL + 511),	//<	ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» to (ï¿½ï¿½ï¿½ï¿½)
+	NET_MSG_GCTRL_CONFRONT_TAR			= (NET_MSG_GCTRL + 512),	//<	ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» to (ï¿½ï¿½ï¿½ï¿½)
+	NET_MSG_GCTRL_CONFRONT_ANS			= (NET_MSG_GCTRL + 513),	//<	ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ to (ï¿½ï¿½ï¿½ï¿½)
+	NET_MSG_GCTRL_CONFRONT_FB			= (NET_MSG_GCTRL + 514),	//<	ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ to (ï¿½ï¿½Ã»ï¿½ï¿½)
 
-	NET_MSG_GCTRL_CONFRONT_START2_FLD	= (NET_MSG_GCTRL + 515),	//<	´ë·Ã ½ÃÀÛ to (ÇÊµå)
-	NET_MSG_GCTRL_CONFRONT_START2_CLT	= (NET_MSG_GCTRL + 516),	//<	´ë·Ã ½ÃÀÛ to (Å¬¶óÀÌ¾ðÆ®)
-	NET_MSG_GCTRL_CONFRONT_FIGHT2_CLT	= (NET_MSG_GCTRL + 517),	//<	´ë·Ã FIGHT to (Å¬¶óÀÌ¾ðÆ®)
+	NET_MSG_GCTRL_CONFRONT_START2_FLD	= (NET_MSG_GCTRL + 515),	//<	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (ï¿½Êµï¿½)
+	NET_MSG_GCTRL_CONFRONT_START2_CLT	= (NET_MSG_GCTRL + 516),	//<	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®)
+	NET_MSG_GCTRL_CONFRONT_FIGHT2_CLT	= (NET_MSG_GCTRL + 517),	//<	ï¿½ï¿½ï¿½ FIGHT to (Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®)
 
-	NET_MSG_GCTRL_CONFRONT_END2_FLD		= (NET_MSG_GCTRL + 518),	//<	´ë·Ã Á¾·á to (ÇÊµå).
-	NET_MSG_GCTRL_CONFRONT_END2_CLT		= (NET_MSG_GCTRL + 519),	//<	´ë·Ã Á¾·á to (Å¬¶óÀÌ¾ðÆ®).
-	NET_MSG_GCTRL_CONFRONT_END2_CLT_BRD	= (NET_MSG_GCTRL + 520),	//<	´ë·Ã Á¾·á to (ÁÖº¯ Å¬¶óÀÌ¾ðÆ®).
-	NET_MSG_GCTRL_CONFRONT_END2_AGT		= (NET_MSG_GCTRL + 521),	//<	´ë·Ã Á¾·á to (¿¡ÀÌÀüÆ®).
-	NET_MSG_GCTRL_CONFRONT_END2_CLT_MBR	= (NET_MSG_GCTRL + 522),	//<	´ë·Ã Á¾·á to (´ë·Ã ´ç»çÀÚ Å¬¶óÀÌ¾ðÆ®).
+	NET_MSG_GCTRL_CONFRONT_END2_FLD		= (NET_MSG_GCTRL + 518),	//<	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (ï¿½Êµï¿½).
+	NET_MSG_GCTRL_CONFRONT_END2_CLT		= (NET_MSG_GCTRL + 519),	//<	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®).
+	NET_MSG_GCTRL_CONFRONT_END2_CLT_BRD	= (NET_MSG_GCTRL + 520),	//<	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (ï¿½Öºï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®).
+	NET_MSG_GCTRL_CONFRONT_END2_AGT		= (NET_MSG_GCTRL + 521),	//<	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®).
+	NET_MSG_GCTRL_CONFRONT_END2_CLT_MBR	= (NET_MSG_GCTRL + 522),	//<	ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®).
 
-	NET_MSG_GCTRL_CONFRONT_RECOVE		= (NET_MSG_GCTRL + 523),	//<	´ë·Ã¿É¼Ç È¸º¹¾à »ç¿ë È½¼ö to (Å¬¶óÀÌ¾ðÆ®)
+	NET_MSG_GCTRL_CONFRONT_RECOVE		= (NET_MSG_GCTRL + 523),	//<	ï¿½ï¿½Ã¿É¼ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È½ï¿½ï¿½ to (Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®)
 
-	NET_MSG_GCTRL_CONFRONTPTY_START2_FLD= (NET_MSG_GCTRL + 525),	//<	(ÆÄÆ¼) ´ë·Ã ½ÃÀÛ to (ÇÊµå).
-	NET_MSG_GCTRL_CONFRONTPTY_START2_CLT= (NET_MSG_GCTRL + 526),	//<	(ÆÄÆ¼) ´ë·Ã ½ÃÀÛ to (Å¬¶óÀÌ¾ðÆ®)
+	NET_MSG_GCTRL_CONFRONTPTY_START2_FLD= (NET_MSG_GCTRL + 525),	//<	(ï¿½ï¿½Æ¼) ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (ï¿½Êµï¿½).
+	NET_MSG_GCTRL_CONFRONTPTY_START2_CLT= (NET_MSG_GCTRL + 526),	//<	(ï¿½ï¿½Æ¼) ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®)
 
-	NET_MSG_GCTRL_CONFRONTPTY_END2_FLD	= (NET_MSG_GCTRL + 527),	//<	(ÆÄÆ¼) ´ë·Ã Á¾·á to (ÇÊµå).
-	NET_MSG_GCTRL_CONFRONTPTY_END2_CLT	= (NET_MSG_GCTRL + 528),	//<	(ÆÄÆ¼) ´ë·Ã Á¾·á to (Å¬¶óÀÌ¾ðÆ®).
+	NET_MSG_GCTRL_CONFRONTPTY_END2_FLD	= (NET_MSG_GCTRL + 527),	//<	(ï¿½ï¿½Æ¼) ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (ï¿½Êµï¿½).
+	NET_MSG_GCTRL_CONFRONTPTY_END2_CLT	= (NET_MSG_GCTRL + 528),	//<	(ï¿½ï¿½Æ¼) ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®).
 
-	NET_MSG_GCTRL_CONFRONTPTY_CHECKMBR_FLD = (NET_MSG_GCTRL + 529),	//<	(ÆÄÆ¼) ´ë·Ã¿¡ Âü°¡ÇÒ ¸â¹ö °Ë»ç to (ÇÊµå).
-	NET_MSG_GCTRL_CONFRONTPTY_CHECKMBR_AGT = (NET_MSG_GCTRL + 529),	//<	(ÆÄÆ¼) ´ë·Ã¿¡ Âü°¡ÇÒ ¸â¹ö to (¿¡ÀÌÁ¯Æ®).
+	NET_MSG_GCTRL_CONFRONTPTY_CHECKMBR_FLD = (NET_MSG_GCTRL + 529),	//<	(ï¿½ï¿½Æ¼) ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ to (ï¿½Êµï¿½).
+	NET_MSG_GCTRL_CONFRONTPTY_CHECKMBR_AGT = (NET_MSG_GCTRL + 529),	//<	(ï¿½ï¿½Æ¼) ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ to (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®).
 
-	NET_MSG_GCTRL_CONFRONTSPTY_EXP_FLD	= (NET_MSG_GCTRL + 530),	//<	ÇÐ¿ø ÆÄÆ¼ ´ë·Ã ½Â¸®½Ã °æÇèÄ¡ ÀüÃ¼ À¯Àú¿¡ exp ºÎ¿©.
+	NET_MSG_GCTRL_CONFRONTSPTY_EXP_FLD	= (NET_MSG_GCTRL + 530),	//<	ï¿½Ð¿ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½Â¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ exp ï¿½Î¿ï¿½.
 
-	NET_MSG_GCTRL_CONFRONTCLB_START2_FLD= (NET_MSG_GCTRL + 531),	//<	(Å¬·´) ´ë·Ã ½ÃÀÛ to (ÇÊµå).
-	NET_MSG_GCTRL_CONFRONTCLB_START2_CLT= (NET_MSG_GCTRL + 532),	//<	(Å¬·´) ´ë·Ã ½ÃÀÛ to (Å¬¶óÀÌ¾ðÆ®)
+	NET_MSG_GCTRL_CONFRONTCLB_START2_FLD= (NET_MSG_GCTRL + 531),	//<	(Å¬ï¿½ï¿½) ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (ï¿½Êµï¿½).
+	NET_MSG_GCTRL_CONFRONTCLB_START2_CLT= (NET_MSG_GCTRL + 532),	//<	(Å¬ï¿½ï¿½) ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®)
 
-	NET_MSG_GCTRL_CONFRONTCLB_END2_FLD	= (NET_MSG_GCTRL + 533),	//<	(Å¬·´) ´ë·Ã Á¾·á to (ÇÊµå).
-	NET_MSG_GCTRL_CONFRONTCLB_END2_CLT	= (NET_MSG_GCTRL + 534),	//<	(Å¬·´) ´ë·Ã Á¾·á to (Å¬¶óÀÌ¾ðÆ®).
+	NET_MSG_GCTRL_CONFRONTCLB_END2_FLD	= (NET_MSG_GCTRL + 533),	//<	(Å¬ï¿½ï¿½) ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (ï¿½Êµï¿½).
+	NET_MSG_GCTRL_CONFRONTCLB_END2_CLT	= (NET_MSG_GCTRL + 534),	//<	(Å¬ï¿½ï¿½) ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®).
 
-	NET_MSG_GCTRL_CONFRONTCLB_CHECKMBR_FLD = (NET_MSG_GCTRL + 535),	//<	(Å¬·´) ´ë·Ã¿¡ Âü°¡ÇÒ ¸â¹ö °Ë»ç to (ÇÊµå).
-	NET_MSG_GCTRL_CONFRONTCLB_CHECKMBR_AGT = (NET_MSG_GCTRL + 536),	//<	(Å¬·´) ´ë·Ã¿¡ Âü°¡ÇÒ ¸â¹ö to (¿¡ÀÌÁ¯Æ®).
+	NET_MSG_GCTRL_CONFRONTCLB_CHECKMBR_FLD = (NET_MSG_GCTRL + 535),	//<	(Å¬ï¿½ï¿½) ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ to (ï¿½Êµï¿½).
+	NET_MSG_GCTRL_CONFRONTCLB_CHECKMBR_AGT = (NET_MSG_GCTRL + 536),	//<	(Å¬ï¿½ï¿½) ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ to (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®).
 
 	NET_MSG_GCTRL_SERVERTEST			= (NET_MSG_GCTRL + 537),	// Purpose for field server test
 	NET_MSG_GCTRL_SERVERTEST_FB			= (NET_MSG_GCTRL + 538),
 
-	NET_MSG_GCTRL_REQ_GENITEM_AGT		= (NET_MSG_GCTRL + 541),	//<	¾ÆÀÌÅÛ »ý¼º ÁúÀÇ to (¿¡ÀÌÀüÆ®).
-	NET_MSG_GCTRL_REQ_GENITEM_FLD_FB	= (NET_MSG_GCTRL + 542),	//<	¾ÆÀÌÅÛ »ý¼º ´äº¯ to (ÇÊµå).
+	NET_MSG_GCTRL_REQ_GENITEM_AGT		= (NET_MSG_GCTRL + 541),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®).
+	NET_MSG_GCTRL_REQ_GENITEM_FLD_FB	= (NET_MSG_GCTRL + 542),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯ to (ï¿½Êµï¿½).
 
-	NET_MSG_GCTRL_REQ_GESTURE			= (NET_MSG_GCTRL + 543),	//<	Á¦½ºÃÄ µ¿ÀÛ.
-	NET_MSG_GCTRL_REQ_GESTURE_BRD		= (NET_MSG_GCTRL + 544),	//<	Á¦½ºÃÄ µ¿ÀÛ BRD.
+	NET_MSG_GCTRL_REQ_GESTURE			= (NET_MSG_GCTRL + 543),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_GESTURE_BRD		= (NET_MSG_GCTRL + 544),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ BRD.
 
-	NET_MSG_GCTRL_QITEMFACT_BRD			= (NET_MSG_GCTRL + 545),	//<	?¾ÆÀÌÅÛ ¼öÄ¡ BRD.
-	NET_MSG_GCTRL_QITEMFACT_END_BRD		= (NET_MSG_GCTRL + 546),	//<	?¾ÆÀÌÅÛ Á¾·á BRD.
+	NET_MSG_GCTRL_QITEMFACT_BRD			= (NET_MSG_GCTRL + 545),	//<	?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ BRD.
+	NET_MSG_GCTRL_QITEMFACT_END_BRD		= (NET_MSG_GCTRL + 546),	//<	?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ BRD.
 
-	NET_MSG_GCTRL_EVENTFACT_BRD			= (NET_MSG_GCTRL + 547),	//<	?¾ÆÀÌÅÛ ÀÌº¥Æ® ½ÃÀÛ BRD.
-	NET_MSG_GCTRL_EVENTFACT_END_BRD		= (NET_MSG_GCTRL + 548),	//<	?¾ÆÀÌÅÛ ÀÌº¥Æ® Á¾·á BRD.
-	NET_MSG_GCTRL_EVENTFACT_INFO		= (NET_MSG_GCTRL + 549),	//<	?¾ÆÀÌÅÛ ÀÌº¥Æ® BRD.
+	NET_MSG_GCTRL_EVENTFACT_BRD			= (NET_MSG_GCTRL + 547),	//<	?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ BRD.
+	NET_MSG_GCTRL_EVENTFACT_END_BRD		= (NET_MSG_GCTRL + 548),	//<	?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ BRD.
+	NET_MSG_GCTRL_EVENTFACT_INFO		= (NET_MSG_GCTRL + 549),	//<	?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® BRD.
 
-	NET_MSG_GCTRL_INVEN_CLEANSER		= (NET_MSG_GCTRL + 551),	//<	¸Á°¢ÀÇ ¼¼Á¦¸¦ »ç¿ëÇÏ¿© º¯È¯µÈ Çü»óÀ» µÇµ¹¸².
-	NET_MSG_GCTRL_INVEN_CLEANSER_FB		= (NET_MSG_GCTRL + 552),	//<	¸Á°¢ÀÇ ¼¼Á¦¸¦ »ç¿ëÇÏ¿© º¯È¯µÈ Çü»óÀ» µÇµ¹¸² FB.
+	NET_MSG_GCTRL_INVEN_CLEANSER		= (NET_MSG_GCTRL + 551),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_INVEN_CLEANSER_FB		= (NET_MSG_GCTRL + 552),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_INVEN_DEL_ITEM_TIMELMT= (NET_MSG_GCTRL + 553),	//<	Á¦ÇÑ ½Ã°£ ¸¸·á·Î ¾ÆÀÌÅÛ »èÁ¦.
+	NET_MSG_GCTRL_INVEN_DEL_ITEM_TIMELMT= (NET_MSG_GCTRL + 553),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_INVEN_RESET_SKST		= (NET_MSG_GCTRL + 554),	//<	½ºÅÝ ½ºÅ³ ¸®¼Â ¿äÃ».
-	NET_MSG_GCTRL_INVEN_RESET_SKST_FB	= (NET_MSG_GCTRL + 555),	//<	½ºÅÝ ½ºÅ³ ¸®¼Â ÀÀ´ä.
+	NET_MSG_GCTRL_INVEN_RESET_SKST		= (NET_MSG_GCTRL + 554),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_RESET_SKST_FB	= (NET_MSG_GCTRL + 555),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_INVEN_CHARCARD		= (NET_MSG_GCTRL + 560),	//<	ÄÉ¸¯ÅÍ Ãß°¡ Ä«µå »ç¿ë ¿äÃ».
-	NET_MSG_GCTRL_INVEN_CHARCARD_FB		= (NET_MSG_GCTRL + 561),	//<	ÄÉ¸¯ÅÍ Ãß°¡ Ä«µå »ç¿ë ¿äÃ» FB.
+	NET_MSG_GCTRL_INVEN_CHARCARD		= (NET_MSG_GCTRL + 560),	//<	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_CHARCARD_FB		= (NET_MSG_GCTRL + 561),	//<	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_INVEN_INVENLINE		= (NET_MSG_GCTRL + 562),	//<	ÀÎº¥¶óÀÎ Ãß°¡ Ä«µå »ç¿ë ¿äÃ».
-	NET_MSG_GCTRL_INVEN_INVENLINE_FB	= (NET_MSG_GCTRL + 563),	//<	ÀÎº¥¶óÀÎ Ãß°¡ Ä«µå »ç¿ë ¿äÃ» FB.
+	NET_MSG_GCTRL_INVEN_INVENLINE		= (NET_MSG_GCTRL + 562),	//<	ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_INVENLINE_FB	= (NET_MSG_GCTRL + 563),	//<	ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_INVEN_STORAGECARD		= (NET_MSG_GCTRL + 564),	//<	Ã¢°í Ãß°¡ Ä«µå »ç¿ë ¿äÃ».
-	NET_MSG_GCTRL_INVEN_STORAGECARD_FB	= (NET_MSG_GCTRL + 565),	//<	Ã¢°í Ãß°¡ Ä«µå »ç¿ë ¿äÃ» FB.
+	NET_MSG_GCTRL_INVEN_STORAGECARD		= (NET_MSG_GCTRL + 564),	//<	Ã¢ï¿½ï¿½ ï¿½ß°ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_STORAGECARD_FB	= (NET_MSG_GCTRL + 565),	//<	Ã¢ï¿½ï¿½ ï¿½ß°ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_INVEN_STORAGEOPEN		= (NET_MSG_GCTRL + 566),	//<	±ä±Þ Ã¢°í ÀÌ¿ë Ä«µå »ç¿ë ¿äÃ».
-	NET_MSG_GCTRL_INVEN_STORAGEOPEN_FB	= (NET_MSG_GCTRL + 567),	//<	±ä±Þ Ã¢°í ÀÌ¿ë Ä«µå »ç¿ë ¿äÃ» FB.
-	NET_MSG_GCTRL_INVEN_STORAGECLOSE	= (NET_MSG_GCTRL + 568),	//<	±ä±Þ Ã¢°í ÀÌ¿ë Ä«µå »ç¿ë ¿Ï·á.
+	NET_MSG_GCTRL_INVEN_STORAGEOPEN		= (NET_MSG_GCTRL + 566),	//<	ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½Ì¿ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_STORAGEOPEN_FB	= (NET_MSG_GCTRL + 567),	//<	ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½Ì¿ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
+	NET_MSG_GCTRL_INVEN_STORAGECLOSE	= (NET_MSG_GCTRL + 568),	//<	ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½Ì¿ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½.
 
-	NET_MSG_GCTRL_INVEN_PREMIUMSET		= (NET_MSG_GCTRL + 569),	//<	ÇÁ¸®¹Ì¾ö¼Â »ç¿ë ¿äÃ».
-	NET_MSG_GCTRL_INVEN_PREMIUMSET_FB	= (NET_MSG_GCTRL + 570),	//<	ÇÁ¸®¹Ì¾ö¼Â »ç¿ë ¿äÃ» FB.
+	NET_MSG_GCTRL_INVEN_PREMIUMSET		= (NET_MSG_GCTRL + 569),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_PREMIUMSET_FB	= (NET_MSG_GCTRL + 570),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_FIRECRACKER			= (NET_MSG_GCTRL + 571),	//<	ÆøÁ× »ç¿ë ¿äÃ».
-	NET_MSG_GCTRL_FIRECRACKER_FB		= (NET_MSG_GCTRL + 572),	//<	ÆøÁ× »ç¿ë ¿äÃ» FB.
-	NET_MSG_GCTRL_FIRECRACKER_BRD		= (NET_MSG_GCTRL + 573),	//<	ÆøÁ× »ç¿ë.
+	NET_MSG_GCTRL_FIRECRACKER			= (NET_MSG_GCTRL + 571),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_FIRECRACKER_FB		= (NET_MSG_GCTRL + 572),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
+	NET_MSG_GCTRL_FIRECRACKER_BRD		= (NET_MSG_GCTRL + 573),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_REVIVE				= (NET_MSG_GCTRL + 574),	//<	±ÍÈ¥ÁÖ »ç¿ë
-	NET_MSG_GCTRL_REVIVE_FB				= (NET_MSG_GCTRL + 575),	//<	±ÍÈ¥ÁÖ »ç¿ë FB.
+	NET_MSG_GCTRL_REVIVE				= (NET_MSG_GCTRL + 574),	//<	ï¿½ï¿½È¥ï¿½ï¿½ ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_REVIVE_FB				= (NET_MSG_GCTRL + 575),	//<	ï¿½ï¿½È¥ï¿½ï¿½ ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_PLAYERKILLING_ADD		= (NET_MSG_GCTRL + 576),	//<	player killing ´ç»çÀÚ Ãß°¡.
-	NET_MSG_GCTRL_PLAYERKILLING_DEL		= (NET_MSG_GCTRL + 577),	//<	player killing ´ç»çÀÚ Á¦°Å.
+	NET_MSG_GCTRL_PLAYERKILLING_ADD		= (NET_MSG_GCTRL + 576),	//<	player killing ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½.
+	NET_MSG_GCTRL_PLAYERKILLING_DEL		= (NET_MSG_GCTRL + 577),	//<	player killing ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_GET_CHARGEDITEM_FROMDB	= (NET_MSG_GCTRL + 579),//<	±¸ÀÔÇÑ ¾ÆÀÌÅÛ Á¤º¸ DB¿¡¼­ °¡Á®¿À±â ¿äÃ»
-	NET_MSG_GCTRL_GET_CHARGEDITEM_FROMDB_FB = (NET_MSG_GCTRL + 580),//<	±¸ÀÔÇÑ ¾ÆÀÌÅÛ Á¤º¸ DB¿¡¼­ °¡Á®¿À±â ¿äÃ» FB
-	NET_MSG_GCTRL_CHARGED_ITEM_GET		= (NET_MSG_GCTRL + 581),	//<	±¸ÀÔÇÑ ¾ÆÀÌÅÛ °¡Á®¿À±â ¿äÃ».
-	NET_MSG_GCTRL_CHARGED_ITEM_GET_FB	= (NET_MSG_GCTRL + 582),	//<	±¸ÀÔÇÑ ¾ÆÀÌÅÛ °¡Á®¿À±â ¿äÃ» FB.
-	NET_MSG_GCTRL_CHARGED_ITEM_DEL		= (NET_MSG_GCTRL + 583),	//<	±¸ÀÔÇÑ ¾ÆÀÌÅÛ ¸®½ºÆ®¿¡¼­ »èÁ¦.
-	NET_MSG_GCTRL_CHARGED_ITEM2_INVEN	= (NET_MSG_GCTRL + 584),	//<	±¸ÀÔÇÑ ¾ÆÀÌÅÛ ÀÎº¥¿¡ ³Ö±â ¿äÃ».
+	NET_MSG_GCTRL_GET_CHARGEDITEM_FROMDB	= (NET_MSG_GCTRL + 579),//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_GCTRL_GET_CHARGEDITEM_FROMDB_FB = (NET_MSG_GCTRL + 580),//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB
+	NET_MSG_GCTRL_CHARGED_ITEM_GET		= (NET_MSG_GCTRL + 581),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CHARGED_ITEM_GET_FB	= (NET_MSG_GCTRL + 582),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
+	NET_MSG_GCTRL_CHARGED_ITEM_DEL		= (NET_MSG_GCTRL + 583),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CHARGED_ITEM2_INVEN	= (NET_MSG_GCTRL + 584),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½Ã».
 
-	NET_MSG_GCTRL_INVEN_RANDOMBOXOPEN	= (NET_MSG_GCTRL + 585),	//<	random box open ¿äÃ».
-	NET_MSG_GCTRL_INVEN_RANDOMBOXOPEN_FB= (NET_MSG_GCTRL + 586),	//<	random box open ¿äÃ» FB.
+	NET_MSG_GCTRL_INVEN_RANDOMBOXOPEN	= (NET_MSG_GCTRL + 585),	//<	random box open ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_RANDOMBOXOPEN_FB= (NET_MSG_GCTRL + 586),	//<	random box open ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_INVEN_DISJUNCTION		= (NET_MSG_GCTRL + 587),	//<	ÄÚ½ºÅù ºÐ¸® ¿äÃ».
-	NET_MSG_GCTRL_INVEN_DISJUNCTION_FB	= (NET_MSG_GCTRL + 588),	//<	ÄÚ½ºÅù ºÐ¸® ¿äÃ» FB.
+	NET_MSG_GCTRL_INVEN_DISJUNCTION		= (NET_MSG_GCTRL + 587),	//<	ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ð¸ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_DISJUNCTION_FB	= (NET_MSG_GCTRL + 588),	//<	ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ð¸ï¿½ ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_INVEN_HAIR_CHANGE		= (NET_MSG_GCTRL + 591),	//<	Çì¾î½ºÅ¸ÀÏ º¯°æ ¿äÃ».
-	NET_MSG_GCTRL_INVEN_HAIR_CHANGE_FB	= (NET_MSG_GCTRL + 592),	//<	Çì¾î½ºÅ¸ÀÏ º¯°æ °á°ú FB.
-	NET_MSG_GCTRL_INVEN_HAIR_CHANGE_BRD	= (NET_MSG_GCTRL + 593),	//<	Çì¾î½ºÅ¸ÀÏ º¯°æ °á°ú BRD.
+	NET_MSG_GCTRL_INVEN_HAIR_CHANGE		= (NET_MSG_GCTRL + 591),	//<	ï¿½ï¿½î½ºÅ¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_HAIR_CHANGE_FB	= (NET_MSG_GCTRL + 592),	//<	ï¿½ï¿½î½ºÅ¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ FB.
+	NET_MSG_GCTRL_INVEN_HAIR_CHANGE_BRD	= (NET_MSG_GCTRL + 593),	//<	ï¿½ï¿½î½ºÅ¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ BRD.
 
-	NET_MSG_GCTRL_INVEN_HAIRSTYLE_CHANGE		= (NET_MSG_GCTRL + 594),	//<	Çì¾î½ºÅ¸ÀÏ º¯°æ ¿äÃ».
-	NET_MSG_GCTRL_INVEN_HAIRSTYLE_CHANGE_FB		= (NET_MSG_GCTRL + 595),	//<	Çì¾î½ºÅ¸ÀÏ º¯°æ °á°ú FB.
-	NET_MSG_GCTRL_INVEN_HAIRSTYLE_CHANGE_BRD	= (NET_MSG_GCTRL + 596),	//<	Çì¾î½ºÅ¸ÀÏ º¯°æ °á°ú BRD.
+	NET_MSG_GCTRL_INVEN_HAIRSTYLE_CHANGE		= (NET_MSG_GCTRL + 594),	//<	ï¿½ï¿½î½ºÅ¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_HAIRSTYLE_CHANGE_FB		= (NET_MSG_GCTRL + 595),	//<	ï¿½ï¿½î½ºÅ¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ FB.
+	NET_MSG_GCTRL_INVEN_HAIRSTYLE_CHANGE_BRD	= (NET_MSG_GCTRL + 596),	//<	ï¿½ï¿½î½ºÅ¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ BRD.
 
-	NET_MSG_GCTRL_INVEN_HAIRCOLOR_CHANGE		= (NET_MSG_GCTRL + 597),	//<	Çì¾îÄÃ·¯ º¯°æ ¿äÃ».
-	NET_MSG_GCTRL_INVEN_HAIRCOLOR_CHANGE_FB		= (NET_MSG_GCTRL + 598),	//<	Çì¾îÄÃ·¯ º¯°æ °á°ú FB.
-	NET_MSG_GCTRL_INVEN_HAIRCOLOR_CHANGE_BRD	= (NET_MSG_GCTRL + 599),	//<	Çì¾îÄÃ·¯ º¯°æ °á°ú BRD.
+	NET_MSG_GCTRL_INVEN_HAIRCOLOR_CHANGE		= (NET_MSG_GCTRL + 597),	//<	ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_HAIRCOLOR_CHANGE_FB		= (NET_MSG_GCTRL + 598),	//<	ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ FB.
+	NET_MSG_GCTRL_INVEN_HAIRCOLOR_CHANGE_BRD	= (NET_MSG_GCTRL + 599),	//<	ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ BRD.
 
-	NET_MSG_GCTRL_INVEN_FACE_CHANGE		= (NET_MSG_GCTRL + 601),	//<	¾ó±¼½ºÅ¸ÀÏ º¯°æ ¿äÃ».
-	NET_MSG_GCTRL_INVEN_FACE_CHANGE_FB	= (NET_MSG_GCTRL + 602),	//<	¾ó±¼½ºÅ¸ÀÏ º¯°æ °á°ú FB.
-	NET_MSG_GCTRL_INVEN_FACE_CHANGE_BRD	= (NET_MSG_GCTRL + 603),	//<	¾ó±¼½ºÅ¸ÀÏ º¯°æ °á°ú BRD.
+	NET_MSG_GCTRL_INVEN_FACE_CHANGE		= (NET_MSG_GCTRL + 601),	//<	ï¿½ó±¼½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_FACE_CHANGE_FB	= (NET_MSG_GCTRL + 602),	//<	ï¿½ó±¼½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ FB.
+	NET_MSG_GCTRL_INVEN_FACE_CHANGE_BRD	= (NET_MSG_GCTRL + 603),	//<	ï¿½ó±¼½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ BRD.
 
-	NET_MSG_GCTRL_INVEN_REMODELOPEN		= (NET_MSG_GCTRL + 604),	//<	°³Á¶ ±â´É ÀÌ¿ë Ä«µå »ç¿ë ¿äÃ».
-	NET_MSG_GCTRL_INVEN_REMODELOPEN_FB	= (NET_MSG_GCTRL + 605),	//<	°³Á¶ ±â´É ÀÌ¿ë Ä«µå »ç¿ë ¿äÃ» FB.
+	NET_MSG_GCTRL_INVEN_REMODELOPEN		= (NET_MSG_GCTRL + 604),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_REMODELOPEN_FB	= (NET_MSG_GCTRL + 605),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_INVEN_GARBAGEOPEN		= (NET_MSG_GCTRL + 606),	//<	ÈÞÁöÅë ±â´É ÀÌ¿ë Ä«µå »ç¿ë ¿äÃ»
-	NET_MSG_GCTRL_INVEN_GARBAGEOPEN_FB	= (NET_MSG_GCTRL + 607),	//<	ÈÞÁöÅë ±â´É ÀÌ¿ë Ä«µå »ç¿ë ¿äÃ» FB.
-	NET_MSG_GCTRL_GARBAGE_RESULT		= (NET_MSG_GCTRL + 608),	//<	¾ÆÀÌÅÛ »èÁ¦ ¿äÃ»
-	NET_MSG_GCTRL_GARBAGE_RESULT_FB		= (NET_MSG_GCTRL + 609),	//<	¾ÆÀÌÅÛ »èÁ¦ ¿äÃ» FB.
+	NET_MSG_GCTRL_INVEN_GARBAGEOPEN		= (NET_MSG_GCTRL + 606),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_GCTRL_INVEN_GARBAGEOPEN_FB	= (NET_MSG_GCTRL + 607),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
+	NET_MSG_GCTRL_GARBAGE_RESULT		= (NET_MSG_GCTRL + 608),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_GCTRL_GARBAGE_RESULT_FB		= (NET_MSG_GCTRL + 609),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
 
 	NET_MSG_GCTRL_CROW_MOVETO			= (NET_MSG_GCTRL + 611),
 	NET_MSG_GCTRL_CROW_ATTACK			= (NET_MSG_GCTRL + 612),
@@ -1278,778 +1278,781 @@ enum EMNET_MSG
 	NET_MSG_GCTRL_CROW_DAMAGE			= (NET_MSG_GCTRL + 614),
 	NET_MSG_GCTRL_CROW_SKILL			= (NET_MSG_GCTRL + 615),
 
-	NET_MSG_GCTRL_INVEN_RENAME			= (NET_MSG_GCTRL + 620),	//<	ÀÌ¸§ º¯°æ ¿äÃ».
-	NET_MSG_GCTRL_INVEN_RENAME_FB		= (NET_MSG_GCTRL + 621),	//<	ÀÌ¸§ º¯°æ °á°ú FB.
-	NET_MSG_GCTRL_INVEN_RENAME_FROM_DB	= (NET_MSG_GCTRL + 622),	//<	DB ÀúÀå °á°ú FB.
-	NET_MSG_GCTRL_INVEN_RENAME_AGTBRD	= (NET_MSG_GCTRL + 623),	//<	Agent¿¡ ¸ðµçÃ¤³Î BRD ¿äÃ».
-	NET_MSG_GCTRL_INVEN_RENAME_BRD		= (NET_MSG_GCTRL + 624),	//<	ÀÌ¸§ º¯°æ °á°ú BRD.
+	NET_MSG_GCTRL_INVEN_RENAME			= (NET_MSG_GCTRL + 620),	//<	ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_RENAME_FB		= (NET_MSG_GCTRL + 621),	//<	ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ FB.
+	NET_MSG_GCTRL_INVEN_RENAME_FROM_DB	= (NET_MSG_GCTRL + 622),	//<	DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ FB.
+	NET_MSG_GCTRL_INVEN_RENAME_AGTBRD	= (NET_MSG_GCTRL + 623),	//<	Agentï¿½ï¿½ ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½ BRD ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_INVEN_RENAME_BRD		= (NET_MSG_GCTRL + 624),	//<	ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ BRD.
 
-	NET_MSG_GCTRL_PARTY_MBR_RENAME_CLT	= (NET_MSG_GCTRL + 626),	//< ÀÌ¸§ º¯°æÀ» ÆÄÆ¼¸â¹ö¿¡°Ô ¾Ë¸².
-	NET_MSG_GCTRL_CLUB_MBR_RENAME_CLT	= (NET_MSG_GCTRL + 627),	//< ÀÌ¸§ º¯°æÀ» Å¬·´¸â¹ö¿¡°Ô ¾Ë¸².
-	NET_MSG_GCTRL_FRIEND_RENAME_CLT		= (NET_MSG_GCTRL + 628),	//< ÀÌ¸§ º¯°æÀ» Ä£±¸µé¿¡°Ô ¾Ë¸².
-	NET_MSG_GCTRL_FRIEND_PHONENUMBER_CLT= (NET_MSG_GCTRL + 629),	//< Æù¹øÈ£ º¯°æÀ» Ä£±¸µé¿¡°Ô ¾Ë¸².
-	NET_MSG_GCTRL_PARTY_MBR_RENAME_FLD	= (NET_MSG_GCTRL + 630),	//< ÀÌ¸§ º¯°æÀ» FieldServer¿¡ ¾Ë¸².
-	NET_MSG_GCTRL_CLUB_MBR_RENAME_FLD	= (NET_MSG_GCTRL + 631),	//< ÀÌ¸§ º¯°æÀ» FieldServer¿¡ ¾Ë¸².
-	NET_MSG_GCTRL_FRIEND_RENAME_FLD		= (NET_MSG_GCTRL + 632),	//< ÀÌ¸§ º¯°æÀ» FieldServer¿¡ ¾Ë¸².
-	NET_MSG_GCTRL_CHANGE_NAMEMAP	 	= (NET_MSG_GCTRL + 633),	//< GLLandMan ÀÇ NameMap º¯°æ
+	NET_MSG_GCTRL_PARTY_MBR_RENAME_CLT	= (NET_MSG_GCTRL + 626),	//< ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½.
+	NET_MSG_GCTRL_CLUB_MBR_RENAME_CLT	= (NET_MSG_GCTRL + 627),	//< ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½.
+	NET_MSG_GCTRL_FRIEND_RENAME_CLT		= (NET_MSG_GCTRL + 628),	//< ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½é¿¡ï¿½ï¿½ ï¿½Ë¸ï¿½.
+	NET_MSG_GCTRL_FRIEND_PHONENUMBER_CLT= (NET_MSG_GCTRL + 629),	//< ï¿½ï¿½ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä£ï¿½ï¿½ï¿½é¿¡ï¿½ï¿½ ï¿½Ë¸ï¿½.
+	NET_MSG_GCTRL_PARTY_MBR_RENAME_FLD	= (NET_MSG_GCTRL + 630),	//< ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ FieldServerï¿½ï¿½ ï¿½Ë¸ï¿½.
+	NET_MSG_GCTRL_CLUB_MBR_RENAME_FLD	= (NET_MSG_GCTRL + 631),	//< ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ FieldServerï¿½ï¿½ ï¿½Ë¸ï¿½.
+	NET_MSG_GCTRL_FRIEND_RENAME_FLD		= (NET_MSG_GCTRL + 632),	//< ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ FieldServerï¿½ï¿½ ï¿½Ë¸ï¿½.
+	NET_MSG_GCTRL_CHANGE_NAMEMAP	 	= (NET_MSG_GCTRL + 633),	//< GLLandMan ï¿½ï¿½ NameMap ï¿½ï¿½ï¿½ï¿½
 
 
-	NET_MSG_GCTRL_REQ_QUEST_START		= (NET_MSG_GCTRL + 646),	//<	Äù½ºÆ® ½ÃÀÛÀ» ¿äÃ».
-	NET_MSG_GCTRL_REQ_QUEST_START_FB	= (NET_MSG_GCTRL + 647),	//<	Äù½ºÆ® ½ÃÀÛÀ» ¿äÃ» FB.
-	NET_MSG_GCTRL_REQ_QUEST_TALK		= (NET_MSG_GCTRL + 648),	//<	Äù½ºÆ® ´ëÈ­ ÁøÇà ¿äÃ».
-	NET_MSG_GCTRL_REQ_QUEST_TALK_FB		= (NET_MSG_GCTRL + 649),	//<	Äù½ºÆ® ´ëÈ­ ÁøÇà ¿äÃ» FB.
+	NET_MSG_GCTRL_REQ_QUEST_START		= (NET_MSG_GCTRL + 646),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_QUEST_START_FB	= (NET_MSG_GCTRL + 647),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
+	NET_MSG_GCTRL_REQ_QUEST_TALK		= (NET_MSG_GCTRL + 648),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_QUEST_TALK_FB		= (NET_MSG_GCTRL + 649),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_QUEST_PROG_GIVEUP		= (NET_MSG_GCTRL + 651),	//<	Äù½ºÆ® ÁøÇà Æ÷±â ¿äÃ».
-	NET_MSG_GCTRL_QUEST_PROG_DEL		= (NET_MSG_GCTRL + 652),	//<	Äù½ºÆ® ÁøÇà ¸®½ºÆ®¿¡¼­ »èÁ¦.
-	NET_MSG_GCTRL_QUEST_END_DEL			= (NET_MSG_GCTRL + 653),	//<	Äù½ºÆ® ¿Ï·á ¸®½ºÆ®¿¡¼­ »èÁ¦.
-	NET_MSG_GCTRL_QUEST_END_STREAM		= (NET_MSG_GCTRL + 654),	//<	Äù½ºÆ® ¿Ï·á Á¤º¸.
+	NET_MSG_GCTRL_QUEST_PROG_GIVEUP		= (NET_MSG_GCTRL + 651),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_QUEST_PROG_DEL		= (NET_MSG_GCTRL + 652),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_QUEST_END_DEL			= (NET_MSG_GCTRL + 653),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_QUEST_END_STREAM		= (NET_MSG_GCTRL + 654),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_QUEST_PROG_STREAM		= (NET_MSG_GCTRL + 655),	//<	Äù½ºÆ® ÁøÇà Á¤º¸.
-	NET_MSG_GCTRL_QUEST_PROG_STEP_STREAM= (NET_MSG_GCTRL + 656),	//<	Äù½ºÆ® ÁøÇà step.
-	NET_MSG_GCTRL_QUEST_PROG_INVEN		= (NET_MSG_GCTRL + 657),	//<	Äù½ºÆ® INVENTORY.
+	NET_MSG_GCTRL_QUEST_PROG_STREAM		= (NET_MSG_GCTRL + 655),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_QUEST_PROG_STEP_STREAM= (NET_MSG_GCTRL + 656),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ step.
+	NET_MSG_GCTRL_QUEST_PROG_INVEN		= (NET_MSG_GCTRL + 657),	//<	ï¿½ï¿½ï¿½ï¿½Æ® INVENTORY.
 
-	NET_MSG_GCTRL_QUEST_PROG_NPCTALK	= (NET_MSG_GCTRL + 661),	//<	Äù½ºÆ® ÁøÇà npc ´ëÈ­.
-	NET_MSG_GCTRL_QUEST_PROG_NPCTALK_FB	= (NET_MSG_GCTRL + 662),	//<	Äù½ºÆ® ÁøÇà npc ´ëÈ­.
+	NET_MSG_GCTRL_QUEST_PROG_NPCTALK	= (NET_MSG_GCTRL + 661),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ npc ï¿½ï¿½È­.
+	NET_MSG_GCTRL_QUEST_PROG_NPCTALK_FB	= (NET_MSG_GCTRL + 662),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ npc ï¿½ï¿½È­.
 
-	NET_MSG_GCTRL_QUEST_PROG_MOBKILL		= (NET_MSG_GCTRL + 663),	//<	Äù½ºÆ® ÁøÇà mob Á¦°Å.
-	NET_MSG_GCTRL_QUEST_PARTY_PROG_MOBKILL	= (NET_MSG_GCTRL + 664),	//<	Äù½ºÆ® ÁøÇà mob Á¦°Å.( ÆÄÆ¼Äù½ºÆ® ¿Ï·á½Ã )
-	NET_MSG_GCTRL_QUEST_PROG_QITEM			= (NET_MSG_GCTRL + 665),	//<	Äù½ºÆ® ÁøÇà Äù½ºÆ® ¾ÆÀÌÅÛ ½Àµæ.
-	NET_MSG_GCTRL_QUEST_PARTY_PROG_QITEM	= (NET_MSG_GCTRL + 666),	//<	Äù½ºÆ® ÁøÇà Äù½ºÆ® ¾ÆÀÌÅÛ ½Àµæ.( ÆÄÆ¼Äù½ºÆ® ¿Ï·á½Ã )
-	NET_MSG_GCTRL_QUEST_PROG_REACHZONE		= (NET_MSG_GCTRL + 667),	//<	Äù½ºÆ® ÁøÇà À§Ä¡ µµ´Þ.
-	NET_MSG_GCTRL_QUEST_PROG_READ			= (NET_MSG_GCTRL + 668),	//<	Äù½ºÆ® ÀÐ±â ¿äÃ» ¸®¼Â.
-	NET_MSG_GCTRL_QUEST_PROG_TIME			= (NET_MSG_GCTRL + 669),	//<	Äù½ºÆ® °æ°ú ½Ã°£.
-	NET_MSG_GCTRL_QUEST_PROG_TIMEOVER		= (NET_MSG_GCTRL + 670),	//<	Äù½ºÆ® ½Ã°£ Á¦ÇÑ ÃÊ°úµÊ.
-	NET_MSG_GCTRL_QUEST_PROG_NONDIE			= (NET_MSG_GCTRL + 671),	//<	Äù½ºÆ® »ç¸Á Á¦ÇÑ.
-	NET_MSG_GCTRL_QUEST_PROG_LEVEL			= (NET_MSG_GCTRL + 672),	//<	Äù½ºÆ® ·¹º§ µµ´Þ.
+	NET_MSG_GCTRL_QUEST_PROG_MOBKILL		= (NET_MSG_GCTRL + 663),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ mob ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_QUEST_PARTY_PROG_MOBKILL	= (NET_MSG_GCTRL + 664),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ mob ï¿½ï¿½ï¿½ï¿½.( ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·ï¿½ï¿½ )
+	NET_MSG_GCTRL_QUEST_PROG_QITEM			= (NET_MSG_GCTRL + 665),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_QUEST_PARTY_PROG_QITEM	= (NET_MSG_GCTRL + 666),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.( ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·ï¿½ï¿½ )
+	NET_MSG_GCTRL_QUEST_PROG_REACHZONE		= (NET_MSG_GCTRL + 667),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_QUEST_PROG_READ			= (NET_MSG_GCTRL + 668),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ð±ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_QUEST_PROG_TIME			= (NET_MSG_GCTRL + 669),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½.
+	NET_MSG_GCTRL_QUEST_PROG_TIMEOVER		= (NET_MSG_GCTRL + 670),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_QUEST_PROG_NONDIE			= (NET_MSG_GCTRL + 671),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_QUEST_PROG_LEVEL			= (NET_MSG_GCTRL + 672),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_QUEST_COMPLETE_FB		= (NET_MSG_GCTRL + 673),	//<	Äù½ºÆ®°¡ ¿Ï·áµÇ¾úÀ¸³ª º¸»ó ¹°Ç°À» ÁÖÁö ¸øÇÑ»óÅÂ.
-	NET_MSG_GCTRL_REQ_QUEST_COMPLETE	= (NET_MSG_GCTRL + 674),	//<	Äù½ºÆ® ¿Ï·á ¿äÃ» ( º¸»ó¹°Ç° ½Àµæ ).
+	NET_MSG_GCTRL_QUEST_COMPLETE_FB		= (NET_MSG_GCTRL + 673),	//<	ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ»ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_QUEST_COMPLETE	= (NET_MSG_GCTRL + 674),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï·ï¿½ ï¿½ï¿½Ã» ( ï¿½ï¿½ï¿½ï¿½Ç° ï¿½ï¿½ï¿½ï¿½ ).
 
-	NET_MSG_GCTRL_QUEST_PROG_INVEN_TURN	= (NET_MSG_GCTRL + 681),	//<	Äù½ºÆ® ÀÎ¹ê ¼ö·® º¯°æ.
-	NET_MSG_GCTRL_QUEST_PROG_INVEN_PICKUP= (NET_MSG_GCTRL + 682),	//<	Äù½ºÆ® ÀÎ¹ê·Î ¾ÆÀÌÅÛ ½Àµæ.
+	NET_MSG_GCTRL_QUEST_PROG_INVEN_TURN	= (NET_MSG_GCTRL + 681),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Î¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_QUEST_PROG_INVEN_PICKUP= (NET_MSG_GCTRL + 682),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Î¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_QUEST_PROG_INVEN_INSERT= (NET_MSG_GCTRL + 683),	//<	Äù½ºÆ® ÀÎ¹ê ¾ÆÀÌÅÆ »ðÀÔ.
-	NET_MSG_GCTRL_QUEST_PROG_INVEN_DELETE= (NET_MSG_GCTRL + 684),	//<	Äù½ºÆ® ÀÎ¹ê ¾ÆÀÌÅÆ »èÁ¦.
+	NET_MSG_GCTRL_QUEST_PROG_INVEN_INSERT= (NET_MSG_GCTRL + 683),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Î¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_QUEST_PROG_INVEN_DELETE= (NET_MSG_GCTRL + 684),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Î¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
 	
-	NET_MSG_GCTRL_PMARKET_TITLE			= (NET_MSG_GCTRL + 701),	//<	°³ÀÎ »óÁ¡ÀÇ Å¸ÀÌÆ² ¼³Á¤.
-	NET_MSG_GCTRL_PMARKET_TITLE_FB		= (NET_MSG_GCTRL + 702),	//<	°³ÀÎ »óÁ¡ÀÇ Å¸ÀÌÆ² ¼³Á¤.
+	NET_MSG_GCTRL_PMARKET_TITLE			= (NET_MSG_GCTRL + 701),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PMARKET_TITLE_FB		= (NET_MSG_GCTRL + 702),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_PMARKET_REGITEM		= (NET_MSG_GCTRL + 703),	//<	°³ÀÎ »óÁ¡¿¡ ÆÇ¸Å ¾ÆÀÌÅÛ µî·Ï.
-	NET_MSG_GCTRL_PMARKET_REGITEM_FB	= (NET_MSG_GCTRL + 704),	//<	°³ÀÎ »óÁ¡¿¡ ÆÇ¸Å ¾ÆÀÌÅÛ µî·Ï FB.
+	NET_MSG_GCTRL_PMARKET_REGITEM		= (NET_MSG_GCTRL + 703),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PMARKET_REGITEM_FB	= (NET_MSG_GCTRL + 704),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_PMARKET_DISITEM		= (NET_MSG_GCTRL + 705),	//<	°³ÀÎ »óÁ¡¿¡¼­ ¾ÆÀÌÅÛ Á¦°Å.
-	NET_MSG_GCTRL_PMARKET_DISITEM_FB	= (NET_MSG_GCTRL + 706),	//<	°³ÀÎ »óÁ¡¿¡¼­ ¾ÆÀÌÅÛ Á¦°Å FB.
-	NET_MSG_GCTRL_PMARKET_OPEN			= (NET_MSG_GCTRL + 707),	//<	°³ÀÎ »óÁ¡ ¿ÀÇÂ.
-	NET_MSG_GCTRL_PMARKET_OPEN_FB		= (NET_MSG_GCTRL + 708),	//<	°³ÀÎ »óÁ¡ ¿ÀÇÂ FB.
-	NET_MSG_GCTRL_PMARKET_OPEN_BRD		= (NET_MSG_GCTRL + 709),	//<	°³ÀÎ »óÁ¡ ¿ÀÇÂ BRD.
+	NET_MSG_GCTRL_PMARKET_DISITEM		= (NET_MSG_GCTRL + 705),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PMARKET_DISITEM_FB	= (NET_MSG_GCTRL + 706),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ FB.
+	NET_MSG_GCTRL_PMARKET_OPEN			= (NET_MSG_GCTRL + 707),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PMARKET_OPEN_FB		= (NET_MSG_GCTRL + 708),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ FB.
+	NET_MSG_GCTRL_PMARKET_OPEN_BRD		= (NET_MSG_GCTRL + 709),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ BRD.
 
-	NET_MSG_GCTRL_PMARKET_CLOSE			= (NET_MSG_GCTRL + 710),	//<	°³ÀÎ »óÁ¡ Á¾·á.
-	NET_MSG_GCTRL_PMARKET_CLOSE_FB		= (NET_MSG_GCTRL + 711),	//<	°³ÀÎ »óÁ¡ Á¾·á FB.
-	NET_MSG_GCTRL_PMARKET_CLOSE_BRD		= (NET_MSG_GCTRL + 712),	//<	°³ÀÎ »óÁ¡ Á¾·á BRD.
+	NET_MSG_GCTRL_PMARKET_CLOSE			= (NET_MSG_GCTRL + 710),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PMARKET_CLOSE_FB		= (NET_MSG_GCTRL + 711),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ FB.
+	NET_MSG_GCTRL_PMARKET_CLOSE_BRD		= (NET_MSG_GCTRL + 712),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ BRD.
 	
-	NET_MSG_GCTRL_PMARKET_BUY			= (NET_MSG_GCTRL + 713),	//<	°³ÀÎ »óÁ¡¿¡¼­ ±¸ÀÔ.
-	NET_MSG_GCTRL_PMARKET_BUY_FB		= (NET_MSG_GCTRL + 714),	//<	°³ÀÎ »óÁ¡¿¡¼­ ±¸ÀÔ FB.
+	NET_MSG_GCTRL_PMARKET_BUY			= (NET_MSG_GCTRL + 713),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_PMARKET_BUY_FB		= (NET_MSG_GCTRL + 714),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_PMARKET_ITEM_INFO		= (NET_MSG_GCTRL + 715),	//<	°³ÀÎ »óÁ¡ÀÇ ÆÇ¸Å ¾ÆÀÌÅÛ Á¤º¸ ¿äÃ».
-	NET_MSG_GCTRL_PMARKET_ITEM_INFO_BRD	= (NET_MSG_GCTRL + 716),	//<	°³ÀÎ »óÁ¡ÀÇ ÆÇ¸Å ¾ÆÀÌÅÛ BRD.
-	NET_MSG_GCTRL_PMARKET_ITEM_UPDATE_BRD= (NET_MSG_GCTRL + 717),	//<	°³ÀÎ »óÁ¡ÀÇ ÆÇ¸Å ¾ÆÀÌÅÛ Update BRD.
+	NET_MSG_GCTRL_PMARKET_ITEM_INFO		= (NET_MSG_GCTRL + 715),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_PMARKET_ITEM_INFO_BRD	= (NET_MSG_GCTRL + 716),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ BRD.
+	NET_MSG_GCTRL_PMARKET_ITEM_UPDATE_BRD= (NET_MSG_GCTRL + 717),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Update BRD.
 
-	NET_MSG_GCTRL_CLUB_NEW				= (NET_MSG_GCTRL + 720),	//<	Å¬·´ »ý¼º.
-	NET_MSG_GCTRL_CLUB_NEW_2AGT			= (NET_MSG_GCTRL + 721),	//<	Å¬·´ »ý¼º to AGENT.
-	NET_MSG_GCTRL_CLUB_NEW_DB2AGT		= (NET_MSG_GCTRL + 722),	//<	Å¬·´ »ý¼º DB to AGENT.
-	NET_MSG_GCTRL_CLUB_NEW_2FLD			= (NET_MSG_GCTRL + 723),	//<	Å¬·´ »ý¼º to FIELD.
-	NET_MSG_GCTRL_CLUB_NEW_FB			= (NET_MSG_GCTRL + 724),	//<	Å¬·´ »ý¼º FB.
+	NET_MSG_GCTRL_CLUB_NEW				= (NET_MSG_GCTRL + 720),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_NEW_2AGT			= (NET_MSG_GCTRL + 721),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to AGENT.
+	NET_MSG_GCTRL_CLUB_NEW_DB2AGT		= (NET_MSG_GCTRL + 722),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DB to AGENT.
+	NET_MSG_GCTRL_CLUB_NEW_2FLD			= (NET_MSG_GCTRL + 723),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to FIELD.
+	NET_MSG_GCTRL_CLUB_NEW_FB			= (NET_MSG_GCTRL + 724),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_CLUB_DISSOLUTION		= (NET_MSG_GCTRL + 725),	//<	Å¬·´ ÇØÃ¼ ¿äÃ».
-	NET_MSG_GCTRL_CLUB_DISSOLUTION_2FLD	= (NET_MSG_GCTRL + 726),	//<	Å¬·´ ÇØÃ¼ ¿äÃ».
-	NET_MSG_GCTRL_CLUB_DISSOLUTION_FB	= (NET_MSG_GCTRL + 727),	//<	Å¬·´ ÇØÃ¼ ¿äÃ» FB.
-	NET_MSG_GCTRL_CLUB_DEL_2FLD			= (NET_MSG_GCTRL + 728),	//<	Å¬·´ ÇØÃ¼ to FIELD.
-	NET_MSG_GCTRL_CLUB_DEL_2CLT			= (NET_MSG_GCTRL + 729),	//<	Å¬·´ »èÁ¦ to CLIENT. ( ÇØÃ¼ ¹× Å»Åð )
-	NET_MSG_GCTRL_CLUB_DEL_BRD			= (NET_MSG_GCTRL + 730),	//<	Å¬·´ »èÁ¦ BRD. ( ÇØÃ¼ ¹× Å»Åð )
+	NET_MSG_GCTRL_CLUB_DISSOLUTION		= (NET_MSG_GCTRL + 725),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_DISSOLUTION_2FLD	= (NET_MSG_GCTRL + 726),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_DISSOLUTION_FB	= (NET_MSG_GCTRL + 727),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½Ã» FB.
+	NET_MSG_GCTRL_CLUB_DEL_2FLD			= (NET_MSG_GCTRL + 728),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Ã¼ to FIELD.
+	NET_MSG_GCTRL_CLUB_DEL_2CLT			= (NET_MSG_GCTRL + 729),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to CLIENT. ( ï¿½ï¿½Ã¼ ï¿½ï¿½ Å»ï¿½ï¿½ )
+	NET_MSG_GCTRL_CLUB_DEL_BRD			= (NET_MSG_GCTRL + 730),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ BRD. ( ï¿½ï¿½Ã¼ ï¿½ï¿½ Å»ï¿½ï¿½ )
 
-	NET_MSG_GCTRL_CLUB_INFO_2FLD		= (NET_MSG_GCTRL + 731),	//<	Å¬·´ Á¤º¸ to FLIED.
-	NET_MSG_GCTRL_CLUB_INFO_2CLT		= (NET_MSG_GCTRL + 732),	//<	Å¬·´ Á¤º¸ to CLIENT.
-	NET_MSG_GCTRL_CLUB_INFO_DISSOLUTION	= (NET_MSG_GCTRL + 733),	//<	Å¬·´ ÇØÃ¼¿¹¾à Á¤º¸ to CLIENT.
-	NET_MSG_GCTRL_CLUB_MEMBER_2CLT		= (NET_MSG_GCTRL + 734),	//<	Å¬·´ ¸â¹ö to CLIENT.
+	NET_MSG_GCTRL_CLUB_INFO_2FLD		= (NET_MSG_GCTRL + 731),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to FLIED.
+	NET_MSG_GCTRL_CLUB_INFO_2CLT		= (NET_MSG_GCTRL + 732),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to CLIENT.
+	NET_MSG_GCTRL_CLUB_INFO_DISSOLUTION	= (NET_MSG_GCTRL + 733),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ to CLIENT.
+	NET_MSG_GCTRL_CLUB_MEMBER_2CLT		= (NET_MSG_GCTRL + 734),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ to CLIENT.
 
-	NET_MSG_GCTRL_CLUB_INFO_BRD			= (NET_MSG_GCTRL + 735),	//<	Å¬·´ Á¤º¸ BRD.
-	NET_MSG_GCTRL_CLUB_INFO_MARK_BRD	= (NET_MSG_GCTRL + 736),	//<	Å¬·´ ¸¶Å© Á¤º¸ BRD.
-	NET_MSG_GCTRL_CLUB_INFO_NICK_BRD	= (NET_MSG_GCTRL + 737),	//<	Å¬·´ ´Ð³×ÀÓ Á¤º¸ BRD.
+	NET_MSG_GCTRL_CLUB_INFO_BRD			= (NET_MSG_GCTRL + 735),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ BRD.
+	NET_MSG_GCTRL_CLUB_INFO_MARK_BRD	= (NET_MSG_GCTRL + 736),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ BRD.
+	NET_MSG_GCTRL_CLUB_INFO_NICK_BRD	= (NET_MSG_GCTRL + 737),	//<	Å¬ï¿½ï¿½ ï¿½Ð³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ BRD.
 
-	NET_MSG_GCTRL_CLUB_MARK_INFO		= (NET_MSG_GCTRL + 740),	//<	Å¬·´ ¸¶Å© ¿äÃ».
-	NET_MSG_GCTRL_CLUB_MARK_INFO_FB		= (NET_MSG_GCTRL + 741),	//<	Å¬·´ ¸¶Å© ¹ÝÈ¯.
+	NET_MSG_GCTRL_CLUB_MARK_INFO		= (NET_MSG_GCTRL + 740),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_MARK_INFO_FB		= (NET_MSG_GCTRL + 741),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½È¯.
 
-	NET_MSG_GCTRL_CLUB_MARK_CHANGE		= (NET_MSG_GCTRL + 742),	//<	Å¬·´ ¸¶Å© º¯°æ ¿äÃ».
-	NET_MSG_GCTRL_CLUB_MARK_CHANGE_2FLD	= (NET_MSG_GCTRL + 743),	//<	Å¬·´ ¸¶Å© º¯°æ ¿äÃ».
-	NET_MSG_GCTRL_CLUB_MARK_CHANGE_2CLT	= (NET_MSG_GCTRL + 744),	//<	Å¬·´ ¸¶Å© º¯°æ ¿äÃ».
-	NET_MSG_GCTRL_CLUB_MARK_CHANGE_FB	= (NET_MSG_GCTRL + 745),	//<	Å¬·´ ¸¶Å© º¯°æ FB.
+	NET_MSG_GCTRL_CLUB_MARK_CHANGE		= (NET_MSG_GCTRL + 742),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_MARK_CHANGE_2FLD	= (NET_MSG_GCTRL + 743),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_MARK_CHANGE_2CLT	= (NET_MSG_GCTRL + 744),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_MARK_CHANGE_FB	= (NET_MSG_GCTRL + 745),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_CLUB_RANK				= (NET_MSG_GCTRL + 750),	//<	Å¬·´ ·©Å© º¯°æ.
-	NET_MSG_GCTRL_CLUB_RANK_2AGT		= (NET_MSG_GCTRL + 751),	//<	Å¬·´ ·©Å© º¯°æ.
-	NET_MSG_GCTRL_CLUB_RANK_2FLD		= (NET_MSG_GCTRL + 752),	//<	Å¬·´ ·©Å© º¯°æ.
-	NET_MSG_GCTRL_CLUB_RANK_2CLT		= (NET_MSG_GCTRL + 753),	//<	Å¬·´ ·©Å© º¯°æ.
-	NET_MSG_GCTRL_CLUB_RANK_FB			= (NET_MSG_GCTRL + 754),	//<	Å¬·´ ·©Å© º¯°æ FB.
+	NET_MSG_GCTRL_CLUB_RANK				= (NET_MSG_GCTRL + 750),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_RANK_2AGT		= (NET_MSG_GCTRL + 751),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_RANK_2FLD		= (NET_MSG_GCTRL + 752),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_RANK_2CLT		= (NET_MSG_GCTRL + 753),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_RANK_FB			= (NET_MSG_GCTRL + 754),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_CLUB_MEMBER_REQ		= (NET_MSG_GCTRL + 755),	//<	Å¬·´ Âü°¡ ¿äÃ».
-	NET_MSG_GCTRL_CLUB_MEMBER_REQ_ASK	= (NET_MSG_GCTRL + 756),	//<	Å¬·´ Âü°¡ ÁúÀÇ.
-	NET_MSG_GCTRL_CLUB_MEMBER_REQ_ANS	= (NET_MSG_GCTRL + 757),	//<	Å¬·´ Âü°¡ ´äº¯.
-	NET_MSG_GCTRL_CLUB_MEMBER_REQ_2AGT	= (NET_MSG_GCTRL + 758),	//<	Å¬·´ Âü°¡ ´äº¯.
-	NET_MSG_GCTRL_CLUB_MEMBER_REQ_FB	= (NET_MSG_GCTRL + 759),	//<	Å¬·´ Âü°¡ ¿äÃ» FB.
+	NET_MSG_GCTRL_CLUB_MEMBER_REQ		= (NET_MSG_GCTRL + 755),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_MEMBER_REQ_ASK	= (NET_MSG_GCTRL + 756),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_MEMBER_REQ_ANS	= (NET_MSG_GCTRL + 757),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯.
+	NET_MSG_GCTRL_CLUB_MEMBER_REQ_2AGT	= (NET_MSG_GCTRL + 758),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯.
+	NET_MSG_GCTRL_CLUB_MEMBER_REQ_FB	= (NET_MSG_GCTRL + 759),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_CLUB_MEMBER_ADD_2FLD	= (NET_MSG_GCTRL + 760),	//<	Å¬·´ ¸â¹ö Ãß°¡ to FIELD.
+	NET_MSG_GCTRL_CLUB_MEMBER_ADD_2FLD	= (NET_MSG_GCTRL + 760),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ to FIELD.
 
-	NET_MSG_GCTRL_CLUB_MEMBER_DEL		= (NET_MSG_GCTRL + 761),	//<	Å¬·´ ¸â¹ö Á¦¸í ¿äÃ».
-	NET_MSG_GCTRL_CLUB_MEMBER_DEL_2FLD	= (NET_MSG_GCTRL + 762),	//<	Å¬·´ ¸â¹ö Á¦¸í ¿äÃ» to FIELD.
-	NET_MSG_GCTRL_CLUB_MEMBER_DEL_2CLT	= (NET_MSG_GCTRL + 763),	//<	Å¬·´ ¸â¹ö Á¦¸í ¿äÃ» °á°ú to CLIENT.
-	NET_MSG_GCTRL_CLUB_MEMBER_DEL_FB	= (NET_MSG_GCTRL + 764),	//<	Å¬·´ ¸â¹ö Á¦¸í ¿äÃ» °á°ú FB.
+	NET_MSG_GCTRL_CLUB_MEMBER_DEL		= (NET_MSG_GCTRL + 761),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_MEMBER_DEL_2FLD	= (NET_MSG_GCTRL + 762),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» to FIELD.
+	NET_MSG_GCTRL_CLUB_MEMBER_DEL_2CLT	= (NET_MSG_GCTRL + 763),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ to CLIENT.
+	NET_MSG_GCTRL_CLUB_MEMBER_DEL_FB	= (NET_MSG_GCTRL + 764),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_CLUB_MEMBER_NICK		= (NET_MSG_GCTRL + 765),	//<	Å¬·´ ¸â¹ö º°¸í.
-	NET_MSG_GCTRL_CLUB_MEMBER_NICK_FB	= (NET_MSG_GCTRL + 766),	//<	Å¬·´ ¸â¹ö º°¸í FB.
+	NET_MSG_GCTRL_CLUB_MEMBER_NICK		= (NET_MSG_GCTRL + 765),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_MEMBER_NICK_FB	= (NET_MSG_GCTRL + 766),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_CLUB_MEMBER_STATE		= (NET_MSG_GCTRL + 767),	//<	Å¬·´ ¸â¹ö »óÅÂ.
-	NET_MSG_GCTRL_CLUB_MEMBER_POS		= (NET_MSG_GCTRL + 768),	//<	Å¬·´ ¸â¹ö À§Ä¡.
+	NET_MSG_GCTRL_CLUB_MEMBER_STATE		= (NET_MSG_GCTRL + 767),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_MEMBER_POS		= (NET_MSG_GCTRL + 768),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡.
 
-	NET_MSG_GCTRL_CLUB_MEMBER_SECEDE	= (NET_MSG_GCTRL + 769),	//<	Å¬·´ ¸â¹ö Å»Åð.
-	NET_MSG_GCTRL_CLUB_MEMBER_SECEDE_FB	= (NET_MSG_GCTRL + 770),	//<	Å¬·´ ¸â¹ö Å»Åð FB.
+	NET_MSG_GCTRL_CLUB_MEMBER_SECEDE	= (NET_MSG_GCTRL + 769),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ Å»ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_MEMBER_SECEDE_FB	= (NET_MSG_GCTRL + 770),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_CLUB_MEMBER_DB2DEL	= (NET_MSG_GCTRL + 771),	//<	Å¬·´ ¸â¹ö Á¦¸í ¿äÃ».
+	NET_MSG_GCTRL_CLUB_MEMBER_DB2DEL	= (NET_MSG_GCTRL + 771),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
 
-	NET_MSG_GCTRL_CLUB_BATTLE_REMAIN_BRD = (NET_MSG_GCTRL + 775),	//<	¼±µµ Å¬·´ °áÁ¤Àü Á¾·á.
-	NET_MSG_GCTRL_CLUB_BATTLE_START_FLD	= (NET_MSG_GCTRL + 776),	//<	¼±µµ Å¬·´ °áÁ¤Àü ½ÃÀÛ.
-	NET_MSG_GCTRL_CLUB_BATTLE_START_BRD	= (NET_MSG_GCTRL + 777),	//<	¼±µµ Å¬·´ °áÁ¤Àü ½ÃÀÛ.
+	NET_MSG_GCTRL_CLUB_BATTLE_REMAIN_BRD = (NET_MSG_GCTRL + 775),	//<	ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_BATTLE_START_FLD	= (NET_MSG_GCTRL + 776),	//<	ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_BATTLE_START_BRD	= (NET_MSG_GCTRL + 777),	//<	ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_CLUB_BATTLE_END_FLD	= (NET_MSG_GCTRL + 778),	//<	¼±µµ Å¬·´ °áÁ¤Àü Á¾·á.
-	NET_MSG_GCTRL_CLUB_BATTLE_END_BRD	= (NET_MSG_GCTRL + 779),	//<	¼±µµ Å¬·´ °áÁ¤Àü Á¾·á.
+	NET_MSG_GCTRL_CLUB_BATTLE_END_FLD	= (NET_MSG_GCTRL + 778),	//<	ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_BATTLE_END_BRD	= (NET_MSG_GCTRL + 779),	//<	ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_CLUB_CD_CERTIFY		  = (NET_MSG_GCTRL + 780),	//<	cd ÀÎÁõ.
+	NET_MSG_GCTRL_CLUB_CD_CERTIFY		  = (NET_MSG_GCTRL + 780),	//<	cd ï¿½ï¿½ï¿½ï¿½.
 	NET_MSG_GCTRL_CLUB_CD_CERTIFY_FB      = (NET_MSG_GCTRL + 780),	//<	cd FB
-	NET_MSG_GCTRL_CLUB_CD_CERTIFY_BRD	  = (NET_MSG_GCTRL + 781),	//<	cd ÀÎÁõ BRD.
-	NET_MSG_GCTRL_CLUB_CD_CERTIFY_ING_BRD = (NET_MSG_GCTRL + 782),	//<	cd ÀÎÁõ °á°ú BRD
+	NET_MSG_GCTRL_CLUB_CD_CERTIFY_BRD	  = (NET_MSG_GCTRL + 781),	//<	cd ï¿½ï¿½ï¿½ï¿½ BRD.
+	NET_MSG_GCTRL_CLUB_CD_CERTIFY_ING_BRD = (NET_MSG_GCTRL + 782),	//<	cd ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ BRD
 
-	NET_MSG_GCTRL_TOWER_DESTROYED_BRD	  = (NET_MSG_GCTRL + 783),	//<	cd ÀÎÁõ BRD.
-	NET_MSG_GCTRL_CLUB_CERTIFIED_AGT	= (NET_MSG_GCTRL + 787),	//<	cd ÀÎÁõ ¿Ï·á ( agent¿¡ ¾Ë¸² )
-	NET_MSG_GCTRL_CLUB_CERTIFIED_FLD	= (NET_MSG_GCTRL + 788),	//<	cd ÀÎÁõ ¿Ï·á ( field¿¡ ¾Ë¸² )
-	NET_MSG_GCTRL_CLUB_CERTIFIED_CLT	= (NET_MSG_GCTRL + 789),	//<	cd ÀÎÁõ ¿Ï·á ( field¿¡ ¾Ë¸² )
+	NET_MSG_GCTRL_TOWER_DESTROYED_BRD	  = (NET_MSG_GCTRL + 783),	//<	cd ï¿½ï¿½ï¿½ï¿½ BRD.
+	NET_MSG_GCTRL_CLUB_CERTIFIED_AGT	= (NET_MSG_GCTRL + 787),	//<	cd ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ( agentï¿½ï¿½ ï¿½Ë¸ï¿½ )
+	NET_MSG_GCTRL_CLUB_CERTIFIED_FLD	= (NET_MSG_GCTRL + 788),	//<	cd ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ( fieldï¿½ï¿½ ï¿½Ë¸ï¿½ )
+	NET_MSG_GCTRL_CLUB_CERTIFIED_CLT	= (NET_MSG_GCTRL + 789),	//<	cd ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ( fieldï¿½ï¿½ ï¿½Ë¸ï¿½ )
 
-	NET_MSG_GCTRL_CLUB_COMMISSION		= (NET_MSG_GCTRL + 790),	//<	¼±µµ Áö¿ª ¼ö¼ö·á ¼³Á¤.
-	NET_MSG_GCTRL_CLUB_COMMISSION_FB	= (NET_MSG_GCTRL + 791),	//<	¼±µµ Áö¿ª ¼ö¼ö·á ¼³Á¤ FB.
-	NET_MSG_GCTRL_CLUB_COMMISSION_FLD	= (NET_MSG_GCTRL + 792),	//<	¼±µµ Áö¿ª ¼ö¼ö·á ¼³Á¤ FLD.
-	NET_MSG_GCTRL_CLUB_COMMISSION_BRD	= (NET_MSG_GCTRL + 793),	//<	¼±µµ Áö¿ª ¼ö¼ö·á ¼³Á¤ BRD.
-	NET_MSG_GCTRL_CLUB_INCOME_MONEY_AGT	= (NET_MSG_GCTRL + 794),	//<	Å¬·´¿¡ ¼öÀÍ ¹ß»ý AGT.
+	NET_MSG_GCTRL_CLUB_COMMISSION		= (NET_MSG_GCTRL + 790),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_COMMISSION_FB	= (NET_MSG_GCTRL + 791),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ FB.
+	NET_MSG_GCTRL_CLUB_COMMISSION_FLD	= (NET_MSG_GCTRL + 792),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ FLD.
+	NET_MSG_GCTRL_CLUB_COMMISSION_BRD	= (NET_MSG_GCTRL + 793),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ BRD.
+	NET_MSG_GCTRL_CLUB_INCOME_MONEY_AGT	= (NET_MSG_GCTRL + 794),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ AGT.
 
-	NET_MSG_GCTRL_CLUB_GETSTORAGE		= (NET_MSG_GCTRL + 795),	//<	Ã¢°í Á¤º¸ ¿äÃ».
-	NET_MSG_GCTRL_CLUB_GETSTORAGE_FB	= (NET_MSG_GCTRL + 796),	//<	Ã¢°í Á¤º¸ ¿äÃ».
-	NET_MSG_GCTRL_CLUB_GETSTORAGE_ITEM	= (NET_MSG_GCTRL + 797),	//<	Ã¢°í Á¤º¸ È¸½Å.
+	NET_MSG_GCTRL_CLUB_GETSTORAGE		= (NET_MSG_GCTRL + 795),	//<	Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_GETSTORAGE_FB	= (NET_MSG_GCTRL + 796),	//<	Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_GETSTORAGE_ITEM	= (NET_MSG_GCTRL + 797),	//<	Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½.
 
-	NET_MSG_GCTRL_CLUB_STORAGE_TO_HOLD	= (NET_MSG_GCTRL + 798),	//<	Ã¢°í ¾ÆÀÌÅÛ µé¾î¿Ã¸®±â.
-	NET_MSG_GCTRL_CLUB_STORAGE_EX_HOLD	= (NET_MSG_GCTRL + 799),	//<	Ã¢°í ¾ÆÀÌÅÛ°ú ¼Õ¿¡ µé¸° ¾ÆÀÌÅÛ ±³È¯.
-	NET_MSG_GCTRL_CLUB_HOLD_TO_STORAGE	= (NET_MSG_GCTRL + 800),	//<	¼Õ¿¡ µé¸° ¾ÆÀÌÅÛ Ã¢°í¿¡ ³Ö±â.
-	NET_MSG_GCTRL_CLUB_STORAGE_SPLIT	= (NET_MSG_GCTRL + 801),	//<	Ã¢°íÀÇ ¾ÆÀÌÅÛ ºÐÇÒÇÏ±â.
-	NET_MSG_GCTRL_CLUB_STORAGE_SAVE_MONEY= (NET_MSG_GCTRL + 802),	//<	µ·À» ÀúÀå.
-	NET_MSG_GCTRL_CLUB_STORAGE_DRAW_MONEY= (NET_MSG_GCTRL + 803),	//<	µ·À» ÀÎÃâ.
+	NET_MSG_GCTRL_CLUB_STORAGE_TO_HOLD	= (NET_MSG_GCTRL + 798),	//<	Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_STORAGE_EX_HOLD	= (NET_MSG_GCTRL + 799),	//<	Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û°ï¿½ ï¿½Õ¿ï¿½ ï¿½é¸° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯.
+	NET_MSG_GCTRL_CLUB_HOLD_TO_STORAGE	= (NET_MSG_GCTRL + 800),	//<	ï¿½Õ¿ï¿½ ï¿½é¸° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½.
+	NET_MSG_GCTRL_CLUB_STORAGE_SPLIT	= (NET_MSG_GCTRL + 801),	//<	Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½.
+	NET_MSG_GCTRL_CLUB_STORAGE_SAVE_MONEY= (NET_MSG_GCTRL + 802),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_STORAGE_DRAW_MONEY= (NET_MSG_GCTRL + 803),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	
-	NET_MSG_GCTRL_CLUB_STORAGE_INSERT	= (NET_MSG_GCTRL + 804),	//<	Ã¢°í¿¡ ³Ö±â.
-	NET_MSG_GCTRL_CLUB_STORAGE_DELETE	= (NET_MSG_GCTRL + 805),	//<	Ã¢°í¿¡¼­ »èÁ¦.
-	NET_MSG_GCTRL_CLUB_STORAGE_DEL_INS	= (NET_MSG_GCTRL + 806),	//<	»èÁ¦¿Í ³Ö±â µ¿½Ã¿¡ ÇÏ±â.
-	NET_MSG_GCTRL_CLUB_STORAGE_UPDATE_ITEM= (NET_MSG_GCTRL + 807),	//<	Ã¢°í¿¡ ÀÖ´Â ¾ÆÀÌÅÛÀÇ Á¤º¸ °»½Å.
-	NET_MSG_GCTRL_CLUB_STORAGE_UPDATE_MONEY= (NET_MSG_GCTRL + 808),	//<	Ã¢°íÀÇ ÀúÀå±Ý¾× °»½Å.
+	NET_MSG_GCTRL_CLUB_STORAGE_INSERT	= (NET_MSG_GCTRL + 804),	//<	Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½.
+	NET_MSG_GCTRL_CLUB_STORAGE_DELETE	= (NET_MSG_GCTRL + 805),	//<	Ã¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_STORAGE_DEL_INS	= (NET_MSG_GCTRL + 806),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½Ï±ï¿½.
+	NET_MSG_GCTRL_CLUB_STORAGE_UPDATE_ITEM= (NET_MSG_GCTRL + 807),	//<	Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_STORAGE_UPDATE_MONEY= (NET_MSG_GCTRL + 808),	//<	Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ý¾ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_CLUB_COMMISSION_RV_BRD= (NET_MSG_GCTRL + 809),	//<	¼±µµ Áö¿ª ¼ö¼ö·á ¼³Á¤ ¿¹¾à BRD.
+	NET_MSG_GCTRL_CLUB_COMMISSION_RV_BRD= (NET_MSG_GCTRL + 809),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ BRD.
 
-	NET_MSG_GCTRL_CLUB_STORAGE_RESET	= (NET_MSG_GCTRL + 811),	//<	Å¬·´ Ã¢°í Á¤º¸¸¦ ¸®»û.
-	NET_MSG_GCTRL_CLUB_STORAGE_GET_DB	= (NET_MSG_GCTRL + 812),	//<	Å¬·´ Ã¢°í Á¤º¸¸¦ db¿¡¼­ ¼ö½Å.
+	NET_MSG_GCTRL_CLUB_STORAGE_RESET	= (NET_MSG_GCTRL + 811),	//<	Å¬ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_STORAGE_GET_DB	= (NET_MSG_GCTRL + 812),	//<	Å¬ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ dbï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_CLUB_INCOME_RENEW		= (NET_MSG_GCTRL + 815),	//<	Å¬·´ ¼öÀÍ±Ý ¾÷µ« ¿äÃ» ( client->field ).
-	NET_MSG_GCTRL_CLUB_INCOME_UP		= (NET_MSG_GCTRL + 816),	//<	Å¬·´ ¼öÀÍ±Ý ¾÷µ« ¿äÃ» ( field->agent ).
-	NET_MSG_GCTRL_CLUB_INCOME_DN		= (NET_MSG_GCTRL + 817),	//<	Å¬·´ ¼öÀÍ±Ý ¾÷µ« È¸½Å ( agent->field ).
-	NET_MSG_GCTRL_CLUB_INCOME_FB		= (NET_MSG_GCTRL + 818),	//<	Å¬·´ ¼öÀÍ±Ý ¾÷µ« °á°ú ( field->agent ).
+	NET_MSG_GCTRL_CLUB_INCOME_RENEW		= (NET_MSG_GCTRL + 815),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½Í±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ( client->field ).
+	NET_MSG_GCTRL_CLUB_INCOME_UP		= (NET_MSG_GCTRL + 816),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½Í±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ( field->agent ).
+	NET_MSG_GCTRL_CLUB_INCOME_DN		= (NET_MSG_GCTRL + 817),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½Í±ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ( agent->field ).
+	NET_MSG_GCTRL_CLUB_INCOME_FB		= (NET_MSG_GCTRL + 818),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½Í±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ( field->agent ).
 
-	NET_MSG_GCTRL_CLUB_NOTICE_REQ		= (NET_MSG_GCTRL + 821),	//<	Å¬·´ °øÁö ¼öÁ¤ ¿äÃ». ( client->agent )
-	NET_MSG_GCTRL_CLUB_NOTICE_FB		= (NET_MSG_GCTRL + 822),	//<	Å¬·´ °øÁö ¼öÁ¤ °á°ú. ( agent->client )
-	NET_MSG_GCTRL_CLUB_NOTICE_FLD		= (NET_MSG_GCTRL + 823),	//<	Å¬·´ °øÁö ÇÊµå¿¡ ¾Ë¸². ( agent->field )
-	NET_MSG_GCTRL_CLUB_NOTICE_CLT		= (NET_MSG_GCTRL + 824),	//<	Å¬·´ °øÁö Å¬¶óÀÌ¾ðÆ®¿¡ ¾Ë¸². ( field->client )
+	NET_MSG_GCTRL_CLUB_NOTICE_REQ		= (NET_MSG_GCTRL + 821),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã». ( client->agent )
+	NET_MSG_GCTRL_CLUB_NOTICE_FB		= (NET_MSG_GCTRL + 822),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½. ( agent->client )
+	NET_MSG_GCTRL_CLUB_NOTICE_FLD		= (NET_MSG_GCTRL + 823),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Êµå¿¡ ï¿½Ë¸ï¿½. ( agent->field )
+	NET_MSG_GCTRL_CLUB_NOTICE_CLT		= (NET_MSG_GCTRL + 824),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½Ë¸ï¿½. ( field->client )
 
-	NET_MSG_GCTRL_CLUB_SUBMASTER		= (NET_MSG_GCTRL + 825),	//<	Å¬·´ ºÎ¸¶ ¼³Á¤.
-	NET_MSG_GCTRL_CLUB_SUBMASTER_FB		= (NET_MSG_GCTRL + 826),	//<	Å¬·´ ºÎ¸¶ ¼³Á¤ FB.
-	NET_MSG_GCTRL_CLUB_SUBMASTER_BRD	= (NET_MSG_GCTRL + 827),	//<	Å¬·´ ºÎ¸¶ ¼³Á¤ ¾Ë¸² CLT.
-	NET_MSG_GCTRL_CLUB_SUBMASTER_FLD	= (NET_MSG_GCTRL + 828),	//<	Å¬·´ ºÎ¸¶ ¼³Á¤ ¾Ë¸² FLD.
+	NET_MSG_GCTRL_CLUB_SUBMASTER		= (NET_MSG_GCTRL + 825),	//<	Å¬ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_SUBMASTER_FB		= (NET_MSG_GCTRL + 826),	//<	Å¬ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ FB.
+	NET_MSG_GCTRL_CLUB_SUBMASTER_BRD	= (NET_MSG_GCTRL + 827),	//<	Å¬ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ CLT.
+	NET_MSG_GCTRL_CLUB_SUBMASTER_FLD	= (NET_MSG_GCTRL + 828),	//<	Å¬ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ FLD.
 
-	NET_MSG_GCTRL_CLUB_ALLIANCE_REQ		= (NET_MSG_GCTRL + 831),	//<	Å¬·´ µ¿¸Í ¿äÃ».
-	NET_MSG_GCTRL_CLUB_ALLIANCE_REQ_ASK	= (NET_MSG_GCTRL + 832),	//<	Å¬·´ µ¿¸Í ¿äÃ» ASK.
-	NET_MSG_GCTRL_CLUB_ALLIANCE_REQ_ANS	= (NET_MSG_GCTRL + 833),	//<	Å¬·´ µ¿¸Í ¿äÃ» ANS.
-	NET_MSG_GCTRL_CLUB_ALLIANCE_REQ_FB	= (NET_MSG_GCTRL + 834),	//<	Å¬·´ µ¿¸Í ¿äÃ» °á°ú FB.
+	NET_MSG_GCTRL_CLUB_ALLIANCE_REQ		= (NET_MSG_GCTRL + 831),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_ALLIANCE_REQ_ASK	= (NET_MSG_GCTRL + 832),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ASK.
+	NET_MSG_GCTRL_CLUB_ALLIANCE_REQ_ANS	= (NET_MSG_GCTRL + 833),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ANS.
+	NET_MSG_GCTRL_CLUB_ALLIANCE_REQ_FB	= (NET_MSG_GCTRL + 834),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_CLUB_ALLIANCE_ADD_FLD	= (NET_MSG_GCTRL + 837),	//<	Å¬·´ µ¿¸Í Å¬·´ ADD FLD.
-	NET_MSG_GCTRL_CLUB_ALLIANCE_ADD_CLT	= (NET_MSG_GCTRL + 838),	//<	Å¬·´ µ¿¸Í Å¬·´ ADD CLT.
+	NET_MSG_GCTRL_CLUB_ALLIANCE_ADD_FLD	= (NET_MSG_GCTRL + 837),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ADD FLD.
+	NET_MSG_GCTRL_CLUB_ALLIANCE_ADD_CLT	= (NET_MSG_GCTRL + 838),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ADD CLT.
 
-	NET_MSG_GCTRL_CLUB_ALLIANCE_DEL_REQ	= (NET_MSG_GCTRL + 839),	//<	Å¬·´ µ¿¸Í Å¬·´ Á¦¸í ¿äÃ».
-	NET_MSG_GCTRL_CLUB_ALLIANCE_DEL_FB	= (NET_MSG_GCTRL + 840),	//<	Å¬·´ µ¿¸Í Å¬·´ Á¦¸í ¿äÃ» FB.
+	NET_MSG_GCTRL_CLUB_ALLIANCE_DEL_REQ	= (NET_MSG_GCTRL + 839),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_ALLIANCE_DEL_FB	= (NET_MSG_GCTRL + 840),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_CLUB_ALLIANCE_SEC_REQ	= (NET_MSG_GCTRL + 841),	//<	Å¬·´ µ¿¸Í Å»Åð ¿äÃ».
-	NET_MSG_GCTRL_CLUB_ALLIANCE_SEC_FB	= (NET_MSG_GCTRL + 842),	//<	Å¬·´ µ¿¸Í Å»Åð ¿äÃ» FB.
+	NET_MSG_GCTRL_CLUB_ALLIANCE_SEC_REQ	= (NET_MSG_GCTRL + 841),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_ALLIANCE_SEC_FB	= (NET_MSG_GCTRL + 842),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½ï¿½Ã» FB.
 
-	NET_MSG_GCTRL_CLUB_ALLIANCE_DEL_FLD	= (NET_MSG_GCTRL + 843),	//<	Å¬·´ µ¿¸Í Å¬·´ DEL FLD.
-	NET_MSG_GCTRL_CLUB_ALLIANCE_DEL_CLT	= (NET_MSG_GCTRL + 844),	//<	Å¬·´ µ¿¸Í Å¬·´ DEL CLT.
+	NET_MSG_GCTRL_CLUB_ALLIANCE_DEL_FLD	= (NET_MSG_GCTRL + 843),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ DEL FLD.
+	NET_MSG_GCTRL_CLUB_ALLIANCE_DEL_CLT	= (NET_MSG_GCTRL + 844),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ DEL CLT.
 
-	NET_MSG_GCTRL_CLUB_ALLIANCE_DIS_REQ	= (NET_MSG_GCTRL + 845),	//<	Å¬·´ µ¿¸Í ÇØÃ¼ FLD.
-	NET_MSG_GCTRL_CLUB_ALLIANCE_DIS_FB	= (NET_MSG_GCTRL + 846),	//<	Å¬·´ µ¿¸Í ÇØÃ¼ FLD.
+	NET_MSG_GCTRL_CLUB_ALLIANCE_DIS_REQ	= (NET_MSG_GCTRL + 845),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ FLD.
+	NET_MSG_GCTRL_CLUB_ALLIANCE_DIS_FB	= (NET_MSG_GCTRL + 846),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ FLD.
 
-	NET_MSG_GCTRL_CLUB_ALLIANCE_DIS_FLD	= (NET_MSG_GCTRL + 847),	//<	Å¬·´ µ¿¸Í ÇØÃ¼ FLD.
-	NET_MSG_GCTRL_CLUB_ALLIANCE_DIS_CLT	= (NET_MSG_GCTRL + 848),	//<	Å¬·´ µ¿¸Í ÇØÃ¼ CLT.
+	NET_MSG_GCTRL_CLUB_ALLIANCE_DIS_FLD	= (NET_MSG_GCTRL + 847),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ FLD.
+	NET_MSG_GCTRL_CLUB_ALLIANCE_DIS_CLT	= (NET_MSG_GCTRL + 848),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ CLT.
 
 
-	NET_MSG_GCTRL_CLUB_BATTLE_REQ		= (NET_MSG_GCTRL + 849),	//<	Å¬·´ ¹èÆ² ¿äÃ» 
-	NET_MSG_GCTRL_CLUB_BATTLE_REQ_ASK	= (NET_MSG_GCTRL + 850),	//<	Å¬·´ ¹èÆ² ¿äÃ» ASK.
-	NET_MSG_GCTRL_CLUB_BATTLE_REQ_ANS	= (NET_MSG_GCTRL + 851),	//<	Å¬·´ ¹èÆ² ¿äÃ» ANS.
-	NET_MSG_GCTRL_CLUB_BATTLE_REQ_FB	= (NET_MSG_GCTRL + 852),	//<	Å¬·´ ¹èÆ² ¿äÃ» °á°ú FB.
+	NET_MSG_GCTRL_CLUB_BATTLE_REQ		= (NET_MSG_GCTRL + 849),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½Ã» 
+	NET_MSG_GCTRL_CLUB_BATTLE_REQ_ASK	= (NET_MSG_GCTRL + 850),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½Ã» ASK.
+	NET_MSG_GCTRL_CLUB_BATTLE_REQ_ANS	= (NET_MSG_GCTRL + 851),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½Ã» ANS.
+	NET_MSG_GCTRL_CLUB_BATTLE_REQ_FB	= (NET_MSG_GCTRL + 852),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_CLUB_BATTLE_BEGIN_FLD	= (NET_MSG_GCTRL + 853),	//<	Å¬·´ ¹èÆ² ½ÃÀÛ FLD.
-	NET_MSG_GCTRL_CLUB_BATTLE_BEGIN_CLT	= (NET_MSG_GCTRL + 854),	//<	Å¬·´ ¹èÆ² ½ÃÀÛ CLT(´ë±â).
-	NET_MSG_GCTRL_CLUB_BATTLE_BEGIN_CLT2= (NET_MSG_GCTRL + 855),	//<	Å¬·´ ¹èÆ² ½ÃÀÛ CLT2(ÁøÂ¥½ÃÀÛ).
-	NET_MSG_GCTRL_CLUB_BATTLE_OVER_FLD	= (NET_MSG_GCTRL + 856),	//<	Å¬·´ ¹èÆ² Á¾·á FLD.
-	NET_MSG_GCTRL_CLUB_BATTLE_OVER_CLT	= (NET_MSG_GCTRL + 857),	//<	Å¬·´ ¹èÆ² Á¾·á CLT.
+	NET_MSG_GCTRL_CLUB_BATTLE_BEGIN_FLD	= (NET_MSG_GCTRL + 853),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ FLD.
+	NET_MSG_GCTRL_CLUB_BATTLE_BEGIN_CLT	= (NET_MSG_GCTRL + 854),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ CLT(ï¿½ï¿½ï¿½).
+	NET_MSG_GCTRL_CLUB_BATTLE_BEGIN_CLT2= (NET_MSG_GCTRL + 855),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ CLT2(ï¿½ï¿½Â¥ï¿½ï¿½ï¿½ï¿½).
+	NET_MSG_GCTRL_CLUB_BATTLE_OVER_FLD	= (NET_MSG_GCTRL + 856),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ FLD.
+	NET_MSG_GCTRL_CLUB_BATTLE_OVER_CLT	= (NET_MSG_GCTRL + 857),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ CLT.
 
-	NET_MSG_GCTRL_CLUB_BATTLE_ARMISTICE_REQ		= (NET_MSG_GCTRL + 858),	//<	Å¬·´ ¹èÆ² ÈÞÀü ¿äÃ».
-	NET_MSG_GCTRL_CLUB_BATTLE_ARMISTICE_REQ_ASK	= (NET_MSG_GCTRL + 859),	//<	Å¬·´ ¹èÆ² ÈÞÀü ¿äÃ» ASK.
-	NET_MSG_GCTRL_CLUB_BATTLE_ARMISTICE_REQ_ANS	= (NET_MSG_GCTRL + 860),	//<	Å¬·´ ¹èÆ² ÈÞÀü ¿äÃ» ANS.
-	NET_MSG_GCTRL_CLUB_BATTLE_ARMISTICE_REQ_FB	= (NET_MSG_GCTRL + 861),	//<	Å¬·´ ¹èÆ² ÈÞÀü ¿äÃ» °á°ú FB.
+	NET_MSG_GCTRL_CLUB_BATTLE_ARMISTICE_REQ		= (NET_MSG_GCTRL + 858),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_BATTLE_ARMISTICE_REQ_ASK	= (NET_MSG_GCTRL + 859),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ASK.
+	NET_MSG_GCTRL_CLUB_BATTLE_ARMISTICE_REQ_ANS	= (NET_MSG_GCTRL + 860),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ANS.
+	NET_MSG_GCTRL_CLUB_BATTLE_ARMISTICE_REQ_FB	= (NET_MSG_GCTRL + 861),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ FB.
 	
-	NET_MSG_GCTRL_CLUB_BATTLE_SUBMISSION_REQ	= (NET_MSG_GCTRL + 862),	//<	Å¬·´ ¹èÆ² Ç×º¹ ¿äÃ».
-	NET_MSG_GCTRL_CLUB_BATTLE_SUBMISSION_REQ_FB	= (NET_MSG_GCTRL + 863),	//<	Å¬·´ ¹èÆ² Ç×º¹ ¿äÃ» °á°ú FB.
+	NET_MSG_GCTRL_CLUB_BATTLE_SUBMISSION_REQ	= (NET_MSG_GCTRL + 862),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½×ºï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_CLUB_BATTLE_SUBMISSION_REQ_FB	= (NET_MSG_GCTRL + 863),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½×ºï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_CLUB_BATTLE_KILL_UPDATE_AGT	= (NET_MSG_GCTRL + 864),	//<	Å¬·´ ¹èÆ² Å³¼ö UPDATE Field -> Agent
-	NET_MSG_GCTRL_CLUB_BATTLE_KILL_UPDATE_FLD	= (NET_MSG_GCTRL + 865),	//<	Å¬·´ ¹èÆ² Å³¼ö UPDATE Agent -> Field
-	NET_MSG_GCTRL_CLUB_BATTLE_KILL_UPDATE		= (NET_MSG_GCTRL + 866),	//<	Å¬·´ ¹èÆ² Å³¼ö UPDATE Å¬¶óÀÌ¾ðÆ®
+	NET_MSG_GCTRL_CLUB_BATTLE_KILL_UPDATE_AGT	= (NET_MSG_GCTRL + 864),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² Å³ï¿½ï¿½ UPDATE Field -> Agent
+	NET_MSG_GCTRL_CLUB_BATTLE_KILL_UPDATE_FLD	= (NET_MSG_GCTRL + 865),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² Å³ï¿½ï¿½ UPDATE Agent -> Field
+	NET_MSG_GCTRL_CLUB_BATTLE_KILL_UPDATE		= (NET_MSG_GCTRL + 866),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² Å³ï¿½ï¿½ UPDATE Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®
 
-	NET_MSG_GCTRL_CLUB_BATTLE_POINT_UPDATE		= (NET_MSG_GCTRL + 867),	//<	Å¬·´ ¹èÆ² Å³/µ¥½º¼ö Áõ°¡
+	NET_MSG_GCTRL_CLUB_BATTLE_POINT_UPDATE		= (NET_MSG_GCTRL + 867),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² Å³/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_GCTRL_CLUB_BATTLE_LAST_KILL_UPDATE_FLD	= (NET_MSG_GCTRL + 868),	//<	Å¬·´ ¹èÆ² Á¾·á½Ã FieldÁ¤º¸ Á¶ÇÕ Agent -> Field
-	NET_MSG_GCTRL_CLUB_BATTLE_LAST_KILL_UPDATE_AGT	= (NET_MSG_GCTRL + 869),	//<	Å¬·´ ¹èÆ² Á¾·á½Ã FieldÁ¤º¸ Á¶ÇÕ °á°ú Field -> Agent
+	NET_MSG_GCTRL_CLUB_BATTLE_LAST_KILL_UPDATE_FLD	= (NET_MSG_GCTRL + 868),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ï¿½ Fieldï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Agent -> Field
+	NET_MSG_GCTRL_CLUB_BATTLE_LAST_KILL_UPDATE_AGT	= (NET_MSG_GCTRL + 869),	//<	Å¬ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ï¿½ Fieldï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Field -> Agent
 
 
-	NET_MSG_GCTRL_ALLIANCE_BATTLE_REQ		= (NET_MSG_GCTRL + 870),	//<	µ¿¸Í ¹èÆ² ¿äÃ» 
-	NET_MSG_GCTRL_ALLIANCE_BATTLE_REQ_ASK	= (NET_MSG_GCTRL + 871),	//<	µ¿¸Í ¹èÆ² ¿äÃ» ASK.
-	NET_MSG_GCTRL_ALLIANCE_BATTLE_REQ_ANS	= (NET_MSG_GCTRL + 872),	//<	µ¿¸Í ¹èÆ² ¿äÃ» ANS.
-	NET_MSG_GCTRL_ALLIANCE_BATTLE_REQ_FB	= (NET_MSG_GCTRL + 873),	//<	µ¿¸Í ¹èÆ² ¿äÃ» °á°ú FB.
+	NET_MSG_GCTRL_ALLIANCE_BATTLE_REQ		= (NET_MSG_GCTRL + 870),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½Ã» 
+	NET_MSG_GCTRL_ALLIANCE_BATTLE_REQ_ASK	= (NET_MSG_GCTRL + 871),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½Ã» ASK.
+	NET_MSG_GCTRL_ALLIANCE_BATTLE_REQ_ANS	= (NET_MSG_GCTRL + 872),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½Ã» ANS.
+	NET_MSG_GCTRL_ALLIANCE_BATTLE_REQ_FB	= (NET_MSG_GCTRL + 873),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_ALLIANCE_BATTLE_ARMISTICE_REQ		= (NET_MSG_GCTRL + 874),	//<	µ¿¸Í ¹èÆ² ÈÞÀü ¿äÃ».
-	NET_MSG_GCTRL_ALLIANCE_BATTLE_ARMISTICE_REQ_ASK	= (NET_MSG_GCTRL + 875),	//<	µ¿¸Í ¹èÆ² ÈÞÀü ¿äÃ» ASK.
-	NET_MSG_GCTRL_ALLIANCE_BATTLE_ARMISTICE_REQ_ANS	= (NET_MSG_GCTRL + 876),	//<	µ¿¸Í ¹èÆ² ÈÞÀü ¿äÃ» ANS.
-	NET_MSG_GCTRL_ALLIANCE_BATTLE_ARMISTICE_REQ_FB	= (NET_MSG_GCTRL + 877),	//<	µ¿¸Í ¹èÆ² ÈÞÀü ¿äÃ» °á°ú FB.
+	NET_MSG_GCTRL_ALLIANCE_BATTLE_ARMISTICE_REQ		= (NET_MSG_GCTRL + 874),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_ALLIANCE_BATTLE_ARMISTICE_REQ_ASK	= (NET_MSG_GCTRL + 875),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ASK.
+	NET_MSG_GCTRL_ALLIANCE_BATTLE_ARMISTICE_REQ_ANS	= (NET_MSG_GCTRL + 876),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ANS.
+	NET_MSG_GCTRL_ALLIANCE_BATTLE_ARMISTICE_REQ_FB	= (NET_MSG_GCTRL + 877),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GCTRL_ALLIANCE_BATTLE_SUBMISSION_REQ	= (NET_MSG_GCTRL + 878),	//<	µ¿¸Í ¹èÆ² Ç×º¹ ¿äÃ».
-	NET_MSG_GCTRL_ALLIANCE_BATTLE_SUBMISSION_REQ_FB	= (NET_MSG_GCTRL + 879),	//<	µ¿¸Í ¹èÆ² Ç×º¹ ¿äÃ» °á°ú FB.
+	NET_MSG_GCTRL_ALLIANCE_BATTLE_SUBMISSION_REQ	= (NET_MSG_GCTRL + 878),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½×ºï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_ALLIANCE_BATTLE_SUBMISSION_REQ_FB	= (NET_MSG_GCTRL + 879),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ² ï¿½×ºï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ FB.
 
-	
-	
 	
 	
-	NET_MSG_GCTRL_LEVEL_EVENT_END_FLD		= (NET_MSG_GCTRL + 896),	//<	·¹º§ ÀÌº¥Æ® Á¾·á.
-	NET_MSG_GCTRL_LEVEL_EVENT_WARNING_FLD	= (NET_MSG_GCTRL + 897),	//< ·¹º§ ÀÌº¥Æ® °æ°í ¸Þ¼¼Áö.
-	NET_MSG_GCTRL_LEVEL_EVENT_COUNTDOWN_FLD = (NET_MSG_GCTRL + 898),	//< ·¹º§ ÀÌº¥Æ® Ä«¿îÆ® ¸Þ¼¼Áö.
+	
+	
+	NET_MSG_GCTRL_LEVEL_EVENT_END_FLD		= (NET_MSG_GCTRL + 896),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_LEVEL_EVENT_WARNING_FLD	= (NET_MSG_GCTRL + 897),	//< ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_LEVEL_EVENT_COUNTDOWN_FLD = (NET_MSG_GCTRL + 898),	//< ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® Ä«ï¿½ï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½.
 
-	NET_MSG_GM_EVENT_EX					= (NET_MSG_GCTRL + 899),	//<	EXÀÌº¥Æ® ½ÃÀÛ.
-	NET_MSG_GM_EVENT_EX_END				= (NET_MSG_GCTRL + 900),	//<	EXÀÌº¥Æ® Á¾·á.
+	NET_MSG_GM_EVENT_EX					= (NET_MSG_GCTRL + 899),	//<	EXï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GM_EVENT_EX_END				= (NET_MSG_GCTRL + 900),	//<	EXï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GM_EVENT_EXP				= (NET_MSG_GCTRL + 901),	//<	°æÇèÄ¡ ÀÌº¥Æ® ½ÃÀÛ.
-	NET_MSG_GM_EVENT_EXP_FB				= (NET_MSG_GCTRL + 902),	//<	°æÇèÄ¡ ÀÌº¥Æ® ½ÃÀÛ FB.
-	NET_MSG_GM_EVENT_EXP_END			= (NET_MSG_GCTRL + 903),	//<	°æÇèÄ¡ ÀÌº¥Æ® Á¾·á.
-	NET_MSG_GM_EVENT_EXP_END_FB			= (NET_MSG_GCTRL + 904),	//<	°æÇèÄ¡ ÀÌº¥Æ® Á¾·á FB.
+	NET_MSG_GM_EVENT_EXP				= (NET_MSG_GCTRL + 901),	//<	ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GM_EVENT_EXP_FB				= (NET_MSG_GCTRL + 902),	//<	ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ FB.
+	NET_MSG_GM_EVENT_EXP_END			= (NET_MSG_GCTRL + 903),	//<	ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GM_EVENT_EXP_END_FB			= (NET_MSG_GCTRL + 904),	//<	ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GM_EVENT_ITEM_GEN			= (NET_MSG_GCTRL + 905),	//<	¾ÆÀÌÅÆ ¹ß»ýÀ² ÀÌº¥Æ®.
-	NET_MSG_GM_EVENT_ITEM_GEN_FB		= (NET_MSG_GCTRL + 906),	//<	¾ÆÀÌÅÆ ¹ß»ýÀ² ÀÌº¥Æ® FB.
+	NET_MSG_GM_EVENT_ITEM_GEN			= (NET_MSG_GCTRL + 905),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®.
+	NET_MSG_GM_EVENT_ITEM_GEN_FB		= (NET_MSG_GCTRL + 906),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® FB.
 
-	NET_MSG_GM_EVENT_ITEM_GEN_END		= (NET_MSG_GCTRL + 907),	//<	¾ÆÀÌÅÆ ¹ß»ýÀ² ÀÌº¥Æ® Á¾·á.
-	NET_MSG_GM_EVENT_ITEM_GEN_END_FB	= (NET_MSG_GCTRL + 908),	//<	¾ÆÀÌÅÆ ¹ß»ýÀ² ÀÌº¥Æ® Á¾·á FB.
+	NET_MSG_GM_EVENT_ITEM_GEN_END		= (NET_MSG_GCTRL + 907),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GM_EVENT_ITEM_GEN_END_FB	= (NET_MSG_GCTRL + 908),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ FB.
 
-	NET_MSG_GM_EVENT_MONEY_GEN			= (NET_MSG_GCTRL + 909),	//<	µ· ¹ß»ýÀ² ÀÌº¥Æ®.
-	NET_MSG_GM_EVENT_MONEY_GEN_END		= (NET_MSG_GCTRL + 910),	//<	µ· ¹ß»ýÀ² ÀÌº¥Æ® Á¾·á.
+	NET_MSG_GM_EVENT_MONEY_GEN			= (NET_MSG_GCTRL + 909),	//<	ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®.
+	NET_MSG_GM_EVENT_MONEY_GEN_END		= (NET_MSG_GCTRL + 910),	//<	ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½.
 
 	NET_MSG_GCTRL_PERIOD				= (NET_MSG_GCTRL + 921),
 	NET_MSG_GCTRL_WEATHER				= (NET_MSG_GCTRL + 922),
 	NET_MSG_GCTRL_WHIMSICAL				= (NET_MSG_GCTRL + 923),
 	NET_MSG_GCTRL_FIELDINFO_RESET		= (NET_MSG_GCTRL + 924),
 
-	NET_MSG_SERVER_CTRL_WEATHER			= (NET_MSG_GCTRL + 931),	//<	¼­¹öÀÇ ³¯¾¾ º¯°æ.
-	NET_MSG_SERVER_CTRL_TIME			= (NET_MSG_GCTRL + 932),	//<	¼­¹öÀÇ ½Ã°£ º¯°æ.
-	NET_MSG_SERVER_CTRL_MONTH			= (NET_MSG_GCTRL + 933),	//<	¼­¹öÀÇ ¿ù º¯°æ.
-	NET_MSG_SERVER_CTRL_GENITEMHOLD		= (NET_MSG_GCTRL + 934),	//<	¼­¹öÀÇ ¾ÆÀÌÅÛ µ¶Á¡±Ç º¯°æ.
+	NET_MSG_SERVER_CTRL_WEATHER			= (NET_MSG_GCTRL + 931),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_SERVER_CTRL_TIME			= (NET_MSG_GCTRL + 932),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_SERVER_CTRL_MONTH			= (NET_MSG_GCTRL + 933),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_SERVER_CTRL_GENITEMHOLD		= (NET_MSG_GCTRL + 934),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	NET_MSG_SERVER_PLAYERKILLING_MODE	= (NET_MSG_GCTRL + 935),	//<	player killing on/off.
 
-	NET_MSG_GM_MOVE2GATE				= (NET_MSG_GCTRL + 936),	//<	ÄÉ¸¯ÅÍ¸¦ gate no ·Î ÀÌµ¿.
-	NET_MSG_GM_MOVE2GATE_FLD			= (NET_MSG_GCTRL + 937),	//<	ÄÉ¸¯ÅÍ¸¦ gate no ·Î ÀÌµ¿ Agent -> Field
-	NET_MSG_GM_MOVE2GATE_FB				= (NET_MSG_GCTRL + 938),	//<	ÄÉ¸¯ÅÍ¸¦ gate no ·Î ÀÌµ¿.
-	NET_MSG_GM_KICK_USER				= (NET_MSG_GCTRL + 940),	//<	Æ¯Á¤ ÇÃ·¹ÀÌ¾î¸¦ ³»º¸³¿.
-	NET_MSG_GM_KICK_USER_PROC			= (NET_MSG_GCTRL + 941),	//<	Æ¯Á¤ ÇÃ·¹ÀÌ¾î¸¦ ³»º¸³¿.
-	NET_MSG_GM_KICK_USER_PROC_FLD		= (NET_MSG_GCTRL + 942),    //<  Æ¯Á¤ ÇÃ·¹ÀÌ¾î °­Á¦ Á¢¼ÓÁ¾·á Agent -> Field
-	NET_MSG_GM_MOVE2MAPPOS				= (NET_MSG_GCTRL + 944),	//<	Ä³¸¯ÅÍ¸¦ Æ¯Á¤¸ÊÀÇ Æ¯Á¤À§Ä¡·Î ÀÌµ¿.
-	NET_MSG_GM_MOVE2MAPPOS_FLD			= (NET_MSG_GCTRL + 945),	//<	Ä³¸¯ÅÍ¸¦ Æ¯Á¤¸ÊÀÇ Æ¯Á¤À§Ä¡·Î ÀÌµ¿. Agent -> Field
+	NET_MSG_GM_MOVE2GATE				= (NET_MSG_GCTRL + 936),	//<	ï¿½É¸ï¿½ï¿½Í¸ï¿½ gate no ï¿½ï¿½ ï¿½Ìµï¿½.
+	NET_MSG_GM_MOVE2GATE_FLD			= (NET_MSG_GCTRL + 937),	//<	ï¿½É¸ï¿½ï¿½Í¸ï¿½ gate no ï¿½ï¿½ ï¿½Ìµï¿½ Agent -> Field
+	NET_MSG_GM_MOVE2GATE_FB				= (NET_MSG_GCTRL + 938),	//<	ï¿½É¸ï¿½ï¿½Í¸ï¿½ gate no ï¿½ï¿½ ï¿½Ìµï¿½.
+	NET_MSG_GM_KICK_USER				= (NET_MSG_GCTRL + 940),	//<	Æ¯ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GM_KICK_USER_PROC			= (NET_MSG_GCTRL + 941),	//<	Æ¯ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾î¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GM_KICK_USER_PROC_FLD		= (NET_MSG_GCTRL + 942),    //<  Æ¯ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Agent -> Field
+	NET_MSG_GM_MOVE2MAPPOS				= (NET_MSG_GCTRL + 944),	//<	Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½.
+	NET_MSG_GM_MOVE2MAPPOS_FLD			= (NET_MSG_GCTRL + 945),	//<	Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½. Agent -> Field
 
-	NET_MSG_BLOCK_DETECTED				= (NET_MSG_GCTRL + 946),	//<	ÄÉ¸¯ÅÍ¸¦ gate no ·Î ÀÌµ¿.
-	NET_MSG_SERVER_GENERALCHAT			= (NET_MSG_GCTRL + 947),	//<	¼­¹ö ¾Ë¸² ¸Þ½ÃÁö ¹ß»ý½Ã.
+	NET_MSG_BLOCK_DETECTED				= (NET_MSG_GCTRL + 946),	//<	ï¿½É¸ï¿½ï¿½Í¸ï¿½ gate no ï¿½ï¿½ ï¿½Ìµï¿½.
+	NET_MSG_SERVER_GENERALCHAT			= (NET_MSG_GCTRL + 947),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½.
 
-	NET_MSG_GM_WHERE_NPC				= (NET_MSG_GCTRL + 948),	//<	NPC°¡ ¾îµð À§Ä¡¿¡ ÀÖ´ÂÁö °Ë»ç.
-	NET_MSG_GM_WHERE_NPC_FLD			= (NET_MSG_GCTRL + 949),	//<	NPC°¡ ¾îµð À§Ä¡¿¡ ÀÖ´ÂÁö °Ë»ç. Agent -> Field
-	NET_MSG_GM_WHERE_NPC_FB				= (NET_MSG_GCTRL + 950),	//<	NPC°¡ ¾îµð À§Ä¡¿¡ ÀÖ´ÂÁö °Ë»ç.
+	NET_MSG_GM_WHERE_NPC				= (NET_MSG_GCTRL + 948),	//<	NPCï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½.
+	NET_MSG_GM_WHERE_NPC_FLD			= (NET_MSG_GCTRL + 949),	//<	NPCï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½. Agent -> Field
+	NET_MSG_GM_WHERE_NPC_FB				= (NET_MSG_GCTRL + 950),	//<	NPCï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½.
 
-	NET_MSG_GM_WHERE_PC_MAP				= (NET_MSG_GCTRL + 951),	//<	PC°¡ ¾î´À ¸ã¿¡ ÀÖ´ÂÁö °Ë»ç.
-	NET_MSG_GM_WHERE_PC_MAP_FB			= (NET_MSG_GCTRL + 952),	//<	PC°¡ ¾î´À ¸ã¿¡ ÀÖ´ÂÁö °Ë»ç FB.
+	NET_MSG_GM_WHERE_PC_MAP				= (NET_MSG_GCTRL + 951),	//<	PCï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ã¿¡ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½.
+	NET_MSG_GM_WHERE_PC_MAP_FB			= (NET_MSG_GCTRL + 952),	//<	PCï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ã¿¡ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ FB.
 
-	NET_MSG_GM_WHERE_PC_POS				= (NET_MSG_GCTRL + 953),	//<	PC°¡ ¾îµð À§Ä¡¿¡ ÀÖ´ÂÁö °Ë»ç.
-	NET_MSG_GM_WHERE_PC_POS_FB			= (NET_MSG_GCTRL + 954),	//<	PC°¡ ¾îµð À§Ä¡¿¡ ÀÖ´ÂÁö °Ë»ç FB.
+	NET_MSG_GM_WHERE_PC_POS				= (NET_MSG_GCTRL + 953),	//<	PCï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½.
+	NET_MSG_GM_WHERE_PC_POS_FB			= (NET_MSG_GCTRL + 954),	//<	PCï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ FB.
 
-	NET_MSG_GM_MOVE2CHAR				= (NET_MSG_GCTRL + 955),	//<	Ä³¸¯ÅÍ¸¦ Æ¯Á¤Ä³¸¯ÅÍ·Î ÀÌµ¿ ¿äÃ».
-	NET_MSG_GM_MOVE2CHAR_POS			= (NET_MSG_GCTRL + 956),	//<	Ä³¸¯ÅÍ¸¦ Æ¯Á¤Ä³¸¯ÅÍ·Î ÀÌµ¿ À§Ä¡ È®ÀÎ.
-	NET_MSG_GM_MOVE2CHAR_AG				= (NET_MSG_GCTRL + 957),	//<	Ä³¸¯ÅÍ¸¦ Æ¯Á¤Ä³¸¯ÅÍ·Î ÀÌµ¿ À§Ä¡ È®ÀÎ ÀÀ´ä.
-	NET_MSG_GM_MOVE2CHAR_FLD			= (NET_MSG_GCTRL + 958),	//<	Ä³¸¯ÅÍ¸¦ Æ¯Á¤Ä³¸¯ÅÍ·Î ÀÌµ¿ ¿äÃ» ½ÇÇà.
-	NET_MSG_GM_MOVE2CHAR_FB				= (NET_MSG_GCTRL + 959),	//<	Ä³¸¯ÅÍ¸¦ Æ¯Á¤Ä³¸¯ÅÍ·Î ÀÌµ¿ ½ÇÇà °á°ú.
+	NET_MSG_GM_MOVE2CHAR				= (NET_MSG_GCTRL + 955),	//<	Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Æ¯ï¿½ï¿½Ä³ï¿½ï¿½ï¿½Í·ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GM_MOVE2CHAR_POS			= (NET_MSG_GCTRL + 956),	//<	Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Æ¯ï¿½ï¿½Ä³ï¿½ï¿½ï¿½Í·ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½Ä¡ È®ï¿½ï¿½.
+	NET_MSG_GM_MOVE2CHAR_AG				= (NET_MSG_GCTRL + 957),	//<	Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Æ¯ï¿½ï¿½Ä³ï¿½ï¿½ï¿½Í·ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½Ä¡ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GM_MOVE2CHAR_FLD			= (NET_MSG_GCTRL + 958),	//<	Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Æ¯ï¿½ï¿½Ä³ï¿½ï¿½ï¿½Í·ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GM_MOVE2CHAR_FB				= (NET_MSG_GCTRL + 959),	//<	Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Æ¯ï¿½ï¿½Ä³ï¿½ï¿½ï¿½Í·ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 
-	NET_MSG_GM_BIGHEAD					= (NET_MSG_GCTRL + 961),	//<	BIG HEAD ¸ðµå on/off.
-	NET_MSG_GM_BIGHEAD_BRD				= (NET_MSG_GCTRL + 962),	//<	BIG HEAD ¸ðµå on/off.
+	NET_MSG_GM_BIGHEAD					= (NET_MSG_GCTRL + 961),	//<	BIG HEAD ï¿½ï¿½ï¿½ on/off.
+	NET_MSG_GM_BIGHEAD_BRD				= (NET_MSG_GCTRL + 962),	//<	BIG HEAD ï¿½ï¿½ï¿½ on/off.
 
-	NET_MSG_GM_BIGHAND					= (NET_MSG_GCTRL + 963),	//<	BIG HAND ¸ðµå on/off.
-	NET_MSG_GM_BIGHAND_BRD				= (NET_MSG_GCTRL + 964),	//<	BIG HAND ¸ðµå on/off.
+	NET_MSG_GM_BIGHAND					= (NET_MSG_GCTRL + 963),	//<	BIG HAND ï¿½ï¿½ï¿½ on/off.
+	NET_MSG_GM_BIGHAND_BRD				= (NET_MSG_GCTRL + 964),	//<	BIG HAND ï¿½ï¿½ï¿½ on/off.
 
-	NET_MSG_GM_MOB_GEN					= (NET_MSG_GCTRL + 965),	//<	¸÷ ¹ß»ý.
-	NET_MSG_GM_MOB_GEN_FLD				= (NET_MSG_GCTRL + 966),	//<	¸÷ ¹ß»ý. Agent->Field
-	NET_MSG_GM_MOB_DEL					= (NET_MSG_GCTRL + 967),	//<	¸÷ Á¦°Å.
-	NET_MSG_GM_MOB_DEL_FLD				= (NET_MSG_GCTRL + 968),	//<	¸÷ Á¦°Å. Agent->Field
-	NET_MSG_GM_MOB_LEVEL				= (NET_MSG_GCTRL + 969),	//<	¸÷(LEVEL FILE) ¹ß»ý.
-	NET_MSG_GM_MOB_LEVEL_CLEAR			= (NET_MSG_GCTRL + 970),	//<	¸÷(LEVEL FILE) ¹ß»ý Á¦°Å.
+	NET_MSG_GM_MOB_GEN					= (NET_MSG_GCTRL + 965),	//<	ï¿½ï¿½ ï¿½ß»ï¿½.
+	NET_MSG_GM_MOB_GEN_FLD				= (NET_MSG_GCTRL + 966),	//<	ï¿½ï¿½ ï¿½ß»ï¿½. Agent->Field
+	NET_MSG_GM_MOB_DEL					= (NET_MSG_GCTRL + 967),	//<	ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GM_MOB_DEL_FLD				= (NET_MSG_GCTRL + 968),	//<	ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. Agent->Field
+	NET_MSG_GM_MOB_LEVEL				= (NET_MSG_GCTRL + 969),	//<	ï¿½ï¿½(LEVEL FILE) ï¿½ß»ï¿½.
+	NET_MSG_GM_MOB_LEVEL_CLEAR			= (NET_MSG_GCTRL + 970),	//<	ï¿½ï¿½(LEVEL FILE) ï¿½ß»ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GM_CHAT_BLOCK_UACCOUNT		= (NET_MSG_GCTRL + 971),	//<	Ã¤ÆÃ ºí·Ï (À¯ÀúÀÌ¸§)
-	NET_MSG_GM_CHAT_BLOCK_CHARNAME		= (NET_MSG_GCTRL + 972),	//<	Ã¤ÆÃ ºí·Ï (Ä³¸¯ÀÌ¸§)
-	NET_MSG_GM_CHAT_BLOCK_CHARID		= (NET_MSG_GCTRL + 973),	//<	Ã¤ÆÃ ºí·Ï (Ä³¸¯¹øÈ£)
-	NET_MSG_GM_CHAT_BLOCK_FB			= (NET_MSG_GCTRL + 974),	//<	Ã¤ÆÃ ºí·Ï FB
-	NET_MSG_GM_CHAT_BLOCK_FLD			= (NET_MSG_GCTRL + 975),	//<	Ã¤ÆÃ ºí·Ï FLD
+	NET_MSG_GM_CHAT_BLOCK_UACCOUNT		= (NET_MSG_GCTRL + 971),	//<	Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½)
+	NET_MSG_GM_CHAT_BLOCK_CHARNAME		= (NET_MSG_GCTRL + 972),	//<	Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Ä³ï¿½ï¿½ï¿½Ì¸ï¿½)
+	NET_MSG_GM_CHAT_BLOCK_CHARID		= (NET_MSG_GCTRL + 973),	//<	Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Ä³ï¿½ï¿½ï¿½ï¿½È£)
+	NET_MSG_GM_CHAT_BLOCK_FB			= (NET_MSG_GCTRL + 974),	//<	Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ FB
+	NET_MSG_GM_CHAT_BLOCK_FLD			= (NET_MSG_GCTRL + 975),	//<	Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ FLD
 
-	NET_MSG_USER_CHAR_INFO_4NAME		= (NET_MSG_GCTRL + 977),	//< Ä³¸¯ÅÍÀÇ Á¤º¸ Ãâ·Â (À¯Àú¸í·É¾î)
-	NET_MSG_USER_CHAR_INFO_AGT_FB		= (NET_MSG_GCTRL + 978),	//<	Ä³¸¯ÅÍÀÇ Á¤º¸ Ãâ·Â agt FB.
-	NET_MSG_USER_CHAR_INFO_FLD_FB		= (NET_MSG_GCTRL + 979),	//<	Ä³¸¯ÅÍÀÇ Á¤º¸ Ãâ·Â fld FB.
-	NET_MSG_USER_CHAR_INFO_FLD			= (NET_MSG_GCTRL + 980),	//<	Ä³¸¯ÅÍÀÇ Á¤º¸ Ãâ·Â FLD.
+	NET_MSG_USER_CHAR_INFO_4NAME		= (NET_MSG_GCTRL + 977),	//< Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½)
+	NET_MSG_USER_CHAR_INFO_AGT_FB		= (NET_MSG_GCTRL + 978),	//<	Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ agt FB.
+	NET_MSG_USER_CHAR_INFO_FLD_FB		= (NET_MSG_GCTRL + 979),	//<	Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ fld FB.
+	NET_MSG_USER_CHAR_INFO_FLD			= (NET_MSG_GCTRL + 980),	//<	Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ FLD.
 
-	NET_MSG_GM_CHAR_INFO_4NAME			= (NET_MSG_GCTRL + 981),	//<	Ä³¸¯ÅÍÀÇ Á¤º¸ Ãâ·Â (Ä³¸¯ÀÌ¸§).
-	NET_MSG_GM_CHAR_INFO_4CHARID		= (NET_MSG_GCTRL + 982),	//<	Ä³¸¯ÅÍÀÇ Á¤º¸ Ãâ·Â (Ä³¸¯¹øÈ£).
-	NET_MSG_GM_CHAR_INFO_AGT_FB			= (NET_MSG_GCTRL + 983),	//<	Ä³¸¯ÅÍÀÇ Á¤º¸ Ãâ·Â agt FB.
-	NET_MSG_GM_CHAR_INFO_FLD_FB			= (NET_MSG_GCTRL + 984),	//<	Ä³¸¯ÅÍÀÇ Á¤º¸ Ãâ·Â fld FB.
-	NET_MSG_GM_CHAR_INFO_FLD			= (NET_MSG_GCTRL + 985),	//<	Ä³¸¯ÅÍÀÇ Á¤º¸ Ãâ·Â FLD.
+	NET_MSG_GM_CHAR_INFO_4NAME			= (NET_MSG_GCTRL + 981),	//<	Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (Ä³ï¿½ï¿½ï¿½Ì¸ï¿½).
+	NET_MSG_GM_CHAR_INFO_4CHARID		= (NET_MSG_GCTRL + 982),	//<	Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (Ä³ï¿½ï¿½ï¿½ï¿½È£).
+	NET_MSG_GM_CHAR_INFO_AGT_FB			= (NET_MSG_GCTRL + 983),	//<	Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ agt FB.
+	NET_MSG_GM_CHAR_INFO_FLD_FB			= (NET_MSG_GCTRL + 984),	//<	Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ fld FB.
+	NET_MSG_GM_CHAR_INFO_FLD			= (NET_MSG_GCTRL + 985),	//<	Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ FLD.
 
    
 //-----------------------------------------------------------------------------------------------------------
 
-	NET_MSG_GM_FREEPK					  = (NET_MSG_GCTRL + 986),	//<	ÀÚÀ¯ ÇÇÄÉÀÌ
-	NET_MSG_GM_FREEPK_BRD				  = (NET_MSG_GCTRL + 987),	//<	ÀÚÀ¯ ÇÇÄÉÀÌ
+	NET_MSG_GM_FREEPK					  = (NET_MSG_GCTRL + 986),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GM_FREEPK_BRD				  = (NET_MSG_GCTRL + 987),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_GM_WARNING_MSG				  = (NET_MSG_GCTRL + 989),	//<	ÀÚÀ¯ ÇÇÄÉÀÌ
-	NET_MSG_GM_WARNING_MSG_FLD			  = (NET_MSG_GCTRL + 990),	//<	ÀÚÀ¯ ÇÇÄÉÀÌ
-	NET_MSG_GM_WARNING_MSG_BRD			  = (NET_MSG_GCTRL + 991),	//<	ÀÚÀ¯ ÇÇÄÉÀÌ
+	NET_MSG_GM_WARNING_MSG				  = (NET_MSG_GCTRL + 989),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GM_WARNING_MSG_FLD			  = (NET_MSG_GCTRL + 990),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GM_WARNING_MSG_BRD			  = (NET_MSG_GCTRL + 991),	//<	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_GM_VIEWALLPLAYER			  = (NET_MSG_GCTRL + 992),	//<  ¸ÊÀÇ ¸ðµç ÇÃ·¹ÀÌ¾î Ç¥½Ã
-	NET_MSG_GM_VIEWALLPLAYER_FLD_REQ	  = (NET_MSG_GCTRL + 993),	//<  ÇÊµå¼­¹ö¿¡ ¿äÃ»
-	NET_MSG_GM_VIEWALLPLAYER_FLD_FB 	  = (NET_MSG_GCTRL + 994),	//<  ÇÊµå¼­¹ö Ã³¸®°á°ú È¸½Å
+	NET_MSG_GM_VIEWALLPLAYER			  = (NET_MSG_GCTRL + 992),	//<  ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ Ç¥ï¿½ï¿½
+	NET_MSG_GM_VIEWALLPLAYER_FLD_REQ	  = (NET_MSG_GCTRL + 993),	//<  ï¿½Êµå¼­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_GM_VIEWALLPLAYER_FLD_FB 	  = (NET_MSG_GCTRL + 994),	//<  ï¿½Êµå¼­ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
 
-	NET_MSG_GM_GENCHAR					  = (NET_MSG_GCTRL + 995),	//<  ÄÉ¸¯ÅÍ ¼ÒÈ¯ ¿äÃ»
-	NET_MSG_GM_GENCHAR_POS				  = (NET_MSG_GCTRL + 996),	//<  ÄÉ¸¯ÅÍ ¼ÒÈ¯ ¿äÃ»
-	NET_MSG_GM_GENCHAR_AG				  = (NET_MSG_GCTRL + 997),	//<  ÄÉ¸¯ÅÍ ¼ÒÈ¯ ¿äÃ»
-	NET_MSG_GM_GENCHAR_FLD				  = (NET_MSG_GCTRL + 998),	//<  ÄÉ¸¯ÅÍ ¼ÒÈ¯ ¿äÃ»
-	NET_MSG_GM_GENCHAR_FB				  = (NET_MSG_GCTRL + 999),	//<  ÄÉ¸¯ÅÍ ¼ÒÈ¯ ¿äÃ»
+	NET_MSG_GM_GENCHAR					  = (NET_MSG_GCTRL + 995),	//<  ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»
+	NET_MSG_GM_GENCHAR_POS				  = (NET_MSG_GCTRL + 996),	//<  ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»
+	NET_MSG_GM_GENCHAR_AG				  = (NET_MSG_GCTRL + 997),	//<  ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»
+	NET_MSG_GM_GENCHAR_FLD				  = (NET_MSG_GCTRL + 998),	//<  ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»
+	NET_MSG_GM_GENCHAR_FB				  = (NET_MSG_GCTRL + 999),	//<  ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ã»
 
-	NET_MSG_GCTRL_SERVER_BRIGHTEVENT_INFO = (NET_MSG_GCTRL + 1001),	// ¼ºÇâÀÌº¥Æ®
-	NET_MSG_GCTRL_SERVER_CLUB_BATTLE_INFO = (NET_MSG_GCTRL + 1002),	// ¼±µµÀü ½ÃÀÛ À¯¹«
-	NET_MSG_GCTRL_REQ_SERVER_CLUB_BATTLE_REMAIN_AG = (NET_MSG_GCTRL + 1003), // ¼±µµÀü ³²Àº½Ã°£ ¿äÃ»(Field->Agent->Client)
+	NET_MSG_GCTRL_SERVER_BRIGHTEVENT_INFO = (NET_MSG_GCTRL + 1001),	// ï¿½ï¿½ï¿½ï¿½ï¿½Ìºï¿½Æ®
+	NET_MSG_GCTRL_SERVER_CLUB_BATTLE_INFO = (NET_MSG_GCTRL + 1002),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_REQ_SERVER_CLUB_BATTLE_REMAIN_AG = (NET_MSG_GCTRL + 1003), // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½Ã»(Field->Agent->Client)
 
-	NET_MSG_GCTRL_UPDATE_LASTCALL		= (NET_MSG_GCTRL + 1010),	// Á÷Àü ±ÍÈ¯ À§Ä¡ Å¬¶óÀÌ¾ðÆ®·Î Àü¼Û
-	NET_MSG_GCTRL_UPDATE_STARTCALL		= (NET_MSG_GCTRL + 1011),	// ½ÃÀÛ ±ÍÈ¯ À§Ä¡ Å¬¶óÀÌ¾ðÆ®·Î Àü¼Û
+	NET_MSG_GCTRL_UPDATE_LASTCALL		= (NET_MSG_GCTRL + 1010),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ä¡ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_UPDATE_STARTCALL		= (NET_MSG_GCTRL + 1011),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½ï¿½Ä¡ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_GM_COUNTDOWN_MSG_BRD		= (NET_MSG_GCTRL + 1020),	// ÀÚµ¿·¹º§ Ä«¿îÆ® ¸Þ¼¼Áö
-	NET_MSG_GM_SHOWMETHEMONEY			= (NET_MSG_GCTRL + 1021),	//<  Ä³¸¯ÅÍ·Î µ· ÀúÀå
-	NET_MSG_GM_SHOWMETHEMONEY_FLD		= (NET_MSG_GCTRL + 1022),	//<  Ä³¸¯ÅÍ·Î µ· ÀúÀå
-
-//-----------------------------------------------------------------------------------------------------------
-
-	NET_MSG_REBUILD_RESULT				= (NET_MSG_GCTRL + 1025),	// ¾ÆÀÌÅÛ °³Á¶ - ½ÃÀÛ, Á¾·á °á°ú	// ITEMREBUILD_MARK
-	NET_MSG_REBUILD_MOVE_ITEM			= (NET_MSG_GCTRL + 1026),	// ¾ÆÀÌÅÛ °³Á¶ - ¾ÆÀÌÅÛ ÀÌµ¿
-	NET_MSG_REBUILD_COST_MONEY			= (NET_MSG_GCTRL + 1027),	// ¾ÆÀÌÅÛ °³Á¶ - °³Á¶ ºñ¿ë
-	NET_MSG_REBUILD_INPUT_MONEY			= (NET_MSG_GCTRL + 1028),	// ¾ÆÀÌÅÛ °³Á¶ - À¯Àú ÀÔ·Â ±Ý¾×
+	NET_MSG_GM_COUNTDOWN_MSG_BRD		= (NET_MSG_GCTRL + 1020),	// ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ® ï¿½Þ¼ï¿½ï¿½ï¿½
+	NET_MSG_GM_SHOWMETHEMONEY			= (NET_MSG_GCTRL + 1021),	//<  Ä³ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GM_SHOWMETHEMONEY_FLD		= (NET_MSG_GCTRL + 1022),	//<  Ä³ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 //-----------------------------------------------------------------------------------------------------------
 
-	NET_MSG_PET_DROPPET					= (NET_MSG_GCTRL + 1030),	// ANYPET »ý¼º
-	NET_MSG_CREATE_ANYPET				= (NET_MSG_GCTRL + 1031),	// ANYPET »ý¼º
-	NET_MSG_PET_REQ_USECARD				= (NET_MSG_GCTRL + 1032),	// ÆÖÄ«µå »ç¿ë
+	NET_MSG_REBUILD_RESULT				= (NET_MSG_GCTRL + 1025),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½	// ITEMREBUILD_MARK
+	NET_MSG_REBUILD_MOVE_ITEM			= (NET_MSG_GCTRL + 1026),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
+	NET_MSG_REBUILD_COST_MONEY			= (NET_MSG_GCTRL + 1027),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	NET_MSG_REBUILD_INPUT_MONEY			= (NET_MSG_GCTRL + 1028),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Ý¾ï¿½
+
+//-----------------------------------------------------------------------------------------------------------
+
+	NET_MSG_PET_DROPPET					= (NET_MSG_GCTRL + 1030),	// ANYPET ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_CREATE_ANYPET				= (NET_MSG_GCTRL + 1031),	// ANYPET ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_USECARD				= (NET_MSG_GCTRL + 1032),	// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½
 	NET_MSG_PET_REQ_USECARD_FB			= (NET_MSG_GCTRL + 1033),
-	NET_MSG_PET_REQ_UNUSECARD			= (NET_MSG_GCTRL + 1034),	// ÆÖ ¼Ò¸ê
+	NET_MSG_PET_REQ_UNUSECARD			= (NET_MSG_GCTRL + 1034),	// ï¿½ï¿½ ï¿½Ò¸ï¿½
 	NET_MSG_PET_REQ_UNUSECARD_FB		= (NET_MSG_GCTRL + 1035),
-	NET_MSG_PET_REQ_DISAPPEAR			= (NET_MSG_GCTRL + 1036),	// °­Á¦·Î ¼Ò¸ê(¸ÊÀÌµ¿½Ã, °ÔÀÓÁ¾·áµî...)
+	NET_MSG_PET_REQ_DISAPPEAR			= (NET_MSG_GCTRL + 1036),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½(ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...)
 
-	NET_MSG_CREATE_PET_FROMDB_FB		= (NET_MSG_GCTRL + 1037),	// ÆÖ»ý¼º(DB)
-	NET_MSG_GET_PET_FROMDB_FB			= (NET_MSG_GCTRL + 1038),	// ÆÖ»ý¼º(DB)
-	NET_MSG_GET_PET_FROMDB_ERROR		= (NET_MSG_GCTRL + 1039),	// ÆÖ»ý¼º(DB) ¿¡·¯
+	NET_MSG_CREATE_PET_FROMDB_FB		= (NET_MSG_GCTRL + 1037),	// ï¿½Ö»ï¿½ï¿½ï¿½(DB)
+	NET_MSG_GET_PET_FROMDB_FB			= (NET_MSG_GCTRL + 1038),	// ï¿½Ö»ï¿½ï¿½ï¿½(DB)
+	NET_MSG_GET_PET_FROMDB_ERROR		= (NET_MSG_GCTRL + 1039),	// ï¿½Ö»ï¿½ï¿½ï¿½(DB) ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_PET_REQ_UPDATE_MOVE_STATE	 = (NET_MSG_GCTRL + 1040),  // ¿òÁ÷ÀÓ »óÅÂ º¯°æ
+	NET_MSG_PET_REQ_UPDATE_MOVE_STATE	 = (NET_MSG_GCTRL + 1040),  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	NET_MSG_PET_REQ_UPDATE_MOVE_STATE_FB = (NET_MSG_GCTRL + 1041),
 	NET_MSG_PET_REQ_UPDATE_MOVE_STATE_BRD = (NET_MSG_GCTRL + 1042),
+	
+	NET_MSG_RETRIEVE_POINTS				= (NET_MSG_GCTRL + 1043),
+	NET_MSG_RETRIEVE_POINTS_FB			= (NET_MSG_GCTRL + 1044),
 
-	NET_MSG_PET_REQ_GOTO				= (NET_MSG_GCTRL + 1053),	// ÀÌµ¿Ã³¸®
-	NET_MSG_PET_REQ_STOP				= (NET_MSG_GCTRL + 1054),	// ÀÌµ¿Ã³¸®
-	NET_MSG_PET_REQ_GOTO_FB				= (NET_MSG_GCTRL + 1055),	// ÀÌµ¿Ã³¸®
-	NET_MSG_PET_GOTO_BRD				= (NET_MSG_GCTRL + 1056),	// ÀÌµ¿Ã³¸®
-	NET_MSG_PET_STOP_BRD				= (NET_MSG_GCTRL + 1057),	// ÀÌµ¿Ã³¸®
+	NET_MSG_PET_REQ_GOTO				= (NET_MSG_GCTRL + 1053),	// ï¿½Ìµï¿½Ã³ï¿½ï¿½
+	NET_MSG_PET_REQ_STOP				= (NET_MSG_GCTRL + 1054),	// ï¿½Ìµï¿½Ã³ï¿½ï¿½
+	NET_MSG_PET_REQ_GOTO_FB				= (NET_MSG_GCTRL + 1055),	// ï¿½Ìµï¿½Ã³ï¿½ï¿½
+	NET_MSG_PET_GOTO_BRD				= (NET_MSG_GCTRL + 1056),	// ï¿½Ìµï¿½Ã³ï¿½ï¿½
+	NET_MSG_PET_STOP_BRD				= (NET_MSG_GCTRL + 1057),	// ï¿½Ìµï¿½Ã³ï¿½ï¿½
 
-	NET_MSG_PET_REQ_GIVEFOOD			= (NET_MSG_GCTRL + 1058),	// »ç·áÁÖ±â
-	NET_MSG_PET_REQ_GIVEFOOD_FB			= (NET_MSG_GCTRL + 1059),	// »ç·áÁÖ±â
-	NET_MSG_PET_REQ_GETFULL_FROMDB_FB	= (NET_MSG_GCTRL + 1060),	// »ç·áÁÖ±â
+	NET_MSG_PET_REQ_GIVEFOOD			= (NET_MSG_GCTRL + 1058),	// ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+	NET_MSG_PET_REQ_GIVEFOOD_FB			= (NET_MSG_GCTRL + 1059),	// ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+	NET_MSG_PET_REQ_GETFULL_FROMDB_FB	= (NET_MSG_GCTRL + 1060),	// ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 
-	NET_MSG_PET_GETRIGHTOFITEM			= (NET_MSG_GCTRL + 1070),	// ¼ÒÀ¯±ÇÇÑÀÌ ÀÖ´Â ¾ÆÀÌÅÛÁ¤º¸ ¿äÃ»
-	NET_MSG_PET_GETRIGHTOFITEM_FB		= (NET_MSG_GCTRL + 1071),	// ¼ÒÀ¯±ÇÇÑÀÌ ÀÖ´Â ¾ÆÀÌÅÛÁ¤º¸ ¿äÃ»
-	NET_MSG_PET_NOTENOUGHINVEN			= (NET_MSG_GCTRL + 1072),	// ÀÎº¥Åä¸®°¡ ºÎÁ·ÇÏ¿© ÆÖÀ» »ç¶óÁö°Ô ÇÔ
+	NET_MSG_PET_GETRIGHTOFITEM			= (NET_MSG_GCTRL + 1070),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_PET_GETRIGHTOFITEM_FB		= (NET_MSG_GCTRL + 1071),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_PET_NOTENOUGHINVEN			= (NET_MSG_GCTRL + 1072),	// ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
-	NET_MSG_PET_REQ_RENAME				= (NET_MSG_GCTRL + 1075),	// ÀÌ¸§º¯°æ
-	NET_MSG_PET_REQ_RENAME_FB			= (NET_MSG_GCTRL + 1076),	// ÀÌ¸§º¯°æ
-	NET_MSG_PET_REQ_RENAME_BRD			= (NET_MSG_GCTRL + 1077),	// ÀÌ¸§º¯°æ
-	NET_MSG_PET_REQ_RENAME_FROMDB_FB	= (NET_MSG_GCTRL + 1078),	// ÀÌ¸§º¯°æ
+	NET_MSG_PET_REQ_RENAME				= (NET_MSG_GCTRL + 1075),	// ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_RENAME_FB			= (NET_MSG_GCTRL + 1076),	// ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_RENAME_BRD			= (NET_MSG_GCTRL + 1077),	// ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_RENAME_FROMDB_FB	= (NET_MSG_GCTRL + 1078),	// ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_PET_REQ_CHANGE_COLOR		= (NET_MSG_GCTRL + 1080),	// ÄÃ·¯º¯°æ
-	NET_MSG_PET_REQ_CHANGE_COLOR_FB		= (NET_MSG_GCTRL + 1081),	// ÄÃ·¯º¯°æ
-	NET_MSG_PET_REQ_CHANGE_COLOR_BRD	= (NET_MSG_GCTRL + 1082),	// ÄÃ·¯º¯°æ
+	NET_MSG_PET_REQ_CHANGE_COLOR		= (NET_MSG_GCTRL + 1080),	// ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_CHANGE_COLOR_FB		= (NET_MSG_GCTRL + 1081),	// ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_CHANGE_COLOR_BRD	= (NET_MSG_GCTRL + 1082),	// ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_PET_REQ_CHANGE_STYLE		= (NET_MSG_GCTRL + 1085),	// ½ºÅ¸ÀÏº¯°æ
-	NET_MSG_PET_REQ_CHANGE_STYLE_FB		= (NET_MSG_GCTRL + 1086),	// ½ºÅ¸ÀÏº¯°æ
-	NET_MSG_PET_REQ_CHANGE_STYLE_BRD	= (NET_MSG_GCTRL + 1087),	// ½ºÅ¸ÀÏº¯°æ
+	NET_MSG_PET_REQ_CHANGE_STYLE		= (NET_MSG_GCTRL + 1085),	// ï¿½ï¿½Å¸ï¿½Ïºï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_CHANGE_STYLE_FB		= (NET_MSG_GCTRL + 1086),	// ï¿½ï¿½Å¸ï¿½Ïºï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_CHANGE_STYLE_BRD	= (NET_MSG_GCTRL + 1087),	// ï¿½ï¿½Å¸ï¿½Ïºï¿½ï¿½ï¿½
 
-	// Å¬¶óÀÌ¾ðÆ® »óÅÂ º¯°æ (Field -> Client)
-	NET_MSG_PET_UPDATECLIENT_FULL		= (NET_MSG_GCTRL + 1090),	// ÆÖÆ÷¸¸°¨ °»½Å
+	// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Field -> Client)
+	NET_MSG_PET_UPDATECLIENT_FULL		= (NET_MSG_GCTRL + 1090),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_PET_REQ_SLOT_EX_HOLD		= (NET_MSG_GCTRL + 1100),	// ¾ÆÀÌÅÛ Å»Âø(SLOT<->HOLD)
-	NET_MSG_PET_REQ_SLOT_EX_HOLD_FB		= (NET_MSG_GCTRL + 1101),	// ¾ÆÀÌÅÛ Å»Âø(SLOT<->HOLD)
-	NET_MSG_PET_REQ_SLOT_EX_HOLD_BRD	= (NET_MSG_GCTRL + 1102),	// ¾ÆÀÌÅÛ Å»Âø(SLOT<->HOLD)
-	NET_MSG_PET_REQ_SLOT_TO_HOLD		= (NET_MSG_GCTRL + 1103),	// ¾ÆÀÌÅÛ Å»Âø(SLOT->HOLD)
-	NET_MSG_PET_REQ_SLOT_TO_HOLD_FB		= (NET_MSG_GCTRL + 1104),	// ¾ÆÀÌÅÛ Å»Âø(SLOT->HOLD)
-	NET_MSG_PET_REQ_SLOT_TO_HOLD_BRD	= (NET_MSG_GCTRL + 1105),	// ¾ÆÀÌÅÛ Å»Âø(SLOT->HOLD)
-	NET_MSG_PET_REQ_HOLD_TO_SLOT		= (NET_MSG_GCTRL + 1106),	// ¾ÆÀÌÅÛ Å»Âø(HOLD->SLOT)
-	NET_MSG_PET_REQ_HOLD_TO_SLOT_FB		= (NET_MSG_GCTRL + 1107),	// ¾ÆÀÌÅÛ Å»Âø(HOLD->SLOT)
-	NET_MSG_PET_REQ_HOLD_TO_SLOT_BRD	= (NET_MSG_GCTRL + 1108),	// ¾ÆÀÌÅÛ Å»Âø(HOLD->SLOT)
+	NET_MSG_PET_REQ_SLOT_EX_HOLD		= (NET_MSG_GCTRL + 1100),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½(SLOT<->HOLD)
+	NET_MSG_PET_REQ_SLOT_EX_HOLD_FB		= (NET_MSG_GCTRL + 1101),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½(SLOT<->HOLD)
+	NET_MSG_PET_REQ_SLOT_EX_HOLD_BRD	= (NET_MSG_GCTRL + 1102),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½(SLOT<->HOLD)
+	NET_MSG_PET_REQ_SLOT_TO_HOLD		= (NET_MSG_GCTRL + 1103),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½(SLOT->HOLD)
+	NET_MSG_PET_REQ_SLOT_TO_HOLD_FB		= (NET_MSG_GCTRL + 1104),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½(SLOT->HOLD)
+	NET_MSG_PET_REQ_SLOT_TO_HOLD_BRD	= (NET_MSG_GCTRL + 1105),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½(SLOT->HOLD)
+	NET_MSG_PET_REQ_HOLD_TO_SLOT		= (NET_MSG_GCTRL + 1106),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½(HOLD->SLOT)
+	NET_MSG_PET_REQ_HOLD_TO_SLOT_FB		= (NET_MSG_GCTRL + 1107),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½(HOLD->SLOT)
+	NET_MSG_PET_REQ_HOLD_TO_SLOT_BRD	= (NET_MSG_GCTRL + 1108),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½(HOLD->SLOT)
 
-	NET_MSG_PET_REQ_LEARNSKILL			= (NET_MSG_GCTRL + 1110),	// ÆÖ½ºÅ³ ¹è¿ì±â
-	NET_MSG_PET_REQ_LEARNSKILL_FB		= (NET_MSG_GCTRL + 1111),	// ÆÖ½ºÅ³ ¹è¿ì±â
-	NET_MSG_PET_REQ_LEARNSKILL_BRD		= (NET_MSG_GCTRL + 1112),	// ÆÖ½ºÅ³ ¹è¿ì±â
+	NET_MSG_PET_REQ_LEARNSKILL			= (NET_MSG_GCTRL + 1110),	// ï¿½Ö½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_LEARNSKILL_FB		= (NET_MSG_GCTRL + 1111),	// ï¿½Ö½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_LEARNSKILL_BRD		= (NET_MSG_GCTRL + 1112),	// ï¿½Ö½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 
 	NET_MSG_PET_REQ_FUNNY				= (NET_MSG_GCTRL + 1115),	// Funny Gesture
 	NET_MSG_PET_REQ_FUNNY_BRD			= (NET_MSG_GCTRL + 1116),	// Funny Gesture
 
-	NET_MSG_PET_REMOVE_SLOTITEM			= (NET_MSG_GCTRL + 1118),	// ÆÖ½½·Ô¾ÆÀÌÅÛ Á¦°Å
-	NET_MSG_PET_REMOVE_SLOTITEM_FB		= (NET_MSG_GCTRL + 1119),	// ÆÖ½½·Ô¾ÆÀÌÅÛ Á¦°Å
-	NET_MSG_PET_REMOVE_SLOTITEM_BRD		= (NET_MSG_GCTRL + 1120),	// ÆÖ½½·Ô¾ÆÀÌÅÛ Á¦°Å
+	NET_MSG_PET_REMOVE_SLOTITEM			= (NET_MSG_GCTRL + 1118),	// ï¿½Ö½ï¿½ï¿½Ô¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REMOVE_SLOTITEM_FB		= (NET_MSG_GCTRL + 1119),	// ï¿½Ö½ï¿½ï¿½Ô¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REMOVE_SLOTITEM_BRD		= (NET_MSG_GCTRL + 1120),	// ï¿½Ö½ï¿½ï¿½Ô¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_PET_ATTACK					= (NET_MSG_GCTRL + 1125),	// °ø°Ý¸ð¼Ç
-	NET_MSG_PET_ATTACK_BRD				= (NET_MSG_GCTRL + 1126),	// °ø°Ý¸ð¼Ç
+	NET_MSG_PET_ATTACK					= (NET_MSG_GCTRL + 1125),	// ï¿½ï¿½ï¿½Ý¸ï¿½ï¿½
+	NET_MSG_PET_ATTACK_BRD				= (NET_MSG_GCTRL + 1126),	// ï¿½ï¿½ï¿½Ý¸ï¿½ï¿½
 
-	NET_MSG_PET_SAD						= (NET_MSG_GCTRL + 1127),	// Sad¸ð¼Ç
-	NET_MSG_PET_SAD_BRD					= (NET_MSG_GCTRL + 1128),	// Sad¸ð¼Ç
+	NET_MSG_PET_SAD						= (NET_MSG_GCTRL + 1127),	// Sadï¿½ï¿½ï¿½
+	NET_MSG_PET_SAD_BRD					= (NET_MSG_GCTRL + 1128),	// Sadï¿½ï¿½ï¿½
 
-	NET_MSG_PET_REQ_PETCARDINFO			= (NET_MSG_GCTRL + 1131),	// ÆÖÄ«µå Á¤º¸
-	NET_MSG_PET_REQ_PETCARDINFO_FB		= (NET_MSG_GCTRL + 1132),	// ÆÖÄ«µå Á¤º¸
+	NET_MSG_PET_REQ_PETCARDINFO			= (NET_MSG_GCTRL + 1131),	// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_PETCARDINFO_FB		= (NET_MSG_GCTRL + 1132),	// ï¿½ï¿½Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_PET_REQ_PETREVIVEINFO		= (NET_MSG_GCTRL + 1133),	// ÆÖºÎÈ° Á¤º¸
-	NET_MSG_PET_REQ_PETREVIVEINFO_FB	= (NET_MSG_GCTRL + 1134),	// ÆÖºÎÈ° Á¤º¸
+	NET_MSG_PET_REQ_PETREVIVEINFO		= (NET_MSG_GCTRL + 1133),	// ï¿½Öºï¿½È° ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_PETREVIVEINFO_FB	= (NET_MSG_GCTRL + 1134),	// ï¿½Öºï¿½È° ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_PET_REQ_REVIVE				= (NET_MSG_GCTRL + 1135),	// »èÁ¦µÈ ÆÖ ºÎÈ°
-	NET_MSG_PET_REQ_REVIVE_FB			= (NET_MSG_GCTRL + 1136),	// »èÁ¦µÈ ÆÖ ºÎÈ°
-	NET_MSG_PET_REQ_REVIVE_FROMDB_FB	= (NET_MSG_GCTRL + 1137),	// »èÁ¦µÈ ÆÖ ºÎÈ°
+	NET_MSG_PET_REQ_REVIVE				= (NET_MSG_GCTRL + 1135),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È°
+	NET_MSG_PET_REQ_REVIVE_FB			= (NET_MSG_GCTRL + 1136),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È°
+	NET_MSG_PET_REQ_REVIVE_FROMDB_FB	= (NET_MSG_GCTRL + 1137),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È°
 
-	NET_MSG_PET_ACCESSORY_DELETE		= (NET_MSG_GCTRL + 1140),	// ÆÖ¾Ç¼¼»ç¸® »èÁ¦
-	NET_MSG_PET_ACCESSORY_DELETE_BRD	= (NET_MSG_GCTRL + 1141),	// ÆÖ¾Ç¼¼»ç¸® »èÁ¦
+	NET_MSG_PET_ACCESSORY_DELETE		= (NET_MSG_GCTRL + 1140),	// ï¿½Ö¾Ç¼ï¿½ï¿½ç¸® ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_ACCESSORY_DELETE_BRD	= (NET_MSG_GCTRL + 1141),	// ï¿½Ö¾Ç¼ï¿½ï¿½ç¸® ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_PET_REQ_SKILLCHANGE			= (NET_MSG_GCTRL + 1143),	// ½ºÅ³º¯°æ
-	NET_MSG_PET_REQ_SKILLCHANGE_FB		= (NET_MSG_GCTRL + 1144),	// ½ºÅ³º¯°æ
-	NET_MSG_PET_REQ_SKILLCHANGE_BRD		= (NET_MSG_GCTRL + 1145),	// ½ºÅ³º¯°æ
+	NET_MSG_PET_REQ_SKILLCHANGE			= (NET_MSG_GCTRL + 1143),	// ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_SKILLCHANGE_FB		= (NET_MSG_GCTRL + 1144),	// ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_PET_REQ_SKILLCHANGE_BRD		= (NET_MSG_GCTRL + 1145),	// ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_PET_ADD_SKILLFACT			= (NET_MSG_GCTRL + 1146),	// SkillFact Ãß°¡
-	NET_MSG_PET_REMOVE_SKILLFACT		= (NET_MSG_GCTRL + 1147),	// SkillFact Ãß°¡
+	NET_MSG_PET_ADD_SKILLFACT			= (NET_MSG_GCTRL + 1146),	// SkillFact ï¿½ß°ï¿½
+	NET_MSG_PET_REMOVE_SKILLFACT		= (NET_MSG_GCTRL + 1147),	// SkillFact ï¿½ß°ï¿½
 
 	NET_MSG_PET_DUAL_SKILL				= (NET_MSG_GCTRL + 1148),
 	NET_MSG_PET_DUAL_SKILL_FB			= (NET_MSG_GCTRL + 1149),
 	NET_MSG_PET_DUAL_SKILL_BRD			= (NET_MSG_GCTRL + 1150),
 	NET_MSG_PET_DUAL_SKILL_UPDATE_FB	= (NET_MSG_GCTRL + 1151),
-	NET_MSG_SMS_PHONE_NUMBER			= (NET_MSG_GCTRL + 1200),	// Ä³¸¯ÅÍ Æù¹øÈ£ ÀúÀå/¾÷µ¥ÀÌÆ® ¿äÃ»
+	NET_MSG_SMS_PHONE_NUMBER			= (NET_MSG_GCTRL + 1200),	// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
 	NET_MSG_SMS_PHONE_NUMBER_FB			= (NET_MSG_GCTRL + 1201),	//<
-	NET_MSG_SMS_PHONE_NUMBER_FROM_DB	= (NET_MSG_GCTRL + 1202),	//<	DB ÀúÀå °á°ú FB.
-	NET_MSG_SMS_PHONE_NUMBER_AGTBRD		= (NET_MSG_GCTRL + 1203),	//<	Agent¿¡ ¸ðµçÃ¤³Î BRD ¿äÃ».
+	NET_MSG_SMS_PHONE_NUMBER_FROM_DB	= (NET_MSG_GCTRL + 1202),	//<	DB ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ FB.
+	NET_MSG_SMS_PHONE_NUMBER_AGTBRD		= (NET_MSG_GCTRL + 1203),	//<	Agentï¿½ï¿½ ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½ BRD ï¿½ï¿½Ã».
 
 	NET_MSG_SMS_SEND					= (NET_MSG_GCTRL + 1204),
 	NET_MSG_SMS_SEND_FB					= (NET_MSG_GCTRL + 1205),
 	NET_MSG_SMS_SEND_FROM_DB			= (NET_MSG_GCTRL + 1206),
 
-	NET_MSG_GM_MOB_GEN_EX				= (NET_MSG_GCTRL + 1210),   // ¸÷¼ÒÈ¯(È®Àå±â´ÉÃß°¡)
-	NET_MSG_GM_MOB_GEN_EX_FLD			= (NET_MSG_GCTRL + 1211),   // ¸÷¼ÒÈ¯(È®Àå±â´ÉÃß°¡)
-    NET_MSG_GM_MOB_DEL_EX				= (NET_MSG_GCTRL + 1212),   // ¸÷Á¦°Å(È®Àå±â´ÉÃß°¡)
-	NET_MSG_GM_MOB_DEL_EX_FLD			= (NET_MSG_GCTRL + 1213),   // ¸÷Á¦°Å(È®Àå±â´ÉÃß°¡)
+	NET_MSG_GM_MOB_GEN_EX				= (NET_MSG_GCTRL + 1210),   // ï¿½ï¿½ï¿½ï¿½È¯(È®ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½)
+	NET_MSG_GM_MOB_GEN_EX_FLD			= (NET_MSG_GCTRL + 1211),   // ï¿½ï¿½ï¿½ï¿½È¯(È®ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½)
+    NET_MSG_GM_MOB_DEL_EX				= (NET_MSG_GCTRL + 1212),   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(È®ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½)
+	NET_MSG_GM_MOB_DEL_EX_FLD			= (NET_MSG_GCTRL + 1213),   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(È®ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½)
 
-	NET_MSG_MGAME_ODDEVEN				= (NET_MSG_GCTRL + 1220),	// ¹Ì´Ï °ÔÀÓ - È¦Â¦(Å¬¶óÀÌ¾ðÆ®->ÇÊµå¼­¹ö)
-	NET_MSG_MGAME_ODDEVEN_FB			= (NET_MSG_GCTRL + 1221),	// ¹Ì´Ï °ÔÀÓ - È¦Â¦(ÇÊµå¼­¹ö->Å¬¶óÀÌ¾ðÆ®)	
+	NET_MSG_MGAME_ODDEVEN				= (NET_MSG_GCTRL + 1220),	// ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ - È¦Â¦(Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®->ï¿½Êµå¼­ï¿½ï¿½)
+	NET_MSG_MGAME_ODDEVEN_FB			= (NET_MSG_GCTRL + 1221),	// ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ - È¦Â¦(ï¿½Êµå¼­ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®)	
 
-	NET_MSG_SERVERTIME_BRD				= (NET_MSG_GCTRL + 1230),	// ¼­¹ö ÇöÀç½Ã°£ BroadCasting
+	NET_MSG_SERVERTIME_BRD				= (NET_MSG_GCTRL + 1230),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ BroadCasting
 
-	NET_MSG_GCTRL_SET_SERVER_DELAYTIME     = (NET_MSG_GCTRL + 1240),	// ¼­¹ö Àå¾Ö1
-	NET_MSG_GCTRL_SET_SERVER_DELAYTIME_FB  = (NET_MSG_GCTRL + 1241),	// ¼­¹ö Àå¾Ö1
-	NET_MSG_GCTRL_SET_SERVER_DELAYTIME_AGT = (NET_MSG_GCTRL + 1242),	// ¼­¹ö Àå¾Ö1
-	NET_MSG_GCTRL_SET_SERVER_DELAYTIME_FLD = (NET_MSG_GCTRL + 1243),	// ¼­¹ö Àå¾Ö1
-	NET_MSG_GCTRL_SET_SERVER_SKIPPACKET    = (NET_MSG_GCTRL + 1244),	// ¼­¹ö Àå¾Ö2
-	NET_MSG_GCTRL_SET_SERVER_SKIPPACKET_FB = (NET_MSG_GCTRL + 1245),	// ¼­¹ö Àå¾Ö2
-	NET_MSG_GCTRL_SET_SERVER_SKIPPACKET_AGT = (NET_MSG_GCTRL + 1246),	// ¼­¹ö Àå¾Ö2
-	NET_MSG_GCTRL_SET_SERVER_SKIPPACKET_FLD = (NET_MSG_GCTRL + 1247),	// ¼­¹ö Àå¾Ö2
-	NET_MSG_GCTRL_SET_SERVER_CRASHTIME     = (NET_MSG_GCTRL + 1248),	// ¼­¹ö Àå¾Ö3
-	NET_MSG_GCTRL_SET_SERVER_CRASHTIME_FB  = (NET_MSG_GCTRL + 1249),	// ¼­¹ö Àå¾Ö3
-	NET_MSG_GCTRL_SET_SERVER_CRASHTIME_AGT = (NET_MSG_GCTRL + 1250),	// ¼­¹ö Àå¾Ö3
-	NET_MSG_GCTRL_SET_SERVER_CRASHTIME_FLD = (NET_MSG_GCTRL + 1251),	// ¼­¹ö Àå¾Ö3
+	NET_MSG_GCTRL_SET_SERVER_DELAYTIME     = (NET_MSG_GCTRL + 1240),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½1
+	NET_MSG_GCTRL_SET_SERVER_DELAYTIME_FB  = (NET_MSG_GCTRL + 1241),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½1
+	NET_MSG_GCTRL_SET_SERVER_DELAYTIME_AGT = (NET_MSG_GCTRL + 1242),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½1
+	NET_MSG_GCTRL_SET_SERVER_DELAYTIME_FLD = (NET_MSG_GCTRL + 1243),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½1
+	NET_MSG_GCTRL_SET_SERVER_SKIPPACKET    = (NET_MSG_GCTRL + 1244),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½2
+	NET_MSG_GCTRL_SET_SERVER_SKIPPACKET_FB = (NET_MSG_GCTRL + 1245),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½2
+	NET_MSG_GCTRL_SET_SERVER_SKIPPACKET_AGT = (NET_MSG_GCTRL + 1246),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½2
+	NET_MSG_GCTRL_SET_SERVER_SKIPPACKET_FLD = (NET_MSG_GCTRL + 1247),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½2
+	NET_MSG_GCTRL_SET_SERVER_CRASHTIME     = (NET_MSG_GCTRL + 1248),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½3
+	NET_MSG_GCTRL_SET_SERVER_CRASHTIME_FB  = (NET_MSG_GCTRL + 1249),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½3
+	NET_MSG_GCTRL_SET_SERVER_CRASHTIME_AGT = (NET_MSG_GCTRL + 1250),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½3
+	NET_MSG_GCTRL_SET_SERVER_CRASHTIME_FLD = (NET_MSG_GCTRL + 1251),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½3
 
-	NET_MSG_GCTRL_SERVER_LOGINMAINTENANCE_AGT = (NET_MSG_GCTRL + 1255),	//·Î±×ÀÎ¼­¹ö MainTenance±â´É On/Off 
+	NET_MSG_GCTRL_SERVER_LOGINMAINTENANCE_AGT = (NET_MSG_GCTRL + 1255),	//ï¿½Î±ï¿½ï¿½Î¼ï¿½ï¿½ï¿½ MainTenanceï¿½ï¿½ï¿½ On/Off 
 
-	NET_MSG_GCTRL_STORAGE_ITEM_UPDATE	= (NET_MSG_GCTRL + 1260 ),	//< ¶ôÄ¿ ¾ÆÀÌÅÛ ¾÷µ¥ÀÌÆ®
-	NET_MSG_REQ_FRIEND_CLUB_OPEN		= (NET_MSG_GCTRL + 1270 ),	//< Ä£±¸,Å¬·´Ã¢ ¿­¸²(Å¬¶óÀÌ¾ðÆ®->¿¡ÀÌÁ¯Æ®)
+	NET_MSG_GCTRL_STORAGE_ITEM_UPDATE	= (NET_MSG_GCTRL + 1260 ),	//< ï¿½ï¿½Ä¿ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+	NET_MSG_REQ_FRIEND_CLUB_OPEN		= (NET_MSG_GCTRL + 1270 ),	//< Ä£ï¿½ï¿½,Å¬ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½(Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®)
 
-	NET_MSG_GM_GETWHISPERMSG		    = (NET_MSG_GCTRL + 1402),	//<	Ä³¸¯ÅÍÀÇ ±Ó¼Ó¸»À» ¿³µè´Â´Ù.
-	NET_MSG_CHINA_GAINTYPE  		    = (NET_MSG_GCTRL + 1403),	//<	Áß±¹ µî±Þº° ¼öÀÍ
+	NET_MSG_GM_GETWHISPERMSG		    = (NET_MSG_GCTRL + 1402),	//<	Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¼Ó¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â´ï¿½.
+	NET_MSG_CHINA_GAINTYPE  		    = (NET_MSG_GCTRL + 1403),	//<	ï¿½ß±ï¿½ ï¿½ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_GM_LIMIT_EVENT_BEGIN		= (NET_MSG_GCTRL + 1404),	//<	ÀÌº¥Æ® ½ÃÀÛ.
-	NET_MSG_GM_LIMIT_EVENT_END			= (NET_MSG_GCTRL + 1405),	//<	ÀÌº¥Æ® Á¾·á.
+	NET_MSG_GM_LIMIT_EVENT_BEGIN		= (NET_MSG_GCTRL + 1404),	//<	ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GM_LIMIT_EVENT_END			= (NET_MSG_GCTRL + 1405),	//<	ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GM_LIMIT_EVENT_RESTART		= (NET_MSG_GCTRL + 1406),	//<	ÀÌº¥Æ® ´Ù½Ã ½ÃÀÛ.
+	NET_MSG_GM_LIMIT_EVENT_RESTART		= (NET_MSG_GCTRL + 1406),	//<	ï¿½Ìºï¿½Æ® ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GM_LIMIT_EVENT_APPLY_START	= (NET_MSG_GCTRL + 1407),	//<	Å¬¶óÀÌ¾ðÆ®¿¡ ÀÌº¥Æ® Àû¿ë ½ÃÀÛÇßÀ½À» ¾Ë¸²
-	NET_MSG_GM_LIMIT_EVENT_APPLY_END 	= (NET_MSG_GCTRL + 1408),	//<	Å¬¶óÀÌ¾ðÆ®¿¡ ÀÌº¥Æ® Àû¿ë ³¡³µÀ½À» ¾Ë¸²
+	NET_MSG_GM_LIMIT_EVENT_APPLY_START	= (NET_MSG_GCTRL + 1407),	//<	Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
+	NET_MSG_GM_LIMIT_EVENT_APPLY_END 	= (NET_MSG_GCTRL + 1408),	//<	Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
 
-	NET_MSG_GM_LIMIT_EVENT_BEGIN_FB		= (NET_MSG_GCTRL + 1409),   //<	Å¬¶óÀÌ¾ðÆ®¿¡ ÀÌº¥Æ®°¡ ½ÃÀÛ µÇ¾úÀ½À» ¾Ë¸²
-	NET_MSG_GM_LIMIT_EVENT_END_FB		= (NET_MSG_GCTRL + 1410),   //<	Å¬¶óÀÌ¾ðÆ®¿¡ ÀÌº¥Æ®°¡ Á¾·á µÇ¾úÀ½À» ¾Ë¸²
+	NET_MSG_GM_LIMIT_EVENT_BEGIN_FB		= (NET_MSG_GCTRL + 1409),   //<	Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
+	NET_MSG_GM_LIMIT_EVENT_END_FB		= (NET_MSG_GCTRL + 1410),   //<	Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
 
-	NET_MSG_GM_LIMIT_EVENT_TIME_REQ		= (NET_MSG_GCTRL + 1411),   //<	Å¬¶óÀÌ¾ðÆ®°¡ ¼­¹ö¿¡ ÀÌº¥Æ® Á¤º¸¸¦ ¿äÃ»
-	NET_MSG_GM_LIMIT_EVENT_TIME_REQ_FB	= (NET_MSG_GCTRL + 1412),   //<	¼­¹ö°¡ Å¬¶óÀÌ¾ðÆ®¿¡ ÀÌº¥Æ® Á¤º¸¸¦ º¸³¿
-	NET_MSG_GM_LIMIT_EVENT_TIME_RESET	= (NET_MSG_GCTRL + 1413),   //<	AGENT¼­¹ö°¡ FIELD¼­¹ö¿¡°Ô ·Î±×ÀÎ ½Ã°£À» RESETÇÏ¶ó°í º¸³¿
+	NET_MSG_GM_LIMIT_EVENT_TIME_REQ		= (NET_MSG_GCTRL + 1411),   //<	Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_GM_LIMIT_EVENT_TIME_REQ_FB	= (NET_MSG_GCTRL + 1412),   //<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GM_LIMIT_EVENT_TIME_RESET	= (NET_MSG_GCTRL + 1413),   //<	AGENTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ FIELDï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ RESETï¿½Ï¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_GM_PRINT_CROWLIST			= (NET_MSG_GCTRL + 1414),   //<	ÀÚ½ÅÀÌ ÀÖ´Â ¸ÊÀÇ ¸÷ ¸®½ºÆ®¸¦ ÇÁ¸°Æ®ÇÔ.
-	NET_MSG_GM_PRINT_CROWLIST_FLD		= (NET_MSG_GCTRL + 1415),   //<	ÀÚ½ÅÀÌ ÀÖ´Â ¸ÊÀÇ ¸÷ ¸®½ºÆ®¸¦ ÇÁ¸°Æ®ÇÔ.
-	NET_MSG_GM_PRINT_CROWLIST_FB		= (NET_MSG_GCTRL + 1416),   //<	ÀÚ½ÅÀÌ ÀÖ´Â ¸ÊÀÇ ¸÷ ¸®½ºÆ®¸¦ ÇÁ¸°Æ®ÇÔ.
+	NET_MSG_GM_PRINT_CROWLIST			= (NET_MSG_GCTRL + 1414),   //<	ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½.
+	NET_MSG_GM_PRINT_CROWLIST_FLD		= (NET_MSG_GCTRL + 1415),   //<	ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½.
+	NET_MSG_GM_PRINT_CROWLIST_FB		= (NET_MSG_GCTRL + 1416),   //<	ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½.
 
-	NET_MSG_SERVER_CTRL_WEATHER2		= (NET_MSG_GCTRL + 1417),	//<	¼­¹öÀÇ ³¯¾¾ º¯°æ. »õ·Î¿î ¸Þ½ÃÁö
+	NET_MSG_SERVER_CTRL_WEATHER2		= (NET_MSG_GCTRL + 1417),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 	NET_MSG_GCTRL_MAPWEATHER			= (NET_MSG_GCTRL + 1418),	
 	NET_MSG_GCTRL_MAPWHIMSICAL			= (NET_MSG_GCTRL + 1419),
 
-	NET_MSG_GCTRL_ACTIVE_VEHICLE			= (NET_MSG_GCTRL + 1420),	//< Å¬¶óÀÌ¾ðÆ®°¡ Å»°ÍÀ» È°¼º/ºñÈ°¼º ¿äÃ»
-	NET_MSG_GCTRL_ACTIVE_VEHICLE_FB			= (NET_MSG_GCTRL + 1421),	//< Å¬¶óÀÌ¾ðÆ®¿¡ Å»°ÍÀ» È°¼º/ºñÈ°¼º ¾Ë¸²
-	NET_MSG_GCTRL_ACTIVE_VEHICLE_BRD		= (NET_MSG_GCTRL + 1422),	//< ÁÖÀ§ Å¬¶óÀÌ¾ðÆ®¿¡ Å»°ÍÀ» È°¼º/ºñÈ°¼º ¾Ë¸²
+	NET_MSG_GCTRL_ACTIVE_VEHICLE			= (NET_MSG_GCTRL + 1420),	//< Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½/ï¿½ï¿½È°ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_GCTRL_ACTIVE_VEHICLE_FB			= (NET_MSG_GCTRL + 1421),	//< Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½/ï¿½ï¿½È°ï¿½ï¿½ ï¿½Ë¸ï¿½
+	NET_MSG_GCTRL_ACTIVE_VEHICLE_BRD		= (NET_MSG_GCTRL + 1422),	//< ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ È°ï¿½ï¿½/ï¿½ï¿½È°ï¿½ï¿½ ï¿½Ë¸ï¿½
 
-	NET_MSG_GCTRL_GET_VEHICLE				= (NET_MSG_GCTRL + 1423),	//< Å¬¶óÀÌ¾ðÆ®°¡ Å»°ÍÀÇ Á¤º¸ ¿äÃ»
-	NET_MSG_GCTRL_GET_VEHICLE_FB			= (NET_MSG_GCTRL + 1424),	//< Å¬¶óÀÌ¾ðÆ®¿¡ Å»°ÍÀÇ Á¤º¸ ¹ÞÀ½
-	NET_MSG_GCTRL_GET_VEHICLE_BRD			= (NET_MSG_GCTRL + 1425),	//< ÁÖÀ§ Å¬¶óÀÌ¾ðÆ®¿¡ Å»°Í Á¤º¸ Àü¼Û
-	NET_MSG_GCTRL_UNGET_VEHICLE_FB			= (NET_MSG_GCTRL + 1426),	//< Å»°Í Á¤º¸ ºñÈ°¼ºÈ­
-	NET_MSG_GCTRL_UNGET_VEHICLE_BRD			= (NET_MSG_GCTRL + 1427),	//< Å»°Í Á¤º¸ ºñÈ°¼ºÈ­
+	NET_MSG_GCTRL_GET_VEHICLE				= (NET_MSG_GCTRL + 1423),	//< Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_GCTRL_GET_VEHICLE_FB			= (NET_MSG_GCTRL + 1424),	//< Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ Å»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_GET_VEHICLE_BRD			= (NET_MSG_GCTRL + 1425),	//< ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_UNGET_VEHICLE_FB			= (NET_MSG_GCTRL + 1426),	//< Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
+	NET_MSG_GCTRL_UNGET_VEHICLE_BRD			= (NET_MSG_GCTRL + 1427),	//< Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
 
-	NET_MSG_VEHICLE_CREATE_FROMDB_FB		= (NET_MSG_GCTRL + 1428),	//< ÃÖÃÊ Å»°Í »ý¼º ( DB ) 
-	NET_MSG_VEHICLE_GET_FROMDB_FB			= (NET_MSG_GCTRL + 1429),	//< Å»°Í »ý¼º ( DB )
-	NET_MSG_VEHICLE_GET_FROMDB_ERROR		= (NET_MSG_GCTRL + 1430),	//< Å»°Í »ý¼º ( DB¿¡·¯ )
+	NET_MSG_VEHICLE_CREATE_FROMDB_FB		= (NET_MSG_GCTRL + 1428),	//< ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( DB ) 
+	NET_MSG_VEHICLE_GET_FROMDB_FB			= (NET_MSG_GCTRL + 1429),	//< Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( DB )
+	NET_MSG_VEHICLE_GET_FROMDB_ERROR		= (NET_MSG_GCTRL + 1430),	//< Å»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( DBï¿½ï¿½ï¿½ï¿½ )
 	
-	NET_MSG_VEHICLE_ACCESSORY_DELETE		= (NET_MSG_GCTRL + 1431),	//< Å»°ÍÀÇ ¾Ç¼¼¼­¸® »èÁ¦
-	NET_MSG_VEHICLE_ACCESSORY_DELETE_BRD	= (NET_MSG_GCTRL + 1432),	// Å»°ÍÀÇ ¾Ç¼¼»ç¸® »èÁ¦ ¾Ë¸²
+	NET_MSG_VEHICLE_ACCESSORY_DELETE		= (NET_MSG_GCTRL + 1431),	//< Å»ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_VEHICLE_ACCESSORY_DELETE_BRD	= (NET_MSG_GCTRL + 1432),	// Å»ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ç¸® ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
 	
-	NET_MSG_VEHICLE_REQ_SLOT_EX_HOLD		= (NET_MSG_GCTRL + 1433 ),	// Å»°Í slot ex hold
-	NET_MSG_VEHICLE_REQ_SLOT_EX_HOLD_FB		= (NET_MSG_GCTRL + 1434 ),	// Å»°Í slot ex hold
-	NET_MSG_VEHICLE_REQ_SLOT_EX_HOLD_BRD	= (NET_MSG_GCTRL + 1435 ),	// Å»°Í slot ex hold
+	NET_MSG_VEHICLE_REQ_SLOT_EX_HOLD		= (NET_MSG_GCTRL + 1433 ),	// Å»ï¿½ï¿½ slot ex hold
+	NET_MSG_VEHICLE_REQ_SLOT_EX_HOLD_FB		= (NET_MSG_GCTRL + 1434 ),	// Å»ï¿½ï¿½ slot ex hold
+	NET_MSG_VEHICLE_REQ_SLOT_EX_HOLD_BRD	= (NET_MSG_GCTRL + 1435 ),	// Å»ï¿½ï¿½ slot ex hold
 	
-	NET_MSG_VEHICLE_REQ_HOLD_TO_SLOT		= (NET_MSG_GCTRL + 1436 ),	// Å»°Í hold to slot
-	NET_MSG_VEHICLE_REQ_HOLD_TO_SLOT_FB		= (NET_MSG_GCTRL + 1437 ),	// Å»°Í hold to slot
+	NET_MSG_VEHICLE_REQ_HOLD_TO_SLOT		= (NET_MSG_GCTRL + 1436 ),	// Å»ï¿½ï¿½ hold to slot
+	NET_MSG_VEHICLE_REQ_HOLD_TO_SLOT_FB		= (NET_MSG_GCTRL + 1437 ),	// Å»ï¿½ï¿½ hold to slot
 	
-	NET_MSG_VEHICLE_REQ_SLOT_TO_HOLD		= (NET_MSG_GCTRL + 1438 ),	// Å»°Í slot to hold
-	NET_MSG_VEHICLE_REQ_SLOT_TO_HOLD_FB		= (NET_MSG_GCTRL + 1439 ),	// Å»°Í slot to hold
+	NET_MSG_VEHICLE_REQ_SLOT_TO_HOLD		= (NET_MSG_GCTRL + 1438 ),	// Å»ï¿½ï¿½ slot to hold
+	NET_MSG_VEHICLE_REQ_SLOT_TO_HOLD_FB		= (NET_MSG_GCTRL + 1439 ),	// Å»ï¿½ï¿½ slot to hold
 	
-	NET_MSG_VEHICLE_REMOVE_SLOTITEM			= (NET_MSG_GCTRL + 1440 ),	// item slot ÇØÁ¦
-	NET_MSG_VEHICLE_REMOVE_SLOTITEM_FB		= (NET_MSG_GCTRL + 1441 ),	// item slot ÇØÁ¦
-	NET_MSG_VEHICLE_REMOVE_SLOTITEM_BRD		= (NET_MSG_GCTRL + 1442 ),	// item slot ÇØÁ¦
+	NET_MSG_VEHICLE_REMOVE_SLOTITEM			= (NET_MSG_GCTRL + 1440 ),	// item slot ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_VEHICLE_REMOVE_SLOTITEM_FB		= (NET_MSG_GCTRL + 1441 ),	// item slot ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_VEHICLE_REMOVE_SLOTITEM_BRD		= (NET_MSG_GCTRL + 1442 ),	// item slot ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_VEHICLE_REQ_GIVE_BATTERY		= (NET_MSG_GCTRL + 1443 ),	// ¹èÅÍ¸® ÃæÀü
-	NET_MSG_VEHICLE_REQ_GIVE_BATTERY_FB		= (NET_MSG_GCTRL + 1444 ),	// ¹èÅÍ¸® ÃæÀü
-	NET_MSG_VEHICLE_REQ_GETFULL_FROMDB_FB	= (NET_MSG_GCTRL + 1445 ),	// ¹èÅÍ¸® ÃæÀü
-	NET_MSG_VEHICLE_UPDATE_CLIENT_BATTERY	= (NET_MSG_GCTRL + 1446 ),	// ¹èÅÍ¸® °»½Å
-	NET_MSG_VEHICLE_REQ_GET_BATTERY_FROMDB_FB	= (NET_MSG_GCTRL + 1447 ),	// ¹èÅÍ¸® °¡Á®¿À±â ( ³»ºÎ )
+	NET_MSG_VEHICLE_REQ_GIVE_BATTERY		= (NET_MSG_GCTRL + 1443 ),	// ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_VEHICLE_REQ_GIVE_BATTERY_FB		= (NET_MSG_GCTRL + 1444 ),	// ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_VEHICLE_REQ_GETFULL_FROMDB_FB	= (NET_MSG_GCTRL + 1445 ),	// ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_VEHICLE_UPDATE_CLIENT_BATTERY	= (NET_MSG_GCTRL + 1446 ),	// ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_VEHICLE_REQ_GET_BATTERY_FROMDB_FB	= (NET_MSG_GCTRL + 1447 ),	// ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½ )
 
-	NET_MSG_VEHICLE_REQ_ITEM_INFO			= (NET_MSG_GCTRL + 1448),	// Å»°Í¾ÆÀÌÅÛ Á¤º¸
-	NET_MSG_VEHICLE_REQ_ITEM_INFO_FB		= (NET_MSG_GCTRL + 1449),	// Å»°Í¾ÆÀÌÅÛ Á¤º¸
+	NET_MSG_VEHICLE_REQ_ITEM_INFO			= (NET_MSG_GCTRL + 1448),	// Å»ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_VEHICLE_REQ_ITEM_INFO_FB		= (NET_MSG_GCTRL + 1449),	// Å»ï¿½Í¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_VIETNAM_GAINTYPE				= (NET_MSG_GCTRL + 1450),	// º£Æ®³² Å½´Ð ¹æÁö ½Ã½ºÅÛ ÇöÀç ¼öÀÍ Å¸ÀÔ
-	NET_MSG_VIETNAM_TIME_REQ				= (NET_MSG_GCTRL + 1451),	// º£Æ®³² Å½´Ð ¹æÁö ½Ã½ºÅÛ ½Ã°£ ¿äÃ»
-	NET_MSG_VIETNAM_TIME_REQ_FB				= (NET_MSG_GCTRL + 1452),	// º£Æ®³² Å½´Ð ¹æÁö ½Ã½ºÅÛ ½Ã°£ ¿äÃ»
-	NET_MSG_VIETNAM_GAIN_EXP				= (NET_MSG_GCTRL + 1453),	// º£Æ®³² Å½´Ð ¹æÁö ½Ã½ºÅÛ °æÇèÄ¡
-	NET_MSG_VIETNAM_GAIN_MONEY				= (NET_MSG_GCTRL + 1454),	// º£Æ®³² Å½´Ð ¹æÁö ½Ã½ºÅÛ µ·
-	NET_MSG_GCTRL_REQ_VNGAIN_TO_HOLD		= (NET_MSG_GCTRL + 1455),   //<	Å½´Ð¹æÁö ÀÎ¹ê¿¡ ÀÖ´Â ¾ÆÀÌÅÆÀ» µé±â ½Ãµµ.
-	NET_MSG_GCTRL_REQ_VNGAIN_EX_HOLD		= (NET_MSG_GCTRL + 1456),	//<	Å½´Ð¹æÁö ÀÎ¹ê¿¡ ÀÖ´Â ¾ÆÀÌÅÆÀ» µé±â ½Ãµµ.
-	NET_MSG_GCTRL_REQ_HOLD_TO_VNGAIN		= (NET_MSG_GCTRL + 1457),	//<	¾ÆÀÌÅÛÀ» Å½´Ð¹æÁö ÀÎ¹ê¿¡ ³ÖÀ½
-	NET_MSG_GCTRL_REQ_VNGAIN_INVEN_RESET	= (NET_MSG_GCTRL + 1458),	//< Å½´Ð ¹æÁö ÀÎ¹ê ÀüÃ¼ ÃÊ±âÈ­
-	NET_MSG_GCTRL_REQ_VNINVEN_TO_INVEN      = (NET_MSG_GCTRL + 1459),	//< ¿À¸¥ÂÊ ¹öÆ°À¸·Î Å½´Ð ¹æÁö ÀÎ¹ê¿¡¼­ ÀÎ¹êÀ¸·Î ¾ÆÀÌÅÛ ¿Å±æ¶§
-	NET_MSG_GCTRL_REQ_VNINVEN_TO_INVEN_FB   = (NET_MSG_GCTRL + 1460),	//< ¿À¸¥ÂÊ ¹öÆ°À¸·Î Å½´Ð ¹æÁö ÀÎ¹ê¿¡¼­ ÀÎ¹êÀ¸·Î ¾ÆÀÌÅÛ ¿Å±æ¶§
-	NET_MSG_GCTRL_INVEN_VIETNAM_INVENGET	= (NET_MSG_GCTRL + 1461),	//<	º£Æ®³² Å½´Ð ¹æÁö ¾ÆÀÌÅÛ »ç¿ë½Ã ¸Þ½ÃÁö
-	NET_MSG_GCTRL_INVEN_VIETNAM_EXPGET_FB	= (NET_MSG_GCTRL + 1462),	//<	º£Æ®³² Å½´Ð ¹æÁö ¾ÆÀÌÅÛ »ç¿ë½Ã ¸Þ½ÃÁö
-	NET_MSG_GCTRL_INVEN_VIETNAM_ITEMGET_FB	= (NET_MSG_GCTRL + 1463),	//<	º£Æ®³² Å½´Ð ¹æÁö ¾ÆÀÌÅÛ »ç¿ë½Ã ¸Þ½ÃÁö
-	NET_MSG_GCTRL_INVEN_VIETNAM_ITEMGETNUM_UPDATE = (NET_MSG_GCTRL + 1464),	//<	º£Æ®³² Å½´Ð ¹æÁö ¾ÆÀÌÅÛ »ç¿ë½Ã ¸Þ½ÃÁö 
-	NET_MSG_VIETNAM_ALLINITTIME				= (NET_MSG_GCTRL + 1465),	//<	º£Æ®³² Å½´Ð ¹æÁö½Ã½ºÅÛ 12½Ã°¡ Áö³ª¼­ ÃÊ±âÈ­ µÇ¾úÀ»¶§
+	NET_MSG_VIETNAM_GAINTYPE				= (NET_MSG_GCTRL + 1450),	// ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
+	NET_MSG_VIETNAM_TIME_REQ				= (NET_MSG_GCTRL + 1451),	// ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_VIETNAM_TIME_REQ_FB				= (NET_MSG_GCTRL + 1452),	// ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_VIETNAM_GAIN_EXP				= (NET_MSG_GCTRL + 1453),	// ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡
+	NET_MSG_VIETNAM_GAIN_MONEY				= (NET_MSG_GCTRL + 1454),	// ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	NET_MSG_GCTRL_REQ_VNGAIN_TO_HOLD		= (NET_MSG_GCTRL + 1455),   //<	Å½ï¿½Ð¹ï¿½ï¿½ï¿½ ï¿½Î¹ê¿¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ãµï¿½.
+	NET_MSG_GCTRL_REQ_VNGAIN_EX_HOLD		= (NET_MSG_GCTRL + 1456),	//<	Å½ï¿½Ð¹ï¿½ï¿½ï¿½ ï¿½Î¹ê¿¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ãµï¿½.
+	NET_MSG_GCTRL_REQ_HOLD_TO_VNGAIN		= (NET_MSG_GCTRL + 1457),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å½ï¿½Ð¹ï¿½ï¿½ï¿½ ï¿½Î¹ê¿¡ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_REQ_VNGAIN_INVEN_RESET	= (NET_MSG_GCTRL + 1458),	//< Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¹ï¿½ ï¿½ï¿½Ã¼ ï¿½Ê±ï¿½È­
+	NET_MSG_GCTRL_REQ_VNINVEN_TO_INVEN      = (NET_MSG_GCTRL + 1459),	//< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¹ê¿¡ï¿½ï¿½ ï¿½Î¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±æ¶§
+	NET_MSG_GCTRL_REQ_VNINVEN_TO_INVEN_FB   = (NET_MSG_GCTRL + 1460),	//< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¹ê¿¡ï¿½ï¿½ ï¿½Î¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±æ¶§
+	NET_MSG_GCTRL_INVEN_VIETNAM_INVENGET	= (NET_MSG_GCTRL + 1461),	//<	ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_INVEN_VIETNAM_EXPGET_FB	= (NET_MSG_GCTRL + 1462),	//<	ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_INVEN_VIETNAM_ITEMGET_FB	= (NET_MSG_GCTRL + 1463),	//<	ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_INVEN_VIETNAM_ITEMGETNUM_UPDATE = (NET_MSG_GCTRL + 1464),	//<	ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ 
+	NET_MSG_VIETNAM_ALLINITTIME				= (NET_MSG_GCTRL + 1465),	//<	ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ 12ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	NET_MSG_GCTRL_INVEN_GENDER_CHANGE		= (NET_MSG_GCTRL + 1466),	// ¼ºº° º¯°æ
-	NET_MSG_GCTRL_INVEN_GENDER_CHANGE_FB	= (NET_MSG_GCTRL + 1467),	// ¼ºº° º¯°æ
+	NET_MSG_GCTRL_INVEN_GENDER_CHANGE		= (NET_MSG_GCTRL + 1466),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_INVEN_GENDER_CHANGE_FB	= (NET_MSG_GCTRL + 1467),	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_MARKET_CHECKTIME				= (NET_MSG_GCTRL + 1468),	// »óÁ¡ÀÌ ¿­·ÁÀÖÀ» ¶§ 10ºÐ¸¶´Ù ¸Þ½ÃÁö¸¦ º¸³» Æ¨±è Çö»óÀ» ¹æÁöÇÑ´Ù.
+	NET_MSG_MARKET_CHECKTIME				= (NET_MSG_GCTRL + 1468),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 10ï¿½Ð¸ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Æ¨ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 
-	NET_MSG_CHAT_CTRL_FB					= (NET_MSG_GCTRL + 1469), //< °ü¸®ÀÚ¿ë Ã¤ÆÃ¸Þ½ÃÁö Á¤ÀÇ ( °ÔÀÓ¼­¹ö->Å¬¶óÀÌ¾ðÆ® )
+	NET_MSG_CHAT_CTRL_FB					= (NET_MSG_GCTRL + 1469), //< ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ Ã¤ï¿½Ã¸Þ½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® )
 
-	NET_NON_REBIRTH_REQ						= (NET_MSG_GCTRL + 1470), //< ºÎÈ° ½ºÅ³ ±ÝÁö »ç¿ë ¿©ºÎ
+	NET_NON_REBIRTH_REQ						= (NET_MSG_GCTRL + 1470), //< ï¿½ï¿½È° ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_REQ_SKILL_REVIVEL_FAILED		= (NET_MSG_GCTRL + 1471), //< ºÎÈ° ½ºÅ³ ±ÝÁö µÇ¾úÀ» °æ¿ì ´ç»çÀÚ¿¡°Ô ¸Þ½ÃÁö¸¦ º¸³½´Ù.
+	NET_MSG_REQ_SKILL_REVIVEL_FAILED		= (NET_MSG_GCTRL + 1471), //< ï¿½ï¿½È° ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
-	NET_QBOX_OPTION_REQ_AG					= (NET_MSG_GCTRL + 1472), //< QBox On/Off ¿É¼Ç ¸¶½ºÅÍ -> ¿¡ÀÌÀüÆ® ¼­¹ö
-	NET_QBOX_OPTION_REQ_FLD					= (NET_MSG_GCTRL + 1473), //< QBox On/Off ¿É¼Ç ¿¡ÀÌÀüÆ® ¼­¹ö -> ÇÊµå¼­¹ö
-	NET_QBOX_OPTION_MEMBER					= (NET_MSG_GCTRL + 1474), //< QBox On/Off ¿É¼Ç ÇÊµå ¼­¹ö -> ¸â¹ö¿¡°Ô..
+	NET_QBOX_OPTION_REQ_AG					= (NET_MSG_GCTRL + 1472), //< QBox On/Off ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	NET_QBOX_OPTION_REQ_FLD					= (NET_MSG_GCTRL + 1473), //< QBox On/Off ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ -> ï¿½Êµå¼­ï¿½ï¿½
+	NET_QBOX_OPTION_MEMBER					= (NET_MSG_GCTRL + 1474), //< QBox On/Off ï¿½É¼ï¿½ ï¿½Êµï¿½ ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½..
 
-	NET_MSG_UPDATE_TRACING_ALL				= (NET_MSG_GCTRL + 1475), //< ÃßÀûÇÒ Ä³¸¯ÅÍ¸¦ ÀüºÎ ¾÷µ¥ÀÌÆ®ÇÑ´Ù.
-	NET_MSG_UPDATE_TRACING_CHARACTER		= (NET_MSG_GCTRL + 1476), //< ÃßÀûÇÒ Ä³¸¯ÅÍ¸¦ Æ¯Á¤ Ä³¸¯ÅÍ¸¸ ¾÷µ¥ÀÌÆ®ÇÑ´Ù.
-	NET_MSG_LOG_UPDATE_TRACING_CHARACTER	= (NET_MSG_GCTRL + 1477), //< // ÃßÀûÁßÀÎ À¯ÀúÀÇ ·Î±×¸¦ agent¼­¹ö¿¡ º¸³½´Ù.
+	NET_MSG_UPDATE_TRACING_ALL				= (NET_MSG_GCTRL + 1475), //< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ñ´ï¿½.
+	NET_MSG_UPDATE_TRACING_CHARACTER		= (NET_MSG_GCTRL + 1476), //< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ Æ¯ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ñ´ï¿½.
+	NET_MSG_LOG_UPDATE_TRACING_CHARACTER	= (NET_MSG_GCTRL + 1477), //< // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¸ï¿½ agentï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_TRACING_CHARACTER				= (NET_MSG_GCTRL + 1478), //< ÇÊµå->Å¬¶óÀÌ¾ðÆ® ÃßÀû À¯ÀúÀÎÁö ¾Æ´ÑÁö¸¦ º¸³½´Ù.
+	NET_MSG_TRACING_CHARACTER				= (NET_MSG_GCTRL + 1478), //< ï¿½Êµï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_REQ_TELEPORT				= (NET_MSG_GCTRL + 1479),	//<	¼ÒÈ¯¼­ ¾ÆÀÌÅÛ »ç¿ë ¿äÃ».
-	NET_MSG_GCTRL_REQ_TELEPORT_FB			= (NET_MSG_GCTRL + 1480),	//<	¼ÒÈ¯¼­ ¾ÆÀÌÅÛ »ç¿ë ÀÀ´ä.
-	NET_MSG_GCTRL_REQ_TELEPORT_AG			= (NET_MSG_GCTRL + 1481),	//<	¼ÒÈ¯¼­ ¿¡ÀÌÁ¯Æ® ¼­¹ö¿¡ ¿äÃ».
+	NET_MSG_GCTRL_REQ_TELEPORT				= (NET_MSG_GCTRL + 1479),	//<	ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_REQ_TELEPORT_FB			= (NET_MSG_GCTRL + 1480),	//<	ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_REQ_TELEPORT_AG			= (NET_MSG_GCTRL + 1481),	//<	ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
 
-	NET_MSG_GCTRL_GETEXP_RECOVERY			= (NET_MSG_GCTRL + 1482),	// °æÇèÄ¡ È¸º¹ µ¥ÀÌÅÍ ¿äÃ»
-	NET_MSG_GCTRL_GETEXP_RECOVERY_FB		= (NET_MSG_GCTRL + 1483),	// °æÇèÄ¡ È¸º¹ µ¥ÀÌÅÍ ¿äÃ» FB
-	NET_MSG_GCTRL_RECOVERY					= (NET_MSG_GCTRL + 1484),	// °æÇèÄ¡ È¸º¹ »ç¿ë
-	NET_MSG_GCTRL_RECOVERY_FB				= (NET_MSG_GCTRL + 1485),	// °æÇèÄ¡ È¸º¹ »ç¿ë FB
-	NET_MSG_GCTRL_GETEXP_RECOVERY_NPC		= (NET_MSG_GCTRL + 1486),	// °æÇèÄ¡ È¸º¹ µ¥ÀÌÅÍ ¿äÃ» (NPC)
-	NET_MSG_GCTRL_GETEXP_RECOVERY_NPC_FB	= (NET_MSG_GCTRL + 1487),	// °æÇèÄ¡ È¸º¹ µ¥ÀÌÅÍ ¿äÃ» FB (NPC)
-	NET_MSG_GCTRL_RECOVERY_NPC				= (NET_MSG_GCTRL + 1488),	// °æÇèÄ¡ È¸º¹ »ç¿ë (NPC)
-	NET_MSG_GCTRL_RECOVERY_NPC_FB			= (NET_MSG_GCTRL + 1489),	// °æÇèÄ¡ È¸º¹ »ç¿ë FB (NPC)
-	NET_MSG_GCTRL_QUEST_PROG_LEAVEMAP		= (NET_MSG_GCTRL + 1490),	//<	Äù½ºÆ® ¸ÊÀÌµ¿ Á¦ÇÑ.
-	NET_MSG_GM_CLASS_EVENT					= (NET_MSG_GCTRL + 1491),	//<	Å¬·¡½ºº° ÀÌº¥Æ®
+	NET_MSG_GCTRL_GETEXP_RECOVERY			= (NET_MSG_GCTRL + 1482),	// ï¿½ï¿½ï¿½ï¿½Ä¡ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_GCTRL_GETEXP_RECOVERY_FB		= (NET_MSG_GCTRL + 1483),	// ï¿½ï¿½ï¿½ï¿½Ä¡ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB
+	NET_MSG_GCTRL_RECOVERY					= (NET_MSG_GCTRL + 1484),	// ï¿½ï¿½ï¿½ï¿½Ä¡ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_RECOVERY_FB				= (NET_MSG_GCTRL + 1485),	// ï¿½ï¿½ï¿½ï¿½Ä¡ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ FB
+	NET_MSG_GCTRL_GETEXP_RECOVERY_NPC		= (NET_MSG_GCTRL + 1486),	// ï¿½ï¿½ï¿½ï¿½Ä¡ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» (NPC)
+	NET_MSG_GCTRL_GETEXP_RECOVERY_NPC_FB	= (NET_MSG_GCTRL + 1487),	// ï¿½ï¿½ï¿½ï¿½Ä¡ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB (NPC)
+	NET_MSG_GCTRL_RECOVERY_NPC				= (NET_MSG_GCTRL + 1488),	// ï¿½ï¿½ï¿½ï¿½Ä¡ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ (NPC)
+	NET_MSG_GCTRL_RECOVERY_NPC_FB			= (NET_MSG_GCTRL + 1489),	// ï¿½ï¿½ï¿½ï¿½Ä¡ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ FB (NPC)
+	NET_MSG_GCTRL_QUEST_PROG_LEAVEMAP		= (NET_MSG_GCTRL + 1490),	//<	ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GM_CLASS_EVENT					= (NET_MSG_GCTRL + 1491),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 
-	NET_MSG_VIETNAM_TIME_RESET				= (NET_MSG_GCTRL + 1492),	// º£Æ®³² ½Ã°£ ¸®¼Â //vietnamtest%%% && vietnamtest2
+	NET_MSG_VIETNAM_TIME_RESET				= (NET_MSG_GCTRL + 1492),	// ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ //vietnamtest%%% && vietnamtest2
 
 	NET_MSG_GCTRL_ITEMSHOPOPEN				= (NET_MSG_GCTRL + 1493),	//<	ItemShopOpen ( Japan ) 
 	NET_MSG_GCTRL_ITEMSHOPOPEN_BRD			= (NET_MSG_GCTRL + 1494),	//<	ItemShopOpen ( Japan ) 
 
-	NET_MSG_GM_VIEWWORKEVENT			    = (NET_MSG_GCTRL + 1495),	//< ÇöÀç agent¼­¹ö¿¡ Àû¿ëµÈ ¸ðµç ÀÌº¥Æ® º¸±â
-	NET_MSG_GM_VIEWWORKEVENT_FB			    = (NET_MSG_GCTRL + 1496),	//< ÇöÀç agent¼­¹ö¿¡ Àû¿ëµÈ ¸ðµç ÀÌº¥Æ® º¸±â È¸½Å
+	NET_MSG_GM_VIEWWORKEVENT			    = (NET_MSG_GCTRL + 1495),	//< ï¿½ï¿½ï¿½ï¿½ agentï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GM_VIEWWORKEVENT_FB			    = (NET_MSG_GCTRL + 1496),	//< ï¿½ï¿½ï¿½ï¿½ agentï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
 
-	NET_MSG_PET_PETSKINPACKOPEN				= (NET_MSG_GCTRL + 1497),	//< Æê ½ºÅ² ÆÑ ¾ÆÀÌÅÛ »ç¿ë
-	NET_MSG_PET_PETSKINPACKOPEN_FB			= (NET_MSG_GCTRL + 1498),	//< Æê ½ºÅ² ÆÑ ¾ÆÀÌÅÛ »ç¿ë
-	NET_MSG_PET_PETSKINPACKOPEN_BRD			= (NET_MSG_GCTRL + 1499),	//< Æê ½ºÅ² ÆÑ ¾ÆÀÌÅÛ »ç¿ë
+	NET_MSG_PET_PETSKINPACKOPEN				= (NET_MSG_GCTRL + 1497),	//< ï¿½ï¿½ ï¿½ï¿½Å² ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	NET_MSG_PET_PETSKINPACKOPEN_FB			= (NET_MSG_GCTRL + 1498),	//< ï¿½ï¿½ ï¿½ï¿½Å² ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	NET_MSG_PET_PETSKINPACKOPEN_BRD			= (NET_MSG_GCTRL + 1499),	//< ï¿½ï¿½ ï¿½ï¿½Å² ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-	NET_MSG_GCTRL_PMARKET_SEARCH_ITEM		= (NET_MSG_GCTRL + 1500),	//< °³ÀÎ»óÁ¡ÀÇ ¾ÆÀÌÅÛ °Ë»ö
-	NET_MSG_GCTRL_PMARKET_SEARCH_ITEM_RESULT = (NET_MSG_GCTRL + 1501),	//< °³ÀÎ»óÁ¡ÀÇ ¾ÆÀÌÅÛ °Ë»ö °á°ú
-	NET_MSG_GCTRL_PMARKET_SEARCH_ITEM_RESULT_REQ = (NET_MSG_GCTRL + 1502),	//< °³ÀÎ»óÁ¡ÀÇ ¾ÆÀÌÅÛ °Ë»ö °á°ú ¿äÃ»
+	NET_MSG_GCTRL_PMARKET_SEARCH_ITEM		= (NET_MSG_GCTRL + 1500),	//< ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
+	NET_MSG_GCTRL_PMARKET_SEARCH_ITEM_RESULT = (NET_MSG_GCTRL + 1501),	//< ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_PMARKET_SEARCH_ITEM_RESULT_REQ = (NET_MSG_GCTRL + 1502),	//< ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 	
-	NET_MSG_GCTRL_DEFENSE_SKILL_ACTIVE		= (NET_MSG_GCTRL + 1503),	//< ÇÇ°Ý½Ã ½ºÅ³ ¹ßµ¿
+	NET_MSG_GCTRL_DEFENSE_SKILL_ACTIVE		= (NET_MSG_GCTRL + 1503),	//< ï¿½Ç°Ý½ï¿½ ï¿½ï¿½Å³ ï¿½ßµï¿½
 	
-	NET_MSG_REQ_ATTENDLIST					= (NET_MSG_GCTRL + 1504),	//< Ãâ¼®Á¤º¸ ¸®½ºÆ® ¿äÃ»
-	NET_MSG_REQ_ATTENDLIST_FB				= (NET_MSG_GCTRL + 1505),	//< Ãâ¼®Á¤º¸ ¸®½ºÆ® °á°ú
-	NET_MSG_REQ_ATTENDANCE					= (NET_MSG_GCTRL + 1506),	//< Ãâ¼® Ã¼Å©
-	NET_MSG_REQ_ATTENDANCE_FB				= (NET_MSG_GCTRL + 1507),	//< Ãâ¼® Ã¼Å© ´äº¯
-	NET_MSG_REQ_ATTEND_REWARD_FLD			= (NET_MSG_GCTRL + 1508),	//< Ãâ¼® Ã¼Å© ÀÌº¥Æ® ¾ÆÀÌÅÛ Áö±Þ ( ÇÊµå¿ë )
-	NET_MSG_REQ_ATTEND_REWARD_CLT			= (NET_MSG_GCTRL + 1509),	//< Ãâ¼® Ã¼Å© ÀÌº¥Æ® ¾ÆÀÌÅÛ Áö±Þ ( Å¬¶ó¿ë )
+	NET_MSG_REQ_ATTENDLIST					= (NET_MSG_GCTRL + 1504),	//< ï¿½â¼®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã»
+	NET_MSG_REQ_ATTENDLIST_FB				= (NET_MSG_GCTRL + 1505),	//< ï¿½â¼®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
+	NET_MSG_REQ_ATTENDANCE					= (NET_MSG_GCTRL + 1506),	//< ï¿½â¼® Ã¼Å©
+	NET_MSG_REQ_ATTENDANCE_FB				= (NET_MSG_GCTRL + 1507),	//< ï¿½â¼® Ã¼Å© ï¿½äº¯
+	NET_MSG_REQ_ATTEND_REWARD_FLD			= (NET_MSG_GCTRL + 1508),	//< ï¿½â¼® Ã¼Å© ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½Êµï¿½ï¿½ )
+	NET_MSG_REQ_ATTEND_REWARD_CLT			= (NET_MSG_GCTRL + 1509),	//< ï¿½â¼® Ã¼Å© ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( Å¬ï¿½ï¿½ï¿½ )
 
-	NET_MSG_REQ_USE_SUMMON					= (NET_MSG_GCTRL + 1510),	//< ¼ÒÈ¯À» ¿äÃ»
-	NET_MSG_REQ_USE_SUMMON_FB				= (NET_MSG_GCTRL + 1511),	//< ¼ÒÈ¯À» ¿äÃ»
-	NET_MSG_REQ_USE_SUMMON_DEL				= (NET_MSG_GCTRL + 1512),	//< ¼ÒÈ¯¼ö¸¦ Áö¿ò
-	NET_MSG_SUMMON_REQ_GOTO					= (NET_MSG_GCTRL + 1513),	//< ¼ÒÈ¯¼ö ÀÌµ¿
-	NET_MSG_SUMMON_GOTO_BRD					= (NET_MSG_GCTRL + 1514),	//< ¼ÒÈ¯¼ö ÀÌµ¿	
-	NET_MSG_SUMMON_REQ_STOP					= (NET_MSG_GCTRL + 1515),	//< ¼ÒÈ¯¼ö ¸ØÃã
-	NET_MSG_SUMMON_REQ_STOP_BRD				= (NET_MSG_GCTRL + 1516),	//< ¼ÒÈ¯¼ö ¸ØÃã
-	NET_MSG_SUMMON_REQ_UPDATE_MOVE_STATE_BRD = (NET_MSG_GCTRL + 1517),	//< ¼ÒÈ¯¼ö ÀÌµ¿»óÅÂ ¾÷µ¥ÀÌÆ®
-	NET_MSG_SUMMON_REQ_UPDATE_MOVE_STATE	= (NET_MSG_GCTRL + 1518),	//< ¼ÒÈ¯¼ö ÀÌµ¿»óÅÂ ¾÷µ¥ÀÌÆ®
-	NET_MSG_CREATE_ANYSUMMON				= (NET_MSG_GCTRL + 1519),	//< ´Ù¸¥ Å¬¶óÀÇ ¼ÒÈ¯¼ö »ý¼º
-	NET_MSG_DROP_ANYSUMMON					= (NET_MSG_GCTRL + 1520),	//< ´Ù¸¥ Å¬¶óÀÇ ¼ÒÈ¯¼ö »èÁ¦
-	NET_MSG_SUMMON_ATTACK					= (NET_MSG_GCTRL + 1521),	//< ¼ÒÈ¯¼ö °ø°Ý
-	NET_MSG_SUMMON_ATTACK_BRD				= (NET_MSG_GCTRL + 1522),	//< ¼ÒÈ¯¼ö °ø°Ý
-	NET_MSG_GCTRL_SUMMON_ATTACK_AVOID		= (NET_MSG_GCTRL + 1523),	//< ¼ÒÈ¯¼ö °ø°Ý È¸ÇÇ
-	NET_MSG_GCTRL_SUMMON_ATTACK_DAMAGE		= (NET_MSG_GCTRL + 1524),	//< ¼ÒÈ¯¼ö °ø°Ý µ¥¹ÌÁö
-	NET_MSG_SUMMON_REQ_SLOT_EX_HOLD			= (NET_MSG_GCTRL + 1525),	//< ¼ÒÈ¯¼ö Æ÷¼Ç, ½½·Ô¿¡¼­ ¼ÕÀ¸·Î.
-	NET_MSG_SUMMON_REQ_SLOT_EX_HOLD_FB		= (NET_MSG_GCTRL + 1526),	//< ¼ÒÈ¯¼ö Æ÷¼Ç, ½½·Ô¿¡¼­ ¼ÕÀ¸·Î.
-	NET_MSG_SUMMON_REQ_HOLD_TO_SLOT			= (NET_MSG_GCTRL + 1527),	//< ¼ÒÈ¯¼ö Æ÷¼Ç, ¼Õ¿¡¼­ ½½·ÔÀ¸·Î.
-	NET_MSG_SUMMON_REQ_HOLD_TO_SLOT_FB		= (NET_MSG_GCTRL + 1528),	//< ¼ÒÈ¯¼ö Æ÷¼Ç, ¼Õ¿¡¼­ ½½·ÔÀ¸·Î.
-	NET_MSG_SUMMON_REMOVE_SLOTITEM			= (NET_MSG_GCTRL + 1529),	//< ¼ÒÈ¯¼ö Æ÷¼Ç Á¦°Å
-	NET_MSG_SUMMON_REMOVE_SLOTITEM_FB		= (NET_MSG_GCTRL + 1530),	//< ¼ÒÈ¯¼ö Æ÷¼Ç Á¦°Å
-	NET_MSG_SUMMON_UPDATE_HP				= (NET_MSG_GCTRL + 1531),	//< ¼ÒÈ¯¼ö HP ¾÷µ¥ÀÌÆ®(È¸º¹)
-	NET_MSG_SUMMON_UPDATE_HP_BRD			= (NET_MSG_GCTRL + 1532),	//< ¼ÒÈ¯¼ö HP ¾÷µ¥ÀÌÆ®(È¸º¹)
+	NET_MSG_REQ_USE_SUMMON					= (NET_MSG_GCTRL + 1510),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_REQ_USE_SUMMON_FB				= (NET_MSG_GCTRL + 1511),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_REQ_USE_SUMMON_DEL				= (NET_MSG_GCTRL + 1512),	//< ï¿½ï¿½È¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_SUMMON_REQ_GOTO					= (NET_MSG_GCTRL + 1513),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½Ìµï¿½
+	NET_MSG_SUMMON_GOTO_BRD					= (NET_MSG_GCTRL + 1514),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½Ìµï¿½	
+	NET_MSG_SUMMON_REQ_STOP					= (NET_MSG_GCTRL + 1515),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_SUMMON_REQ_STOP_BRD				= (NET_MSG_GCTRL + 1516),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_SUMMON_REQ_UPDATE_MOVE_STATE_BRD = (NET_MSG_GCTRL + 1517),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+	NET_MSG_SUMMON_REQ_UPDATE_MOVE_STATE	= (NET_MSG_GCTRL + 1518),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+	NET_MSG_CREATE_ANYSUMMON				= (NET_MSG_GCTRL + 1519),	//< ï¿½Ù¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_DROP_ANYSUMMON					= (NET_MSG_GCTRL + 1520),	//< ï¿½Ù¸ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_SUMMON_ATTACK					= (NET_MSG_GCTRL + 1521),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_SUMMON_ATTACK_BRD				= (NET_MSG_GCTRL + 1522),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_SUMMON_ATTACK_AVOID		= (NET_MSG_GCTRL + 1523),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
+	NET_MSG_GCTRL_SUMMON_ATTACK_DAMAGE		= (NET_MSG_GCTRL + 1524),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_SUMMON_REQ_SLOT_EX_HOLD			= (NET_MSG_GCTRL + 1525),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_SUMMON_REQ_SLOT_EX_HOLD_FB		= (NET_MSG_GCTRL + 1526),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_SUMMON_REQ_HOLD_TO_SLOT			= (NET_MSG_GCTRL + 1527),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Õ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_SUMMON_REQ_HOLD_TO_SLOT_FB		= (NET_MSG_GCTRL + 1528),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½Õ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_SUMMON_REMOVE_SLOTITEM			= (NET_MSG_GCTRL + 1529),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_SUMMON_REMOVE_SLOTITEM_FB		= (NET_MSG_GCTRL + 1530),	//< ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_SUMMON_UPDATE_HP				= (NET_MSG_GCTRL + 1531),	//< ï¿½ï¿½È¯ï¿½ï¿½ HP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®(È¸ï¿½ï¿½)
+	NET_MSG_SUMMON_UPDATE_HP_BRD			= (NET_MSG_GCTRL + 1532),	//< ï¿½ï¿½È¯ï¿½ï¿½ HP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®(È¸ï¿½ï¿½)
 
-	NET_MSG_GCTRL_INVEN_FACESTYLE_CHANGE	= (NET_MSG_GCTRL + 1541),	//< ¾ó±¼ ½ºÅ¸ÀÏ º¯°æ ¿äÃ»
-	NET_MSG_GCTRL_INVEN_FACESTYLE_CHANGE_FB	= (NET_MSG_GCTRL + 1542),	//< ¾ó±¼ ½ºÅ¸ÀÏ º¯°æ °á°ú
-	NET_MSG_GCTRL_INVEN_FACESTYLE_CHANGE_BRD= (NET_MSG_GCTRL + 1543),	//< ¾ó±¼ ½ºÅ¸ÀÏ º¯°æ °á°ú
+	NET_MSG_GCTRL_INVEN_FACESTYLE_CHANGE	= (NET_MSG_GCTRL + 1541),	//< ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_GCTRL_INVEN_FACESTYLE_CHANGE_FB	= (NET_MSG_GCTRL + 1542),	//< ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_INVEN_FACESTYLE_CHANGE_BRD= (NET_MSG_GCTRL + 1543),	//< ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-	NET_MSG_REQ_MUST_LEAVE_MAP		= (NET_MSG_GCTRL + 1544),	//< ·¹º§¾÷½Ã Á¶°ÇÀÌ ¸ÂÁö¾Ê¾Æ ¸ÊÀ» ¶°³ª¾ß ÇÒ ¶§
-	NET_MSG_REQ_MUST_LEAVE_MAP_FB	= (NET_MSG_GCTRL + 1545),	//< ·¹º§¾÷½Ã Á¶°ÇÀÌ ¸ÂÁö¾Ê¾Æ ¸ÊÀ» ¶°³ª¾ß ÇÒ ¶§
-	NET_MSG_REQ_MUST_LEAVE_MAP_AG	= (NET_MSG_GCTRL + 1546),	//< ·¹º§¾÷½Ã Á¶°ÇÀÌ ¸ÂÁö¾Ê¾Æ ¸ÊÀ» ¶°³ª¾ß ÇÒ ¶§
+	NET_MSG_REQ_MUST_LEAVE_MAP		= (NET_MSG_GCTRL + 1544),	//< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+	NET_MSG_REQ_MUST_LEAVE_MAP_FB	= (NET_MSG_GCTRL + 1545),	//< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+	NET_MSG_REQ_MUST_LEAVE_MAP_AG	= (NET_MSG_GCTRL + 1546),	//< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
 
-	NET_MSG_CYBERCAFECLASS_UPDATE			= (NET_MSG_GCTRL + 1547),	//< ÅÂ±¹ »çÀÌ¹ö Ä«Æä µî±Þ ¾÷µ¥ÀÌÆ®
+	NET_MSG_CYBERCAFECLASS_UPDATE			= (NET_MSG_GCTRL + 1547),	//< ï¿½Â±ï¿½ ï¿½ï¿½ï¿½Ì¹ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 	
-	NET_MSG_GCTRL_REQ_TAXI					= (NET_MSG_GCTRL + 1548),	//< ÅÃ½Ã Å¾½Â ¿äÃ»
-	NET_MSG_GCTRL_REQ_TAXI_FB				= (NET_MSG_GCTRL + 1549),	//< ÅÃ½Ã Å¾½Â ¿äÃ» °á°ú
-	NET_MSG_GCTRL_REQ_TAXI_NPCPOS			= (NET_MSG_GCTRL + 1550),	//< ÅÃ½Ã Å¾½Â½Ã NPCÁÂÇ¥ ¿äÃ»
-	NET_MSG_GCTRL_REQ_TAXI_NPCPOS_FB		= (NET_MSG_GCTRL + 1551),	//< ÅÃ½Ã Å¾½Â½Ã NPCÁÂÇ¥ ¿äÃ» °á°ú
+	NET_MSG_GCTRL_REQ_TAXI					= (NET_MSG_GCTRL + 1548),	//< ï¿½Ã½ï¿½ Å¾ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_GCTRL_REQ_TAXI_FB				= (NET_MSG_GCTRL + 1549),	//< ï¿½Ã½ï¿½ Å¾ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_REQ_TAXI_NPCPOS			= (NET_MSG_GCTRL + 1550),	//< ï¿½Ã½ï¿½ Å¾ï¿½Â½ï¿½ NPCï¿½ï¿½Ç¥ ï¿½ï¿½Ã»
+	NET_MSG_GCTRL_REQ_TAXI_NPCPOS_FB		= (NET_MSG_GCTRL + 1551),	//< ï¿½Ã½ï¿½ Å¾ï¿½Â½ï¿½ NPCï¿½ï¿½Ç¥ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½
 	
-	NET_MSG_GCTRL_ETNRY_FAILED				= (NET_MSG_GCTRL + 1552),	//< ÁøÀÔ ½ÇÆÐ½Ã ¸Þ½ÃÁö
+	NET_MSG_GCTRL_ETNRY_FAILED				= (NET_MSG_GCTRL + 1552),	//< ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 	
-	NET_MSG_GCTRL_ITEM_COOLTIME_UPDATE		= (NET_MSG_GCTRL + 1553),	//< ÄðÅ¸ÀÓ ¾÷µ¥ÀÌÆ®
-	NET_MSG_GCTRL_ITEM_COOLTIME_ERROR		= (NET_MSG_GCTRL + 1554),	//< ÄðÅ¸ÀÓ¿¡ °É·Á¼­ »ç¿ë¸øÇÔ
+	NET_MSG_GCTRL_ITEM_COOLTIME_UPDATE		= (NET_MSG_GCTRL + 1553),	//< ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+	NET_MSG_GCTRL_ITEM_COOLTIME_ERROR		= (NET_MSG_GCTRL + 1554),	//< ï¿½ï¿½Å¸ï¿½Ó¿ï¿½ ï¿½É·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_GCTRL_NPC_RECALL				= (NET_MSG_GCTRL + 1555),	//< NPC È£Ãâ.
-	NET_MSG_GCTRL_NPC_RECALL_FB				= (NET_MSG_GCTRL + 1556),	//< NPC È£Ãâ °á°ú.
+	NET_MSG_GCTRL_NPC_RECALL				= (NET_MSG_GCTRL + 1555),	//< NPC È£ï¿½ï¿½.
+	NET_MSG_GCTRL_NPC_RECALL_FB				= (NET_MSG_GCTRL + 1556),	//< NPC È£ï¿½ï¿½ ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_NPC_COMMISSION			= (NET_MSG_GCTRL + 1557),	//< NPC È£Ãâ COMMISION ¾÷µ¥ÀÌÆ® ¿äÃ» ( Field->Agent ) 
-	NET_MSG_GCTRL_NPC_COMMISSION_FB			= (NET_MSG_GCTRL + 1558),	//< NPC È£Ãâ COMMISION °á°ú ( Agent -> Field ) 
+	NET_MSG_GCTRL_NPC_COMMISSION			= (NET_MSG_GCTRL + 1557),	//< NPC È£ï¿½ï¿½ COMMISION ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½Ã» ( Field->Agent ) 
+	NET_MSG_GCTRL_NPC_COMMISSION_FB			= (NET_MSG_GCTRL + 1558),	//< NPC È£ï¿½ï¿½ COMMISION ï¿½ï¿½ï¿½ ( Agent -> Field ) 
 
-	NET_MSG_GCTRL_CREATE_INSTANT_MAP_FLD	= (NET_MSG_GCTRL + 1559),	//< ÀÎ½ºÅÏ½º ´øÁ¯ »ý¼º AGENT -> FIELD
-	NET_MSG_GCTRL_CREATE_INSTANT_MAP_FB		= (NET_MSG_GCTRL + 1560),	//< ÀÎ½ºÅÏ½º ´øÁ¯ »ý¼º ¿äÃ» ÇÇµå¹é
-	NET_MSG_GCTRL_CREATE_INSTANT_MAP_REQ	= (NET_MSG_GCTRL + 1561),	//< ÀÎ½ºÅÏ½º ´øÁ¯ ¿äÃ» CLIENT -> FIELD -> AGENT
-	NET_MSG_GCTRL_CREATE_INSTANT_MAP_DEL	= (NET_MSG_GCTRL + 1562),	//< ÀÎ½ºÅÏ½º ´øÁ¯ »èÁ¦ 
+	NET_MSG_GCTRL_CREATE_INSTANT_MAP_FLD	= (NET_MSG_GCTRL + 1559),	//< ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ AGENT -> FIELD
+	NET_MSG_GCTRL_CREATE_INSTANT_MAP_FB		= (NET_MSG_GCTRL + 1560),	//< ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½Çµï¿½ï¿½
+	NET_MSG_GCTRL_CREATE_INSTANT_MAP_REQ	= (NET_MSG_GCTRL + 1561),	//< ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» CLIENT -> FIELD -> AGENT
+	NET_MSG_GCTRL_CREATE_INSTANT_MAP_DEL	= (NET_MSG_GCTRL + 1562),	//< ï¿½Î½ï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 
-	NET_MSG_GM_SHOP_INFO_REQ				= (NET_MSG_GCTRL + 1563),	//< »óÁ¡ÀÇ Á¤º¸ ¿äÃ»(GM¸í·É¾î)
-	NET_MSG_GM_SHOP_INFO_FB					= (NET_MSG_GCTRL + 1564),	//< »óÁ¡ÀÇ Á¤º¸ ÀÀ´ä(GM¸í·É¾î)
+	NET_MSG_GM_SHOP_INFO_REQ				= (NET_MSG_GCTRL + 1563),	//< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»(GMï¿½ï¿½ï¿½É¾ï¿½)
+	NET_MSG_GM_SHOP_INFO_FB					= (NET_MSG_GCTRL + 1564),	//< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(GMï¿½ï¿½ï¿½É¾ï¿½)
 
-	NET_MSG_GCTRL_INVEN_ITEM_MIX			= (NET_MSG_GCTRL + 1565),	//< ¾ÆÀÌÅÛ Á¶ÇÕ ¿äÃ»
-	NET_MSG_GCTRL_INVEN_ITEM_MIX_FB			= (NET_MSG_GCTRL + 1566),	//< ¾ÆÀÌÅÛ Á¶ÇÕ ¿äÃ» °á°ú
+	NET_MSG_GCTRL_INVEN_ITEM_MIX			= (NET_MSG_GCTRL + 1565),	//< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_GCTRL_INVEN_ITEM_MIX_FB			= (NET_MSG_GCTRL + 1566),	//< ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½
 
-	NET_MSG_GCTRL_LIMITTIME_OVER			= (NET_MSG_GCTRL + 1567),	//< ÁøÀÔ ½ÇÆÐ½Ã ¸Þ½ÃÁö
+	NET_MSG_GCTRL_LIMITTIME_OVER			= (NET_MSG_GCTRL + 1567),	//< ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 
-	NET_MSG_GCTRL_SERVER_LOGINMAINTENANCE_SESSION	= (NET_MSG_GCTRL + 1568),	// ¼¼¼ÇÀ¸·Î LoginMaintenance Á¤º¸ On/Off
-	NET_MSG_GCTRL_SERVER_LOGINMAINTENANCE_LOGIN		= (NET_MSG_GCTRL + 1569),	// ·Î±×ÀÎÀ¸·Î LoginMaintenance Á¤º¸ On/Off
+	NET_MSG_GCTRL_SERVER_LOGINMAINTENANCE_SESSION	= (NET_MSG_GCTRL + 1568),	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ LoginMaintenance ï¿½ï¿½ï¿½ï¿½ On/Off
+	NET_MSG_GCTRL_SERVER_LOGINMAINTENANCE_LOGIN		= (NET_MSG_GCTRL + 1569),	// ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ LoginMaintenance ï¿½ï¿½ï¿½ï¿½ On/Off
 	
-	NET_MSG_REQ_GATHERING					= (NET_MSG_GCTRL + 1570),	//< Ã¤Áý ¿äÃ»
-	NET_MSG_REQ_GATHERING_FB				= (NET_MSG_GCTRL + 1571),	//< Ã¤Áý ¿äÃ» °á°ú
-	NET_MSG_REQ_GATHERING_BRD				= (NET_MSG_GCTRL + 1572),	//< Ã¤Áý ¿äÃ» °á°ú
-	NET_MSG_REQ_GATHERING_RESULT			= (NET_MSG_GCTRL + 1573),	//< Ã¤Áý °á°ú
-	NET_MSG_REQ_GATHERING_RESULT_BRD		= (NET_MSG_GCTRL + 1574),	//< Ã¤Áý °á°ú
-	NET_MSG_REQ_GATHERING_CANCEL			= (NET_MSG_GCTRL + 1575),	//< Ã¤ÁýÁß ÁßÁö
-	NET_MSG_REQ_GATHERING_CANCEL_BRD		= (NET_MSG_GCTRL + 1576),	//< Ã¤ÁýÁß ÁßÁö
+	NET_MSG_REQ_GATHERING					= (NET_MSG_GCTRL + 1570),	//< Ã¤ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_REQ_GATHERING_FB				= (NET_MSG_GCTRL + 1571),	//< Ã¤ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½
+	NET_MSG_REQ_GATHERING_BRD				= (NET_MSG_GCTRL + 1572),	//< Ã¤ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½
+	NET_MSG_REQ_GATHERING_RESULT			= (NET_MSG_GCTRL + 1573),	//< Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½
+	NET_MSG_REQ_GATHERING_RESULT_BRD		= (NET_MSG_GCTRL + 1574),	//< Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½
+	NET_MSG_REQ_GATHERING_CANCEL			= (NET_MSG_GCTRL + 1575),	//< Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_REQ_GATHERING_CANCEL_BRD		= (NET_MSG_GCTRL + 1576),	//< Ã¤ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	NET_MSG_GCTRL_CLUB_AUTHORITY_REQ		= (NET_MSG_GCTRL + 1577),	//<	Å¬·´¸¶½ºÅÍ ±ÇÇÑ À§ÀÓ
-	NET_MSG_GCTRL_CLUB_AUTHORITY_REQ_ASK	= (NET_MSG_GCTRL + 1578),	//<	Å¬·´¸¶½ºÅÍ ±ÇÇÑ À§ÀÓ Áú¹®
-	NET_MSG_GCTRL_CLUB_AUTHORITY_REQ_ANS	= (NET_MSG_GCTRL + 1579),	//<	Å¬·´¸¶½ºÅÍ ±ÇÇÑ À§ÀÓ ´äº¯
-	NET_MSG_GCTRL_CLUB_AUTHORITY_REQ_FB		= (NET_MSG_GCTRL + 1580),	//<	Å¬·´¸¶½ºÅÍ ±ÇÇÑ À§ÀÓ °á°ú
-	NET_MSG_GCTRL_CLUB_AUTHORITY_CLT		= (NET_MSG_GCTRL + 1581),	//<	Å¬·´¸¶½ºÅÍ º¯°æ ³»¿ë
-	NET_MSG_GCTRL_CLUB_AUTHORITY_BRD		= (NET_MSG_GCTRL + 1582),	//<	Å¬·´¸¶½ºÅÍ º¯°æ ³»¿ë
-	NET_MSG_GCTRL_CLUB_AUTHORITY_FLD		= (NET_MSG_GCTRL + 1583),	//<	Å¬·´¸¶½ºÅÍ º¯°æ ³»¿ë (ÇÊµå)
+	NET_MSG_GCTRL_CLUB_AUTHORITY_REQ		= (NET_MSG_GCTRL + 1577),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_CLUB_AUTHORITY_REQ_ASK	= (NET_MSG_GCTRL + 1578),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_CLUB_AUTHORITY_REQ_ANS	= (NET_MSG_GCTRL + 1579),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½äº¯
+	NET_MSG_GCTRL_CLUB_AUTHORITY_REQ_FB		= (NET_MSG_GCTRL + 1580),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_CLUB_AUTHORITY_CLT		= (NET_MSG_GCTRL + 1581),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_CLUB_AUTHORITY_BRD		= (NET_MSG_GCTRL + 1582),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	NET_MSG_GCTRL_CLUB_AUTHORITY_FLD		= (NET_MSG_GCTRL + 1583),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½Êµï¿½)
 
-	NET_MSG_GCTRL_CLUB_DEATHMATCH_REMAIN_BRD	= (NET_MSG_GCTRL + 1584),	//<	Å¬·´µ¥½º¸ÅÄ¡ ³²Àº½Ã°£.
-	NET_MSG_GCTRL_CLUB_DEATHMATCH_READY_FLD		= (NET_MSG_GCTRL + 1585),	//<	Å¬·´µ¥½º¸ÅÄ¡ ÁØºñ.
-	NET_MSG_GCTRL_CLUB_DEATHMATCH_START_FLD		= (NET_MSG_GCTRL + 1586),	//<	Å¬·´µ¥½º¸ÅÄ¡ ½ÃÀÛ.
-	NET_MSG_GCTRL_CLUB_DEATHMATCH_START_BRD		= (NET_MSG_GCTRL + 1587),	//<	Å¬·´µ¥½º¸ÅÄ¡ ½ÃÀÛ.
+	NET_MSG_GCTRL_CLUB_DEATHMATCH_REMAIN_BRD	= (NET_MSG_GCTRL + 1584),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½.
+	NET_MSG_GCTRL_CLUB_DEATHMATCH_READY_FLD		= (NET_MSG_GCTRL + 1585),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½Øºï¿½.
+	NET_MSG_GCTRL_CLUB_DEATHMATCH_START_FLD		= (NET_MSG_GCTRL + 1586),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_DEATHMATCH_START_BRD		= (NET_MSG_GCTRL + 1587),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_CLUB_DEATHMATCH_END_FLD		= (NET_MSG_GCTRL + 1588),	//<	Å¬·´µ¥½º¸ÅÄ¡ Á¾·á.
-	NET_MSG_GCTRL_CLUB_DEATHMATCH_END_BRD		= (NET_MSG_GCTRL + 1589),	//<	Å¬·´µ¥½º¸ÅÄ¡ Á¾·á.
+	NET_MSG_GCTRL_CLUB_DEATHMATCH_END_FLD		= (NET_MSG_GCTRL + 1588),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_CLUB_DEATHMATCH_END_BRD		= (NET_MSG_GCTRL + 1589),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_SERVER_CLUB_DEATHMATCH_INFO	= (NET_MSG_GCTRL + 1590),	//<	Å¬·´µ¥½º¸ÅÄ¡ Á¤º¸ Àü¼Û ( Á¢¼Ó½Ã ) 
-	NET_MSG_GCTRL_REQ_SERVER_CLUB_DEATHMATCH_REMAIN_AG	= (NET_MSG_GCTRL + 1591),	//<	Å¬·´µ¥½º¸ÅÄ¡ Á¤º¸ Àü¼Û ( Agent¿¡ ³²Àº½Ã°£ ¿äÃ» )
+	NET_MSG_GCTRL_SERVER_CLUB_DEATHMATCH_INFO	= (NET_MSG_GCTRL + 1590),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½Ó½ï¿½ ) 
+	NET_MSG_GCTRL_REQ_SERVER_CLUB_DEATHMATCH_REMAIN_AG	= (NET_MSG_GCTRL + 1591),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( Agentï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½Ã» )
 
-	NET_MSG_GCTRL_CLUB_DEATHMATCH_POINT_UPDATE		= (NET_MSG_GCTRL + 1592),	//<	Å¬·´µ¥½º¸ÅÄ¡ Kill/Death »óÈ² ( ÀÚ±â¸¸ )
-	NET_MSG_GCTRL_CLUB_DEATHMATCH_MYRANK_UPDATE		= (NET_MSG_GCTRL + 1593),	//<	Å¬·´µ¥½º¸ÅÄ¡ Kill/Death »óÈ² ( ÀÚ±â¸¸ )
-	NET_MSG_GCTRL_CLUB_DEATHMATCH_RANKING_UPDATE	= (NET_MSG_GCTRL + 1594),	//<	Å¬·´µ¥½º¸ÅÄ¡ ·©Å· »óÈ²
-	NET_MSG_GCTRL_CLUB_DEATHMATCH_RANKING_REQ		= (NET_MSG_GCTRL + 1595),	//<	Å¬·´µ¥½º¸ÅÄ¡ »óÈ² ¿äÃ»
+	NET_MSG_GCTRL_CLUB_DEATHMATCH_POINT_UPDATE		= (NET_MSG_GCTRL + 1592),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ Kill/Death ï¿½ï¿½È² ( ï¿½Ú±â¸¸ )
+	NET_MSG_GCTRL_CLUB_DEATHMATCH_MYRANK_UPDATE		= (NET_MSG_GCTRL + 1593),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ Kill/Death ï¿½ï¿½È² ( ï¿½Ú±â¸¸ )
+	NET_MSG_GCTRL_CLUB_DEATHMATCH_RANKING_UPDATE	= (NET_MSG_GCTRL + 1594),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½Å· ï¿½ï¿½È²
+	NET_MSG_GCTRL_CLUB_DEATHMATCH_RANKING_REQ		= (NET_MSG_GCTRL + 1595),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½È² ï¿½ï¿½Ã»
 
 	//add pk
 	NET_MSG_GCTRL_UPDATE_PKWIN						= (NET_MSG_GCTRL + 1596),
@@ -2142,21 +2145,21 @@ enum EMNET_MSG
 	NET_MSG_GCTRL_ROYAL_RUMBLE_MYPRANK_UPDATE	= (NET_MSG_GCTRL + 1662),
 	NET_MSG_GCTRL_ROYAL_RUMBLE_PRANKING_UPDATE	= (NET_MSG_GCTRL + 1663),
 	NET_MSG_GCTRL_ROYAL_RUMBLE_PRANKING_REQ		= (NET_MSG_GCTRL + 1664),
-	NET_MSG_GCTRL_SCHOOL_WAR_REMAIN_BRD				= (NET_MSG_GCTRL + 1636),	//<	Å¬·´µ¥½º¸ÅÄ¡ ³²Àº½Ã°£.
-	NET_MSG_GCTRL_SCHOOL_WAR_READY_FLD				= (NET_MSG_GCTRL + 1637),	//<	Å¬·´µ¥½º¸ÅÄ¡ ÁØºñ.
-	NET_MSG_GCTRL_SCHOOL_WAR_START_FLD				= (NET_MSG_GCTRL + 1638),	//<	Å¬·´µ¥½º¸ÅÄ¡ ½ÃÀÛ.
-	NET_MSG_GCTRL_SCHOOL_WAR_START_BRD				= (NET_MSG_GCTRL + 1639),	//<	Å¬·´µ¥½º¸ÅÄ¡ ½ÃÀÛ.
+	NET_MSG_GCTRL_SCHOOL_WAR_REMAIN_BRD				= (NET_MSG_GCTRL + 1636),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½.
+	NET_MSG_GCTRL_SCHOOL_WAR_READY_FLD				= (NET_MSG_GCTRL + 1637),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½Øºï¿½.
+	NET_MSG_GCTRL_SCHOOL_WAR_START_FLD				= (NET_MSG_GCTRL + 1638),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_SCHOOL_WAR_START_BRD				= (NET_MSG_GCTRL + 1639),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_SCHOOL_WAR_END_FLD				= (NET_MSG_GCTRL + 1640),	//<	Å¬·´µ¥½º¸ÅÄ¡ Á¾·á.
-	NET_MSG_GCTRL_SCHOOL_WAR_END_BRD				= (NET_MSG_GCTRL + 1641),	//<	Å¬·´µ¥½º¸ÅÄ¡ Á¾·á.
+	NET_MSG_GCTRL_SCHOOL_WAR_END_FLD				= (NET_MSG_GCTRL + 1640),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
+	NET_MSG_GCTRL_SCHOOL_WAR_END_BRD				= (NET_MSG_GCTRL + 1641),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½.
 
-	NET_MSG_GCTRL_SERVER_SCHOOL_WAR_INFO			= (NET_MSG_GCTRL + 1642),	//<	Å¬·´µ¥½º¸ÅÄ¡ Á¤º¸ Àü¼Û ( Á¢¼Ó½Ã ) 
-	NET_MSG_GCTRL_REQ_SERVER_SCHOOL_WAR_REMAIN_AG	= (NET_MSG_GCTRL + 1643),	//<	Å¬·´µ¥½º¸ÅÄ¡ Á¤º¸ Àü¼Û ( Agent¿¡ ³²Àº½Ã°£ ¿äÃ» )
+	NET_MSG_GCTRL_SERVER_SCHOOL_WAR_INFO			= (NET_MSG_GCTRL + 1642),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½Ó½ï¿½ ) 
+	NET_MSG_GCTRL_REQ_SERVER_SCHOOL_WAR_REMAIN_AG	= (NET_MSG_GCTRL + 1643),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ( Agentï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ ï¿½ï¿½Ã» )
 
-	NET_MSG_GCTRL_SCHOOL_WAR_POINT_UPDATE			= (NET_MSG_GCTRL + 1644),	//<	Å¬·´µ¥½º¸ÅÄ¡ Kill/Death »óÈ² ( ÀÚ±â¸¸ )
-	NET_MSG_GCTRL_SCHOOL_WAR_MYRANK_UPDATE			= (NET_MSG_GCTRL + 1645),	//<	Å¬·´µ¥½º¸ÅÄ¡ Kill/Death »óÈ² ( ÀÚ±â¸¸ )
-	NET_MSG_GCTRL_SCHOOL_WAR_RANKING_UPDATE			= (NET_MSG_GCTRL + 1646),	//<	Å¬·´µ¥½º¸ÅÄ¡ ·©Å· »óÈ²
-	NET_MSG_GCTRL_SCHOOL_WAR_RANKING_REQ			= (NET_MSG_GCTRL + 1647),	//<	Å¬·´µ¥½º¸ÅÄ¡ »óÈ² ¿äÃ»
+	NET_MSG_GCTRL_SCHOOL_WAR_POINT_UPDATE			= (NET_MSG_GCTRL + 1644),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ Kill/Death ï¿½ï¿½È² ( ï¿½Ú±â¸¸ )
+	NET_MSG_GCTRL_SCHOOL_WAR_MYRANK_UPDATE			= (NET_MSG_GCTRL + 1645),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ Kill/Death ï¿½ï¿½È² ( ï¿½Ú±â¸¸ )
+	NET_MSG_GCTRL_SCHOOL_WAR_RANKING_UPDATE			= (NET_MSG_GCTRL + 1646),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½Å· ï¿½ï¿½È²
+	NET_MSG_GCTRL_SCHOOL_WAR_RANKING_REQ			= (NET_MSG_GCTRL + 1647),	//<	Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½È² ï¿½ï¿½Ã»
 
 	NET_MSG_GCTRL_TOWERDOWN_SG		=	(NET_MSG_GCTRL + 1665),
 	NET_MSG_GCTRL_TOWERDOWN_SG_BRD	=	(NET_MSG_GCTRL + 1666),
@@ -2223,6 +2226,18 @@ enum EMNET_MSG
 	NET_MSG_TYRANNY_PARTICIPATE_BRD					= (NET_MSG_GCTRL + 1951),
 	NET_MSG_GCTRL_TOWERWARS_PREVIOUS_RECORD		= (NET_MSG_GCTRL + 1963),
 	NET_MSG_GCTRL_TOWERWARS_PREVIOUS_RECORD_FLD = (NET_MSG_GCTRL + 1964),
+
+	
+	NET_MSG_GCTRL_GET_ITEMSHOP_FROMDB	= (NET_MSG_GCTRL + 2085),//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_GCTRL_GET_ITEMSHOP_FROMDB_FB = (NET_MSG_GCTRL + 2086),//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB
+	NET_MSG_GCTRL_BUY_ITEMSHOP = (NET_MSG_GCTRL + 2087),//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
+	NET_MSG_GCTRL_BUY_ITEMSHOP_FB = (NET_MSG_GCTRL + 2088),//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» FB
+	NET_MSG_GCTRL_BUY_ITEMSHOP_ITEM	= (NET_MSG_GCTRL + 2089),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_ADD_ITEMSHOP_ITEM	= (NET_MSG_GCTRL + 2090),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½Ã».
+	NET_MSG_GCTRL_ADD_ITEMSHOP_ITEM_FB	= (NET_MSG_GCTRL + 2091),	//<	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ ï¿½ï¿½Ã».
+
+
+
 };
 
 
@@ -2361,10 +2376,10 @@ struct NET_RANDOMPASS_NUMBER
 
 // Control program->Session Server
 // Server state change command 
-// NET_MSG_SVR_PAUSE			= (NET_MSG_LGIN + 310), // ¼­¹ö¸¦ Àá½Ã ¸ØÃá´Ù.
-// NET_MSG_SVR_RESUME			= (NET_MSG_LGIN + 311), // ¸ØÃß¾îÁø ¼­¹ö¸¦ ´Ù½Ã °¡µ¿½ÃÅ²´Ù.	
-// NET_MSG_SVR_RESTART			= (NET_MSG_LGIN + 312), // ¼­¹ö¸¦ ¿ÏÀüÈ÷ ¸ØÃß°í »õ·Ó°Ô °¡µ¿½ÃÅ²´Ù.
-// NET_MSG_SVR_STOP			    = (NET_MSG_LGIN + 313), // ¼­¹ö¸¦ ¿ÏÀüÈ÷ ¸ØÃá´Ù.
+// NET_MSG_SVR_PAUSE			= (NET_MSG_LGIN + 310), // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
+// NET_MSG_SVR_RESUME			= (NET_MSG_LGIN + 311), // ï¿½ï¿½ï¿½ß¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.	
+// NET_MSG_SVR_RESTART			= (NET_MSG_LGIN + 312), // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß°ï¿½ ï¿½ï¿½ï¿½Ó°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
+// NET_MSG_SVR_STOP			    = (NET_MSG_LGIN + 313), // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 struct NET_SVR_CMD_CHANGE_STATE
 {
 	NET_MSG_GENERIC nmg;
@@ -2439,7 +2454,7 @@ typedef CHINA_NET_LOGIN_DATA* LPCHINA_NET_LOGIN_DATA;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Login messages
-// Thailand (ÅÂ±¹)
+// Thailand (ï¿½Â±ï¿½)
 struct THAI_NET_LOGIN_DATA
 {
 	NET_MSG_GENERIC nmg;
@@ -2538,7 +2553,7 @@ struct TERRA_NET_PASSCHECK_DATA
 	NET_MSG_GENERIC nmg;
 	TCHAR szTLoginName[TERRA_TLOGIN_NAME+1];
 	TCHAR szUserPass[TERRA_USERPASS+1];
-	INT		nCheckFlag; // ÆÐ½º¿öµå °»½ÅÀ» À§ÇØ¼­ Ãß°¡
+	INT		nCheckFlag; // ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ß°ï¿½
 
     TERRA_NET_PASSCHECK_DATA()
 		: nCheckFlag(0)
@@ -2557,7 +2572,7 @@ struct DAUM_NET_PASSCHECK_DATA
 	NET_MSG_GENERIC nmg;
 	TCHAR	szDaumGID[DAUM_MAX_GID_LENGTH+1];
 	TCHAR	szUserPass[DAUM_USERPASS+1];
-	INT		nCheckFlag; // ÆÐ½º¿öµå °»½ÅÀ» À§ÇØ¼­ Ãß°¡
+	INT		nCheckFlag; // ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ß°ï¿½
 
 	DAUM_NET_PASSCHECK_DATA()
 		: nCheckFlag(0)
@@ -2632,7 +2647,7 @@ struct EXCITE_NET_PASSCHECK_DATA
 	NET_MSG_GENERIC nmg;
 	TCHAR	szExciteUserID[EXCITE_SEC_ID+1];
 	TCHAR	szUserPass[EXCITE_SEC_PASS+1];
-	INT		nCheckFlag; // ÆÐ½º¿öµå °»½ÅÀ» À§ÇØ¼­ Ãß°¡
+	INT		nCheckFlag; // ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ß°ï¿½
 
 	EXCITE_NET_PASSCHECK_DATA()
 		: nCheckFlag(0)
@@ -2755,10 +2770,10 @@ struct NET_LOGIN_FEEDBACK_DATA
 
 	TCHAR			szDaumGID[DAUM_MAX_GID_LENGTH+1];
 	USHORT			nResult;
-    USHORT          uChaRemain; // ¸¸µé¼ö ÀÖ´Â Ä³¸¯ÅÍ °¹¼ö
-	INT				nExtremeM;	// ±Ø°­ºÎ ³²ÀÚ »ý¼º °¡´É ¼ýÀÚ
-	INT				nExtremeW;	// ±Ø°­ºÎ ¿©ÀÚ »ý¼º °¡´É ¼ýÀÚ
-	INT				nCheckFlag; // 2Â÷ ÆÐ½º¿öµå¸¦ ¹Þ±âÀ§ÇÑ Check Flag °ª
+    USHORT          uChaRemain; // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	INT				nExtremeM;	// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	INT				nExtremeW;	// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	INT				nCheckFlag; // 2ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½å¸¦ ï¿½Þ±ï¿½ï¿½ï¿½ï¿½ï¿½ Check Flag ï¿½ï¿½
 	INT				nPatchProgramVer;
 	INT				nGameProgramVer;
 
@@ -2787,22 +2802,22 @@ struct NET_LOGIN_FEEDBACK_DATA2
 	USHORT			nResult;
 	INT				nUserNum;
 	INT				nUserType;
-	INT				nExtremeM;				// ±Ø°­ºÎ ³²ÀÚ »ý¼º °¡´É ¼ýÀÚ
-	INT				nExtremeW;				// ±Ø°­ºÎ ¿©ÀÚ »ý¼º °¡´É ¼ýÀÚ
-	INT				nCheckFlag;				// ÆÐ½º¿öµå¸¦ ¹Þ±â À§ÇÑ Check Flag °ª
-	INT				nThaiCC_Class;			// ÅÂ±¹ User Å¬·¡½º Å¸ÀÔ
-	INT				nMyCC_Class;			// ¸»·¹ÀÌ½Ã¾Æ User Å¬·¡½º Å¸ÀÔ
-	INT				nChinaGameTime;			// Áß±¹ GameTime ÀúÀå
-	INT				nChinaOfflineTime;		// Áß±¹ OfflienTiem ÀúÀå
-	INT				nChinaUserAge;			// Áß±¹ UserAge ÀúÀå
-	INT				nVTGameTime;			//  º£Æ®³² GameTime ÀúÀå
+	INT				nExtremeM;				// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	INT				nExtremeW;				// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	INT				nCheckFlag;				// ï¿½Ð½ï¿½ï¿½ï¿½ï¿½å¸¦ ï¿½Þ±ï¿½ ï¿½ï¿½ï¿½ï¿½ Check Flag ï¿½ï¿½
+	INT				nThaiCC_Class;			// ï¿½Â±ï¿½ User Å¬ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
+	INT				nMyCC_Class;			// ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã¾ï¿½ User Å¬ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
+	INT				nChinaGameTime;			// ï¿½ß±ï¿½ GameTime ï¿½ï¿½ï¿½ï¿½
+	INT				nChinaOfflineTime;		// ï¿½ß±ï¿½ OfflienTiem ï¿½ï¿½ï¿½ï¿½
+	INT				nChinaUserAge;			// ï¿½ß±ï¿½ UserAge ï¿½ï¿½ï¿½ï¿½
+	INT				nVTGameTime;			//  ï¿½ï¿½Æ®ï¿½ï¿½ GameTime ï¿½ï¿½ï¿½ï¿½
 	USHORT			uChaRemain;
 	USHORT			uChaTestRemain;
     __time64_t      tPremiumTime;
 	__time64_t      tChatBlockTime;
-	__time64_t		tLastLoginTime;			// Áß±¹, º£Æ®³² LastLoginTime ÀúÀå
-	WORD            wThaiPlayTime;			// Thailand (¿À´Ã ÇÃ·¹ÀÌÇÑ ½Ã°£ ´ÜÀ§:ºÐ)
-	WORD            wThaiFlag;				// Thailand (»ç¿ëÀÚ ±¸ºÐ ÇÃ·¡±×)
+	__time64_t		tLastLoginTime;			// ï¿½ß±ï¿½, ï¿½ï¿½Æ®ï¿½ï¿½ LastLoginTime ï¿½ï¿½ï¿½ï¿½
+	WORD            wThaiPlayTime;			// Thailand (ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½)
+	WORD            wThaiFlag;				// Thailand (ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½)
 	
 	NET_LOGIN_FEEDBACK_DATA2()
 	{
@@ -2846,9 +2861,9 @@ struct DAUM_NET_LOGIN_FEEDBACK_DATA2
 	USHORT			nResult;
 	INT				nUserNum;
 	INT				nUserType;
-	INT				nExtremeM;	// ±Ø°­ºÎ ³²ÀÚ »ý¼º °¡´É ¼ýÀÚ
-	INT				nExtremeW;	// ±Ø°­ºÎ ¿©ÀÚ »ý¼º °¡´É ¼ýÀÚ
-	INT				nCheckFlag; // Daum ÆÐ½º¿öµå¸¦ ¹Þ±âÀ§ÇÑ Check Flag °ª
+	INT				nExtremeM;	// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	INT				nExtremeW;	// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	INT				nCheckFlag; // Daum ï¿½Ð½ï¿½ï¿½ï¿½ï¿½å¸¦ ï¿½Þ±ï¿½ï¿½ï¿½ï¿½ï¿½ Check Flag ï¿½ï¿½
 	USHORT			uChaRemain;
 	USHORT			uChaTestRemain;
     __time64_t      tPremiumTime;
@@ -2886,14 +2901,14 @@ struct TERRA_NET_LOGIN_FEEDBACK_DATA2
 	USHORT			nResult;
 	INT				nUserNum;
 	INT				nUserType;
-	INT				nExtremeM;				// ±Ø°­ºÎ ³²ÀÚ »ý¼º °¡´É ¼ýÀÚ
-	INT				nExtremeW;				// ±Ø°­ºÎ ¿©ÀÚ »ý¼º °¡´É ¼ýÀÚ
-	INT				nCheckFlag;				// ¸»·¹ÀÌÁö¾Æ ÆÐ½º¿öµå¸¦ ¹Þ±âÀ§ÇÑ Check Flag °ª
+	INT				nExtremeM;				// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	INT				nExtremeW;				// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	INT				nCheckFlag;				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½å¸¦ ï¿½Þ±ï¿½ï¿½ï¿½ï¿½ï¿½ Check Flag ï¿½ï¿½
 	USHORT			uChaRemain;
 	USHORT			uChaTestRemain;
-	INT				nMyCC_Class;			// ¸»·¹ÀÌ½Ã¾Æ PC¹æ ÀÌº¥Æ®
-	INT				nVTGameTime;			//  º£Æ®³² GameTime ÀúÀå
-	__time64_t		tLastLoginTime;			// Áß±¹, º£Æ®³² LastLoginTime ÀúÀå
+	INT				nMyCC_Class;			// ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã¾ï¿½ PCï¿½ï¿½ ï¿½Ìºï¿½Æ®
+	INT				nVTGameTime;			//  ï¿½ï¿½Æ®ï¿½ï¿½ GameTime ï¿½ï¿½ï¿½ï¿½
+	__time64_t		tLastLoginTime;			// ï¿½ß±ï¿½, ï¿½ï¿½Æ®ï¿½ï¿½ LastLoginTime ï¿½ï¿½ï¿½ï¿½
     __time64_t      tPremiumTime;
 	__time64_t      tChatBlockTime;
 
@@ -2974,7 +2989,7 @@ struct DAUM_NET_PASSCHECK_FEEDBACK_DATA2
 };
 typedef DAUM_NET_PASSCHECK_FEEDBACK_DATA2* LPDAUM_NET_PASSCHECK_FEEDBACK_DATA2;
 
-// nCheckFlag °ª Ãß°¡
+// nCheckFlag ï¿½ï¿½ ï¿½ß°ï¿½
 struct EXCITE_NET_LOGIN_FEEDBACK_DATA2
 {
 	NET_MSG_GENERIC nmg;
@@ -2984,7 +2999,7 @@ struct EXCITE_NET_LOGIN_FEEDBACK_DATA2
 	USHORT			nResult;
 	INT				nUserNum;
 	INT				nUserType;
-	INT				nCheckFlag; // ÀÏº» ÆÐ½º¿öµå¸¦ ¹Þ±âÀ§ÇÑ Check Flag °ª
+	INT				nCheckFlag; // ï¿½Ïºï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½å¸¦ ï¿½Þ±ï¿½ï¿½ï¿½ï¿½ï¿½ Check Flag ï¿½ï¿½
 	USHORT			uChaRemain;
 	USHORT			uChaTestRemain;
     __time64_t      tPremiumTime;
@@ -3008,7 +3023,7 @@ struct EXCITE_NET_LOGIN_FEEDBACK_DATA2
 };
 typedef EXCITE_NET_LOGIN_FEEDBACK_DATA2* LPEXCITE_NET_LOGIN_FEEDBACK_DATA2;
 
-// ÀÏº» Gonzo·Î È¸»ç º¯°æµÇ¸é¼­ ±¸Á¶Ã¼Ãß°¡
+// ï¿½Ïºï¿½ Gonzoï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸é¼­ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ß°ï¿½
 struct JAPAN_NET_LOGIN_FEEDBACK_DATA2
 {
 	NET_MSG_GENERIC nmg;
@@ -3018,8 +3033,8 @@ struct JAPAN_NET_LOGIN_FEEDBACK_DATA2
 	USHORT			nResult;
 	INT				nUserNum;
 	INT				nUserType;
-	INT				nExtremeM;	// ±Ø°­ºÎ ³²ÀÚ »ý¼º °¡´É ¼ýÀÚ
-	INT				nExtremeW;	// ±Ø°­ºÎ ¿©ÀÚ »ý¼º °¡´É ¼ýÀÚ
+	INT				nExtremeM;	// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	INT				nExtremeW;	// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	USHORT			uChaRemain;
 	USHORT			uChaTestRemain;
     __time64_t      tPremiumTime;
@@ -3066,8 +3081,8 @@ struct GS_NET_LOGIN_FEEDBACK_DATA2
 	USHORT			nResult;
 	INT				nUserNum;
 	INT				nUserType;
-	INT				nExtremeM;				// ±Ø°­ºÎ ³²ÀÚ »ý¼º °¡´É ¼ýÀÚ
-	INT				nExtremeW;				// ±Ø°­ºÎ ¿©ÀÚ »ý¼º °¡´É ¼ýÀÚ
+	INT				nExtremeM;				// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	INT				nExtremeW;				// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	USHORT			uChaRemain;
 	USHORT			uChaTestRemain;
     __time64_t      tPremiumTime;
@@ -3093,8 +3108,8 @@ struct GS_NET_LOGIN_FEEDBACK_DATA2
 typedef GS_NET_LOGIN_FEEDBACK_DATA2* LPGSNET_LOGIN_FEEDBACK_DATA2;
 
 ///////////////////////////////////////////////////////////////////////////////
-// Agent Server -> Field Server ·Î±×ÀÎ ¼º°øÈÄ °á°ú°ª Àü¼Û
-// Field Server ¿¡¼­ ¼¼ÆÃÇÔ
+// Agent Server -> Field Server ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// Field Server ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 struct NET_LOGIN_FEEDBACK_DATA3
 {
 	NET_MSG_GENERIC nmg;	
@@ -3114,9 +3129,9 @@ typedef NET_LOGIN_FEEDBACK_DATA3* LPNET_LOGIN_FEEDBACK_DATA3;
 struct NET_LOGOUT_DATA
 {
 	NET_MSG_GENERIC nmg;
-	CHAR			szUserID[USR_ID_LENGTH+1];// ·Î±×¾Æ¿ô ÇÏ´Â »ç¿ëÀÚ
-	INT				nGameTime;				// ÇÃ·¹ÀÌ½Ã°£
-	INT				nUserNum;				// »ç¿ëÀÚ ¹øÈ£
+	CHAR			szUserID[USR_ID_LENGTH+1];// ï¿½Î±×¾Æ¿ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+	INT				nGameTime;				// ï¿½Ã·ï¿½ï¿½Ì½Ã°ï¿½
+	INT				nUserNum;				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	INT				nChaNum;
 
 	NET_LOGOUT_DATA()
@@ -3134,9 +3149,9 @@ typedef NET_LOGOUT_DATA* LPNET_LOGOUT_DATA;
 struct DAUM_NET_LOGOUT_DATA
 {	
 	NET_MSG_GENERIC nmg;
-	CHAR			szUID[DAUM_MAX_UID_LENGTH+1];// ·Î±×¾Æ¿ô ÇÏ´Â »ç¿ëÀÚ
-	INT				nGameTime;				// ÇÃ·¹ÀÌ½Ã°£
-	INT				nUserNum;				// »ç¿ëÀÚ ¹øÈ£
+	CHAR			szUID[DAUM_MAX_UID_LENGTH+1];// ï¿½Î±×¾Æ¿ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+	INT				nGameTime;				// ï¿½Ã·ï¿½ï¿½Ì½Ã°ï¿½
+	INT				nUserNum;				// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	INT				nChaNum;
 
 	DAUM_NET_LOGOUT_DATA()
@@ -3154,7 +3169,7 @@ typedef DAUM_NET_LOGOUT_DATA* LPDAUM_NET_LOGOUT_DATA;
 struct NET_LOGOUT_DATA_SIMPLE
 {
 	NET_MSG_GENERIC nmg;
-	CHAR			szUserID[USR_ID_LENGTH+1];// ·Î±×¾Æ¿ô ÇÏ´Â »ç¿ëÀÚ
+	CHAR			szUserID[USR_ID_LENGTH+1];// ï¿½Î±×¾Æ¿ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	NET_LOGOUT_DATA_SIMPLE()
 	{
@@ -3350,12 +3365,12 @@ struct NET_NEW_CHA
 {
 	NET_MSG_GENERIC		nmg;
 
-	int					nIndex;		//	ÄÉ¸¯ÅÍ Á¾·ù. ( class )
-	WORD				wSchool;	//	ÇÐ±³.
-	WORD				wFace;		//	¾ó±¼.
-	WORD				wHair;		//	Çì¾î ½ºÅ¸ÀÏ.
-	WORD				wHairColor;	//	Çì¾î ÄÃ·¯.
-	WORD				wSex;		//	¼ºº°
+	int					nIndex;		//	ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ( class )
+	WORD				wSchool;	//	ï¿½Ð±ï¿½.
+	WORD				wFace;		//	ï¿½ï¿½.
+	WORD				wHair;		//	ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½.
+	WORD				wHairColor;	//	ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½.
+	WORD				wSex;		//	ï¿½ï¿½ï¿½ï¿½
 	char				szChaName[CHR_ID_LENGTH+1];
 
 	NET_NEW_CHA() :
@@ -3379,8 +3394,8 @@ struct NET_NEW_CHA_FB
 	int					nResult;
 	int					nChaNum;
     WORD                wChaRemain;
-	int					nExtremeM; // ±Ø°­ºÎ ³²ÀÚ »ý¼º °¡´É ¼ýÀÚ
-	int					nExtremeW; // ±Ø°­ºÎ ¿©ÀÚ »ý¼º °¡´É ¼ýÀÚ
+	int					nExtremeM; // ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int					nExtremeW; // ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	NET_NEW_CHA_FB()
 	{
 		nmg.dwSize  = sizeof(NET_NEW_CHA_FB);
@@ -3391,11 +3406,11 @@ struct NET_NEW_CHA_FB
 };
 typedef NET_NEW_CHA_FB* LPNET_NEW_CHA_FB;
 
-// ·Îºñ¿¡¼­ µð½ºÇÃ·¹ÀÌ ÇÒ Ä³¸¯ÅÍÀÇ ±âÃÊÁ¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
+// ï¿½Îºñ¿¡¼ï¿½ ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 struct NET_CHA_REQ_BA_INFO
 {
 	NET_MSG_GENERIC nmg;
-	// int             nChannel; // »ç¿ëÀÚ°¡ Á¶ÀÎÇÏ·Á´Â Ã¤³Î
+	// int             nChannel; // ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½
 
 	NET_CHA_REQ_BA_INFO()
 	{
@@ -3406,11 +3421,11 @@ struct NET_CHA_REQ_BA_INFO
 };
 typedef NET_CHA_REQ_BA_INFO* LPNET_CHA_REQ_BA_INFO;
 
-// ÇöÀç ¼­¹ö¿¡¼­ ÇØ´ç À¯Àú°¡ °¡Áø Ä³¸¯ÅÍÀÇ ¹øÈ£¸¦ ³Ñ°ÜÁØ´Ù.
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ø´ï¿½.
 struct NET_CHA_BBA_INFO
 {
 	NET_MSG_GENERIC		nmg;
-	int					nChaSNum; // ÇöÀç ÀÌ ¼­¹ö¿¡¼­ »ý¼ºµÈ Ä³¸¯ÅÍ °¹¼ö
+	int					nChaSNum; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int					nChaNum[MAX_ONESERVERCHAR_NUM];
 	NET_CHA_BBA_INFO()
 	{
@@ -3421,7 +3436,7 @@ struct NET_CHA_BBA_INFO
 };
 typedef NET_CHA_BBA_INFO* LPNET_CHA_BBA_INFO;
 
-// ÇØ´ç Ä³¸¯ÅÍÀÇ Á¤º¸¸¦ ¿äÃ»ÇÑ´Ù.
+// ï¿½Ø´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ñ´ï¿½.
 struct NET_CHA_BA_INFO
 {
 	NET_MSG_GENERIC		nmg;
@@ -3437,7 +3452,7 @@ typedef NET_CHA_BA_INFO* LPNET_CHA_BA_INFO;
 struct NET_CHA_DEL
 {
 	NET_MSG_GENERIC		nmg;
-	INT					nChaNum; // »èÁ¦ÇÒ Ä³¸¯ÅÍ ¹øÈ£
+	INT					nChaNum; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	char				szPass2[USR_PASS_LENGTH+1];
 	NET_CHA_DEL()
 	{		
@@ -3451,7 +3466,7 @@ typedef NET_CHA_DEL* LPNET_CHA_DEL;
 struct DAUM_NET_CHA_DEL
 {
 	NET_MSG_GENERIC		nmg;
-	INT					nChaNum; // »èÁ¦ÇÒ Ä³¸¯ÅÍ ¹øÈ£
+	INT					nChaNum; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	
 	DAUM_NET_CHA_DEL()
 	{
@@ -3462,13 +3477,13 @@ struct DAUM_NET_CHA_DEL
 typedef DAUM_NET_CHA_DEL* LPDAUM_NET_CHA_DEL;
 
 /**
- * Ä³¸¯ÅÍ »èÁ¦Á¤º¸ Client->Agent
+ * Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Client->Agent
  * \return 
  */
 struct TERRA_NET_CHA_DEL
 {
 	NET_MSG_GENERIC		nmg;
-	INT					nChaNum; // »èÁ¦ÇÒ Ä³¸¯ÅÍ ¹øÈ£
+	INT					nChaNum; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	
 	TERRA_NET_CHA_DEL()
 	{
@@ -3479,13 +3494,13 @@ struct TERRA_NET_CHA_DEL
 typedef TERRA_NET_CHA_DEL* LPTERRA_NET_CHA_DEL;
 
 /**
- * Ä³¸¯ÅÍ »èÁ¦Á¤º¸ Client->Agent
+ * Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Client->Agent
  * \return 
  */
 struct GSP_NET_CHA_DEL
 {
 	NET_MSG_GENERIC		nmg;
-	INT					nChaNum; // »èÁ¦ÇÒ Ä³¸¯ÅÍ ¹øÈ£
+	INT					nChaNum; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	
 	GSP_NET_CHA_DEL()
 	{
@@ -3497,13 +3512,13 @@ struct GSP_NET_CHA_DEL
 typedef GSP_NET_CHA_DEL* LPGSP_NET_CHA_DEL;
 
 /**
- * Ä³¸¯ÅÍ »èÁ¦Á¤º¸ Client->Agent
+ * Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Client->Agent
  * \return 
  */
 struct EXCITE_NET_CHA_DEL
 {
 	NET_MSG_GENERIC		nmg;
-	INT					nChaNum; // »èÁ¦ÇÒ Ä³¸¯ÅÍ ¹øÈ£
+	INT					nChaNum; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	
 	EXCITE_NET_CHA_DEL()
 	{
@@ -3514,13 +3529,13 @@ struct EXCITE_NET_CHA_DEL
 typedef EXCITE_NET_CHA_DEL* LPEXCITE_NET_CHA_DEL;
 
 /**
- * Ä³¸¯ÅÍ »èÁ¦Á¤º¸ Client->Agent
+ * Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Client->Agent
  * \return 
  */
 struct JAPAN_NET_CHA_DEL
 {
 	NET_MSG_GENERIC		nmg;
-	INT					nChaNum; // »èÁ¦ÇÒ Ä³¸¯ÅÍ ¹øÈ£
+	INT					nChaNum; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	
 	JAPAN_NET_CHA_DEL()
 	{
@@ -3531,13 +3546,13 @@ struct JAPAN_NET_CHA_DEL
 typedef JAPAN_NET_CHA_DEL* LPJAPAN_NET_CHA_DEL;
 
 /**
- * Ä³¸¯ÅÍ »èÁ¦Á¤º¸ Client->Agent
+ * Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Client->Agent
  * \return 
  */
 struct GS_NET_CHA_DEL
 {
 	NET_MSG_GENERIC		nmg;
-	INT					nChaNum; // »èÁ¦ÇÒ Ä³¸¯ÅÍ ¹øÈ£
+	INT					nChaNum; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	char				szPass2[GS_USER_PASS+1];
 
 	GS_NET_CHA_DEL()
@@ -3552,10 +3567,10 @@ typedef GS_NET_CHA_DEL* LPGS_NET_CHA_DEL;
 struct NET_CHA_DEL_FB
 {
 	NET_MSG_GENERIC		nmg;	
-	INT					nChaNum;	// »èÁ¦ÇÑ Ä³¸¯ÅÍ ¹øÈ£
-	INT					nExtremeM;	// ±Ø°­ºÎ ³²ÀÚ »ý¼º °¡´É ¼ýÀÚ
-	INT					nExtremeW;	// ±Ø°­ºÎ ¿©ÀÚ »ý¼º °¡´É ¼ýÀÚ
-    WORD                wChaRemain; // ³²Àº Ä³¸¯ÅÍ »ý¼º °¹¼ö
+	INT					nChaNum;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	INT					nExtremeM;	// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	INT					nExtremeW;	// ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    WORD                wChaRemain; // ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	NET_CHA_DEL_FB()
 	{
 		nmg.dwSize  = sizeof(NET_CHA_DEL_FB);
@@ -3567,12 +3582,12 @@ struct NET_CHA_DEL_FB
 };
 typedef NET_CHA_DEL_FB* LPNET_CHA_DEL_FB;
 
-// °ÔÀÓÂü°¡ ¸Þ½ÃÁö
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 // Client -> Agent Server
 struct NET_GAME_JOIN
 {
 	NET_MSG_GENERIC		nmg;
-	INT					nChaNum; // °ÔÀÓ Âü°¡ÇÒ Ä³¸¯ÅÍ ¹øÈ£
+	INT					nChaNum; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	NET_GAME_JOIN()
 	{
 		nmg.dwSize = sizeof(NET_GAME_JOIN);
@@ -3583,12 +3598,12 @@ typedef NET_GAME_JOIN* LPNET_GAME_JOIN;
 
 enum EMGAME_JOINTYPE
 {
-	EMJOINTYPE_FIRST	= 0,	//	ÄÉ¸¯ÅÍ Ã³À½ Á¢¼ÓÇßÀ»¶§.
-	EMJOINTYPE_MOVEMAP	= 1,	//	¸ÊÀÌµ¿Áß ¼­¹ö¸¦ ÀÌµ¿ÇÏ°Ô µÇ¾î ´Ù½Ã Á¢¼Ó.
-	EMJOINTYPE_REBIRTH	= 2,	//	ºÎÈ°µµÁß ¼­¹ö¸¦ ÀÌµ¿ÇÏ°Ô µÇ¾î ´Ù½Ã Á¢¼Ó.
+	EMJOINTYPE_FIRST	= 0,	//	ï¿½É¸ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	EMJOINTYPE_MOVEMAP	= 1,	//	ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï°ï¿½ ï¿½Ç¾ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	EMJOINTYPE_REBIRTH	= 2,	//	ï¿½ï¿½È°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï°ï¿½ ï¿½Ç¾ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 };
 
-// °ÔÀÓÂü°¡ ¸Þ½ÃÁö
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 // Agent -> Field
 struct NET_GAME_JOIN_FIELDSVR
 {
@@ -3614,7 +3629,7 @@ struct NET_GAME_JOIN_FIELDSVR
     __time64_t          tCHATBLOCK;
 
 	int					dwThaiCCafeClass;
-	int					nMyCCafeClass;					// ¸»·¹ÀÌ½Ã¾Æ PC¹æ ÀÌº¥Æ®
+	int					nMyCCafeClass;					// ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã¾ï¿½ PCï¿½ï¿½ ï¿½Ìºï¿½Æ®
 
 	SChinaTime			sChinaTime;
 	SEventTime			sEventTime;
@@ -3701,7 +3716,7 @@ struct NET_CONNECT_CLIENT_TO_FIELD
 };
 typedef NET_CONNECT_CLIENT_TO_FIELD* LPNET_CONNECT_CLIENT_TO_FIELD;
 
-//	Å¬¶óÀÌ¾ðÆ®°¡ »õ·ÎÀÌ Field Server¿Í ¿¬°áÈÄ ÀÚ½ÅÀÇ ID È®ÀÎ ¿äÃ».
+//	Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Field Serverï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ID È®ï¿½ï¿½ ï¿½ï¿½Ã».
 struct NET_GAME_JOIN_FIELD_IDENTITY
 {
 	NET_MSG_GENERIC		nmg;
@@ -3723,16 +3738,16 @@ struct NET_GAME_JOIN_FIELD_IDENTITY
 };
 typedef NET_GAME_JOIN_FIELD_IDENTITY* LPNET_GAME_JOIN_FIELD_IDENTITY;
 
-// °ÔÀÓÂü°¡¿Ï·á
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½
 // Field->Session
 struct NET_GAME_JOIN_OK
 {
 	NET_MSG_GENERIC		nmg;
-	INT					nUsrNum; // »ç¿ëÀÚ °íÀ¯¹øÈ£(DB)	
-	INT					nChaNum; // Ä³¸¯ÅÍ¹øÈ£(DB)
-	DWORD				dwGaeaID; // °¡ÀÌ¾Æ ID
-	CHAR				szUserID[USR_ID_LENGTH+1]; // »ç¿ëÀÚ ID	
-	CHAR				szChaName[CHR_ID_LENGTH+1]; // Ä³¸¯ÅÍ¸í
+	INT					nUsrNum; // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£(DB)	
+	INT					nChaNum; // Ä³ï¿½ï¿½ï¿½Í¹ï¿½È£(DB)
+	DWORD				dwGaeaID; // ï¿½ï¿½ï¿½Ì¾ï¿½ ID
+	CHAR				szUserID[USR_ID_LENGTH+1]; // ï¿½ï¿½ï¿½ï¿½ï¿½ ID	
+	CHAR				szChaName[CHR_ID_LENGTH+1]; // Ä³ï¿½ï¿½ï¿½Í¸ï¿½
 
 	NET_GAME_JOIN_OK()
 	{		
@@ -3747,13 +3762,13 @@ struct NET_GAME_JOIN_OK
 };
 typedef NET_GAME_JOIN_OK* LPNET_GAME_JOIN_OK;
 
-// Ã¤ÆÃ¸Þ½ÃÁö
+// Ã¤ï¿½Ã¸Þ½ï¿½ï¿½ï¿½
 struct NET_CHAT
 {
 	NET_MSG_GENERIC	nmg;
-	EMNET_MSG_CHAT	emType;						// Ã¤ÆÃ Å¸ÀÔ
-	CHAR			szName[CHR_ID_LENGTH+1];		// Æ¯Á¤ Ä³¸¯ÅÍ¸í or »ç¿ëÀÚ¸í
-	CHAR			szChatMsg[CHAT_MSG_SIZE];	// Ã¤ÆÃ¸Þ½ÃÁö
+	EMNET_MSG_CHAT	emType;						// Ã¤ï¿½ï¿½ Å¸ï¿½ï¿½
+	CHAR			szName[CHR_ID_LENGTH+1];		// Æ¯ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ or ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½
+	CHAR			szChatMsg[CHAT_MSG_SIZE];	// Ã¤ï¿½Ã¸Þ½ï¿½ï¿½ï¿½
 	SITEMLINK		sITEMLINK;
 
 	NET_CHAT () :
@@ -3769,8 +3784,8 @@ struct NET_CHAT
 };
 typedef NET_CHAT* LPNET_CHAT;
 
-// °ü¸®¿ë Ã¤ÆÃ¸Þ½ÃÁö
-// ÄÁÆ®·ÑÇÁ·Î±×·¥->¼¼¼Ç¼­¹ö
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Ã¸Þ½ï¿½ï¿½ï¿½
+// ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½Î±×·ï¿½->ï¿½ï¿½ï¿½Ç¼ï¿½ï¿½ï¿½
 struct NET_CHAT_CTRL
 {
 	NET_MSG_GENERIC nmg;
@@ -3809,13 +3824,13 @@ struct NET_CHAT_CTRL2
 };
 typedef NET_CHAT_CTRL2* LPNET_CHAT_CTRL2;
 
-// Ã¤ÆÃ¸Þ½ÃÁö FB
+// Ã¤ï¿½Ã¸Þ½ï¿½ï¿½ï¿½ FB
 struct NET_CHAT_FB
 {
 	NET_MSG_GENERIC nmg;
-	EMNET_MSG_CHAT	emType;						// Ã¤ÆÃ Å¸ÀÔ
-	CHAR			szName[CHR_ID_LENGTH+1];		// º¸³½»ç¶÷ Ä³¸¯ÅÍ¸í or »ç¿ëÀÚ¸í
-	CHAR			szChatMsg[CHAT_MSG_SIZE+1];	// Ã¤ÆÃ¸Þ½ÃÁö
+	EMNET_MSG_CHAT	emType;						// Ã¤ï¿½ï¿½ Å¸ï¿½ï¿½
+	CHAR			szName[CHR_ID_LENGTH+1];		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½Í¸ï¿½ or ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½
+	CHAR			szChatMsg[CHAT_MSG_SIZE+1];	// Ã¤ï¿½Ã¸Þ½ï¿½ï¿½ï¿½
 	SITEMLINK		sITEMLINK;
 
 	NET_CHAT_FB ()
@@ -3830,12 +3845,12 @@ struct NET_CHAT_FB
 };
 typedef NET_CHAT_FB* LPNET_CHAT_FB;
 
-// °ü¸®ÀÚ¿ë ¸Þ½ÃÁö FB
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ FB
 struct NET_CHAT_CTRL_FB
 {
 	NET_MSG_GENERIC nmg;
-	EMNET_MSG_CHAT	emType;						// Ã¤ÆÃ Å¸ÀÔ
-	CHAR			szChatMsg[GLOBAL_CHAT_MSG_SIZE+1];	// Ã¤ÆÃ¸Þ½ÃÁö
+	EMNET_MSG_CHAT	emType;						// Ã¤ï¿½ï¿½ Å¸ï¿½ï¿½
+	CHAR			szChatMsg[GLOBAL_CHAT_MSG_SIZE+1];	// Ã¤ï¿½Ã¸Þ½ï¿½ï¿½ï¿½
 	SITEMLINK		sITEMLINK;
 	//add staffchat
 	bool bStaff;
@@ -3868,18 +3883,18 @@ struct NET_EVENT_LOTTERY
 typedef NET_EVENT_LOTTERY* LPNET_EVENT_LOTTERY;
 
 ///////////////////////////////////////////////////////////////////////////////
-// ¶õ ¼±¹°ÆãÆã!! ÀÌº¥Æ® 
-// ¸®ÅÏ°ª :
-// 1  1 µî P-4 PC                        (1µî¿¡ ´çÃ·µÇ¼Ì½À´Ï´Ù. ÃàÇÏµå¸³´Ï´Ù. ÀÚ¼¼ÇÑ »çÇ×Àº È¨ÆäÀÌÁö¸¦ ÂüÁ¶ÇØ ÁÖ½Ê½Ã¿À.)
-// 2  2 µî È¿¸®Æù                        (2µî¿¡ ´çÃ·µÇ¼Ì½À´Ï´Ù. ÃàÇÏµå¸³´Ï´Ù. ÀÚ¼¼ÇÑ »çÇ×Àº È¨ÆäÀÌÁö¸¦ ÂüÁ¶ÇØ ÁÖ½Ê½Ã¿À.)
-// 3  3 µî SONY µðÄ«                     (3µî¿¡ ´çÃ·µÇ¼Ì½À´Ï´Ù. ÃàÇÏµå¸³´Ï´Ù. ÀÚ¼¼ÇÑ »çÇ×Àº È¨ÆäÀÌÁö¸¦ ÂüÁ¶ÇØ ÁÖ½Ê½Ã¿À.)
-// 4  4 µî ¾ÆÀÌ¸®¹ö MP ÇÃ·¹ÀÌ¾î          (4µî¿¡ ´çÃ·µÇ¼Ì½À´Ï´Ù. ÃàÇÏµå¸³´Ï´Ù. ÀÚ¼¼ÇÑ »çÇ×Àº È¨ÆäÀÌÁö¸¦ ÂüÁ¶ÇØ ÁÖ½Ê½Ã¿À.)
-// 5  5 µî MAX ¹«ºñ ¿µÈ­ »óÇ°±Ç 1 ¸¸¿ø±Ç (5µî¿¡ ´çÃ·µÇ¼Ì½À´Ï´Ù. ÃàÇÏµå¸³´Ï´Ù. ÀÚ¼¼ÇÑ »çÇ×Àº È¨ÆäÀÌÁö¸¦ ÂüÁ¶ÇØ ÁÖ½Ê½Ã¿À.)
-// 6  6 µî MBC Game ÀÏÀÏ ¹«·á »óÇ°±Ç     (6µî¿¡ ´çÃ·µÇ¼Ì½À´Ï´Ù. ÃàÇÏµå¸³´Ï´Ù. ÀÚ¼¼ÇÑ »çÇ×Àº È¨ÆäÀÌÁö¸¦ ÂüÁ¶ÇØ ÁÖ½Ê½Ã¿À.) 
-// 7  ÀÌ¹Ì º¹±ÇÀ» ÀÔ·ÂÇÑ »ç¿ëÀÚ          (ÀÌ¹Ì º¹±Ç¿¡ ÀÀ¸ðÇÏ¼Ì½À´Ï´Ù.)
-// 8  PC ¹æ IP °¡ ¾Æ´Ô                   (PC ¹æ IP °¡ ¾Æ´Õ´Ï´Ù. º¹±ÇÀº PC ¹æ¿¡¼­¸¸ ÀÀ¸ð °¡´ÉÇÕ´Ï´Ù)
-// 9  ÀÌ¹Ì »ç¿ëÇÑ º¹±Ç                   (ÀÌ¹Ì »ç¿ëÇÑ º¹±ÇÀÔ´Ï´Ù)
-// 10 ¾Ë¼ö¾ø´Â ¿À·ù                      (º¹±ÇÃ³¸®Áß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù)
+// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!! ï¿½Ìºï¿½Æ® 
+// ï¿½ï¿½ï¿½Ï°ï¿½ :
+// 1  1 ï¿½ï¿½ P-4 PC                        (1ï¿½î¿¡ ï¿½ï¿½Ã·ï¿½Ç¼Ì½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ïµå¸³ï¿½Ï´ï¿½. ï¿½Ú¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½Ê½Ã¿ï¿½.)
+// 2  2 ï¿½ï¿½ È¿ï¿½ï¿½ï¿½ï¿½                        (2ï¿½î¿¡ ï¿½ï¿½Ã·ï¿½Ç¼Ì½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ïµå¸³ï¿½Ï´ï¿½. ï¿½Ú¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½Ê½Ã¿ï¿½.)
+// 3  3 ï¿½ï¿½ SONY ï¿½ï¿½Ä«                     (3ï¿½î¿¡ ï¿½ï¿½Ã·ï¿½Ç¼Ì½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ïµå¸³ï¿½Ï´ï¿½. ï¿½Ú¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½Ê½Ã¿ï¿½.)
+// 4  4 ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ MP ï¿½Ã·ï¿½ï¿½Ì¾ï¿½          (4ï¿½î¿¡ ï¿½ï¿½Ã·ï¿½Ç¼Ì½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ïµå¸³ï¿½Ï´ï¿½. ï¿½Ú¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½Ê½Ã¿ï¿½.)
+// 5  5 ï¿½ï¿½ MAX ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½ï¿½Ç°ï¿½ï¿½ 1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (5ï¿½î¿¡ ï¿½ï¿½Ã·ï¿½Ç¼Ì½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ïµå¸³ï¿½Ï´ï¿½. ï¿½Ú¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½Ê½Ã¿ï¿½.)
+// 6  6 ï¿½ï¿½ MBC Game ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½     (6ï¿½î¿¡ ï¿½ï¿½Ã·ï¿½Ç¼Ì½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ïµå¸³ï¿½Ï´ï¿½. ï¿½Ú¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½Ê½Ã¿ï¿½.) 
+// 7  ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½          (ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½.)
+// 8  PC ï¿½ï¿½ IP ï¿½ï¿½ ï¿½Æ´ï¿½                   (PC ï¿½ï¿½ IP ï¿½ï¿½ ï¿½Æ´Õ´Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PC ï¿½æ¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½)
+// 9  ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½                   (ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½)
+// 10 ï¿½Ë¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½                      (ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½)
 struct NET_EVENT_LOTTERY_FB
 {
 	NET_MSG_GENERIC nmg;
@@ -3894,7 +3909,7 @@ struct NET_EVENT_LOTTERY_FB
 };
 typedef NET_EVENT_LOTTERY_FB* LPNET_EVENT_LOTTERY_FB;
 
-// Ãâ¼®ºÎ ÀÌº¥Æ®
+// ï¿½â¼®ï¿½ï¿½ ï¿½Ìºï¿½Æ®
 struct USER_ATTEND_INFO
 {
 	__time64_t	tAttendTime;
@@ -3911,7 +3926,7 @@ struct USER_ATTEND_INFO
 typedef USER_ATTEND_INFO* LPUSER_ATTEND_INFO;
 
 
-// Apex Àû¿ë( È«Äá )
+// Apex ï¿½ï¿½ï¿½ï¿½( È«ï¿½ï¿½ )
 struct NET_APEX_RETURN
 {
 	NET_MSG_GENERIC nmg;
@@ -3925,7 +3940,7 @@ struct NET_APEX_RETURN
 	}
 };
 
-//! Apex ¸Þ¼¼Áö
+//! Apex ï¿½Þ¼ï¿½ï¿½ï¿½
 struct NET_APEX_DATA
 {
 	NET_MSG_GENERIC nmg;
@@ -3940,7 +3955,7 @@ struct NET_APEX_DATA
 };
 typedef NET_APEX_DATA* LPNET_APEX_DATA;
 
-//! Apex ¸Þ¼¼Áö
+//! Apex ï¿½Þ¼ï¿½ï¿½ï¿½
 struct NET_APEX_ANSWER
 {
 	NET_MSG_GENERIC nmg;
@@ -3957,7 +3972,7 @@ struct NET_APEX_ANSWER
 };
 typedef NET_APEX_ANSWER* LPNET_APEX_ANSWER;
 
-//! nProtect GameGuard Auth ¿äÃ» ¸Þ½ÃÁö
+//! nProtect GameGuard Auth ï¿½ï¿½Ã» ï¿½Þ½ï¿½ï¿½ï¿½
 struct NET_GAMEGUARD_AUTH
 {
 	NET_MSG_GENERIC nmg;
@@ -3975,7 +3990,7 @@ struct NET_GAMEGUARD_AUTH
 };
 typedef NET_GAMEGUARD_AUTH* LPNET_GAMEGUARD_AUTH;
 
-//! nProtect GameGuard Auth Answer ¸Þ½ÃÁö
+//! nProtect GameGuard Auth Answer ï¿½Þ½ï¿½ï¿½ï¿½
 struct NET_GAMEGUARD_ANSWER
 {
 	NET_MSG_GENERIC nmg;
@@ -3997,7 +4012,7 @@ struct NET_GAMEGUARD_ANSWER
 };
 typedef NET_GAMEGUARD_ANSWER* LPNET_GAMEGUARD_ANSWER;
 
-//! nProtect GameGuard Auth ¿äÃ» ¸Þ½ÃÁö #1
+//! nProtect GameGuard Auth ï¿½ï¿½Ã» ï¿½Þ½ï¿½ï¿½ï¿½ #1
 struct NET_GAMEGUARD_AUTH_1
 {
 	NET_MSG_GENERIC nmg;
@@ -4015,7 +4030,7 @@ struct NET_GAMEGUARD_AUTH_1
 };
 typedef NET_GAMEGUARD_AUTH_1* LPNET_GAMEGUARD_AUTH_1;
 
-//! nProtect GameGuard Auth Answer ¸Þ½ÃÁö #1
+//! nProtect GameGuard Auth Answer ï¿½Þ½ï¿½ï¿½ï¿½ #1
 struct NET_GAMEGUARD_ANSWER_1
 {
 	NET_MSG_GENERIC nmg;
@@ -4033,7 +4048,7 @@ struct NET_GAMEGUARD_ANSWER_1
 };
 typedef NET_GAMEGUARD_ANSWER_1* LPNET_GAMEGUARD_ANSWER_1;
 
-//! nProtect GameGuard Auth ¿äÃ» ¸Þ½ÃÁö #2
+//! nProtect GameGuard Auth ï¿½ï¿½Ã» ï¿½Þ½ï¿½ï¿½ï¿½ #2
 struct NET_GAMEGUARD_AUTH_2
 {
 	NET_MSG_GENERIC nmg;
@@ -4051,7 +4066,7 @@ struct NET_GAMEGUARD_AUTH_2
 };
 typedef NET_GAMEGUARD_AUTH_2* LPNET_GAMEGUARD_AUTH_2;
 
-//! nProtect GameGuard Auth Answer ¸Þ½ÃÁö #2
+//! nProtect GameGuard Auth Answer ï¿½Þ½ï¿½ï¿½ï¿½ #2
 struct NET_GAMEGUARD_ANSWER_2
 {
 	NET_MSG_GENERIC nmg;
@@ -4069,7 +4084,7 @@ struct NET_GAMEGUARD_ANSWER_2
 };
 typedef NET_GAMEGUARD_ANSWER_2* LPNET_GAMEGUARD_ANSWER_2;
 
-// ÃßÀûÇÒ id Ãß°¡
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ id ï¿½ß°ï¿½
 struct NET_UPDATE_TRACINGCHAR_ALL
 {
 	NET_MSG_GENERIC nmg;
@@ -4091,7 +4106,7 @@ struct NET_UPDATE_TRACINGCHAR_ALL
 	}
 };
 
-// ÃßÀûÇÒ id Ãß°¡
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ id ï¿½ß°ï¿½
 struct NET_UPDATE_TRACINGCHAR
 {
 	NET_MSG_GENERIC nmg;
@@ -4112,7 +4127,7 @@ struct NET_UPDATE_TRACINGCHAR
 };
 
 
-// ÃßÀûÁßÀÎ À¯ÀúÀÇ ·Î±×¸¦ agent¼­¹ö¿¡ º¸³½´Ù.
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¸ï¿½ agentï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 struct NET_LOG_UPDATE_TRACINGCHAR
 {
 	NET_MSG_GENERIC nmg;
@@ -4130,7 +4145,7 @@ struct NET_LOG_UPDATE_TRACINGCHAR
 	}
 };
 
-//< ÇÊµå->Å¬¶óÀÌ¾ðÆ® ÃßÀû À¯ÀúÀÎÁö ¾Æ´ÑÁö¸¦ º¸³½´Ù.
+//< ï¿½Êµï¿½->Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 struct NET_TRACING_CHARACTER
 {
 	NET_MSG_GENERIC nmg;
@@ -4146,7 +4161,7 @@ struct NET_TRACING_CHARACTER
 };
 
 
-// °¢°¢ÀÇ ¾ÆÀÌÅÛÀÇ ÃÖ´ë °íÀ¯¹øÈ£¸¦ °¡Á®¿À±â À§ÇÑ ±¸Á¶Ã¼
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼
 struct VIEWLOGITEMEXCHANGEMAX
 {
     LONGLONG llMaxNum;
@@ -4163,7 +4178,7 @@ struct VIEWLOGITEMEXCHANGEMAX
     }
 };
 
-// AGT->Session À¸·Î LoginMaintenance On/Off
+// AGT->Session ï¿½ï¿½ï¿½ï¿½ LoginMaintenance On/Off
 struct SNET_SERVER_LOGINMAINTENANCE_SESSION
 {
 	NET_MSG_GENERIC nmg;
@@ -4190,8 +4205,8 @@ struct SNET_SERVER_LOGINMAINTENANCE_LOGIN
 	}
 };
 
-// Shop ¿¡¼­ ±¸¸ÅÇÑ ¾ÆÀÌÅÛ¸®½ºÆ®¸¦ °¡Á®¿À±â À§ÇÑ ±¸Á¶Ã¼
-// char 21 ÀÚ¸®
+// Shop ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¸ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼
+// char 21 ï¿½Ú¸ï¿½
 #define PURKEY_LENGTH 30
 
 struct SHOPPURCHASE
@@ -4223,19 +4238,61 @@ struct SHOPPURCHASE
 	}
 };
 
+struct ITEMSHOP
+{
+   // CString strPurKey;
+    SNATIVEID	sID;
+	WORD	wItemPrice;
+	WORD	wItemStock;
+	WORD	wItemCtg;
+	WORD	wItemCurrency;
+	CString	strItemNum;
+
+    ITEMSHOP()
+    {
+		sID.wMainID = 0;
+        sID.wSubID  = 0;
+        wItemPrice  = 0;
+        wItemStock  = 0;
+		wItemCtg	= 0;
+		wItemCurrency = 0;
+    }
+
+	ITEMSHOP( const ITEMSHOP &value ) 
+		: sID(value.sID)
+		, wItemPrice(value.wItemPrice)
+		, wItemStock(value.wItemStock)
+		, wItemCtg(value.wItemCtg)
+		, wItemCurrency(value.wItemCurrency)
+		, strItemNum(value.strItemNum)
+    {
+	}
+
+	ITEMSHOP& operator= ( const ITEMSHOP &value )
+	{
+		sID = value.sID;
+		wItemPrice = value.wItemPrice;
+		wItemStock = value.wItemStock;
+		wItemCtg   = value.wItemCtg;
+		wItemCurrency = value.wItemCurrency;
+		strItemNum = value.strItemNum;
+
+		return *this;
+	}
+};
 ///////////////////////////////////////////////////////////////////////////////
 // Global Function
 
-/// ³×Æ®¿öÅ© ÃÊ±âÈ­
+/// ï¿½ï¿½Æ®ï¿½ï¿½Å© ï¿½Ê±ï¿½È­
 int	NET_InitializeSocket(void);
-/// ³×Å©¿öÅ© Á¾·á
+/// ï¿½ï¿½Å©ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½
 void NET_CloseSocket(void);
-/// Winsock2 ¿¡·¯ ÄÚµå->¹®ÀÚ¿­ ÇÔ¼ö
+/// Winsock2 ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½->ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½Ô¼ï¿½
 CString NET_ERROR_STRING(int nCode);
 
 /******************************************************************************
-* GameGuard ¿¡·¯ ÄÚµå Ã¼Å© ÇÔ¼ö
-* \param dwErrCode nProtect GameGuard ¿¡·¯ÄÚµå
+* GameGuard ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ Ã¼Å© ï¿½Ô¼ï¿½
+* \param dwErrCode nProtect GameGuard ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½
 */
 std::string GetGameGuardErrorString(DWORD dwErrCode);
 

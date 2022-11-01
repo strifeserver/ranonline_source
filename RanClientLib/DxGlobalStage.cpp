@@ -44,7 +44,7 @@
 #include "../RanClientUILib/Interface/LoadingThread.h"
 #include "../EngineLib/DxCommon/DxFontMan.h"
 
-#if defined( CH_PARAM ) || defined ( HK_PARAM ) || defined ( TW_PARAM ) //|| defined ( _RELEASED ) // Apex Àû¿ë
+#if defined( CH_PARAM ) || defined ( HK_PARAM ) || defined ( TW_PARAM ) //|| defined ( _RELEASED ) // Apex ï¿½ï¿½ï¿½ï¿½
 #include "./ClientApex.h"
 #endif
 
@@ -184,7 +184,7 @@ DxGlobalStage::DxGlobalStage (void) :
 	
 	m_pMsgActive(NULL),
 	m_pMsgReceive(NULL),
-	m_nChannel(-1) // ¼­¹öÀÇ Ã¤³ÎÀº 0ºÎÅÍ ½ÃÀÛÇÑ´Ù.
+	m_nChannel(-1) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 {
 	InitializeCriticalSection(&m_CSMsgProcLock);
 
@@ -220,11 +220,11 @@ void DxGlobalStage::OnInitLogin ()
 	GLGaeaClient::GetInstance().GetCharacter()->ResetData();
 	GLPartyClient::GetInstance().ResetParty();
 
-#if defined ( CH_PARAM ) || defined ( HK_PARAM ) || defined ( TW_PARAM ) //|| defined ( _RELEASED ) // Apex Àû¿ë
+#if defined ( CH_PARAM ) || defined ( HK_PARAM ) || defined ( TW_PARAM ) //|| defined ( _RELEASED ) // Apex ï¿½ï¿½ï¿½ï¿½
 	int nReturn = APEX_CLIENT::StartApexClient();
 #endif
 
-#if defined ( HK_PARAM ) || defined ( TW_PARAM ) // Apex Àû¿ë( È«Äá )
+#if defined ( HK_PARAM ) || defined ( TW_PARAM ) // Apex ï¿½ï¿½ï¿½ï¿½( È«ï¿½ï¿½ )
 	NET_APEX_RETURN nmg;
 	nmg.nReturn = nReturn;
 
@@ -276,36 +276,36 @@ HRESULT DxGlobalStage::OneTimeSceneInit ( const char* szAppPath, HWND hWnd, BOOL
 	
 	if ( !bEmulate )
 	{
-		//	Note : GLLandMan °æ·Î ÁöÁ¤.
+		//	Note : GLLandMan ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		//
 		StringCchCopy ( szFullPath, MAX_PATH, szAppPath );
 		StringCchCat ( szFullPath, MAX_PATH, SUBPATH::GLMAP_FILE );
 		GLLandMan::SetPath ( szFullPath );
 
-		//	Note : Npc ´ëÈ­ÆÄÀÏ
+		//	Note : Npc ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½
 		StringCchCopy ( szFullPath, MAX_PATH, szAppPath );
 		StringCchCat ( szFullPath, MAX_PATH, SUBPATH::NTK_FILE_ROOT );
 		CNpcDialogueSet::SetPath ( szFullPath );
 
-		//	Note : Quest ÆÄÀÏ
+		//	Note : Quest ï¿½ï¿½ï¿½ï¿½
 		StringCchCopy ( szFullPath, MAX_PATH, szAppPath );
 		StringCchCat ( szFullPath, MAX_PATH, SUBPATH::QST_FILE_ROOT );
 		GLQuestMan::GetInstance().SetPath ( szFullPath );
 
-		//	Note : ¹ö½º ÆÄÀÏ. ÅÃ½Ã ÆÄÀÏ
+		//	Note : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½Ã½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//
 		StringCchCopy ( szFullPath, MAX_PATH, szAppPath );
 		StringCchCat ( szFullPath, MAX_PATH, SUBPATH::GLOGIC_FILE );
 		GLBusStation::GetInstance().SetPath ( szFullPath );
 		GLTaxiStation::GetInstance().SetPath ( szFullPath );
 
-		// Note : GLogic zip ÆÄÀÏ ÆÐ½º ¼ÂÆÃ
-		// zip ÆÄÀÏ ÆÐ½º´Â °è¼Ó Ãß°¡
+		// Note : GLogic zip ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		// zip ï¿½ï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 		GLOGIC::SetFullPath( GLOGIC::bGLOGIC_PACKFILE );
 		GLOGIC::SetEngFullPath();
 		GLOGIC::OpenPackFile( szAppPath );
 
-		//	Note : ·ÎÁ÷ ´ëÀÌÅ¸ ÃÊ±âÈ­.
+		//	Note : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ ï¿½Ê±ï¿½È­.
 		//
 		hr = GLogicData::GetInstance().LoadData ( FALSE );
 		if ( FAILED(hr) )	return hr;
@@ -331,11 +331,11 @@ HRESULT DxGlobalStage::OneTimeSceneInit ( const char* szAppPath, HWND hWnd, BOOL
 		m_NetClient.SetWndHandle ( m_hWnd, this );
 	}
 
-	//	Note : ÀÌ¸ðÆ¼ÄÜ ¼³Á¤ µ¥ÀÌÅÍ ÆÄÀÏ ·Îµù
+	//	Note : ï¿½Ì¸ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½
 	//
 	CEmoticon::GetInstance().LOAD ();
 
-	// Note : ÀÎÅÍÆäÀÌ½º ¼³Á¤ ÆÄÀÏ ·Îµù
+	// Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½
 	//
 	StringCchCopy ( szFullPath, MAX_PATH, szAppPath );
 	StringCchCat ( szFullPath, MAX_PATH, SUBPATH::GUI_FILE_ROOT);
@@ -357,7 +357,7 @@ HRESULT DxGlobalStage::OneTimeSceneInit ( const char* szAppPath, HWND hWnd, BOOL
 
 	//m_GameStage.SetD3DApp(m_pD3DApp);
 
-	//	Note :È°¼ºÈ­µÈ stage ÃÊ±âÈ­.
+	//	Note :È°ï¿½ï¿½È­ï¿½ï¿½ stage ï¿½Ê±ï¿½È­.
 	//
 	if ( !m_bEmulate )
 	{
@@ -380,7 +380,7 @@ HRESULT DxGlobalStage::OneTimeSceneInit ( const char* szAppPath, HWND hWnd, BOOL
 		}
 	}
 
-	//	Note : °ÔÀÓ Ä¿¼­ »ç¿ë ¿©ºÎ °áÁ¤.
+	//	Note : ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	//
 	CCursor::GetInstance().SetGameCursor ( RANPARAM::bGameCursor );
 
@@ -397,7 +397,7 @@ HRESULT DxGlobalStage::InitDeviceObjects ( LPDIRECT3DDEVICEQ pd3dDevice )
 	hr = m_pd3dDevice->GetDeviceCaps ( &m_d3dCaps );
 	if ( FAILED(hr) )	return hr;
 
-	//	Note : ·ÎÁ÷ data ÃÊ±âÈ­.
+	//	Note : ï¿½ï¿½ï¿½ï¿½ data ï¿½Ê±ï¿½È­.
 	//
 	hr = GLogicData::GetInstance().InitDeviceObjects ( m_pd3dDevice );
 	if ( FAILED(hr) )	return hr;
@@ -526,7 +526,7 @@ HRESULT DxGlobalStage::ChangeStage ( WORD wWidth, WORD wHeight )
 
 	LOADINGSTEP::SETSTEP ( 1 );
 
-	//	Note : ¾×Æ¼ºê stage ºñÈ°¼ºÈ­.
+	//	Note : ï¿½ï¿½Æ¼ï¿½ï¿½ stage ï¿½ï¿½È°ï¿½ï¿½È­.
 	//
 	if ( m_pActiveStage )	m_pActiveStage->DeActive ();
 	LOADINGSTEP::SETSTEP ( 2 );
@@ -535,7 +535,7 @@ HRESULT DxGlobalStage::ChangeStage ( WORD wWidth, WORD wHeight )
 	LOADINGSTEP::SETSTEP ( 3 );
 
 	int nstep = 0;
-	//	Note : ÄÉ¸¯ÅÍ ±âº» ½ºÅ² ´Ù½Ã ·Îµå.
+	//	Note : ï¿½É¸ï¿½ï¿½ï¿½ ï¿½âº» ï¿½ï¿½Å² ï¿½Ù½ï¿½ ï¿½Îµï¿½.
 	//for ( int i=0; i<GLCI_NUM_NEWSEX; ++i )
 	//add class
 	for ( int i=0; i<GLCI_NUM_2015; ++i )
@@ -545,7 +545,7 @@ HRESULT DxGlobalStage::ChangeStage ( WORD wWidth, WORD wHeight )
 		LOADINGSTEP::SETSTEP ( nstep + 4 );
 	}
 
-	//	Note : È°¼ºÈ­ stage º¯°æ.
+	//	Note : È°ï¿½ï¿½È­ stage ï¿½ï¿½ï¿½ï¿½.
 	//
 	switch ( m_emChangeStage )
 	{
@@ -553,7 +553,7 @@ HRESULT DxGlobalStage::ChangeStage ( WORD wWidth, WORD wHeight )
 	case EM_STAGE_GAME:	m_pActiveStage = &m_GameStage;	break;
 	};
 
-	//	Note : ÇöÁ¦ stage È°¼ºÈ­.
+	//	Note : ï¿½ï¿½ï¿½ï¿½ stage È°ï¿½ï¿½È­.
 	//
 	if ( m_pActiveStage )
 	{
@@ -581,15 +581,15 @@ HRESULT DxGlobalStage::GameToLobbyStage ()
 {
 	if ( m_bEmulate )	return S_FALSE;
 
-#if defined ( CH_PARAM ) || defined ( HK_PARAM ) || defined ( TW_PARAM )//|| defined ( _RELEASED ) // Apex Àû¿ë
+#if defined ( CH_PARAM ) || defined ( HK_PARAM ) || defined ( TW_PARAM )//|| defined ( _RELEASED ) // Apex ï¿½ï¿½ï¿½ï¿½
 	APEX_CLIENT::StopApexClient();
 #endif
 
-	//	Note : ³×Æ®¿÷ ¿¬°á Á¾·á.
+	//	Note : ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if ( m_NetClient.IsOnline() == TRUE )
 		m_NetClient.CloseConnect ();
 
-	//	Note : ¸Þ¼¼Áö ¹öÆÛ ÃÊ±âÈ­.
+	//	Note : ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­.
 	//
 	EnterCriticalSection(&m_CSMsgProcLock);
 	{
@@ -603,7 +603,7 @@ HRESULT DxGlobalStage::GameToLobbyStage ()
 
 	m_GameStage.ResetCharJoinData();
 
-	//	Note : ½ºÅ×ÀÌÁö º¯°æ ¿äÃ».
+	//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã».
 	//
 	ToChangeStage ( EM_STAGE_LOBY );
 	SetSTATE(EM_REQCONNECT_LOGINSVR);
@@ -627,7 +627,7 @@ void DxGlobalStage::CloseGame ( LPCTSTR lpszMsg )
 
 	if (lpszMsg)
 	{
-		MessageBox( m_hWnd, lpszMsg, "Error Message", MB_OK ); // or use game¡¯s UI
+		MessageBox( m_hWnd, lpszMsg, "Error Message", MB_OK ); // or use gameï¿½ï¿½s UI
 	}
 
     ::PostMessage ( m_hWnd, WM_CLOSE, 0, 0 );	
@@ -638,20 +638,20 @@ HRESULT DxGlobalStage::FrameMove ( float m_fTime, float m_fElapsedTime )
 	HRESULT hr=S_OK;
 	if ( IsSTATE(EM_CLOSE) )	return S_FALSE;
 
-	//	Note : ¿¡¹Ä·¹ÀÌÅÍ¿¡¼­ ¸Þ¼¼Áö Áö¿¬À» °­Á¦·Î ¸¸µé±â À§ÇØ¼­.
+	//	Note : ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½.
 	//
 	if ( m_bEmulate )
 	{
 		_update_emul_msg ( m_fElapsedTime );
 	}
 
-	//	Note : ¼ö½ÅµÈ ¸Þ½ÃÁöÃ³¸®.
+	//	Note : ï¿½ï¿½ï¿½Åµï¿½ ï¿½Þ½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½.
 	//
 	PROFILE_BEGIN("net msg");
 	MsgProcessFrame ();
 	PROFILE_END("net msg");
 
-	//	Note : ½ºÅ×ÀÌÁöº¯°æ½Ã¿¡ Ã³¸®.
+	//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ Ã³ï¿½ï¿½.
 	//
 	if ( IsSTATE(EM_CHANGE) )
 	{
@@ -724,7 +724,7 @@ HRESULT DxGlobalStage::DeleteDeviceObjects ()
 {
 	HRESULT hr=S_OK;
 
-	//	Note : ·ÎÁ÷ data »èÁ¦
+	//	Note : ï¿½ï¿½ï¿½ï¿½ data ï¿½ï¿½ï¿½ï¿½
 	//
 	hr = GLogicData::GetInstance().DeleteDeviceObjects ();
 	if ( FAILED(hr) )	return hr;
@@ -751,7 +751,7 @@ HRESULT DxGlobalStage::FinalCleanup ()
 		if ( FAILED(hr) )		return E_FAIL;
 	}
 
-	//	Note : ¿¡¹Ä·¹ÀÌÅÍ°¡ ¾Æ´Ï¸é ³×Æ®¿÷ ¿¬°á Á¾·á.
+	//	Note : ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Æ´Ï¸ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if ( !m_bEmulate )
 	{
 		if ( m_NetClient.IsOnline() == true )
@@ -760,7 +760,7 @@ HRESULT DxGlobalStage::FinalCleanup ()
 		NET_CloseSocket();
 	}
 
-	//	Note : ¸Þ¼¼Áö ¹öÆÛ ÃÊ±âÈ­.
+	//	Note : ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­.
 	//
 	EnterCriticalSection(&m_CSMsgProcLock);
 	{
@@ -817,11 +817,11 @@ void DxGlobalStage::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 void DxGlobalStage::MsgProcessFrame ()
 {
-	//	Note : Active Msg Buffer ÇÃ¸³ ½ÃÅ´.
+	//	Note : Active Msg Buffer ï¿½Ã¸ï¿½ ï¿½ï¿½Å´.
 	//
 	MsgQueueFlip ();
 
-	// ÇöÁ¦ °¡Á®¿Ã ¸Þ¼¼Áö ¹öÆÛ ¸®½ºÆ®¸¦ °¡Á®¿È.
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	MSGBUFFERLIST &MsgReceivedMsg = GetReceivedMsgList();
 
 	MSGBUFFERLIST_ITER iter = MsgReceivedMsg.begin();
@@ -886,7 +886,7 @@ void DxGlobalStage::MsgProcessFrame ( NET_MSG_GENERIC *nmg )
 		break;
 
 	case NET_MSG_CHAT_FB:
-	case NET_MSG_CHAT_CTRL_FB:			// °ü¸®ÀÚ¿ë Ã¤ÆÃ¸Þ½ÃÁö
+	case NET_MSG_CHAT_CTRL_FB:			// ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ Ã¤ï¿½Ã¸Þ½ï¿½ï¿½ï¿½
 	case NET_MSG_SERVER_GENERALCHAT:
 	case NET_MSG_CHAT_PRIVATE_FAIL:
 	case NET_MSG_CHAT_BLOCK:
@@ -976,6 +976,8 @@ void DxGlobalStage::MsgProcessFrame ( NET_MSG_GENERIC *nmg )
 	case NET_MSG_GCTRL_REQ_HOLD_FB:
 
 	case NET_MSG_GCTRL_INVEN_INSERT:
+	case NET_MSG_GCTRL_BUY_ITEMSHOP_ITEM:
+	case NET_MSG_GCTRL_BUY_ITEMSHOP:
 	case NET_MSG_GCTRL_INVEN_DELETE:
 	case NET_MSG_GCTRL_INVEN_DEL_INSERT:
 	case NET_MSG_GCTRL_REQ_VNINVEN_TO_INVEN_FB:
@@ -1172,6 +1174,7 @@ void DxGlobalStage::MsgProcessFrame ( NET_MSG_GENERIC *nmg )
 	case NET_MSG_GCTRL_GETEXP_RECOVERY_NPC_FB:
 	case NET_MSG_GCTRL_RECOVERY_NPC_FB:
 	case NET_MSG_GCTRL_GET_CHARGEDITEM_FROMDB_FB:
+	case NET_MSG_GCTRL_GET_ITEMSHOP_FROMDB_FB:
 
 	case NET_MSG_GCTRL_REQ_GESTURE_BRD:
 
@@ -1466,7 +1469,7 @@ void DxGlobalStage::MsgProcessFrame ( NET_MSG_GENERIC *nmg )
 	case NET_MSG_SMS_PHONE_NUMBER_FB:
 	case NET_MSG_SMS_SEND_FB:
 
-	case NET_MSG_MGAME_ODDEVEN_FB:	// ¹Ì´Ï°ÔÀÓ - È¦Â¦
+	case NET_MSG_MGAME_ODDEVEN_FB:	// ï¿½Ì´Ï°ï¿½ï¿½ï¿½ - È¦Â¦
 	case NET_MSG_SERVERTIME_BRD:
 
 	case NET_MSG_CHINA_GAINTYPE:
@@ -1527,6 +1530,7 @@ void DxGlobalStage::MsgProcessFrame ( NET_MSG_GENERIC *nmg )
 	case NET_MSG_GCTRL_TOWERDOWN_BRD:
 	case NET_MSG_REQ_CROWLIST_FB:
 	case NET_MSG_REBUILD_MOVE_SEAL: //sealed card NaJDeV
+	case NET_MSG_RETRIEVE_POINTS_FB:
 		{
 			GLGaeaClient::GetInstance().MsgProcess ( nmg );
 		}
@@ -1607,7 +1611,7 @@ void DxGlobalStage::MsgProcessFrame ( NET_MSG_GENERIC *nmg )
 		}
 		break;
 
-#if defined ( CH_PARAM ) || defined ( HK_PARAM ) || defined ( TW_PARAM )//|| defined ( _RELEASED ) // Apex Àû¿ë
+#if defined ( CH_PARAM ) || defined ( HK_PARAM ) || defined ( TW_PARAM )//|| defined ( _RELEASED ) // Apex ï¿½ï¿½ï¿½ï¿½
 	case NET_MSG_APEX_DATA:
 		{
 			const NET_APEX_DATA * pNAD;
@@ -1660,8 +1664,8 @@ HRESULT DxGlobalStage::ToFullSize ()
 	int nScreenX = (int) GetSystemMetrics(SM_CXSCREEN);
 	int nScreenY = (int) GetSystemMetrics(SM_CYSCREEN);
 
-	//	Note : ¿ÍÀÌµå ½ºÅ©¸°À» ³Ñ¾î¼­´Â ºñÀ²ÀÏ °æ¿ì
-	//			2 ½ºÅ©¸°À¸·Î ÀÎ½Ä.
+	//	Note : ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î¼­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+	//			2 ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½.
 	float fScreen = nScreenX / float(nScreenY);
 	if ( fScreen > (16.0f/9.0f) )
 	{
@@ -1717,9 +1721,9 @@ HRESULT DxGlobalStage::ToRestoreSize ()
 
 void DxGlobalStage::SetD3DApp( CD3DApplication * pD3DApp )
 {
-	// ÀÌ ÇÔ¼ö°¡ Çì´õ¿¡ Á¸ÀçÇÏ¸é ´ëÀÔ ¿¬»êÀÌ ÀÌ·ç¾î ÁöÁö ¾Ê´Â´Ù
-	// °©ÀÚ±â ¿Ö ±×·±°É±î...? ½Ì±ÛÅæ? ÄÄÆÄÀÏ ¿É¼Ç? ÃÖÀûÈ­?
-	// Á¤È®ÇÑ ÀÌÀ¯¸¦ ¸ð¸£°Ú´Ù.
+	// ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½
+	// ï¿½ï¿½ï¿½Ú±ï¿½ ï¿½ï¿½ ï¿½×·ï¿½ï¿½É±ï¿½...? ï¿½Ì±ï¿½ï¿½ï¿½? ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½? ï¿½ï¿½ï¿½ï¿½È­?
+	// ï¿½ï¿½È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ð¸£°Ú´ï¿½.
 	m_pD3DApp = pD3DApp;
 }
 
