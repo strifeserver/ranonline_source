@@ -265,6 +265,10 @@ public:
 	int				m_nMP_Potion_Rate;
 	int				m_nSP_Potion_Rate;
 
+
+	DWORD			m_dwPPoints;
+	DWORD			m_dwVPoints;
+
 	//add pk streak
 	DWORD				m_dwPkCounter;
 	float				m_fPkTimer;
