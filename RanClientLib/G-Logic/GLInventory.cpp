@@ -40,7 +40,7 @@ void GLInventory::Assign ( const GLInventory &Inven )
 	SetAddLine ( Inven.GETAddLine(), Inven.IsLimit() );
 	SetState ( Inven.m_wCellSX, Inven.m_wCellSY );
 
-	//	±âÁ¸ ÀÎº¥°ú Å©±â°¡ °°À» °æ¿ì.
+	//	ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ Å©ï¿½â°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	if ( m_wCellSX==Inven.m_wCellSX && m_wCellSY==Inven.m_wCellSY )
 	{
 		CELL_MAP_CITER iter = Inven.m_ItemMap.begin();
@@ -50,7 +50,7 @@ void GLInventory::Assign ( const GLInventory &Inven )
 			InsertItem ( (*iter).second->sItemCustom, (*iter).second->wPosX, (*iter).second->wPosY, true );
 		}
 	}
-	//	Å©±â°¡ Æ²·ÁÁ³À» °æ¿ì.
+	//	Å©ï¿½â°¡ Æ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	else
 	{
 		SetState ( Inven.m_wCellSX, Inven.m_wCellSY );
@@ -126,9 +126,9 @@ void GLInventory::SetItemGenTime ()
 	}
 }
 
-//	Note : ÀÎº¥Åä¸®¿¡¼­ »ç¿ëÇÑ ¸Þ¸ð¸®/ÀåÄ¡µéÀ» ÇØÁ¦ÇÑ´Ù.
-//		´Ü ÇØÁ¦ ¼ø¼­»ó CItemMan::Instance ÀÇ ÇØÁ¦º¸´Ù ¾Õ¿¡ ÀÖ¾î¾ß¸¸
-//		¸Þ¸ð¸® ´©¼ö°¡ ¹ß»ýÇÏÁö ¾Ê´Â´Ù.
+//	Note : ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½/ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+//		ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ CItemMan::Instance ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ¿ï¿½ ï¿½Ö¾ï¿½ß¸ï¿½
+//		ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Â´ï¿½.
 //
 void GLInventory::CleanUp ()
 {
@@ -155,7 +155,7 @@ SINVENITEM* GLInventory::FindPosItem ( const WORD wPosX, const WORD wPosY )
 	{
 		SINVENITEM* pInvenItem = (*iter).second;
 		SITEM* pItem = GLItemMan::GetInstance().GetItem ( pInvenItem->sItemCustom.sNativeID );
-		GASSERT(pItem&&"Àß¸øµÈ °íÀ¯ ITEM IDÀÔ´Ï´Ù.");
+		GASSERT(pItem&&"ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ITEM IDï¿½Ô´Ï´ï¿½.");
 
 		pInvenItem->sItemCustom.sNativeID;
 		if ( ( ( pInvenItem->wPosX <= wPosX ) && ( wPosX < (pInvenItem->wPosX+pItem->sBasicOp.wInvenSizeX) ) ) &&
@@ -208,7 +208,7 @@ BOOL GLInventory::ValidCheckInsrt ( const WORD _wInsertNum, const WORD wSX, cons
 	GASSERT(wSX!=0&&wSY!=0);
 	GASSERT(wSX<=m_wCellSX&&wSY<=m_wCellSY);
 
-	//	Ã¼Å© ¸Þ¸ð¸® »ý¼º.
+	//	Ã¼Å© ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	BYTE** ppbCheckBarr = (NULL);
 	{
 		ppbCheckBarr = new BYTE*[m_wCellSX];
@@ -229,7 +229,7 @@ BOOL GLInventory::ValidCheckInsrt ( const WORD _wInsertNum, const WORD wSX, cons
 		ppbCheckBarr[i][j] = m_ppbBarrier[i][j];
 	}
 
-	//	ÀÎº¥¿¡ ³ÖÀ»¼ö ÀÖ´Â ¾ÆÀÌÅÛ ¼ö.
+	//	ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
 	WORD wValidNum(0);
 	for ( WORD wNum=0; wNum<_wInsertNum; ++wNum )
 	{
@@ -239,7 +239,7 @@ BOOL GLInventory::ValidCheckInsrt ( const WORD _wInsertNum, const WORD wSX, cons
 		for ( int cx=0; cx<=nCellSX; cx++ )
 		for ( int cy=0; cy<=nCellSY; cy++ )
 		{
-			//	Note : ÀÏÁ¤ Å©±âÀÇ ¾ÆÀÌÅÛÀÌ µé¾î°¥ °ø°£ÀÌ ÀÖ´ÂÁö Á¡°Ë.
+			//	Note : ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			BOOL bOccupied = FALSE;
 			for ( i=0; i<wSX; i++ )
 			for ( j=0; j<wSY; j++ )
@@ -251,12 +251,12 @@ BOOL GLInventory::ValidCheckInsrt ( const WORD _wInsertNum, const WORD wSX, cons
 			}
 			if ( bOccupied )	continue;
 
-			//	Note : ¾ÆÀÌÅÛÀÌ µé¾î°¥ °ø°£ÀÌ ÃæºÐÇÏ¸é Á¾·á.
+			//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			//	
 			wValidNum += 1;
 			if ( wValidNum==_wInsertNum )		goto _END;
 
-			//	Note : ¾ÆÀÌÅÛÀÌ µé¾î°¥ °ø°£À» Á¡°ÅÇÔ.
+			//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
 			for ( i=0; i<wSX; i++ )
 			for ( j=0; j<wSY; j++ )
@@ -268,7 +268,7 @@ BOOL GLInventory::ValidCheckInsrt ( const WORD _wInsertNum, const WORD wSX, cons
 
 _END:
 
-	//	Ã¼Å© ¸Þ¸ð¸® Á¦°Å.
+	//	Ã¼Å© ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if ( ppbCheckBarr )
 	{
 		for ( int i=0; i<m_wCellSX; i++ )
@@ -285,11 +285,11 @@ _END:
 
 BOOL GLInventory::ValidPileInsrt ( const WORD wINSRTNUM, const SNATIVEID &sNID, const WORD wPILENUM, const WORD wSX, const WORD wSY, bool bAllLine )
 {
-	//	³Ö±â ¿äÃ»µÈ ¾ÆÀÌÅÛ¼ö. ( ÀÜ¿©·®. )
+	//	ï¿½Ö±ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¼ï¿½. ( ï¿½Ü¿ï¿½ï¿½ï¿½. )
 	WORD wREQINSRTNUM(wINSRTNUM);
 
-	//	Note : ´õ °ãÃÄÁú¼ö ÀÖ´Â ¾ÆÀÌÅÛÀÌ ÀÖ´ÂÁö °Ë»çÇÏ¿© ÀÎº¥¿¡ µé¾î°¡¾ßÇÏ´Â
-	//		¾ÆÀÌÅÛ Á¡°Ë ¼ýÀÚ¸¦ °¨¼Ò½ÃÅ´.
+	//	Note : ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ï¿ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ï¿½Ï´ï¿½
+	//		ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½Å´.
 	GLInventory::CELL_MAP_ITER iter = m_ItemMap.begin();
 	for ( ; iter!=m_ItemMap.end(); ++iter )
 	{
@@ -305,17 +305,17 @@ BOOL GLInventory::ValidPileInsrt ( const WORD wINSRTNUM, const SNATIVEID &sNID, 
 		}
 		else
 		{
-			//	±âÁ¸ ¾ÆÀÌÅÛ¿¡ °ãÄ¡´Â °Í ¸¸À¸·Îµµ »õ·Î ³ÖÀ» ¾ÆÀÌÅÛÀÌ ÃæºÐÈ÷ µé¾î°¨.
+			//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¨.
 			return TRUE;
 		}
 	}
 
-	//	»õ·ÎÀÌ ÀÎº¥¿¡ µé¾î°¡¾ßÇÒ ¾ÆÀÌÅÛÀÇ °¹¼ö ÆÄ¾ÇÈÄ ÀÎº¥¿¡ µé¾î°¥ °ø°£ÀÌ ÀÖ´ÂÁö °Ë»ç.
+	//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¾ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½î°¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½.
 
-	//	ÃÖ´ë°ãÄ§¾ÆÀÌÅÛ ¼ö·®.
+	//	ï¿½Ö´ï¿½ï¿½Ä§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	WORD wITEMNUM = wREQINSRTNUM / wPILENUM;
 
-	//	¿©ºÐ°ãÄ§¾ÆÀÌÅÛÀÇ °ãÄ§¼ö.
+	//	ï¿½ï¿½ï¿½Ð°ï¿½Ä§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä§ï¿½ï¿½.
 	WORD wSPLITNUM = wREQINSRTNUM % wPILENUM;
 	if ( wSPLITNUM > 0 )	wITEMNUM += 1;
 
@@ -386,7 +386,7 @@ DWORD GLInventory::CountPileItem ( const SNATIVEID sNID )
 	{
 		SINVENITEM* pInvenItem = (*iter).second;
 		SITEM* pItem = GLItemMan::GetInstance().GetItem ( pInvenItem->sItemCustom.sNativeID );
-		GASSERT(pItem&&"Àß¸øµÈ °íÀ¯ ITEM IDÀÔ´Ï´Ù.");
+		GASSERT(pItem&&"ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ITEM IDï¿½Ô´Ï´ï¿½.");
 
 		if ( pInvenItem->sItemCustom.sNativeID != sNID )	continue;
 		
@@ -418,7 +418,7 @@ SINVENITEM* GLInventory::FindItem ( const EMITEM_TYPE emTYPE )
 	{
 		SINVENITEM* pInvenItem = (*iter).second;
 		SITEM* pItem = GLItemMan::GetInstance().GetItem ( pInvenItem->sItemCustom.sNativeID );
-		GASSERT(pItem&&"Àß¸øµÈ °íÀ¯ ITEM IDÀÔ´Ï´Ù.");
+		GASSERT(pItem&&"ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ITEM IDï¿½Ô´Ï´ï¿½.");
 
 		if ( pItem && pItem->sBasicOp.emItemType == emTYPE )	return pInvenItem;
 	}
@@ -438,7 +438,7 @@ SINVENITEM* GLInventory::FindItem ( const EMITEM_TYPE emTYPE, const SNATIVEID sN
 		{
 			SINVENITEM* pInvenItem = (*iter).second;
 			SITEM* pItem = GLItemMan::GetInstance().GetItem ( pInvenItem->sItemCustom.sNativeID );
-			GASSERT(pItem&&"Àß¸øµÈ °íÀ¯ ITEM IDÀÔ´Ï´Ù.");
+			GASSERT(pItem&&"ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ITEM IDï¿½Ô´Ï´ï¿½.");
 
 			if ( pItem->sBasicOp.sNativeID == sNID )	return pInvenItem;
 		}		
@@ -450,7 +450,7 @@ SINVENITEM* GLInventory::FindItem ( const EMITEM_TYPE emTYPE, const SNATIVEID sN
 	{
 		SINVENITEM* pInvenItem = (*iter).second;
 		SITEM* pItem = GLItemMan::GetInstance().GetItem ( pInvenItem->sItemCustom.sNativeID );
-		GASSERT(pItem&&"Àß¸øµÈ °íÀ¯ ITEM IDÀÔ´Ï´Ù.");
+		GASSERT(pItem&&"ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ITEM IDï¿½Ô´Ï´ï¿½.");
 
 		if ( pItem && pItem->sBasicOp.emItemType == emTYPE )	return pInvenItem;
 	}
@@ -466,7 +466,7 @@ BOOL GLInventory::HaveEventItem ()
 	{
 		SINVENITEM* pInvenItem = (*iter).second;
 		SITEM* pItem = GLItemMan::GetInstance().GetItem ( pInvenItem->sItemCustom.sNativeID );
-		GASSERT(pItem&&"Àß¸øµÈ °íÀ¯ ITEM IDÀÔ´Ï´Ù.");
+		GASSERT(pItem&&"ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ITEM IDï¿½Ô´Ï´ï¿½.");
 
 		if ( pItem && pItem->sBasicOp.IsEVENT() )	return TRUE;
 	}
@@ -484,7 +484,7 @@ SINVENITEM* GLInventory::FindDrugItem ( EMITEM_DRUG emDrug )
 	{
 		SINVENITEM* pInvenItem = (*iter).second;
 		SITEM* pItem = GLItemMan::GetInstance().GetItem ( pInvenItem->sItemCustom.sNativeID );
-		GASSERT(pItem&&"Àß¸øµÈ °íÀ¯ ITEM IDÀÔ´Ï´Ù.");
+		GASSERT(pItem&&"ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ITEM IDï¿½Ô´Ï´ï¿½.");
 
 		if ( pItem && pItem->sDrugOp.emDrug==emDrug )	return pInvenItem;
 	}
@@ -517,7 +517,7 @@ DWORD GLInventory::GetAmountDrugItem ( EMITEM_DRUG emDrug )
 	{
 		SINVENITEM* pInvenItem = (*iter).second;
 		SITEM* pItem = GLItemMan::GetInstance().GetItem ( pInvenItem->sItemCustom.sNativeID );
-		GASSERT(pItem&&"Àß¸øµÈ °íÀ¯ ITEM IDÀÔ´Ï´Ù.");
+		GASSERT(pItem&&"ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ITEM IDï¿½Ô´Ï´ï¿½.");
 
 		if ( pItem && pItem->sDrugOp.emDrug==emDrug )
 		{
@@ -542,7 +542,7 @@ bool GLInventory::GetCharResetItem ( WORD &wPosX, WORD &wPosY )
 		const SNATIVEID &sNID = pInvenItem->sItemCustom.sNativeID;
 
 		SITEM* pItem = GLItemMan::GetInstance().GetItem ( sNID );
-		GASSERT(pItem&&"Àß¸øµÈ °íÀ¯ ITEM IDÀÔ´Ï´Ù.");
+		GASSERT(pItem&&"ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ITEM IDï¿½Ô´Ï´ï¿½.");
 
 		if ( pItem->sBasicOp.emItemType!=ITEM_SKP_STAT_RESET )	continue;
 
@@ -557,7 +557,7 @@ bool GLInventory::GetCharResetItem ( WORD &wPosX, WORD &wPosY )
 	return false;
 }
 
-bool GLInventory::GetPileItem ( const SNATIVEID _sNID, WORD &wPosX, WORD &wPosY )	//	°ãÄ§ °¡´É °¹¼ö ¸¹Å­ °ãÃÄ ÀÖ´Â °ÍÀ» ¹ÝÈ¯.
+bool GLInventory::GetPileItem ( const SNATIVEID _sNID, WORD &wPosX, WORD &wPosY )	//	ï¿½ï¿½Ä§ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯.
 {
 	CELL_MAP_ITER iter = m_ItemMap.begin();
 	CELL_MAP_ITER iter_end = m_ItemMap.end();
@@ -569,7 +569,7 @@ bool GLInventory::GetPileItem ( const SNATIVEID _sNID, WORD &wPosX, WORD &wPosY 
 		if ( _sNID!=sNID )										continue;
 
 		SITEM* pItem = GLItemMan::GetInstance().GetItem ( sNID );
-		GASSERT(pItem&&"Àß¸øµÈ °íÀ¯ ITEM IDÀÔ´Ï´Ù.");
+		GASSERT(pItem&&"ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ITEM IDï¿½Ô´Ï´ï¿½.");
 
 		if ( pItem->sDrugOp.wPileNum==pInvenItem->sItemCustom.wTurnNum )
 		{
@@ -602,7 +602,7 @@ BOOL GLInventory::IsInsertable ( const WORD wSX, const WORD wSY, const WORD wPos
 	GASSERT(wSX!=0&&wSY!=0);
 	GASSERT(wSX<=m_wCellSX&&wSY<=m_wCellSY);
 
-	// ÇØÅ·ÇÏ·Á´Â ÈçÀû ¹ß°ß
+	// ï¿½ï¿½Å·ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	if ( wSX==0||wSY==0 )               return FALSE;
 	if ( wSX>m_wCellSX||wSY>m_wCellSY ) return FALSE;
 
@@ -634,7 +634,7 @@ void GLInventory::SetMark ( const WORD wSX, const WORD wSY, const WORD wPosX, co
 	for ( WORD i=0; i<wSX; i++ )
 	for ( WORD j=0; j<wSY; j++ )
 	{
-		GASSERT ( m_ppbBarrier[wPosX+i][wPosY+j]==FALSE && "ÀÎº¥ barrier°¡ ÀÌ¹Ì Á¡°Å µÇ¾î ÀÖ½À´Ï´Ù." );
+		GASSERT ( m_ppbBarrier[wPosX+i][wPosY+j]==FALSE && "ï¿½Îºï¿½ barrierï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½." );
 
 		GASSERT ( wPosX+i < m_wCellSX );
 		GASSERT ( wPosY+j < m_wCellSY );
@@ -653,7 +653,7 @@ void GLInventory::ReSetMark ( WORD wSX, WORD wSY, WORD wPosX, WORD wPosY )
 	for ( WORD i=0; i<wSX; i++ )
 	for ( WORD j=0; j<wSY; j++ )
 	{
-		GASSERT ( m_ppbBarrier[wPosX+i][wPosY+j]==TRUE && "ÀÎº¥ barrier¿¡ ¸¶Å©µÇÁö ¾ÊÀº °ø°£À» ¸®»ûÇÏ·Á°í Çß½À´Ï´Ù." );
+		GASSERT ( m_ppbBarrier[wPosX+i][wPosY+j]==TRUE && "ï¿½Îºï¿½ barrierï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½Ï´ï¿½." );
 
 		GASSERT ( wPosX+i < m_wCellSX );
 		GASSERT ( wPosY+j < m_wCellSY );
@@ -671,9 +671,9 @@ BOOL GLInventory::InsertItem ( const SITEMCUSTOM &ItemCustom )
 	if ( bOk )
 	{
 		SINVENITEM* pInvenItem = new SINVENITEM;
-		GASSERT ( pInvenItem&&"ÀÎº¥Åä¸® ¾ÆÀÌÅÛ ¸Þ¸ð¸® ÇÒ´çÀ» ÇÏÁö ¸øÇß½À´Ï´Ù!" );
+		GASSERT ( pInvenItem&&"ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½!" );
 
-		//	Note : ÀÎº¥ °ø°£À» ¸¶Å©ÇÔ.
+		//	Note : ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½.
 		//
 		SetMark ( pItem->sBasicOp.wInvenSizeX, pItem->sBasicOp.wInvenSizeY, wPosX, wPosY );
 
@@ -689,7 +689,41 @@ BOOL GLInventory::InsertItem ( const SITEMCUSTOM &ItemCustom )
 	return FALSE;
 }
 
-//	Note : ÃÊ±â ·Îµå½Ã¿¡ ( Assign ) bLOAD ¸¦ »ç¿ëÇÏ¸é ( »ç¿ë Çã°¡µÈ line ÀÌ ¾Æ´Ï´õ¶óµµ ³Ö¾îÁú¼ö ÀÖ´Ù. )
+
+BOOL GLInventory::InsertItem2Shop ( const SITEMCUSTOM &ItemCustom, const WORD wPosX, const WORD wPosY, bool bLOAD , const WORD wPrice , const WORD wStock , const WORD wCategory ,const WORD wCurrency , const char* szPurkey )
+{
+	SITEM* pItem = GLItemMan::GetInstance().GetItem ( ItemCustom.sNativeID );
+	if ( !pItem )	return FALSE;
+
+	BOOL bOk = IsInsertable ( pItem->sBasicOp.wInvenSizeX, pItem->sBasicOp.wInvenSizeY, wPosX, wPosY, bLOAD );
+	if ( bOk )
+	{
+		SINVENITEM* pInvenItem = new SINVENITEM;
+		GASSERT ( pInvenItem&&"ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½!" );
+
+		//	Note : ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½.
+		//
+		SetMark ( pItem->sBasicOp.wInvenSizeX, pItem->sBasicOp.wInvenSizeY, wPosX, wPosY );
+
+		pInvenItem->wPosX = wPosX;
+		pInvenItem->wPosY = wPosY;
+		pInvenItem->wItemPrice = wPrice;
+		pInvenItem->wItemStock = wStock;
+		pInvenItem->wItemCtg = wCategory;
+		pInvenItem->wCurrency = wCurrency;
+		StringCchCopy ( pInvenItem->szPurKey, PURKEY_LENGTH+1, szPurkey  );
+		//pInvenItem->szPurKey = szPurkey;
+		pInvenItem->sItemCustom = ItemCustom;
+
+		m_ItemMap.insert ( std::make_pair(CELL_KEY(wPosX,wPosY),pInvenItem) );
+		
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
+//	Note : ï¿½Ê±ï¿½ ï¿½Îµï¿½Ã¿ï¿½ ( Assign ) bLOAD ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ( ï¿½ï¿½ï¿½ ï¿½ã°¡ï¿½ï¿½ line ï¿½ï¿½ ï¿½Æ´Ï´ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½. )
 //
 BOOL GLInventory::InsertItem ( const SITEMCUSTOM &ItemCustom, const WORD wPosX, const WORD wPosY, bool bLOAD )
 {
@@ -700,9 +734,9 @@ BOOL GLInventory::InsertItem ( const SITEMCUSTOM &ItemCustom, const WORD wPosX, 
 	if ( bOk )
 	{
 		SINVENITEM* pInvenItem = new SINVENITEM;
-		GASSERT ( pInvenItem&&"ÀÎº¥Åä¸® ¾ÆÀÌÅÛ ¸Þ¸ð¸® ÇÒ´çÀ» ÇÏÁö ¸øÇß½À´Ï´Ù!" );
+		GASSERT ( pInvenItem&&"ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½!" );
 
-		//	Note : ÀÎº¥ °ø°£À» ¸¶Å©ÇÔ.
+		//	Note : ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½.
 		//
 		SetMark ( pItem->sBasicOp.wInvenSizeX, pItem->sBasicOp.wInvenSizeY, wPosX, wPosY );
 
@@ -727,9 +761,9 @@ BOOL GLInventory::InsertItem ( const SITEMCUSTOM &ItemCustom, const WORD wPosX, 
 	if ( bOk )
 	{
 		SINVENITEM* pInvenItem = new SINVENITEM;
-		GASSERT ( pInvenItem&&"ÀÎº¥Åä¸® ¾ÆÀÌÅÛ ¸Þ¸ð¸® ÇÒ´çÀ» ÇÏÁö ¸øÇß½À´Ï´Ù!" );
+		GASSERT ( pInvenItem&&"ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½!" );
 
-		//	Note : ÀÎº¥ °ø°£À» ¸¶Å©ÇÔ.
+		//	Note : ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½.
 		//
 		SetMark ( pItem->sBasicOp.wInvenSizeX, pItem->sBasicOp.wInvenSizeY, wPosX, wPosY );
 
@@ -755,10 +789,10 @@ BOOL GLInventory::DeleteItem ( WORD wPosX, WORD wPosY )
 	if ( !pInvenItem )	return FALSE;
 
 	SITEM* pItem = GLItemMan::GetInstance().GetItem ( pInvenItem->sItemCustom.sNativeID );
-	GASSERT(pItem&&"Àß¸øµÈ °íÀ¯ ITEM IDÀÔ´Ï´Ù.");
+	GASSERT(pItem&&"ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ITEM IDï¿½Ô´Ï´ï¿½.");
 	SITEM &Item = *pItem;
 
-	//	Note : ÀÎº¥ °ø°£ ¸¶Å©¸¦ Ç®¾îÁÜ.
+	//	Note : ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ Ç®ï¿½ï¿½ï¿½ï¿½.
 	//
 	ReSetMark ( Item.sBasicOp.wInvenSizeX, Item.sBasicOp.wInvenSizeY, wPosX, wPosY );
 
@@ -781,10 +815,10 @@ void GLInventory::DeleteItemAll ()
 		SINVENITEM* pInvenItem = (*iter).second;
 	
 		SITEM* pItem = GLItemMan::GetInstance().GetItem ( pInvenItem->sItemCustom.sNativeID );
-		GASSERT(pItem&&"Àß¸øµÈ °íÀ¯ ITEM IDÀÔ´Ï´Ù.");
+		GASSERT(pItem&&"ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ITEM IDï¿½Ô´Ï´ï¿½.");
 		SITEM &Item = *pItem;
 
-		//	Note : ÀÎº¥ °ø°£ ¸¶Å©¸¦ Ç®¾îÁÜ.
+		//	Note : ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ Ç®ï¿½ï¿½ï¿½ï¿½.
 		//
 		ReSetMark ( Item.sBasicOp.wInvenSizeX, Item.sBasicOp.wInvenSizeY, pInvenItem->wPosX, pInvenItem->wPosY );
 		SAFE_DELETE(pInvenItem);
@@ -822,7 +856,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 	SINVENITEM sInvenItem;
 	for ( DWORD i=0; i<dwNum; i++ )
 	{
-		//	Note : ÇâÈÄ ¹öÀü¿¡¼­ ÀÌÀü ¹öÀüÀ» ´ëÀÔ ¿¬»êÀ¸·Î Ã³¸® ÇÒ ºÎºÐ.
+		//	Note : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ ï¿½Îºï¿½.
 		//
 		if ( dwVersion==0x0100 )
 		{
@@ -831,7 +865,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -845,7 +879,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -859,7 +893,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -873,7 +907,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -887,7 +921,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -901,7 +935,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -915,7 +949,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -929,7 +963,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -943,7 +977,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -957,7 +991,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -971,7 +1005,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -985,7 +1019,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -1001,7 +1035,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -1018,7 +1052,7 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sOld, sizeof(sOld) );
 			if ( !bOk )
 			{
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -1033,8 +1067,8 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 			BOOL bOk = ByteStream.ReadBuffer ( (LPBYTE)&sInvenItem.sSaveData, sizeof(SINVENITEM_SAVE) );
 			if ( !bOk )
 			{
-				GASSERT ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." && 0 );
-				CDebugSet::ToLogFile ( "inventory save byte stream Ã³¸® µµÁß ¿À·ù°¡ ¹ß»ýÇÏ¿´½À´Ï´Ù." );
+				GASSERT ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." && 0 );
+				CDebugSet::ToLogFile ( "inventory save byte stream Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½." );
 				return FALSE;	//ERROR
 			}
 
@@ -1042,10 +1076,10 @@ BOOL GLInventory::SETITEM_BYBUFFER ( CByteStream &ByteStream )
 		}
 		else
 		{
-			//	Note : ¾Ë¼ö ¾ø´Â ¹öÀüÀÇ inventory save structure ÀÔ´Ï´Ù.
+			//	Note : ï¿½Ë¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ inventory save structure ï¿½Ô´Ï´ï¿½.
 			//
-			GASSERT ( "¾Ë¼ö ¾ø´Â ¹öÀüÀÇ inventory save structure ÀÔ´Ï´Ù." && 0 );
-			CDebugSet::ToLogFile ( "¾Ë¼ö ¾ø´Â ¹öÀüÀÇ inventory save structure ÀÔ´Ï´Ù." );
+			GASSERT ( "ï¿½Ë¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ inventory save structure ï¿½Ô´Ï´ï¿½." && 0 );
+			CDebugSet::ToLogFile ( "ï¿½Ë¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ inventory save structure ï¿½Ô´Ï´ï¿½." );
 			return FALSE;
 		}
 	}
@@ -1102,7 +1136,7 @@ SINVENITEM* GLInventory::FindItemByGenNumber ( LONGLONG llGenNum, SNATIVEID sID,
 	{
 		SINVENITEM* pInvenItem = (*iter).second;
 		SITEM* pItem = GLItemMan::GetInstance().GetItem ( pInvenItem->sItemCustom.sNativeID );
-		GASSERT(pItem&&"Àß¸øµÈ °íÀ¯ ITEM IDÀÔ´Ï´Ù.");
+		GASSERT(pItem&&"ï¿½ß¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ITEM IDï¿½Ô´Ï´ï¿½.");
 		
 		if ( pInvenItem->sItemCustom.lnGenNum == llGenNum
 			&& pInvenItem->sItemCustom.sNativeID == sID 
