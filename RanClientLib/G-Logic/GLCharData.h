@@ -539,6 +539,8 @@ public:
 public:
 	//	Ŭ���̾�Ʈ ����.
 	BOOL ADDSHOPPURCHASE ( const char* szPurKey, SNATIVEID nidITEM );
+	// added by ejsayaaa ItemMall
+	BOOL ADDITEMSHOP ( const char* szPurKey,SNATIVEID nidITEM , const WORD wPrice , const WORD wStock ,WORD wItemCtg , WORD wCurrency );
 	BOOL DELSHOPPURCHASE ( const DWORD dwID );
 
 public:	// ITEMREBUILD_MARK

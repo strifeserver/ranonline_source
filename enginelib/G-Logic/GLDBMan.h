@@ -995,6 +995,8 @@ public:
 	*/
 	virtual int GetPetFull( int nChaNum, DWORD dwPetNum ) { return 0; }
 
+	virtual int GetPoints( int nChaNum , DWORD dwUserID , DWORD dwClientID , int *PPoints , int *VPPoints ) { return 0; }
+
 	/**
 	* �Ҹ�� ���� ����Ʈ�� �����´�.
 	* \param nChaNum �Ҹ�� �� ����Ʈ�� ����Ϸ��� ĳ���� ��ȣ
