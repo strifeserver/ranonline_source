@@ -3715,7 +3715,7 @@ HRESULT GLChar::MsgProcess ( NET_MSG_GENERIC* nmg )
 
 	case NET_MSG_GCTRL_REQ_ALLOW_BET:		MsgReqAllowBet(nmg);			break; //add duel bet
 
-	case NET_MSG_GCTRL_REQ_LEARNSKILL:		fsgReqLearnSkill(nmg);			break;
+
 	case NET_MSG_GCTRL_REQ_LEARNSKILL_NONINVEN:		MsgReqLearnSkillNonInven(nmg);		break; //Activate Skill w/o Scroll
 	case NET_MSG_GCTRL_REQ_SKILLUP:			MsgReqSkillUp(nmg);				break;
 

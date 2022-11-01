@@ -557,6 +557,7 @@ protected:
 	HRESULT MsgAttack ( NET_MSG_GENERIC* nmg );
 	HRESULT MsgAttackCancel ( NET_MSG_GENERIC* nmg );
 	HRESULT MsgRetrievePoints ( NET_MSG_GENERIC* nmg );
+	HRESULT MsgGetPoints ( NET_MSG_GENERIC* nmg );
 	
 	HRESULT MsgReqFieldToInven ( NET_MSG_GENERIC* nmg );
 	HRESULT MsgReqFieldToHold ( NET_MSG_GENERIC* nmg );
