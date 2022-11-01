@@ -697,13 +697,15 @@ public:
 
 	//	Note : ������ ��ǰ ��������.
 	HRESULT ReqChargedItemTo ( WORD wPosX, WORD wPosY );
+	HRESULT ReqBuyItem ( const char* szPurkey );//WORD wPosX, WORD wPosY , WORD wType , WORD wCurrency );
 
+	
 	//	Note : ������ ������ ���� ��������
 	HRESULT ReqItemBankInfo ();
 	HRESULT ReqItemShopInfo ();
 	HRESULT ReqDeducPoints ( DWORD wPoint1 ,DWORD wPoint2 );
 
-	
+
 public:
 	//	Note : �ʵ� ������(��) ������.
 	HRESULT ReqFieldTo ( const STARGETID &sTargetID, bool bPet = false );
