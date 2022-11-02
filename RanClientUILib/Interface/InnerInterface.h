@@ -9,6 +9,10 @@ class	CInventoryViewCharItemWindow;
 class	CInventoryPageWearView;
 class	CTowerFinalDisplay;
 class	CTowerCapturedDisplay;
+class	CItemMallIcon;
+class	CItemShopIconMan;
+class	CItemShopWindow;
+
 //class	CTowerCapturedDisplayFacility;
 class	CCTFInfoDisplay;
 class	CTowerDownDisplay;
@@ -111,7 +115,6 @@ class	CQuestHelper;
 class	CThaiCCafeMark;
 class	CItemGarbage;
 class	CGarbageInventoryWindow;
-class	CItemShopIconMan;
 class	CShopItemSearchWindow;
 class	CItemSearchResultWindow;
 class	CSummonWindow;
@@ -167,7 +170,7 @@ class	CCtfRankingDisplay;
 class	CCtfInfoDisplay;
 class	CProgressDisplayCtf;
 //	NOTE
-//		´ë·Ã½Ã¿¡ Å°¿öµå
+//		ï¿½ï¿½Ã½Ã¿ï¿½ Å°ï¿½ï¿½ï¿½ï¿½
 enum
 {
 	CONFT_WIN_INDEX = 0,
@@ -176,7 +179,7 @@ enum
 };
 
 //	NOTE
-//		ÇÐ±³
+//		ï¿½Ð±ï¿½
 enum
 {	
 	SUNGMOON = 0,
@@ -190,7 +193,7 @@ const float fDEFAULT_WAITTIME_LEFT = 5.0f;
 class	CInnerInterface : public CUIMan
 {
 private:
-	//	Á¤º¸ Ç¥½Ã Å¸ÀÔ
+	//	ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ Å¸ï¿½ï¿½
 	enum ET_INFOTYPE
 	{		
 		ET_ITEM_INFO,
@@ -203,7 +206,7 @@ public:
 	static const int nOUTOFRANGE;
 	static const float fMENU_LIFTUP;
 	//CPartyDisplay*				m_pPartyDisplay;  
-private: //	µî·ÏµÇ´Â ¸ðµç ÄÁÆ®·Ñ
+private: //	ï¿½ï¿½ÏµÇ´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½
 	
 	//CInventoryViewCharItemWindow*				m_pInventoryViewCharItemWindow;
 	CInventoryPageWearView*				m_pInventoryWindowView;
@@ -248,7 +251,8 @@ private: //	µî·ÏµÇ´Â ¸ðµç ÄÁÆ®·Ñ
 	CGambleResultOddBox*		m_pGambleResultOddBox;				
 	CGambleSelectBox*			m_pGambleSelectBox;			
 	CHeadChatDisplayMan*		m_pHeadChatDisplayMan;				
-	CInventoryWindow*			m_pInventoryWindow;				
+	CInventoryWindow*			m_pInventoryWindow;			
+	CItemShopWindow*			m_pItemShopWindow;		
 	//CItemBankWindow*			m_pItemBankWindow;				
 	CVNGainSysInventory*		m_pVNGainSysInventory;				
 	CVNGainSysGauge*			m_pVNGainSysGauge;
@@ -286,7 +290,7 @@ private: //	µî·ÏµÇ´Â ¸ðµç ÄÁÆ®·Ñ
 	CSkillWindowToTray*			m_pSkillWindowToTray;				
 	CStorageChargeCard*			m_pStorageChargeCard;			
 	CStorageWindow*				m_pStorageWindow;			
-	CSubMasterSet*				m_pSubMasterSet;		// ºÎ¸¶½ºÅÍ ¼³Á¤ Ã¢
+	CSubMasterSet*				m_pSubMasterSet;		// ï¿½Î¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢
 	CSystemMessageWindow*		m_pSystemMessageWindow;				
 	CTargetInfoDisplay*			m_pTargetInfoDisplay;			
 	CTargetInfoDisplayNpc*		m_pTargetInfoDisplayNpc;
@@ -302,6 +306,7 @@ private: //	µî·ÏµÇ´Â ¸ðµç ÄÁÆ®·Ñ
 	CThaiCCafeMark*				m_pThaiCCafeMark;
 	//add sw buff
 	CSwBonusMark*				m_pSwBonusMark;
+	CItemMallIcon*				m_pItemMallIcon;
 	CItemGarbage*				m_pItemGarbageWindow;
 	CGarbageInventoryWindow*	m_pGarbageInventoryWindow;
 	CItemShopIconMan*			m_pItemShopIconMan;
@@ -387,6 +392,7 @@ void CInnerInterface::SchoolWarStarted( NET_MSG_GENERIC* nmg );
 	void CInnerInterface::SetInventoryViewWindowOpen ( DWORD dwTargetID );
 	void CInnerInterface::SetInventoryViewWindowItem ( int nIndex , SITEMCUSTOM& sItemCustom );
 	void CInnerInterface::CloseItemViewWindow();
+	CItemShopWindow*		GetItemShop()					{ return m_pItemShopWindow; }
 	CPvpWindowDisplay*		GetPvpWindow()					{ return m_pPvpWindowDisplay; }
 	CSkillWindowToTray*		GetSkillWindowToTray()			{ return m_pSkillWindowToTray; }
 	CSkillTrayTab*		    GetSkillTrayTab()				{ return m_pSkillTrayTab; }
@@ -530,7 +536,7 @@ public:
 	void	OpenItemRebuildWindow();	// ITEMREBUILD_MARK
 	void	CloseItemRebuildWindow();
 
-	void	OpenItemGarbageWindow();	// ÈÞÁöÅë
+	void	OpenItemGarbageWindow();	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	void	CloseItemGarbageWindow();
 
 	void	SetPetDisplay();	//add petimage
@@ -541,11 +547,11 @@ public:
 
 	void	ItemPreview(int nType ,SNATIVEID sItemId ); //add itempreview
 
-	void	OpenItemMixWindow( DWORD dwNpcID );		// ¾ÆÀÌÅÛ Á¶ÇÕ
+	void	OpenItemMixWindow( DWORD dwNpcID );		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	void	CloseItemMixWindow();
 	void	SetItemMixResult( CString strMsg, bool bSuccess = false, bool bFail = false );
 
-	void	OPEN_TAXI_WINDOW( WORD wPosX, WORD wPosY );			// ÅÃ½Ã Ä«µå
+	void	OPEN_TAXI_WINDOW( WORD wPosX, WORD wPosY );			// ï¿½Ã½ï¿½ Ä«ï¿½ï¿½
 
 	//jdev help
 	void	CreateHelp();
@@ -610,7 +616,7 @@ public:
 	BOOL IsDialogueWindowOpen()				{ return IsVisibleGroup( DIALOGUE_WINDOW ); }
 
 public:
-	// ÀÎÅÍÆäÀÌ½º »ç¿ë½Ã Ä³¸¯ÅÍÀÇ ¿òÁ÷ÀÓÀ» Á¦¾î
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	BOOL IsCharMoveBlock()							{ return m_bCharMoveBlock; }
 	void SetCharMoveBlock()							{ m_bCharMoveBlock = TRUE; }
 	void ResetCharMoveBlock()						{ m_bCharMoveBlock = FALSE; }
@@ -628,7 +634,7 @@ public:
 	const CString& GetFriendName() const			{ return m_strMoveFriendName; }
 
 	void SetThaiCCafeClass( DWORD dwClass );
-	void SetMyCCafeClass( int nClass );				// ¸»·¹ÀÌ½Ã¾Æ PC¹æ ÀÌº¥Æ®
+	void SetMyCCafeClass( int nClass );				// ï¿½ï¿½ï¿½ï¿½ï¿½Ì½Ã¾ï¿½ PCï¿½ï¿½ ï¿½Ìºï¿½Æ®
 	//add sw buff
 	void SetSwBonus( bool isWinner );
 
@@ -644,12 +650,12 @@ public:
 	bool	SET_KEEP_QUESTION_ITEM_ID ( int nID );
 	void	RESET_KEEP_QUESTION_ITEM ();
 
-	void	BONUS_TIME_EVENT_START( bool bCharging ); // ÀÌº¥Æ® ½ÃÀÛ
-	void	BONUS_TIME_EVENT_END(); // ÀÌº¥Æ® Á¾·á
-	void	BONUS_TIME_BUSTER_START(); // °æÇèÄ¡ ½ÃÀÛ
-	void	BONUS_TIME_BUSTER_END(); // °æÇèÄ¡ Á¾·á
+	void	BONUS_TIME_EVENT_START( bool bCharging ); // ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	void	BONUS_TIME_EVENT_END(); // ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+	void	BONUS_TIME_BUSTER_START(); // ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+	void	BONUS_TIME_BUSTER_END(); // ï¿½ï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 
-	// º£Æ®³² Å½´Ð ¹æÁö ½Ã½ºÅÛ °ÔÀÌÁö
+	// ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	void	SET_VNGAINTYPE_GAUGE( int nPos, int nLimit );
 
 	void	SET_QUEST_HELPER( DWORD dwQuestID );
@@ -759,6 +765,7 @@ public:
 	void	UpdateSchoolWarBattleTime( float fSchoolWarsTime );
 	void	UpdateRoyalRumbleBattleTime( float fRoyalRumbleTime );
 	void	ClearItemBank();
+	void	ClearItemShop ();
 	void	ClearVNGainSys();
 	void	DisableMinimapTarget();
 
@@ -773,8 +780,8 @@ private:
 	void	UpdateSimpleMessage ();
 public:
 	void	ReqToggleRun ();
-	bool	ItemShopAuth ();		// ÀÏº» Ä¿½ºÅÒ ºê¶ó¿ìÀú ÀÎÁõ ¸ðµâ //	ItemShopAuth
-	void	ItemShopVisible();		// ÀÏº» Ä¿½ºÅÒ ºê¶ó¿ìÀú ·Îµù ´ë±â //	ItemShopAuth
+	bool	ItemShopAuth ();		// ï¿½Ïºï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ //	ItemShopAuth
+	void	ItemShopVisible();		// ï¿½Ïºï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ //	ItemShopAuth
 
 
 	void    ViewpropertiseNetTo(NET_MSG_GENERIC* nmg );//add charinfoview
@@ -793,7 +800,7 @@ public:
 	void	VisibleCtfInfoDisplay( bool bVisible );
 	void	RefreshCTFRanking();
 	void	RefreshCtfIcon( bool bVecSw );
-//#ifdef CH_PARAM // Áß±¹ ÀÎÅÍÆäÀÌ½º º¯°æ
+//#ifdef CH_PARAM // ï¿½ß±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //public:
 //	void UpdatePotionTrayPosition();
 //#endif
@@ -852,6 +859,7 @@ private:
 	bool			m_bTabReserve;
 	float			m_fVehicleDelay;
 	float			m_fItemBankDelay;
+	float			m_fItemShopDelay;
 	bool			m_bItemShopLoad;	//	ItemShopAuth
 
 public:
