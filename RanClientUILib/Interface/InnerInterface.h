@@ -525,6 +525,8 @@ public:
 	void	SetMarketWindowClose ();
 	void	SetStorageChargeOpen ( const WORD& wPosX, const WORD& wPosY );
 	void	SetItemBankWindowOpen ();
+	void	SetItemShopInfo ();
+	void	SetItemShopWindowOpen ();
 	void	SetItemBankInfo ();
 	void	SetVNGainSysWindowOpen ();
 	void	SetVNGainSysInfo ();
