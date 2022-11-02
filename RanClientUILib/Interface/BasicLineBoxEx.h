@@ -1,10 +1,10 @@
-//	¶óÀÎ ¹Ú½º 8Á¶°¢
+//	ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ 8ï¿½ï¿½ï¿½ï¿½
 //
-//	ÃÖÃÊ ÀÛ¼ºÀÚ : ¼º±â¿±
-//	ÀÌÈÄ ¼öÁ¤ÀÚ : 
-//	·Î±×
+//	ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½â¿±
+//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : 
+//	ï¿½Î±ï¿½
 //		[2003.11.31]
-//			@ ÀÛ¼º
+//			@ ï¿½Û¼ï¿½
 //
 
 #pragma	once
@@ -62,6 +62,9 @@ public:
 	void	CreateBaseBoxDialogueDarkGray ( char* szBoxControl );
 	void	CreateBaseBoxDialogueWhiteBack ( char* szBoxControl );
 	void	CreateBaseBoxWhiteOuter ( char* szBoxControl );
+	void	CreateBaseBoxVarTextBoxNew ( char* szBoxControl );
+	void	CreateBaseBoxDialogueBlackBack ( char* szBoxControl );
+	void	CreateBaseBoxDialogueGrayBack ( char* szBoxControl );
 
 
 protected:

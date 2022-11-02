@@ -43,7 +43,7 @@ CUIControl*	CItemShopPage::CreateControl ( const char* szControl )
 
 void CItemShopPage::CreateSubControl ()
 {
-	CD3DFontPar* pFont = DxFontMan::GetInstance().LoadDxFont ( _DEFAULT_FONT, 9, TRUE, D3DFONT_SHADOW | D3DFONT_ASCII );
+	CD3DFontPar* pFont = DxFontMan::GetInstance().LoadDxFont ( _DEFAULT_FONT, 9, D3DFONT_SHADOW | D3DFONT_ASCII );
 	static CString strSlotKeyword[nMAX_ONE_VIEW_SLOT] =
 	{
 		"ITEMSHOP_ITEM_SLOT0",
@@ -57,20 +57,20 @@ void CItemShopPage::CreateSubControl ()
 		"ITEMSHOP_ITEM_SLOT8",
 		"ITEMSHOP_ITEM_SLOT9"
 	};
-	//	´õ¹Ì ½½·Ô
+	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	for ( int i = 0; i < nMAX_ONE_VIEW_SLOT; i++ )
 	{
 		m_pItemSlotArrayDummy[i] = CreateControl ( strSlotKeyword[i].GetString () );
 	}
 
-	//	½ÇÁ¦ µ¥ÀÌÅ¸
+	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸
 	for ( int i = 0; i < ITEMSHOP_INVEN_Y; i++ )
 	{
 		m_pItemSlotArray[i] = CreateItemSlot ( strSlotKeyword[0], ITEM_SLOT0 + i  );
 
 	}
 	
-	//	½ºÅ©·Ñ¹Ù
+	//	ï¿½ï¿½Å©ï¿½Ñ¹ï¿½
 	CBasicScrollBarEx* pScrollBar = new CBasicScrollBarEx;
 	pScrollBar->CreateSub ( this, "BASIC_SCROLLBAR", UI_FLAG_RIGHT | UI_FLAG_YSIZE );
 	pScrollBar->CreateBaseScrollBar ( "ITEMSHOP_PAGE_SCROLL" );
@@ -198,11 +198,11 @@ void CItemShopPage::LoadItemPage ( WORD wType , WORD wCur )
 
 	if ( pItemList->size () > (ITEMSHOP_INVEN_Y * ITEMSHOP_INVEN_X) )
 	{
-		GASSERT ( 0 && "ÀÎÅÍÆäÀÌ½º »çÀÌÁîº¸´Ù, µ¥ÀÌÅ¸Å©±â°¡ Å®´Ï´Ù." );
+		GASSERT ( 0 && "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½îº¸ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½Å¸Å©ï¿½â°¡ Å®ï¿½Ï´ï¿½." );
 		return ;
 	}
 
-	//{	//	»èÁ¦
+	//{	//	ï¿½ï¿½ï¿½ï¿½
 
 	//	GLInventory::CELL_MAP_ITER iter = pItemList->begin();
 	//	GLInventory::CELL_MAP_ITER iter_end = pItemList->end();
@@ -225,7 +225,7 @@ void CItemShopPage::LoadItemPage ( WORD wType , WORD wCur )
 	//	}
 	//}
 
-	//	µî·Ï
+	//	ï¿½ï¿½ï¿½
 	GLInventory::CELL_MAP_ITER iter = pItemList->begin();
 	GLInventory::CELL_MAP_ITER iter_end = pItemList->end();
 

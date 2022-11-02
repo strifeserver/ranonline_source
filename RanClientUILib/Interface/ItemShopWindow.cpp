@@ -59,7 +59,7 @@ CBasicTextBox* CItemShopWindow::CreateStaticControl ( const char* szControlKeywo
 }
 void CItemShopWindow::CreateSubControl ()
 {	
-	CD3DFontPar* pFont = DxFontMan::GetInstance().LoadDxFont ( _DEFAULT_FONT, 9, TRUE, D3DFONT_SHADOW | D3DFONT_ASCII );
+	CD3DFontPar* pFont = DxFontMan::GetInstance().LoadDxFont ( _DEFAULT_FONT, 9, D3DFONT_SHADOW | D3DFONT_ASCII );
 
 	{
 		CBasicLineBoxEx* m_pLineBoxBottomWhite1 = new CBasicLineBoxEx;
@@ -154,7 +154,7 @@ void CItemShopWindow::Update( INT x, INT y, BYTE LB, BYTE MB, BYTE RB, INT nScro
 		CUIControl* pControl = m_ControlContainer.FindControl ( m_RollOverID );
 		if ( !pControl )
 		{
-			GASSERT ( 0 && "½É°¢ÇÑ ¿À·ù, ³ëµå°¡ ³ÎÀÔ´Ï´Ù." );
+			GASSERT ( 0 && "ï¿½É°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½Ô´Ï´ï¿½." );
 			return ;
 		}
 
@@ -165,7 +165,7 @@ void CItemShopWindow::Update( INT x, INT y, BYTE LB, BYTE MB, BYTE RB, INT nScro
 		if ( dwControlMsg ) TranslateUIMessage ( m_RollOverID, dwControlMsg );
 		NS_UIDEBUGSET::BlockEnd ();
 
-		//	½ºÅ©·Ñ¹Ù¿¡ °ü°èµÈ ¸Þ½ÃÁö°¡ ¾Æ´Ï°í		
+		//	ï¿½ï¿½Å©ï¿½Ñ¹Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï°ï¿½		
 		if ( !(dwControlMsg & UI_MSG_COMBOBOX_ROLLOVER_SCROLL) )
 		{
 			DWORD dwMsg = GetMessageEx ();
