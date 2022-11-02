@@ -361,8 +361,8 @@ void CItemSlot::Update ( int x, int y, BYTE LB, BYTE MB, BYTE RB, int nScroll, f
 						m_bBButton[i]->SetVisibleSingle ( TRUE );
 						
 					}
-					if ( m_InvenItem[i].sItemCustom.IsWrap() && m_InvenItem[i].sItemCustom.sNativeID.IsValidNativeID() )
-						m_pWrap[i]->SetVisibleSingle( TRUE );
+					// if ( m_InvenItem[i].sItemCustom.IsWrap() && m_InvenItem[i].sItemCustom.sNativeID.IsValidNativeID() )
+					// 	m_pWrap[i]->SetVisibleSingle( TRUE );
 				}
 			}
 		}
@@ -472,7 +472,7 @@ CBasicTextBox* CItemSlot::CreateStaticControl ( const char* szControlKeyword, CD
 
 CBasicTextBox* CItemSlot::CreateNumberBox ( const char* szControl )
 {
-	CD3DFontPar* pFont8 = DxFontMan::GetInstance().LoadDxFont ( _DEFAULT_FONT, 9, TRUE, D3DFONT_SHADOW | D3DFONT_ASCII );
+	CD3DFontPar* pFont8 = DxFontMan::GetInstance().LoadDxFont ( _DEFAULT_FONT, 9, D3DFONT_SHADOW | D3DFONT_ASCII );
 
 	CBasicTextBox* pTextBox = new CBasicTextBox;
 	pTextBox->CreateSub ( this, szControl );
