@@ -63,8 +63,8 @@ enum SUMMON_TYPE
 //change jdev , 
 enum PET_ACCESSORYTYPE
 {
-	PET_ACCETYPE_A		= 0,	// ¸Ó¸®, ¸öÅë
-	PET_ACCETYPE_B		= 1,	// ÆÈ, ´Ù¸®, ²¿¸®
+	PET_ACCETYPE_A		= 0,	// ï¿½Ó¸ï¿½, ï¿½ï¿½ï¿½ï¿½
+	PET_ACCETYPE_B		= 1,	// ï¿½ï¿½, ï¿½Ù¸ï¿½, ï¿½ï¿½ï¿½ï¿½
 	PET_ACCETYPE_SIZE	= 2,
 };
 
@@ -1931,8 +1931,8 @@ namespace ITEM
 	{
 		enum { VERSION = 0x0102 };
 
-		DWORD			dwPetID;   // °íÀ¯ID
-		PET_ACCESSORYTYPE	emType;    // ¾Ç¼¼¼­¸®TYPE
+		DWORD			dwPetID;   // ï¿½ï¿½ï¿½ï¿½ID
+		PET_ACCESSORYTYPE	emType;    // ï¿½Ç¼ï¿½ï¿½ï¿½ï¿½ï¿½TYPE
 		PETTYPE			emPetType; // TYPE
 		SNATIVEID		sPetID;    // CROWID
 
@@ -2507,45 +2507,45 @@ public:
 struct SITEMCUSTOM_113
 {
 public:
-	SNATIVEID	sNativeID;					//	°íÀ¯ ID. ( ¾ÆÀÌÅÛ ¼³Á¤ ÃÖÃÊ »ý¼º½Ã¿¡ ºÎ¿©µÇ´Â °íÀ¯ ID )
-	SNATIVEID	nidDISGUISE;				//	ÄÚ½ºÅù º¹Àå ½ºÅ².
-	__time64_t	tBORNTIME;					//	½ÃÇÑºÎ ¾ÆÀÌÅÛÀÏ °æ¿ì À¯È¿ ±â°£.
-	__time64_t	tDISGUISE;					//	½ÃÇÑºÎ ÄÚ½ºÅùÀÏ °æ¿ì À¯È¿ ±â°£.
+	SNATIVEID	sNativeID;					//	ï¿½ï¿½ï¿½ï¿½ ID. ( ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½Î¿ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ID )
+	SNATIVEID	nidDISGUISE;				//	ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å².
+	__time64_t	tBORNTIME;					//	ï¿½ï¿½ï¿½Ñºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ ï¿½â°£.
+	__time64_t	tDISGUISE;					//	ï¿½ï¿½ï¿½Ñºï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ ï¿½â°£.
 
-	LONGLONG	lnGenNum;					//	»ý¼º ¹øÈ£.
-	WORD		wTurnNum;					//	»ç¿ë°¡´É·®. ( wUsedNum )
-	BYTE		cGenType;					//	»ý¼º Å¸ÀÔ.
-	BYTE		cChnID;						//	Ã¤³Î ¹øÈ£.
+	LONGLONG	lnGenNum;					//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£.
+	WORD		wTurnNum;					//	ï¿½ï¿½ë°¡ï¿½É·ï¿½. ( wUsedNum )
+	BYTE		cGenType;					//	ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½.
+	BYTE		cChnID;						//	Ã¤ï¿½ï¿½ ï¿½ï¿½È£.
 
-	BYTE		cFieldID;					//	ÇÊµå ¹øÈ£.
+	BYTE		cFieldID;					//	ï¿½Êµï¿½ ï¿½ï¿½È£.
 
 public:
-	BYTE		cDAMAGE;					//	°ø°Ý·Â °³Á¶ µî±Þ.
-	BYTE		cDEFENSE;					//	¹æ¾î·Â °³Á¶ µî±Þ.
-	BYTE		cRESIST_FIRE;				//	ÀúÇ×(È­) °³Á¶ µî±Þ.
-	BYTE		cRESIST_ICE;				//	ÀúÇ×(ºù) °³Á¶ µî±Þ.
-	BYTE		cRESIST_ELEC;				//	ÀúÇ×(Àü) °³Á¶ µî±Þ.
-	BYTE		cRESIST_POISON;				//	ÀúÇ×(µ¶) °³Á¶ µî±Þ.
-	BYTE		cRESIST_SPIRIT;				//	ÀúÇ×(Á¤) °³Á¶ µî±Þ.
+	BYTE		cDAMAGE;					//	ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	BYTE		cDEFENSE;					//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	BYTE		cRESIST_FIRE;				//	ï¿½ï¿½ï¿½ï¿½(È­) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	BYTE		cRESIST_ICE;				//	ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	BYTE		cRESIST_ELEC;				//	ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	BYTE		cRESIST_POISON;				//	ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+	BYTE		cRESIST_SPIRIT;				//	ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	BYTE        cISDROPITEM;                 // modified for itemdrop status ^_^ x-f0rce
 
 public:
-	//	·£´ý ¿É¼Ç »ç¿ë.
-	BYTE		cOptTYPE1; // °ø°Ý·Â
-	BYTE		cOptTYPE2; // ±âÀúÇ×
+	//	ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½.
+	BYTE		cOptTYPE1; // ï¿½ï¿½ï¿½Ý·ï¿½
+	BYTE		cOptTYPE2; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	BYTE		cOptTYPE3;
 	BYTE		cOptTYPE4;
 
-	short		nOptVALUE1; // °ø°Ý·Â %
-	short		nOptVALUE2; // ±âÀúÇ× %
+	short		nOptVALUE1; // ï¿½ï¿½ï¿½Ý·ï¿½ %
+	short		nOptVALUE2; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %
 	short		nOptVALUE3;
 	short		nOptVALUE4;
 
 public:
-	DWORD		dwPetID;	 // Æê¾Æµð
-	DWORD		dwVehicleID; // Å»°Í¾ÆµÚ(DB)
+	DWORD		dwPetID;	 // ï¿½ï¿½Æµï¿½
+	DWORD		dwVehicleID; // Å»ï¿½Í¾Æµï¿½(DB)
 
-	bool		bVietnamGainItem;	 //	º£Æ®³² Å½´Ð ÀÎº¥ ¾ÆÀÌÅÛ( º£Æ®³² Àü¿ë )
+	bool		bVietnamGainItem;	 //	ï¿½ï¿½Æ®ï¿½ï¿½ Å½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½( ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
 
 	//add ownership
 	DWORD		dwOwnerID;
@@ -2675,13 +2675,13 @@ public:
 	}
 
 public:
-	DWORD GETGRADE_DAMAGE () const;			//	¿¬¸¶ µî±Þ¿¡ µû¸¥ °ø°Ý·Â °¡»ê·®.
-	WORD GETGRADE_DEFENSE () const;			//	¿¬¸¶ µî±Þ¿¡ µû¸¥ ¹æ¾î·Â °¡»ê·®.
-	WORD GETGRADE_RESIST_FIRE () const;		//	¿¬¸¶ µî±Þ¿¡ µû¸¥ ºÒÀúÇ× °¡»ê·®.
-	WORD GETGRADE_RESIST_ICE () const;		//	¿¬¸¶ µî±Þ¿¡ µû¸¥ ºùÀúÇ× °¡»ê·®.
-	WORD GETGRADE_RESIST_ELEC () const;		//	¿¬¸¶ µî±Þ¿¡ µû¸¥ ÀüÀúÇ× °¡»ê·®.
-	WORD GETGRADE_RESIST_POISON () const;	//	¿¬¸¶ µî±Þ¿¡ µû¸¥ µ¶ÀúÇ× °¡»ê·®.
-	WORD GETGRADE_RESIST_SPIRIT () const;	//	¿¬¸¶ µî±Þ¿¡ µû¸¥ ±âÀúÇ× °¡»ê·®.
+	DWORD GETGRADE_DAMAGE () const;			//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Þ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½ï¿½ï¿½ê·®.
+	WORD GETGRADE_DEFENSE () const;			//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Þ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ê·®.
+	WORD GETGRADE_RESIST_FIRE () const;		//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Þ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ê·®.
+	WORD GETGRADE_RESIST_ICE () const;		//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Þ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ê·®.
+	WORD GETGRADE_RESIST_ELEC () const;		//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Þ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ê·®.
+	WORD GETGRADE_RESIST_POISON () const;	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Þ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ê·®.
+	WORD GETGRADE_RESIST_SPIRIT () const;	//	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Þ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ê·®.
 	BYTE GETGRADE ( EMGRINDING_TYPE emTYPE ) const;
 	BYTE GETGRADE_EFFECT () const;
 
@@ -2696,30 +2696,30 @@ public:
  
 
 public:
-	GLPADATA GETDAMAGE () const;			//	±âº» ´ë¹ÌÁö + ·£´ý¿É + ¿¬¸¶.
-	DWORD GETMaDAMAGE () const;				//	±âº» ¸¶·ÂÄ¡ + ·£´ý¿É + ¿¬¸¶.
-	short GETDEFENSE () const;				//	±âº» ¹æ¾î·Â + ·£´ý¿É + ¿¬¸¶.
-	short GETHITRATE () const;				//	±âº» ¸íÁßÀ² + ·£´ý¿É.
-	short GETAVOIDRATE () const;			//	±âº» ¸íÁßÀ² + ·£´ý¿É.
+	GLPADATA GETDAMAGE () const;			//	ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½.
+	DWORD GETMaDAMAGE () const;				//	ï¿½âº» ï¿½ï¿½ï¿½ï¿½Ä¡ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½.
+	short GETDEFENSE () const;				//	ï¿½âº» ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½.
+	short GETHITRATE () const;				//	ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	short GETAVOIDRATE () const;			//	ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
-	WORD GETATTRANGE () const;				//	±âº» °ø°Ý°Å¸® + ·£´ý¿É.
-	WORD GETREQ_SP () const;				//	±âº» sp¼Ò¸ð + ·£´ý¿É.
+	WORD GETATTRANGE () const;				//	ï¿½âº» ï¿½ï¿½ï¿½Ý°Å¸ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	WORD GETREQ_SP () const;				//	ï¿½âº» spï¿½Ò¸ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
-	WORD GETRESIST_FIRE () const;			//	±âº» ÀúÇ×(È­) + ·£´ý¿É.
-	WORD GETRESIST_ICE () const;			//	±âº» ÀúÇ×(ºù) + ·£´ý¿É.
-	WORD GETRESIST_ELEC () const;			//	±âº» ÀúÇ×(Àü) + ·£´ý¿É.
-	WORD GETRESIST_POISON () const;			//	±âº» ÀúÇ×(µ¶) + ·£´ý¿É.
-	WORD GETRESIST_SPIRIT () const;			//	±âº» ÀúÇ×(±â) + ·£´ý¿É.
+	WORD GETRESIST_FIRE () const;			//	ï¿½âº» ï¿½ï¿½ï¿½ï¿½(È­) + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	WORD GETRESIST_ICE () const;			//	ï¿½âº» ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½) + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	WORD GETRESIST_ELEC () const;			//	ï¿½âº» ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½) + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	WORD GETRESIST_POISON () const;			//	ï¿½âº» ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½) + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	WORD GETRESIST_SPIRIT () const;			//	ï¿½âº» ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½) + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
-	int GETADDHP () const;					//	ºÎ°¡ ¿É¼Ç hp Áõ°¡ + ·£´ý¿É.
-	int GETADDMP () const;					//	ºÎ°¡ ¿É¼Ç hp Áõ°¡ + ·£´ý¿É.
-	int GETADDSP () const;					//	ºÎ°¡ ¿É¼Ç hp Áõ°¡ + ·£´ý¿É.
-	int GETADDMA () const;					//	ºÎ°¡ ¿É¼Ç hp Áõ°¡ + ·£´ý¿É. 
+	int GETADDHP () const;					//	ï¿½Î°ï¿½ ï¿½É¼ï¿½ hp ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	int GETADDMP () const;					//	ï¿½Î°ï¿½ ï¿½É¼ï¿½ hp ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	int GETADDSP () const;					//	ï¿½Î°ï¿½ ï¿½É¼ï¿½ hp ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	int GETADDMA () const;					//	ï¿½Î°ï¿½ ï¿½É¼ï¿½ hp ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 
 
-	float GETINCHP () const;				//	Æ¯¼ö ¿É¼Ç hp Áõ°¡À² + ·£´ý¿É.
-	float GETINCMP () const;				//	Æ¯¼ö ¿É¼Ç mp Áõ°¡À² + ·£´ý¿É.
-	float GETINCSP () const;				//	Æ¯¼ö ¿É¼Ç sp Áõ°¡À² + ·£´ý¿É.
-	float GETINCAP () const;				//	Æ¯¼ö ¿É¼Ç ap Áõ°¡À² + ·£´ý¿É.
+	float GETINCHP () const;				//	Æ¯ï¿½ï¿½ ï¿½É¼ï¿½ hp ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	float GETINCMP () const;				//	Æ¯ï¿½ï¿½ ï¿½É¼ï¿½ mp ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	float GETINCSP () const;				//	Æ¯ï¿½ï¿½ ï¿½É¼ï¿½ sp ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	float GETINCAP () const;				//	Æ¯ï¿½ï¿½ ï¿½É¼ï¿½ ap ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 
 	float GETMOVESPEED() const;				//  ?? ?? ???? ?? + ???
 	float GETMOVESPEEDR() const;			//  ?? ?? ???? ??? 
@@ -3334,7 +3334,7 @@ struct SINVENITEM_SAVE
 	}
 };
 
-//	Note : ¾ÆÀÌÅÛÀ» ÀÎº¥Åä¸®¿¡ ³ÖÀ»¶§ ¾²´Â ±¸Á¶.
+//	Note : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 //
 struct SINVENITEM
 {
@@ -3353,6 +3353,14 @@ struct SINVENITEM
 			SITEMCUSTOM			sItemCustom;
 		};
 	};
+
+	// added by ejsayaaa ItemMall
+	WORD				wItemPrice;
+	WORD				wItemStock;
+	WORD				wItemCtg;
+	WORD				wCurrency;
+	char				szPurKey[PURKEY_LENGTH+1];
+
 
 	WORD					wBackX;
 	WORD					wBackY;
@@ -3382,7 +3390,7 @@ struct SINVENITEM
 
 struct SINVEN_POS	// ITEMREBUILD_MARK
 {
-	WORD	wPosX, wPosY;	// ÀÎº¥Åä¸®¿¡¼­ÀÇ À§Ä¡
+	WORD	wPosX, wPosY;	// ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 
 	SINVEN_POS()
 		: wPosX( USHRT_MAX )
