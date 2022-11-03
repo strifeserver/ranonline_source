@@ -238,12 +238,10 @@ void MobEditTree::RunSelectMenu ( int nSelect )
 		break;
 	case ID_MENU_PASTEVALUE:
 		{
-			if ( MessageBox ( "Do You Want To Overwrite", "Question", MB_YESNO ) == IDYES )
-			{
-				PasteCrowValue ();
-			}
+			PasteCrowValue ();
 		}
 		break;
+
 	};
 }
 
@@ -344,8 +342,7 @@ BOOL	MobEditTree::CopyCrow ()
 		PCROWDATA m_pCrowCopy;
 		m_pCrowCopy = (PCROWDATA)m_ctrlCrowTree.GetItemData ( hCrow );
 		m_pDummyCrow = new SCROWDATA;
-		//memcpy( m_pDummyCrow , m_pCrowCopy , sizeof(SCROWDATA) );
-		m_pDummyCrow->Assign(*m_pCrowCopy);
+		memcpy( m_pDummyCrow , m_pCrowCopy , sizeof(SCROWDATA) );
 		strTempName = GetSelectCrow()->GetName();
 		m_bDummyHasCrow = TRUE;
 		return TRUE;
@@ -373,8 +370,7 @@ BOOL	MobEditTree::PasteCrowNew ()
 
 		PCROWDATA pCrow;
 		pCrow = new SCROWDATA;
-		//memcpy( pCrow , m_pDummyCrow , sizeof(SCROWDATA) );
-		pCrow->Assign(*m_pDummyCrow);
+		memcpy( pCrow , m_pDummyCrow , sizeof(SCROWDATA) );
 		pCrow->m_sBasic.sNativeID.wMainID = MID;
 		pCrow->m_sBasic.sNativeID.wSubID = SID;
 
@@ -388,7 +384,6 @@ BOOL	MobEditTree::PasteCrowNew ()
 		GLStringTable::GetInstance().InsertString ( strTempNameKey, strTempName, GLStringTable::CROW );
 		PCROWDATA pCROW =  GLCrowDataMan::GetInstance().GetCrowData ( MID, SID );
 
-		pCrow = NULL;
 		HTREEITEM hParentCrow = m_ctrlCrowTree.GetParentItem ( hMainCrow );
 		if ( hParentCrow != m_TreeRoot )
 		{
@@ -416,8 +411,7 @@ BOOL	MobEditTree::PasteCrowNew ()
 
 		PCROWDATA pCrow;
 		pCrow = new SCROWDATA;
-		//memcpy( pCrow , m_pDummyCrow , sizeof(SCROWDATA) );
-		pCrow->Assign(*m_pDummyCrow);
+		memcpy( pCrow , m_pDummyCrow , sizeof(SCROWDATA) );
 		pCrow->m_sBasic.sNativeID.wMainID = MID;
 		pCrow->m_sBasic.sNativeID.wSubID = SID;
 
@@ -431,7 +425,6 @@ BOOL	MobEditTree::PasteCrowNew ()
 		GLStringTable::GetInstance().InsertString ( strTempNameKey, strTempName, GLStringTable::CROW );
 		PCROWDATA pCROW =  GLCrowDataMan::GetInstance().GetCrowData ( MID, SID );
 
-		pCrow = NULL;
 		UpdateCrow ( pCROW, NULL );
 
 		return TRUE;
@@ -451,9 +444,7 @@ BOOL	MobEditTree::PasteCrowValue ()
 	{
 		WORD MID = GetSelectCrow()->m_sBasic.sNativeID.wMainID ;
 		WORD SID = GetSelectCrow()->m_sBasic.sNativeID.wSubID ;
-		//memcpy( GetSelectCrow() , m_pDummyCrow , sizeof(SCROWDATA) );
-		GetSelectCrow()->Assign(*m_pDummyCrow);
-
+		memcpy( GetSelectCrow() , m_pDummyCrow , sizeof(SCROWDATA) );
 		GetSelectCrow()->m_sBasic.sNativeID.wMainID = MID;
 		GetSelectCrow()->m_sBasic.sNativeID.wSubID = SID;
 
@@ -461,10 +452,11 @@ BOOL	MobEditTree::PasteCrowValue ()
 		strTemp.Format( "CN_%03d_%03d" , MID , SID);
 		strcpy( GetSelectCrow()->m_sBasic.m_szName ,strTemp);
 
+		UpdateData( GetSelectCrow() );
+
 		strTempNameKey = GetSelectCrow()->m_sBasic.m_szName;
 		GLStringTable::GetInstance().DeleteString ( MID, SID, GLStringTable::CROW );
 		GLStringTable::GetInstance().InsertString ( strTempNameKey, strTempName, GLStringTable::CROW );
-		UpdateData( GetSelectCrow() );
 	
 		return TRUE;
 	}
@@ -487,8 +479,7 @@ void MobEditTree::UpdateData ( WORD MID, WORD SID,PCROWDATA pCrow )
 	{
 		WORD MID = GetSelectCrow()->m_sBasic.sNativeID.wMainID ;
 		WORD SID = GetSelectCrow()->m_sBasic.sNativeID.wSubID ;
-		//memcpy( GetSelectCrow() , pCrow , sizeof(SCROWDATA) );
-		GetSelectCrow()->Assign(*pCrow);
+		memcpy( GetSelectCrow() , pCrow , sizeof(SCROWDATA) );
 		GetSelectCrow()->m_sBasic.sNativeID.wMainID = MID;
 		GetSelectCrow()->m_sBasic.sNativeID.wSubID = SID;
 		UpdateData( GetSelectCrow() );

@@ -61,9 +61,6 @@ BEGIN_MESSAGE_MAP(MobEditData, CPropertyPage)
 	ON_BN_CLICKED(IDC_BUTTON_HITEFFECT, OnBnClickedButtonHiteffect)
 	ON_BN_CLICKED(IDC_BUTTON_ITEMGEN, OnBnClickedButtonItemgen)
 	ON_BN_CLICKED(IDC_BUTTON_ITEMGEN_Q, OnBnClickedButtonItemgenQ)
-	ON_EN_CHANGE(IDC_EDIT_PATTERNSIZE, OnEnChangeEditPatternsize)
-	ON_BN_CLICKED(IDC_CHECK_EMCROWACT_SG, OnBnClickedCheckEmcrowactSg)
-	ON_BN_CLICKED(IDC_CHECK_EMCROWACT_DIRHOLD, OnBnClickedCheckEmcrowactDirhold)
 END_MESSAGE_MAP()
 
 
@@ -146,7 +143,8 @@ void MobEditData::InitDefaultCtrls ()
 	SetWin_Combo_Init ( this, IDC_COMBO_EMTRIBE, COMMENT::TRIBE, TRIBE_NSIZE );
 	SetWin_Combo_Init ( this, IDC_COMBO_EMCROW, COMMENT::CROW, CROW_NUM );
 	SetWin_Combo_Init ( this, IDC_COMBO_EMBRIGHT, COMMENT::BRIGHT, BRIGHT_SIZE );
-	SetWin_Combo_Init ( this, IDC_COMBO_PETTYPE, COMMENT::PET_TYPE, PETTYPE_NEWSIZE );
+	SetWin_Combo_Init ( this, IDC_COMBO_PETTYPE, COMMENT::PET_TYPE, PETTYPE_SIZE );
+	SetWin_Combo_Init ( this, IDC_COMBO_SUMMONTYPE, COMMENT::SUMMON_TYPE, SUMMON_TYPE_SIZE );
 	SetWin_Combo_Init ( this, IDC_COMBO_GATHERANIMATION, COMMENT::ANI_SUBTYPE_00, AN_SUB_00_SIZE );
 	SetWin_Combo_Init ( this, IDC_COMBO_ACTIONUP, COMMENT::szCROWACT_UP, EMCROWACT_UP_NSIZE );
 	SetWin_Combo_Init ( this, IDC_COMBO_ACTIONDN, COMMENT::szCROWACT_DN, EMCROWACT_DN_NSIZE );
@@ -164,6 +162,7 @@ void MobEditData::UpdateCrow ()
 	SetWin_Combo_Sel ( this, IDC_COMBO_EMCROW, (int)m_pDummyCrow->m_sBasic.m_emCrow );
 	SetWin_Combo_Sel ( this, IDC_COMBO_EMBRIGHT, (int)m_pDummyCrow->m_sBasic.m_emBright );
 	SetWin_Combo_Sel ( this, IDC_COMBO_PETTYPE, (int)m_pDummyCrow->m_sBasic.m_emPetType );
+//	SetWin_Combo_Sel ( this, IDC_COMBO_SUMMONTYPE, (int)m_pDummyCrow->m_sBasic.m_emSummonType );
 	SetWin_Combo_Sel ( this, IDC_COMBO_GATHERANIMATION, (int)m_pDummyCrow->m_sBasic.m_wGatherAnimation );
 	SetWin_Check ( this, IDC_CHECK_OVERLAPATTACK, (BOOL) m_pDummyCrow->m_sBasic.m_bOverlapAttack );
 	SetWin_Num_int ( this, IDC_EDIT_LEVEL, m_pDummyCrow->m_sBasic.m_wLevel );
@@ -234,6 +233,7 @@ void MobEditData::UpdateCrow ()
 	SetWin_Check ( this, IDC_CHECK_EMCROWACT_DIRHOLD, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_DIRHOLD );
 	SetWin_Check ( this, IDC_CHECK_EMCROWACT_KNOCK, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_KNOCK );
 	SetWin_Check ( this, IDC_CHECK_EMCROWACT_BOSS, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_BOSS );
+	SetWin_Check ( this, IDC_CHECK_EMCROWACT_CHIP, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_CTFTOWER );
 	SetWin_Check ( this, IDC_CHECK_EMCROWACT_BUSUNIT, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_BUSUNIT );
 	SetWin_Check ( this, IDC_CHECK_EMCROWACT_IGNORE_SHOCK, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_IGNORE_SHOCK );
 	SetWin_Check ( this, IDC_CHECK_EMCROWACT_AUTODROP, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_AUTODROP );
@@ -241,14 +241,13 @@ void MobEditData::UpdateCrow ()
 	SetWin_Check ( this, IDC_CHECK_EMCROWACT_SG, m_pDummyCrow->m_sAction.dwMobReqSchool&GLSCHOOL_00  );
 	SetWin_Check ( this, IDC_CHECK_EMCROWACT_MP, m_pDummyCrow->m_sAction.dwMobReqSchool&GLSCHOOL_01  );
 	SetWin_Check ( this, IDC_CHECK_EMCROWACT_PHX, m_pDummyCrow->m_sAction.dwMobReqSchool&GLSCHOOL_02  );
+	//What School Tower?
+//	SetWin_Check ( this, IDC_CHECK_EMCROWACT_SG2, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_TOWERSG  );
+//	SetWin_Check ( this, IDC_CHECK_EMCROWACT_MP2, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_TOWERMP  );
+//	SetWin_Check ( this, IDC_CHECK_EMCROWACT_PHX2, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_TOWERPHX  );
+	//
 	SetWin_Num_int ( this, IDC_EDIT_SCHOOLREQ, m_pDummyCrow->m_sAction.dwMobReqSchool );
 
-	//Tower Message when destroyed
-	SetWin_Check ( this, IDC_CHECK_TOWERSG, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_TOWERSG );
-	SetWin_Check ( this, IDC_CHECK_TOWER_PHX, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_TOWERPHX );
-	SetWin_Check ( this, IDC_CHECK_TOWERMP, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_TOWERMP );
-	
-	SetWin_Check ( this, IDC_CHECK_CTF, m_pDummyCrow->m_sAction.m_dwActFlag&EMCROWACT_CTFTOWER );
 	//scrowpattern
 	SetWin_Num_int ( this, IDC_EDIT_PATTERNSIZE, m_pDummyCrow->m_sAction.m_vecPatternList.size() );
 	m_listPattern.ResetContent();
@@ -281,6 +280,7 @@ BOOL MobEditData::InverseUpdateCrow()
 	m_pDummyCrow->m_sBasic.m_emCrow = (EMCROW) GetWin_Combo_Sel ( this, IDC_COMBO_EMCROW );
 	m_pDummyCrow->m_sBasic.m_emBright = (EMBRIGHT) GetWin_Combo_Sel ( this, IDC_COMBO_EMBRIGHT );
 	m_pDummyCrow->m_sBasic.m_emPetType = (PETTYPE) GetWin_Combo_Sel ( this, IDC_COMBO_PETTYPE );
+//	m_pDummyCrow->m_sBasic.m_emSummonType = (SUMMON_TYPE) GetWin_Combo_Sel ( this, IDC_COMBO_SUMMONTYPE );
 	m_pDummyCrow->m_sBasic.m_wGatherAnimation = (EMANI_SUBTYPE) GetWin_Combo_Sel ( this, IDC_COMBO_GATHERANIMATION );
 	m_pDummyCrow->m_sBasic.m_bOverlapAttack = GetWin_Check ( this, IDC_CHECK_OVERLAPATTACK );
 	m_pDummyCrow->m_sBasic.m_wLevel = GetWin_Num_int ( this, IDC_EDIT_LEVEL );
@@ -349,6 +349,7 @@ BOOL MobEditData::InverseUpdateCrow()
 	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_EMCROWACT_POSHOLD ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_POSHOLD );
 	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_EMCROWACT_DIRHOLD ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_DIRHOLD );
 	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_EMCROWACT_KNOCK ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_KNOCK );
+	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_EMCROWACT_CHIP ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_CTFTOWER );
 	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_EMCROWACT_BOSS ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_BOSS );
 	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_EMCROWACT_BUSUNIT ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_BUSUNIT );
 	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_EMCROWACT_IGNORE_SHOCK ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_IGNORE_SHOCK );
@@ -357,13 +358,10 @@ BOOL MobEditData::InverseUpdateCrow()
 	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_EMCROWACT_SG ), m_pDummyCrow->m_sAction.dwMobReqSchool,GLSCHOOL_00  );
 	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_EMCROWACT_MP ), m_pDummyCrow->m_sAction.dwMobReqSchool,GLSCHOOL_01  );
 	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_EMCROWACT_PHX ), m_pDummyCrow->m_sAction.dwMobReqSchool,GLSCHOOL_02  );
-	//Tower Message when destroyed
-	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_TOWERSG ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_TOWERSG );
-	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_TOWER_PHX ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_TOWERPHX );
-	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_TOWERMP ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_TOWERMP );
-
-	//for CTF shit
-	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_CTF ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_CTFTOWER);
+	//What School Tower?
+//	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_EMCROWACT_SG2 ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_TOWERSG  );
+//	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_EMCROWACT_MP2 ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_TOWERMP  );
+//	SetCheck_Flags ( GetWin_Check ( this, IDC_CHECK_EMCROWACT_PHX2 ), m_pDummyCrow->m_sAction.m_dwActFlag,EMCROWACT_TOWERPHX  );
 	return TRUE;
 }
 
@@ -437,7 +435,7 @@ void MobEditData::OnBnClickedButtonPatternok()
 
 	WORD attackset = GetWin_Num_int ( this, IDC_EDIT_PATTERNATTACKSET );
 	//if ( attackset > SCROWACTION::ATTACKSETNUM ) // i think 3 is the limit
-	if ( attackset > 10 )
+	if ( attackset > 3 )
 	{
 		MessageBox ( "Max Attack Set Reached!" );
 		return;
@@ -611,31 +609,5 @@ void MobEditData::OnBnClickedButtonItemgenQ()
 {
 	LoadGENITEM (IDC_EDIT_ITEMGEN_Q);
 }
-void MobEditData::OnBnClickedCheckEmcrowactDirhold()
-{
-	// TODO: Add your control notification handler code here
-}
-void MobEditData::CleanUp()
-{
-	if ( m_pDummyCrow ) m_pDummyCrow = NULL;
-	if ( m_pCrow ) m_pCrow = NULL;
-}	
-void MobEditData::OnEnChangeEditPatternsize()
-{
-	// TODO:  If this is a RICHEDIT control, the control will not
-	// send this notification unless you override the CPropertyPage::OnInitDialog()
-	// function and call CRichEditCtrl().SetEventMask()
-	// with the ENM_CHANGE flag ORed into the mask.
 
-	// TODO:  Add your control notification handler code here
-}
-
-void MobEditData::OnBnClickedCheck3()
-{
-	// TODO: Add your control notification handler code here
-}
-
-void MobEditData::OnBnClickedCheckEmcrowactSg()
-{
-	// TODO: Add your control notification handler code here
-}
+	

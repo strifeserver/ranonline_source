@@ -39,12 +39,13 @@ public:
 	void			SetSheetTab ( CsheetWithTab *pSheetTab ) { m_pSheetTab = pSheetTab; }
 	void			SetCallPage ( int CallPage ) { m_CallPage = CallPage; }
 	BOOL			SetCrow ( PCROWDATA pCrow );
-	void			CleanUp ();
 
 protected:
 	void	UpdateCrow (int iIndex);
 	void	InitDefaultCtrls ();
 	BOOL	InverseUpdateCrow(int iIndex);
+
+
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support

@@ -77,6 +77,7 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalOptions="/Zm300"
 				InlineFunctionExpansion="1"
 				OptimizeForProcessor="0"
 				OptimizeForWindowsApplication="FALSE"
@@ -153,7 +154,7 @@
 				EnableEnhancedInstructionSet="0"
 				TreatWChar_tAsBuiltInType="TRUE"
 				UsePrecompiledHeader="3"
-				WarningLevel="0"
+				WarningLevel="3"
 				Detect64BitPortabilityProblems="TRUE"
 				DebugInformationFormat="3"/>
 			<Tool

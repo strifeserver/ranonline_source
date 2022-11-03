@@ -38,13 +38,11 @@ public:
 	BOOL			SetCrow ( PCROWDATA pCrow );
 	CListBox		m_listPattern;
 	bool			bAdd;
-	void			CleanUp ();
 
 protected:
 	void	UpdateCrow ();
 	void	InitDefaultCtrls ();
 	BOOL	InverseUpdateCrow();
-
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
@@ -77,8 +75,4 @@ public:
 	afx_msg void OnBnClickedButtonHiteffect();
 	afx_msg void OnBnClickedButtonItemgen();
 	afx_msg void OnBnClickedButtonItemgenQ();
-	afx_msg void OnBnClickedCheckEmcrowactDirhold();
-	afx_msg void OnEnChangeEditPatternsize();
-	afx_msg void OnBnClickedCheck3();
-	afx_msg void OnBnClickedCheckEmcrowactSg();
 };

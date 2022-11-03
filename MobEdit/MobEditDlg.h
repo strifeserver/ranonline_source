@@ -44,7 +44,7 @@ public:
 	public:
 	afx_msg void OnBnClickedButtonLoad();
 	afx_msg void OnBnClickedButtonSave();
-	afx_msg void OnBnClickedButtonSaveold();
+	//afx_msg void OnBnClickedButtonSaveold();
 	afx_msg void OnBnClickedButtonLoadcsv();
 	afx_msg void OnBnClickedButtonSavecsv();
 };

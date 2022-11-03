@@ -42,7 +42,6 @@ public:
 	void ActiveCrowDataPage ( int CurPage, PCROWDATA pCrow );
 	void ActiveCrowAttackPage ( int CurPage, PCROWDATA pCrow );
 	void UpdateCrowTreePage();
-	void CleanUp();
 
 // Construction
 public:

@@ -82,7 +82,7 @@ BEGIN_MESSAGE_MAP(CMobEditDlg, CDialog)
 	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDC_BUTTON_LOAD, OnBnClickedButtonLoad)
 	ON_BN_CLICKED(IDC_BUTTON_SAVE, OnBnClickedButtonSave)
-	ON_BN_CLICKED(IDC_BUTTON_SAVEOLD, OnBnClickedButtonSaveold)
+	//ON_BN_CLICKED(IDC_BUTTON_SAVEOLD, OnBnClickedButtonSaveold)
 	ON_BN_CLICKED(IDC_BUTTON_LOADCSV, OnBnClickedButtonLoadcsv)
 	ON_BN_CLICKED(IDC_BUTTON_SAVECSV, OnBnClickedButtonSavecsv)
 END_MESSAGE_MAP()
@@ -245,13 +245,13 @@ void CMobEditDlg::OnBnClickedButtonSave()
 	DoSave();	
 }
 
-void CMobEditDlg::OnBnClickedButtonSaveold()
+/*void CMobEditDlg::OnBnClickedButtonSaveold()
 {
 	if ( GLCrowDataMan::GetInstance().SaveCsvFile_old((CMobEditDlg*)this) == S_OK )
 	{
 		MessageBox ( "Save CSV Successful." );
 	}
-}
+}*/
 
 void CMobEditDlg::OnBnClickedButtonLoadcsv()
 {
@@ -302,7 +302,6 @@ bool CMobEditDlg::DoSave ()
 void CMobEditDlg::PostNcDestroy()
 {
 	//SAFE_DELETE ( m_pSheetTab );
-	m_pSheetTab->CleanUp();
 
 	GLCrowDataMan::GetInstance().FinalCleanup();
 	DxResponseMan::GetInstance().FinalCleanup ();

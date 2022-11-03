@@ -163,8 +163,8 @@ void MobEditAttack::UpdateCrow (int iIndex)
 	SetWin_Num_int ( this, IDC_EDIT_RANGE, m_pDummyCrow->m_sCrowAttack[iIndex].wRange );
 	SetWin_Num_int ( this, IDC_EDIT_DAMAGE_LOW, m_pDummyCrow->m_sCrowAttack[iIndex].sDamage.dwLow );
 	SetWin_Num_int ( this, IDC_EDIT_DAMAGE_HIGH, m_pDummyCrow->m_sCrowAttack[iIndex].sDamage.dwHigh );
-	//SetWin_Num_int ( this, IDC_EDIT_DAMAGE_LOW2, m_pDummyCrow->m_sCrowAttack[iIndex].dwDamageLow );
-	//SetWin_Num_int ( this, IDC_EDIT_DAMAGE_HIGH2, m_pDummyCrow->m_sCrowAttack[iIndex].dwDamageHigh );
+	SetWin_Num_int ( this, IDC_EDIT_DAMAGE_LOW2, m_pDummyCrow->m_sCrowAttack[iIndex].dwDamageLow );
+	SetWin_Num_int ( this, IDC_EDIT_DAMAGE_HIGH2, m_pDummyCrow->m_sCrowAttack[iIndex].dwDamageHigh );
 	SetWin_Num_float ( this, IDC_EDIT_DELAY, m_pDummyCrow->m_sCrowAttack[iIndex].fDelay );
 	SetWin_Num_int ( this, IDC_EDIT_SPUSAGE, m_pDummyCrow->m_sCrowAttack[iIndex].wUse_SP );
 	SetWin_Num_int ( this, IDC_EDIT_SKILL_MID, m_pDummyCrow->m_sCrowAttack[iIndex].skill_id.wMainID );
@@ -185,7 +185,6 @@ void MobEditAttack::UpdateCrow (int iIndex)
 	SetWin_Text ( this, IDC_EDIT_ANINAME, m_pDummyCrow->m_sCrowAttack[iIndex].strAniFile.c_str());
 
 	m_listAni.ResetContent();
-	m_pDummyCrow->LoadAniSet( m_pDummyCrow->m_sAction.m_strSkinObj.c_str() );
 	DxSkinDataDummy DataDummy;
 	BOOL bOK = DataDummy.LoadFile ( m_pDummyCrow->m_sAction.m_strSkinObj.c_str() );
 
@@ -237,8 +236,8 @@ BOOL MobEditAttack::InverseUpdateCrow (int iIndex)
 	m_pDummyCrow->m_sCrowAttack[iIndex].wRange = GetWin_Num_int ( this, IDC_EDIT_RANGE );
 	m_pDummyCrow->m_sCrowAttack[iIndex].sDamage.dwLow = GetWin_Num_int ( this, IDC_EDIT_DAMAGE_LOW );
 	m_pDummyCrow->m_sCrowAttack[iIndex].sDamage.dwHigh = GetWin_Num_int ( this, IDC_EDIT_DAMAGE_HIGH);
-	//m_pDummyCrow->m_sCrowAttack[iIndex].dwDamageLow = GetWin_Num_int ( this, IDC_EDIT_DAMAGE_LOW2);
-	//m_pDummyCrow->m_sCrowAttack[iIndex].dwDamageHigh = GetWin_Num_int ( this, IDC_EDIT_DAMAGE_HIGH2);
+	m_pDummyCrow->m_sCrowAttack[iIndex].dwDamageLow = GetWin_Num_int ( this, IDC_EDIT_DAMAGE_LOW2);
+	m_pDummyCrow->m_sCrowAttack[iIndex].dwDamageHigh = GetWin_Num_int ( this, IDC_EDIT_DAMAGE_HIGH2);
 	m_pDummyCrow->m_sCrowAttack[iIndex].fDelay = GetWin_Num_float ( this, IDC_EDIT_DELAY );
 	m_pDummyCrow->m_sCrowAttack[iIndex].wUse_SP = GetWin_Num_int ( this, IDC_EDIT_SPUSAGE);
 	m_pDummyCrow->m_sCrowAttack[iIndex].skill_id.wMainID = GetWin_Num_int ( this, IDC_EDIT_SKILL_MID);
@@ -350,10 +349,4 @@ void MobEditAttack::OnBnClickedButtonTargetbodyeffect()
 void MobEditAttack::OnBnClickedButtonTargeteffect()
 {
 	LoadEGP (IDC_EDIT_TARGETEFFECT);
-}
-
-void MobEditAttack::CleanUp()
-{
-	if ( m_pDummyCrow ) m_pDummyCrow = NULL;
-	if ( m_pCrow ) m_pCrow = NULL;
 }

@@ -4,11 +4,11 @@
  <assemblyIdentity 
   version="1.0.0.0" 
   processorArchitecture="X86" 
-  name="Mob-Npc Editor" 
+  name="MobEdit.RanOnline.Episode-7" 
   type="win32"
  /> 
  
- <description>JDev 2013.</description> 
+ <description>MobNpcEditor.</description> 
  <dependency> 
   <dependentAssembly> 
    <assemblyIdentity 

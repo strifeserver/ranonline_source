@@ -13,25 +13,20 @@
 #define IDD_MOBEDIT_ATTACK              104
 #define IDR_MAINFRAME                   128
 #define IDR_MENU_CROW                   129
-#define IDR_241                         131
+#define IDD_DIALOG1                     131
 #define IDC_BUTTON_LOAD                 1000
 #define IDC_BUTTON_SAVE                 1001
-#define IDC_CHECK1                      1001
-#define IDC_CHECK_TOWERSG               1001
 #define IDC_BUTTON_SAVEOLD              1002
 #define IDC_TREE_CROW                   1002
-#define IDC_CHECK2                      1002
-#define IDC_CHECK_TOWERMP               1002
 #define IDC_BUTTON_LOADCSV              1003
 #define IDC_TEXT_BLOWLIFE               1003
-#define IDC_CHECK3                      1003
-#define IDC_CHECK_TOWER_PHX             1003
 #define IDC_BUTTON_SAVECSV              1004
 #define IDC_BUTTON_CANCEL               1004
 #define IDC_BUTTON_OK                   1005
 #define IDC_BUTTON_NEXT                 1006
 #define IDC_CROW_MID                    1007
 #define IDC_CROW_SID                    1008
+#define IDC_CHECK_EMCROWACT_CHIP        1009
 #define IDC_CROW_ID                     1010
 #define IDC_CROW_NAME                   1011
 #define IDC_COMBO_EMTRIBE               1012
@@ -87,8 +82,6 @@
 #define IDC_EDIT_WALKSPEED              1062
 #define IDC_CHECK_RUN                   1063
 #define IDC_EDIT_RUNSPEED               1064
-#define IDC_EDIT_SKINFILE2              1065
-#define IDC_EDIT_MAXATTACK              1065
 #define IDC_EDIT_LIVETIME               1066
 #define IDC_EDIT_ACTIONDNRATE           1067
 #define IDC_CHECK_MOBLINK               1068
@@ -96,6 +89,8 @@
 #define IDC_EDIT_MOBLINKSID             1070
 #define IDC_EDIT_MOBLINKSCALE           1071
 #define IDC_EDIT_MOBLINKDELAY           1072
+#define IDC_COMBO_PETTYPE2              1073
+#define IDC_COMBO_SUMMONTYPE            1073
 #define IDC_EDIT_PATTERNSIZE            1086
 #define IDC_EDIT_GENMONEY               1094
 #define IDC_EDIT_GENMONEY_RATE          1095
@@ -123,10 +118,11 @@
 #define IDC_BUTTON_BACK                 1117
 #define IDC_CHECK_EMCROWACT_PHX         1117
 #define IDC_BUTTON_INDEXBACK            1118
-#define IDC_CHECK_EMCROWACT_BUSUNIT2    1118
-#define IDC_CHECK_CTF                   1118
+#define IDC_CHECK_EMCROWACT_SG2         1118
 #define IDC_BUTTON_INDEXNEXT            1119
+#define IDC_CHECK_EMCROWACT_MP2         1119
 #define IDC_EDIT_INDEX                  1120
+#define IDC_CHECK_EMCROWACT_PHX2        1120
 #define IDC_CHECK_USED                  1121
 #define IDC_COMBO_ATTACKRGTYPE          1122
 #define IDC_EDIT_RANGE                  1123
@@ -135,6 +131,7 @@
 #define IDC_EDIT_DELAY                  1126
 #define IDC_EDIT_SPUSAGE                1127
 #define IDC_EDIT_SKILL_MID              1128
+#define IDC_EDIT_SKILL_MIDX             1128
 #define IDC_EDIT_SKILL_SID              1129
 #define IDC_EDIT_SKILL_LEVEL            1130
 #define IDC_COMBO_SKTAR                 1131
@@ -183,15 +180,14 @@
 #define ID_MENU_PASTEVALUE              32784
 #define ID_MENU_CROWDATAEDIT            32785
 #define ID_MENU_CROWATTACKEDIT          32786
-#define ID_MENU_JDEV                    32787
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        132
+#define _APS_NEXT_RESOURCE_VALUE        136
 #define _APS_NEXT_COMMAND_VALUE         32788
-#define _APS_NEXT_CONTROL_VALUE         1001
+#define _APS_NEXT_CONTROL_VALUE         1010
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

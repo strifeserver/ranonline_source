@@ -208,12 +208,6 @@ void CsheetWithTab::UpdateCrowTreePage()
 	m_CrowTreePage.UpdateTree();
 }
 
-void CsheetWithTab::CleanUp()
-{
-	m_CrowDataPage.CleanUp();
-	m_CrowAttackPage.CleanUp();
-}
-
 void CsheetWithTab::ChangeDialogFont(CWnd* pWnd, CFont* pFont, int nFlag)
 {
 	CRect windowRect;
