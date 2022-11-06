@@ -1791,6 +1791,28 @@ void	CInnerInterface::SetItemShopInfo ()
 	}
 }
 
+void	CInnerInterface::SetItemShopWindowOpen ()
+{
+
+	if( m_fItemShopDelay >= 5.0f )
+	{
+		m_fItemShopDelay = 0.0f;
+	}else{
+		PrintMsgText ( NS_UITEXTCOLOR::NEGATIVE, ID2GAMEINTEXT("ITEM_SHOP_DELAY") );
+		return;
+	}
+
+	ClearItemShop ();
+
+	// ���⼭ ������ ��������� ���� ��û
+	GLCharacter* pCharacter = GLGaeaClient::GetInstance().GetCharacter ();
+	if ( pCharacter )
+	{
+		pCharacter->ReqItemShopInfo ();
+		pCharacter->ReqRetrievePoints ();
+	}
+}
+
 void	CInnerInterface::SetItemBankInfo ()
 {     
 	if ( m_pInventoryWindow )
@@ -4160,6 +4182,13 @@ void CInnerInterface::ClearItemBank()
 	if( m_pInventoryWindow )
 		m_pInventoryWindow->ClearItemBank();
 }
+
+void CInnerInterface::ClearItemShop()
+{
+	if( m_pItemShopWindow )
+		m_pItemShopWindow->ClearItemShop();
+}
+
 
 void CInnerInterface::ClearVNGainSys()
 {
