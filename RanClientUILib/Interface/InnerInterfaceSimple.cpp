@@ -61,6 +61,7 @@
 #include "VNGainSysInventory.h"
 #include "VNGainSysGauge.h"
 #include "ItemBankWindow.h"
+#include "ItemShopWindow.h"
 #include "ItemGarbage.h"
 #include "ItemMove.h"
 #include "ItemShopIconMan.h"
